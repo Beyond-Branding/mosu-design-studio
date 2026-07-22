@@ -102,26 +102,31 @@ useEffect(() => {
 
       {/* Bottom Right */}
       <button
-        className="
-        absolute
-        bottom-10
-        right-10
-        z-20
-        rounded-full
-        bg-white
-        px-8
-        py-3
-        text-[13px]
-        uppercase
-        tracking-[0.15em]
-        transition-all
-        duration-300
-        hover:bg-black
-        hover:text-white
-        "
-      >
-        View Project
-      </button>
+  className="
+    absolute
+    bottom-10
+    right-10
+    z-20
+    rounded-full
+    border
+    border-black
+    bg-white
+    px-8
+    py-3
+    text-[13px]
+    font-medium
+    uppercase
+    tracking-[0.15em]
+    text-black
+    transition-all
+    duration-300
+    hover:bg-black
+    hover:text-white
+    hover:border-black
+  "
+>
+  View Project
+</button>
 
     </section>
   );

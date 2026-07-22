@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import LandingHero from "@/components/hero/LandingHero";
+import ServicesSection from "@/components/services/ServicesSection";
 
 import Editorial from "@/components/editorial/Editorial";
 import AboutSection from "@/components/about/AboutSection";
@@ -27,6 +28,7 @@ export default function Home() {
 
 
       <FeaturedProject />
+      <ServicesSection />
        <Footer />
 
 
