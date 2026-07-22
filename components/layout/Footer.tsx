@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const works = [
-  "/images/footer/work1.jpg",
-  "/images/footer/work2.jpg",
-  "/images/footer/work3.jpg",
-  "/images/footer/work4.jpg",
-  "/images/footer/work5.jpg",
-  "/images/footer/work6.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-lebih-dari-ini-3915826-19939584_yzqjk4.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12881057_lmymgz.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-myhq-workspaces-3638298-5444194_yobovh.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-achraf-borkadi-440724799-19893586_vbh8jy.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-capture-crew-2153847797-33827313_ywxldi.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12913377_fbhnxm.jpg",
 ];
 
 export default function Footer() {

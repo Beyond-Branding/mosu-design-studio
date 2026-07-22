@@ -19,14 +19,11 @@ export default function AboutSection() {
         xPercent: -100,
         ease: "none",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=2000",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
+  trigger: sectionRef.current,
+  start: "top 80%",
+  end: "bottom top",
+  scrub: 1,
+},
       });
     }, sectionRef);
 

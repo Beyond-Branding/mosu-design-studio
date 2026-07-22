@@ -1,30 +1,66 @@
 "use client";
 
-import Link from "next/link";
-import NavItem from "./NavItem";
-import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Plus } from "lucide-react";
+
+function NavItem({
+  href,
+  text,
+}: {
+  href: string;
+  text: string;
+}){
+  return (
+    <Link
+      href={href}
+      className="group relative block h-5 overflow-hidden text-white"
+    >
+      {/* First Text */}
+      <span
+        className="
+          block
+          uppercase
+          tracking-[0.18em]
+          transition-transform
+          duration-500
+          ease-[cubic-bezier(.76,0,.24,1)]
+          group-hover:-translate-y-full
+        "
+      >
+        {text}
+      </span>
+
+      {/* Reflection */}
+      <span
+        className="
+          absolute
+          left-0
+          top-full
+          block
+          uppercase
+          tracking-[0.18em]
+          transition-transform
+          duration-500
+          ease-[cubic-bezier(.76,0,.24,1)]
+          group-hover:-translate-y-full
+        "
+      >
+        {text}
+      </span>
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    let lastScroll = 0;
-
     const handleScroll = () => {
-      const current = window.scrollY;
-
-      setScrolled(current > 40);
-
-      if (current > lastScroll && current > 150) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-
-      lastScroll = current;
+      setScrolled(window.scrollY > 80);
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -32,87 +68,77 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`
-fixed top-5 left-1/2 z-50
-w-[95%] max-w-[1700px]
--translate-x-1/2
-transition-all duration-500
-${hidden ? "-translate-y-32" : "translate-y-0"}
-`}
-    >
-      <div
-        className={`
-flex items-center justify-between
-rounded-full
-px-10
-h-20
-transition-all duration-500
+    <header className="fixed top-0 left-0 z-[999] w-full">
 
-${
-  scrolled
-    ? "bg-white/10 backdrop-blur-2xl border border-white/10 shadow-2xl"
-    : "bg-transparent"
-}
-`}
+  {/* Top Gradient */}
+  <div
+    className="
+      absolute
+      inset-x-0
+      top-0
+      h-36
+      bg-gradient-to-b
+      from-black/65
+      via-black/30
+      to-transparent
+      pointer-events-none
+    "
+  />
+
+  {/* Navbar */}
+  <div className="relative">
+    <div className="mx-auto flex h-24 max-w-[1800px] items-center justify-between px-10">
+
+      {/* Left Navigation */}
+      <nav className="hidden md:flex items-center gap-14 text-[13px] font-medium text-white">
+       <NavItem href="/projects" text="PROJECTS" />
+<NavItem href="/services" text="SERVICES" />
+<NavItem href="/contact" text="CONTACT" />
+<NavItem href="/about" text="ABOUT" />
+      </nav>
+
+      {/* Logo */}
+      <Link
+        href="/"
+        className="absolute left-1/2 -translate-x-1/2 text-5xl font-black tracking-tight text-white"
       >
-        {/* LEFT */}
+        MOSU
+      </Link>
 
-        <nav className="hidden lg:flex gap-12">
-          <NavItem href="/projects" text="Projects" />
-          <NavItem href="/services" text="Services" />
-          <NavItem href="/contact" text="Contact" />
-        </nav>
+      {/* Right Navigation */}
+      <div className="hidden md:flex items-center gap-14 text-[13px] font-medium text-white">
 
-        {/* LOGO */}
+        <NavItem href="/about" text="ABOUT" />
 
-        <Link
-          href="/"
-          className="absolute left-1/2 -translate-x-1/2 text-4xl font-black tracking-tight text-white transition duration-500 hover:tracking-[0.2em]"
+        <button
+          className="
+            flex
+            items-center
+            gap-3
+            rounded-full
+            border
+            border-white/40
+            bg-white/10
+            backdrop-blur-md
+            px-6
+            py-3
+            uppercase
+            tracking-[0.18em]
+            transition-all
+            duration-300
+            hover:bg-white
+            hover:text-black
+          "
         >
-          MOSU
-        </Link>
+          LET'S TALK
+          <Plus size={15} />
+        </button>
 
-        {/* RIGHT */}
-
-        <div className="hidden lg:flex items-center gap-12">
-          <NavItem href="/about" text="About" />
-
-          <button
-            className="
-group
-flex items-center
-gap-3
-rounded-full
-border
-border-white/20
-bg-white/10
-backdrop-blur-xl
-px-6
-py-3
-text-sm
-uppercase
-tracking-[0.2em]
-text-white
-transition-all
-duration-500
-hover:bg-white
-hover:text-black
-"
-          >
-            Let's Talk
-
-            <ArrowUpRight
-              className="
-transition-transform
-duration-500
-group-hover:rotate-45
-"
-              size={18}
-            />
-          </button>
-        </div>
       </div>
-    </header>
+
+    </div>
+  </div>
+
+</header>
   );
 }

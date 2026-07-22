@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,66 +18,57 @@ const lines = [
 export default function Editorial() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  const [visibleLines, setVisibleLines] = useState(1);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!sectionRef.current) return;
 
-    const trigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: `+=${lines.length * 700}`,
-      pin: true,
-      scrub: true,
+    const ctx = gsap.context(() => {
+      const words = gsap.utils.toArray<HTMLElement>(".editorial-line");
 
-      onUpdate(self) {
-        const step = Math.min(
-          lines.length,
-          Math.floor(self.progress * lines.length) + 1
-        );
+      gsap.set(words, {
+        opacity: 0,
+        y: 40,
+      });
 
-        setVisibleLines(step);
-      },
-    });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=2500",
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+        },
+      });
 
-    return () => trigger.kill();
+      words.forEach((word) => {
+        tl.to(word, {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="flex h-screen items-center bg-[#F5F3EE]"
+      className="h-screen flex items-center justify-center bg-[#F5F3EE]"
     >
-      <div className="mx-auto flex h-full w-full max-w-5xl items-center justify-center px-8">
-    <div className="flex flex-col items-center gap-6 text-center">
-
-          {lines.map((line, index) => (
-            <p
-              key={index}
-              className={`
-                text-[#111]
-font-medium
-uppercase
-tracking-[0.08em]
-leading-[1.15]
-transition-all
-duration-700
-                ${
-                  index < visibleLines
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }
-              `}
-              style={{
-    fontSize: "clamp(2rem,3vw,3.4rem)",
-              }}
-            >
-              {line}
-            </p>
-          ))}
-
-        </div>
-
+      <div className="text-center">
+        {lines.map((line) => (
+          <h2
+            key={line}
+            className="editorial-line opacity-0 text-[#111] uppercase font-semibold tracking-[0.08em] leading-[1.15]"
+            style={{
+              fontSize: "clamp(2rem,3vw,3.4rem)",
+            }}
+          >
+            {line}
+          </h2>
+        ))}
       </div>
     </section>
   );
