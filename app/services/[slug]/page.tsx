@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
+
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 import { services } from "../services";
+
 import Hero from "@/components/service-detail/Hero";
+import WorkProcess from "@/components/service-detail/WorkProcess";
+import ProcessSection from "@/components/service-detail/ProcessSection";
 
 type Props = {
   params: Promise<{
@@ -8,7 +15,9 @@ type Props = {
   }>;
 };
 
-export default async function ServicePage({ params }: Props) {
+export default async function ServicePage({
+  params,
+}: Props) {
   const { slug } = await params;
 
   const service = services.find(
@@ -20,10 +29,29 @@ export default async function ServicePage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black text-white">
-      <h1 className="text-7xl font-black">
-        {service.title}
-      </h1>
-    </main>
+    <>
+      <Navbar />
+
+      <main className="bg-[#F6F4F1]">
+
+        <Hero
+          title={service.title}
+          subtitle={service.subtitle}
+          image={service.heroImage}
+        />
+
+        <WorkProcess />
+
+        <ProcessSection
+          title={service.title}
+          description={service.description}
+          process={service.process}
+          gallery={service.gallery}
+        />
+
+      </main>
+
+      <Footer />
+    </>
   );
 }

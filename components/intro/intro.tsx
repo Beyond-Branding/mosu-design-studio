@@ -10,35 +10,51 @@ export default function Intro() {
   const container = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(".intro-panel", {
-        yPercent: -100,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top top",
-          end: "+=100%",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
+  if (!container.current) return;
 
-      gsap.to(".intro-title", {
-        y: -120,
+  const ctx = gsap.context(() => {
+    // Fade away the hero gradient
+    gsap.to("#hero-gradient", {
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top top",
+        end: "40% top",
+        scrub: true,
+      },
+    });
+
+    // Move the white panel upward to reveal the banner
+    gsap.to(".intro-panel", {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top top",
+        end: "+=100%",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    // Animate the title slightly
+    gsap.fromTo(
+      ".intro-title",
+      {
+        y: 80,
         opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top top",
-          end: "50% top",
-          scrub: 1,
-        },
-      });
-    }, container);
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+      }
+    );
+  }, container);
 
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   return (
     <section ref={container} className="relative h-screen overflow-hidden">

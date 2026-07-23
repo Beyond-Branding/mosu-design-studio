@@ -3,43 +3,57 @@
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-interface HeroProps {
+gsap.registerPlugin(ScrollTrigger);
+
+interface Props {
   title: string;
+  subtitle: string;
   image: string;
 }
 
-export default function Hero({ title, image }: HeroProps) {
-  const sectionRef = useRef<HTMLElement>(null);
+export default function Hero({
+  title,
+  subtitle,
+  image,
+}: Props) {
+  const section = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(imageRef.current, {
-        scale: 1.15,
-        duration: 2,
-        ease: "power3.out",
-      });
 
       gsap.from(titleRef.current, {
-        y: 120,
+        y: 100,
         opacity: 0,
-        duration: 1.4,
-        delay: 0.4,
+        duration: 1.2,
         ease: "power4.out",
       });
-    }, sectionRef);
+
+      gsap.to(imageRef.current, {
+        scale: 1.15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+    }, section);
 
     return () => ctx.revert();
+
   }, []);
 
   return (
     <section
-      ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
+      ref={section}
+      className="relative h-screen overflow-hidden"
     >
-      {/* Background Image */}
       <div
         ref={imageRef}
         className="absolute inset-0"
@@ -53,33 +67,32 @@ export default function Hero({ title, image }: HeroProps) {
         />
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-black/40" />
 
-      {/* Content */}
-      <div className="absolute bottom-20 left-16 z-10 max-w-5xl">
-        <p className="mb-5 uppercase tracking-[0.4em] text-white/70 text-sm">
-          Service
+      <div className="absolute bottom-20 left-16 z-20">
+
+        <p className="uppercase tracking-[0.35em] text-white/70 mb-4">
+          {subtitle}
         </p>
 
         <h1
           ref={titleRef}
-          className="text-white font-black uppercase leading-none tracking-tight
-          text-[clamp(4rem,10vw,10rem)]"
+          className="
+          text-white
+          font-black
+          uppercase
+          leading-[0.9]
+          tracking-[-0.06em]
+          text-[clamp(5rem,11vw,10rem)]
+          "
         >
           {title}
         </h1>
+
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center">
-        <span className="text-xs uppercase tracking-[0.3em]">
-          Scroll
-        </span>
-
-        <div className="mt-3 h-16 w-px bg-white/30 overflow-hidden">
-          <div className="h-full w-full animate-pulse bg-white"></div>
-        </div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-xs uppercase tracking-[0.3em]">
+        Scroll
       </div>
     </section>
   );

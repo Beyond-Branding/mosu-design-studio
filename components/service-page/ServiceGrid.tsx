@@ -11,18 +11,16 @@ export default function ServicesGrid() {
         All Services
       </h1>
 
-      <div className="grid grid-cols-2 gap-5">
-
-        {services.map((service) => (
-          <ServiceCard
-  key={service.slug}
-  title={service.title}
-  image={service.image}
-  slug={service.slug}
-/>
-        ))}
-
-      </div>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-2">
+  {services.map((service) => (
+    <ServiceCard
+      key={service.slug}
+      title={service.title}
+      image={service.image}
+      slug={service.slug}
+    />
+  ))}
+</div>
 
     </section>
   );

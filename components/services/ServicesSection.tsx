@@ -1,16 +1,26 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import styles from "./ServicesSection.module.css";
-import services from "./services";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "./ServicesSection.module.css";
+
+import { services } from "@/app/services/services";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ServicesSection() {
+interface Props {
+  home?: boolean;
+}
+
+export default function ServicesSection({
+  home = false,
+}: Props) {
+  const pathname = usePathname();
+
   const sectionRef = useRef<HTMLElement>(null);
   const weRef = useRef<HTMLDivElement>(null);
   const doRef = useRef<HTMLDivElement>(null);
@@ -19,14 +29,14 @@ export default function ServicesSection() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Scope only to this section
       const words = gsap.utils.toArray<HTMLElement>(
         ".service-word",
         sectionRef.current
       );
 
-      gsap.set(weRef.current, { x: 0 });
-      gsap.set(doRef.current, { x: 0 });
+      gsap.set([weRef.current, doRef.current], {
+        x: 0,
+      });
 
       gsap.set(words, {
         opacity: 0,
@@ -45,7 +55,7 @@ export default function ServicesSection() {
         },
       });
 
-      // WE & DO split
+      // Split WE DO
       tl.to(
         weRef.current,
         {
@@ -66,7 +76,7 @@ export default function ServicesSection() {
         0
       );
 
-      // Reveal services one by one
+      // Reveal services
       words.forEach((word) => {
         tl.to(word, {
           opacity: 1,
@@ -77,35 +87,44 @@ export default function ServicesSection() {
       });
     }, sectionRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
-  <section ref={sectionRef} className={styles.section}>
-    <div className={styles.container}>
-      <div ref={weRef} className={styles.we}>
-        WE
-      </div>
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      style={{
+        background: home ? "#F6F4F1" : "#fff",
+      }}
+    >
+      <div className={styles.container}>
+        <div ref={weRef} className={styles.we}>
+          WE
+        </div>
 
-      <div className={styles.center}>
-        {services.map((service) => (
-          <Link
-            key={service.slug}
-            href={`/services/${service.slug}`}
-            className={`service-word ${styles.word}`}
-          >
-            {service.title}
-          </Link>
-        ))}
-      </div>
+        <div className={styles.center}>
+          {services.map((service) => {
+            const active = pathname === `/services/${service.slug}`;
 
-      <div ref={doRef} className={styles.do}>
-        DO
-      </div>
-    </div>
-  </section>
+            return (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className={`service-word ${styles.word} ${
+                  active ? styles.active : ""
+                }`}
+              >
+                {service.title}
+              </Link>
+            );
+          })}
+        </div>
 
+        <div ref={doRef} className={styles.do}>
+          DO
+        </div>
+      </div>
+    </section>
   );
 }

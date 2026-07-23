@@ -10,44 +10,31 @@
 }
 
 .container {
-  width: 100%;
-  max-width: 1800px;
-
+  width: min(1800px, 92%);
   display: grid;
   grid-template-columns: 1fr 700px 1fr;
   align-items: center;
 }
 
-/* WE & DO */
+/* ===========================
+   WE & DO
+=========================== */
 
 .we,
 .do {
+  justify-self: center;
+
   font-size: clamp(8rem, 12vw, 14rem);
   font-weight: 900;
   text-transform: uppercase;
-  color: #d7d7d7;
   line-height: 1;
 
-  transition: transform .8s cubic-bezier(.22,.61,.36,1);
+  color: #d7d7d7;
 }
 
-.we {
-  justify-self: center;
-}
-
-.do {
-  justify-self: center;
-}
-
-.weLeft {
-  transform: translateX(-12vw);
-}
-
-.doRight {
-  transform: translateX(12vw);
-}
-
-/* SERVICES */
+/* ===========================
+   SERVICES
+=========================== */
 
 .center {
   display: flex;
@@ -55,29 +42,51 @@
   align-items: center;
   justify-content: center;
 
-  gap: 14px;
+  gap: 18px;
 }
 
 .word {
+  display: block;
+
   font-size: clamp(2.8rem, 4vw, 5rem);
   font-weight: 900;
+  text-transform: uppercase;
   letter-spacing: -0.05em;
   line-height: 0.95;
-  text-transform: uppercase;
+
   color: #111;
+  text-decoration: none;
 
+  /* GSAP animates these */
   opacity: 0;
-  transform: translateY(35px);
+  transform: translateY(50px);
 
-  transition: all .55s ease;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease,
+    letter-spacing 0.35s ease;
 }
+
+.word:hover {
+  color: #6d6d6d;
+  transform: translateX(14px);
+  letter-spacing: -0.02em;
+}
+
+/* Current service on detail page */
 
 .active {
-  opacity: 1;
-  transform: translateY(0);
+  color: #000;
 }
 
-/* BUTTON */
+.active::before {
+  content: "— ";
+  margin-right: 10px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
 
 .button {
   margin-top: 50px;
@@ -87,12 +96,20 @@
   border: none;
   border-radius: 999px;
 
-  background: #d9d9d9;
+  background: #111;
+  color: white;
 
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+
   cursor: pointer;
 
-  opacity: 1;
+  transition: all 0.35s ease;
+}
+
+.button:hover {
+  background: #333;
+  transform: translateY(-2px);
 }
