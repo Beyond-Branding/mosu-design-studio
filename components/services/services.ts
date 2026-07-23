@@ -1,12 +1,20 @@
 const services = [
-  "RESIDENTIAL",
-  "MIXED USE",
-  "HOSPITALITY",
-  "COMMERCIAL",
-  "PUBLIC SPACES",
-  "WORKPLACE",
-  "INTERIORS",
-  "MASTER PLANNING",
+  {
+    title: "Architecture",
+    slug: "architecture",
+  },
+  {
+    title: "Interior Design",
+    slug: "interior-design",
+  },
+  {
+    title: "Furniture Design",
+    slug: "furniture-design",
+  },
+  {
+    title: "Branding",
+    slug: "branding",
+  },
 ];
 
 export default services;

@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import styles from "./ServicesSection.module.css";
 import services from "./services";
+import Link from "next/link";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -82,27 +83,29 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
-      <div className={styles.container}>
-        <div ref={weRef} className={styles.we}>
-          WE
-        </div>
-
-        <div className={styles.center}>
-          {services.map((service) => (
-            <h2
-              key={service}
-              className={`service-word ${styles.word}`}
-            >
-              {service}
-            </h2>
-          ))}
-        </div>
-
-        <div ref={doRef} className={styles.do}>
-          DO
-        </div>
+  <section ref={sectionRef} className={styles.section}>
+    <div className={styles.container}>
+      <div ref={weRef} className={styles.we}>
+        WE
       </div>
-    </section>
+
+      <div className={styles.center}>
+        {services.map((service) => (
+          <Link
+            key={service.slug}
+            href={`/services/${service.slug}`}
+            className={`service-word ${styles.word}`}
+          >
+            {service.title}
+          </Link>
+        ))}
+      </div>
+
+      <div ref={doRef} className={styles.do}>
+        DO
+      </div>
+    </div>
+  </section>
+
   );
 }

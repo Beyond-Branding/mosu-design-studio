@@ -15,10 +15,11 @@ export default function ServicesGrid() {
 
         {services.map((service) => (
           <ServiceCard
-            key={service.title}
-            title={service.title}
-            image={service.image}
-          />
+  key={service.slug}
+  title={service.title}
+  image={service.image}
+  slug={service.slug}
+/>
         ))}
 
       </div>
