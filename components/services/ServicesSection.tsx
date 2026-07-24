@@ -26,105 +26,112 @@ export default function ServicesSection({
   const doRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (!sectionRef.current) return;
+  if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const words = gsap.utils.toArray<HTMLElement>(
-        ".service-word",
-        sectionRef.current
-      );
+  const ctx = gsap.context(() => {
+    const words = gsap.utils.toArray<HTMLElement>(".service-word");
 
-      gsap.set([weRef.current, doRef.current], {
-        x: 0,
-      });
+    gsap.set(words, {
+      opacity: 0,
+      y: 40,
+    });
 
-      gsap.set(words, {
-        opacity: 0,
-        y: 50,
-      });
+    const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: sectionRef.current,
+    start: "top top",
+    end: "+=2600",
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1,
+  },
+});
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=2500",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+// Initial state
+gsap.set(words, {
+  opacity: 0,
+  y: 40,
+});
 
-      // Split WE DO
-      tl.to(
-        weRef.current,
-        {
-          x: -220,
-          ease: "none",
-          duration: 1,
-        },
-        0
-      );
+// STEP 1 - Split WE and DO
+tl.to(
+  weRef.current,
+  {
+    xPercent: -90,
+    duration: 1,
+    ease: "power3.inOut",
+  },
+  0
+);
 
-      tl.to(
-        doRef.current,
-        {
-          x: 220,
-          ease: "none",
-          duration: 1,
-        },
-        0
-      );
+tl.to(
+  doRef.current,
+  {
+    xPercent: 90,
+    duration: 1,
+    ease: "power3.inOut",
+  },
+  0
+);
 
-      // Reveal services
-      words.forEach((word) => {
-        tl.to(word, {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      });
-    }, sectionRef);
+// STEP 2 - Reveal services after split
+words.forEach((word, i) => {
+  tl.to(
+    word,
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: "power3.out",
+    },
+    0.8 + i * 0.18
+  );
+});
+  }, sectionRef);
 
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
-  return (
-    <section
-      ref={sectionRef}
-      className={styles.section}
-      style={{
-        background: home ? "#F6F4F1" : "#fff",
-      }}
-    >
-      <div className={styles.container}>
+return (
+  <section
+    ref={sectionRef}
+    className={styles.section}
+    style={{
+      background: home ? "#F6F4F1" : "#fff",
+    }}
+  >
+    <div className={styles.wrapper}>
+
+      <div className={styles.title}>
         <div ref={weRef} className={styles.we}>
           WE
-        </div>
-
-        <div className={styles.center}>
-          {services.map((service) => {
-            const active = pathname === `/services/${service.slug}`;
-
-            return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className={`service-word ${styles.word} ${
-                  active ? styles.active : ""
-                }`}
-              >
-                {service.title}
-              </Link>
-            );
-          })}
         </div>
 
         <div ref={doRef} className={styles.do}>
           DO
         </div>
       </div>
-    </section>
-  );
+
+      <div className={styles.center}>
+        {services.map((service) => {
+          const active =
+            pathname === `/services/${service.slug}`;
+
+          return (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className={`service-word ${styles.word} ${
+                active ? styles.active : ""
+              }`}
+            >
+              {service.title}
+            </Link>
+          );
+        })}
+      </div>
+
+    </div>
+  </section>
+);
 }

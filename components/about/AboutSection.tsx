@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,21 +10,45 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current || !panelRef.current) return;
+  useLayoutEffect(() => {
+    if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(panelRef.current, {
-        xPercent: -100,
-        ease: "none",
+      const tl = gsap.timeline({
         scrollTrigger: {
-  trigger: sectionRef.current,
-  start: "top 80%",
-  end: "bottom top",
-  scrub: 1,
-},
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=4500",
+          scrub: 1.5,
+          pin: true,
+          anticipatePin: 1,
+        },
       });
+
+      // Fade content first
+      tl.to(
+        contentRef.current,
+        {
+          opacity: 0,
+          x: -60,
+          ease: "power2.out",
+          duration: 0.4,
+        },
+        0
+      );
+
+      // Then slide panel away
+      tl.to(
+        panelRef.current,
+        {
+          xPercent: -100,
+          ease: "none",
+          duration: 1,
+        },
+        0.15
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -33,79 +57,78 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden"
+      className="relative h-screen overflow-hidden bg-black"
     >
-      {/* ========================= */}
-      {/* BACKGROUND FOUNDER IMAGE */}
-      {/* ========================= */}
+      {/* Background Image */}
+      <Image
+        src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710319/pexels-cihan-karacayir-774859403-18889065_dwumod.jpg"
+        alt="Founder"
+        fill
+        priority
+        className="object-cover"
+      />
 
-      <div className="absolute inset-0">
-         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710319/pexels-cihan-karacayir-774859403-18889065_dwumod.jpg"
-          alt="MOSU Hero"
-          fill
-          priority
-          className="object-cover object-center"
-        />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/20" />
 
-        <div className="absolute inset-0 bg-black/25" />
+      {/* Founder Info */}
+      <div className="absolute bottom-16 right-16 z-20 text-right text-white">
+        <p className="text-xs uppercase tracking-[0.4em] opacity-80">
+          Founder
+        </p>
 
-        <div className="absolute bottom-16 left-16 text-white z-10">
-          <p className="uppercase tracking-[0.35em] text-sm">
-            Founder
-          </p>
-
-          <h2 className="mt-4 text-6xl font-light">
-            Your Name
-          </h2>
-        </div>
+        <h2 className="mt-2 text-5xl font-light">
+          Your Name
+        </h2>
       </div>
 
-      {/* ========================= */}
-      {/* SLIDING WHITE PAGE */}
-      {/* ========================= */}
-
+      {/* Sliding Panel */}
       <div
         ref={panelRef}
-        className="absolute inset-0 bg-[#F5F3EE] flex items-center"
+        className="
+          absolute
+          inset-y-0
+          left-0
+          w-[58%]
+          bg-[#F6F4F1]
+          flex
+          items-center
+          shadow-[40px_0_80px_rgba(0,0,0,.12)]
+        "
       >
-        <div className="mx-auto w-full max-w-3xl px-10">
-
-          <p className="mb-10 uppercase tracking-[0.35em] text-neutral-500 text-sm">
+        <div
+          ref={contentRef}
+          className="max-w-[620px] ml-24"
+        >
+          <p className="mb-10 text-xs uppercase tracking-[0.35em] text-neutral-500">
             ABOUT MOSU
           </p>
 
-          <h2 className="text-[clamp(1.5rem,2vw,2.6rem)] font-light leading-[1.6] text-[#111]">
+          <div className="space-y-8 text-neutral-900">
 
-            We believe every memorable project begins with a story.
+            <p className="text-[28px] leading-[1.5]">
+              Every remarkable project begins with an idea worth believing in.
+            </p>
 
-            <br />
-            <br />
+            <p className="text-[28px] leading-[1.5]">
+              At MOSU, we create architecture, interiors and objects that
+              balance timeless aesthetics with purposeful functionality.
+            </p>
 
-            MOSU was founded with one simple belief —
-            design should create emotion before attention.
+            <p className="text-[28px] leading-[1.5]">
+              Every material, proportion and detail is carefully considered
+              to craft spaces that feel effortless and enduring.
+            </p>
 
-            <br />
-            <br />
+            <p className="text-[28px] leading-[1.5]">
+              We don't simply design spaces.
+            </p>
 
-            Every interaction,
-            every animation,
-            every detail,
-            every decision
-            exists to make people
-            feel something genuine.
+            <p className="text-[34px] font-medium">
+              We shape experiences people remember.
+            </p>
 
-            <br />
-            <br />
-
-            We don't create websites.
-
-            <br />
-
-            We create experiences that stay with people.
-
-          </h2>
-
+          </div>
         </div>
       </div>
     </section>

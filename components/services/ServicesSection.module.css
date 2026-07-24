@@ -1,115 +1,80 @@
 .section {
   height: 100vh;
   background: #f6f4f1;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   overflow: hidden;
 }
 
-.container {
-  width: min(1800px, 92%);
-  display: grid;
-  grid-template-columns: 1fr 700px 1fr;
-  align-items: center;
-}
-
-/* ===========================
-   WE & DO
-=========================== */
-
-.we,
-.do {
-  justify-self: center;
-
-  font-size: clamp(8rem, 12vw, 14rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1;
-
-  color: #d7d7d7;
-}
-
-/* ===========================
-   SERVICES
-=========================== */
-
-.center {
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1700px;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  gap: 18px;
+  align-items: center;
 }
 
-.word {
-  display: block;
+/* BIG TITLE */
 
-  font-size: clamp(2.8rem, 4vw, 5rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-  line-height: 0.95;
+.title{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  pointer-events:none;
+}
 
-  color: #111;
-  text-decoration: none;
+.we{
+  position:absolute;
+  left:50%;
+  transform:translateX(-100%);
+  font-size:clamp(8rem,12vw,14rem);
+  font-weight:900;
+  color:#111;
+  line-height:1;
+}
+.do{
+  position:absolute;
+  left:50%;
+  transform:translateX(0%);
+  font-size:clamp(8rem,12vw,14rem);
+  font-weight:900;
+  color:#111;
+  line-height:1;
+}
 
-  /* GSAP animates these */
-  opacity: 0;
-  transform: translateY(50px);
+/* SERVICES */
 
-  transition:
-    color 0.35s ease,
-    transform 0.35s ease,
-    letter-spacing 0.35s ease;
+.center{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  z-index:5;
+}
+
+.word{
+  font-size:clamp(2.5rem,3vw,4.5rem);
+  font-weight:900;
+  text-transform:uppercase;
+  color:#111;
+  opacity:0;
+  transform:translateY(40px);
 }
 
 .word:hover {
-  color: #6d6d6d;
-  transform: translateX(14px);
-  letter-spacing: -0.02em;
+  color: #666;
+  transform: translateX(10px);
 }
-
-/* Current service on detail page */
 
 .active {
   color: #000;
-}
-
-.active::before {
-  content: "— ";
-  margin-right: 10px;
-}
-
-/* ===========================
-   BUTTON
-=========================== */
-
-.button {
-  margin-top: 50px;
-
-  padding: 14px 34px;
-
-  border: none;
-  border-radius: 999px;
-
-  background: #111;
-  color: white;
-
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition: all 0.35s ease;
-}
-
-.button:hover {
-  background: #333;
-  transform: translateY(-2px);
 }
