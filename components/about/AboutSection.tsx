@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,64 +74,97 @@ export default function AboutSection() {
 
       {/* Founder Info */}
       <div className="absolute bottom-16 right-16 z-20 text-right text-white">
-        <p className="text-xs uppercase tracking-[0.4em] opacity-80">
+        <p className="text-[11px] uppercase tracking-[0.5em] opacity-80">
           Founder
         </p>
 
-        <h2 className="mt-2 text-5xl font-light">
+        <h2 className="mt-2 text-6xl font-extralight tracking-tight">
           Your Name
         </h2>
       </div>
 
-      {/* Sliding Panel */}
-      <div
-        ref={panelRef}
-        className="
-          absolute
-          inset-y-0
-          left-0
-          w-[58%]
-          bg-[#F6F4F1]
-          flex
-          items-center
-          shadow-[40px_0_80px_rgba(0,0,0,.12)]
-        "
-      >
-        <div
-          ref={contentRef}
-          className="max-w-[620px] ml-24"
-        >
-          <p className="mb-10 text-xs uppercase tracking-[0.35em] text-neutral-500">
-            ABOUT MOSU
-          </p>
+     {/* Sliding Panel */}
+<div
+  ref={panelRef}
+  className="
+    absolute
+    inset-y-0
+    left-0
+    w-[50%]
+    bg-[#F6F4F1]
+    flex
+    items-center
+    shadow-[30px_0_60px_rgba(0,0,0,0.08)]
+"
+>
+  <div
+    ref={contentRef}
+    className="w-full max-w-[520px] ml-20"
+  >
+    {/* Small Heading */}
+    <p className="mb-8 text-[11px] uppercase tracking-[0.45em] text-neutral-500">
+      ABOUT MOSU
+    </p>
 
-          <div className="space-y-8 text-neutral-900">
+    {/* Main Content */}
+    <div className="space-y-6 text-[#111]">
 
-            <p className="text-[28px] leading-[1.5]">
-              Every remarkable project begins with an idea worth believing in.
-            </p>
+      <p className="text-[17px] font-light leading-[1.9]">
+        Every remarkable project begins with an idea worth believing in.
+      </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              At MOSU, we create architecture, interiors and objects that
-              balance timeless aesthetics with purposeful functionality.
-            </p>
+      <p className="text-[17px] font-light leading-[1.9]">
+        At MOSU, we create architecture, interiors and bespoke design that
+        balances timeless aesthetics with purposeful functionality.
+      </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              Every material, proportion and detail is carefully considered
-              to craft spaces that feel effortless and enduring.
-            </p>
+      <p className="text-[17px] font-light leading-[1.9]">
+        Every proportion, material and detail is carefully considered to
+        shape spaces that feel calm, elegant and enduring.
+      </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              We don't simply design spaces.
-            </p>
+      <p className="pt-2 text-[22px] font-light leading-[1.5] tracking-[-0.02em]">
+        We don't simply design spaces.
+        <br />
+        <span className="font-medium">
+          We create experiences people remember.
+        </span>
+      </p>
 
-            <p className="text-[34px] font-medium">
-              We shape experiences people remember.
-            </p>
+    </div>
 
-          </div>
-        </div>
-      </div>
+    {/* Button */}
+   <Link
+  href="/about"
+  className="
+    mt-12
+    inline-flex
+    w-fit
+    items-center
+    justify-center
+    gap-3
+    rounded-full
+    border
+    border-[#111]
+    bg-transparent
+    px-8
+    py-4
+    text-[12px]
+    font-medium
+    uppercase
+    tracking-[0.3em]
+    text-[#111]
+    transition-all
+    duration-500
+    hover:bg-[#111]
+    hover:text-white
+  "
+>
+  DISCOVER MORE
+  <span className="text-base">→</span>
+</Link>
+  </div>
+</div>
     </section>
   );
 }

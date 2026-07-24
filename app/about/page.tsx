@@ -5,7 +5,6 @@ import Hero from "@/components/about-page/Hero";
 import WhyUs from "@/components/about-page/WhyUs";
 import FlipSection from "@/components/about-page/FlipSection";
 import Experience from "@/components/about-page/Experience";
-import Team from "@/components/about-page/Team";
 
 export default function AboutPage() {
   return (
@@ -25,8 +24,7 @@ export default function AboutPage() {
       {/* Pinned Image Storytelling */}
       <Experience />
 
-      {/* Meet the Team */}
-      <Team />
+      
 
       {/* Existing Footer */}
       <Footer />

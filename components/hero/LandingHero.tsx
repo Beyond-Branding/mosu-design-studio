@@ -64,7 +64,7 @@ useEffect(() => {
       {/* Background Image */}
       <div ref={imageRef} className="absolute inset-0">
   <Image
-  src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710057/pexels-giantasparagus-19784204_kwwzhq.jpg"
+  src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784915317/pexels-samarjit-9276243_g6uc4g.jpg"
   alt="MOSU Hero"
   fill
   priority
