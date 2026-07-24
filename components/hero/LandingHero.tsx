@@ -72,13 +72,9 @@ useEffect(() => {
 />
 </div>
 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/70">
-  <span className="text-[11px] uppercase tracking-[0.35em]">
-    Scroll
-  </span>
+  
 
-  <div className="mt-3 h-14 w-[1px] overflow-hidden bg-white/20">
-    <div className="h-full w-full animate-pulse bg-white"></div>
-  </div>
+  
 </div>
 
       {/* Dark Overlay */}
