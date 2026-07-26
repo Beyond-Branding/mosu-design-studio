@@ -50,6 +50,9 @@ export default function LandingHero() {
         },
       });
     }, sectionRef);
+    requestAnimationFrame(() => {
+  ScrollTrigger.refresh();
+});
 
     return () => ctx.revert();
   }, []);

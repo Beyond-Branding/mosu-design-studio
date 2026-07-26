@@ -34,17 +34,21 @@ export default function Editorial() {
         filter: "blur(0px)",
       });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${lines.length * 700}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-        },
-      });
+     const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: sectionRef.current,
+    start: "top top",
+    end: `+=${lines.length * 700}`,
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  },
+});
 
+requestAnimationFrame(() => {
+  ScrollTrigger.refresh();
+});
       items.forEach((item, i) => {
         if (i === items.length - 1) return;
 
@@ -96,7 +100,7 @@ export default function Editorial() {
               className="
                 whitespace-pre-line
                 text-center
-                font-black
+                font-grey
                 uppercase
                 text-[#111]
                 leading-[0.95]
