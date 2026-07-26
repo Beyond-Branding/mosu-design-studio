@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,82 +56,126 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
+  <section
+    ref={sectionRef}
+    className="relative h-screen overflow-hidden bg-black"
+  >
+    {/* Background */}
+    <Image
+      src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710319/pexels-cihan-karacayir-774859403-18889065_dwumod.jpg"
+      alt="Founder"
+      fill
+      priority
+      className="object-cover"
+    />
+
+    <div className="absolute inset-0 bg-black/20" />
+
+    {/* Founder */}
+    <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 lg:bottom-16 lg:right-16 z-20 text-right text-white">
+
+      <p className="text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.45em] opacity-80">
+        Founder
+      </p>
+
+      <h2 className="mt-2 text-3xl sm:text-4xl lg:text-6xl font-extralight tracking-tight">
+        Your Name
+      </h2>
+
+    </div>
+
+    {/* Sliding Panel */}
+    <div
+      ref={panelRef}
+      className="
+        absolute
+        inset-y-0
+        left-0
+        w-full
+        sm:w-[70%]
+        lg:w-[50%]
+        bg-[#F6F4F1]
+        flex
+        items-center
+        shadow-[30px_0_60px_rgba(0,0,0,0.08)]
+      "
     >
-      {/* Background Image */}
-      <Image
-        src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710319/pexels-cihan-karacayir-774859403-18889065_dwumod.jpg"
-        alt="Founder"
-        fill
-        priority
-        className="object-cover"
-      />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/20" />
-
-      {/* Founder Info */}
-      <div className="absolute bottom-16 right-16 z-20 text-right text-white">
-        <p className="text-xs uppercase tracking-[0.4em] opacity-80">
-          Founder
-        </p>
-
-        <h2 className="mt-2 text-5xl font-light">
-          Your Name
-        </h2>
-      </div>
-
-      {/* Sliding Panel */}
       <div
-        ref={panelRef}
+        ref={contentRef}
         className="
-          absolute
-          inset-y-0
-          left-0
-          w-[58%]
-          bg-[#F6F4F1]
-          flex
-          items-center
-          shadow-[40px_0_80px_rgba(0,0,0,.12)]
+          w-full
+          max-w-[520px]
+          px-8
+          sm:px-12
+          lg:px-0
+          lg:ml-20
         "
       >
-        <div
-          ref={contentRef}
-          className="max-w-[620px] ml-24"
-        >
-          <p className="mb-10 text-xs uppercase tracking-[0.35em] text-neutral-500">
-            ABOUT MOSU
+        <p className="mb-6 lg:mb-8 text-[10px] lg:text-[11px] uppercase tracking-[0.45em] text-neutral-500">
+          ABOUT MOSU
+        </p>
+
+        <div className="space-y-5 lg:space-y-6 text-[#111]">
+
+          <p className="text-[15px] lg:text-[17px] font-light leading-7 lg:leading-[1.9]">
+            Every remarkable project begins with an idea worth believing in.
           </p>
 
-          <div className="space-y-8 text-neutral-900">
+          <p className="text-[15px] lg:text-[17px] font-light leading-7 lg:leading-[1.9]">
+            At MOSU, we create architecture, interiors and bespoke design that
+            balances timeless aesthetics with purposeful functionality.
+          </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              Every remarkable project begins with an idea worth believing in.
-            </p>
+          <p className="text-[15px] lg:text-[17px] font-light leading-7 lg:leading-[1.9]">
+            Every proportion, material and detail is carefully considered to
+            shape spaces that feel calm, elegant and enduring.
+          </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              At MOSU, we create architecture, interiors and objects that
-              balance timeless aesthetics with purposeful functionality.
-            </p>
+          <p className="pt-2 text-[18px] sm:text-[20px] lg:text-[22px] font-light leading-[1.5] tracking-[-0.02em]">
+            We don't simply design spaces.
+            <br />
+            <span className="font-medium">
+              We create experiences people remember.
+            </span>
+          </p>
 
-            <p className="text-[28px] leading-[1.5]">
-              Every material, proportion and detail is carefully considered
-              to craft spaces that feel effortless and enduring.
-            </p>
-
-            <p className="text-[28px] leading-[1.5]">
-              We don't simply design spaces.
-            </p>
-
-            <p className="text-[34px] font-medium">
-              We shape experiences people remember.
-            </p>
-
-          </div>
         </div>
+
+        <Link
+          href="/about"
+          className="
+            mt-8
+            lg:mt-12
+            inline-flex
+            w-fit
+            items-center
+            gap-2
+            lg:gap-3
+            rounded-full
+            border
+            border-[#111]
+            px-6
+            py-3
+            lg:px-8
+            lg:py-4
+            text-[10px]
+            lg:text-[12px]
+            uppercase
+            tracking-[0.25em]
+            text-[#111]
+            transition-all
+            duration-500
+            hover:bg-[#111]
+            hover:text-white
+          "
+        >
+          DISCOVER MORE
+          <span>→</span>
+        </Link>
+
       </div>
-    </section>
+    </div>
+  </section>
+
   );
 }
