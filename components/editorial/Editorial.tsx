@@ -7,8 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const lines = [
-  "WE CRAFT ART , LIGHTING AND OBJECTS \nTHAT TRANSFORM INTERIOR SPACES",
-   "WE CRAFT EVERY DETAIL \nTO BELONG BEAUTIFULLY IN YOUR SPACE",
+  "WE CRAFT ART, LIGHTING AND OBJECTS\nTHAT TRANSFORM INTERIOR SPACES",
+  "WE CRAFT EVERY DETAIL\nTO BELONG BEAUTIFULLY IN YOUR SPACE",
 ];
 
 export default function Editorial() {
@@ -48,7 +48,6 @@ export default function Editorial() {
       items.forEach((item, i) => {
         if (i === items.length - 1) return;
 
-        // Current text fades away
         tl.to(item, {
           opacity: 0,
           y: -40,
@@ -58,7 +57,6 @@ export default function Editorial() {
           ease: "power2.out",
         });
 
-        // Next text fades in
         tl.fromTo(
           items[i + 1],
           {
@@ -88,19 +86,26 @@ export default function Editorial() {
       ref={sectionRef}
       className="relative h-screen overflow-hidden bg-[#F5F3EE]"
     >
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center px-6 sm:px-10 lg:px-16">
         {lines.map((line) => (
           <div
             key={line}
-            className="editorial-line absolute flex items-center justify-center px-10"
+            className="editorial-line absolute flex items-center justify-center w-full"
           >
             <h2
-              className="text-center font-black uppercase text-[#111]"
-              style={{
-                fontSize: "clamp(3rem,5vw,5.5rem)",
-                lineHeight: "0.95",
-                letterSpacing: "-0.05em",
-              }}
+              className="
+                whitespace-pre-line
+                text-center
+                font-black
+                uppercase
+                text-[#111]
+                leading-[0.95]
+                tracking-[-0.05em]
+                text-[2rem]
+                sm:text-[3rem]
+                md:text-[4rem]
+                lg:text-[5.5rem]
+              "
             >
               {line}
             </h2>

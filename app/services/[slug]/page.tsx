@@ -1,18 +1,23 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { services } from "../services";
-import ServicesSection from "@/components/ServicesSection";
+import ServicesSection from "@/components/services/ServicesSection";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ServicePage({ params }: Props) {
+export default async function ServicePage({
+  params,
+}: Props) {
+  const { slug } = await params;
+
   const service = services.find(
-    (item) => item.slug === params.slug
+    (item) => item.slug === slug
   );
 
   if (!service) {
@@ -20,12 +25,11 @@ export default function ServicePage({ params }: Props) {
   }
 
   return (
+       <>
+      <Navbar />
     <main>
-
       {/* Hero */}
-
       <section className="relative h-screen">
-
         <Image
           src={service.image}
           alt={service.title}
@@ -37,7 +41,6 @@ export default function ServicePage({ params }: Props) {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="absolute bottom-20 left-20 z-10 text-white">
-
           <p className="mb-4 uppercase tracking-[0.35em] text-sm">
             Service
           </p>
@@ -45,41 +48,62 @@ export default function ServicePage({ params }: Props) {
           <h1 className="text-7xl font-black">
             {service.title}
           </h1>
-
         </div>
-
       </section>
 
-      {/* Description */}
+     {/* ================= DESCRIPTION ================= */}
 
-      <section className="mx-auto max-w-7xl px-10 py-32">
+<section className="bg-white py-32">
+  <div className="mx-auto grid max-w-7xl items-center gap-24 px-10 lg:grid-cols-2">
 
-        <div className="grid gap-20 lg:grid-cols-2">
+    {/* LEFT CONTENT */}
 
-          <div>
+    <div>
 
-            <p className="uppercase tracking-[0.35em] text-neutral-500 text-sm">
-              Overview
-            </p>
+      <p className="mb-6 uppercase tracking-[0.35em] text-xs text-neutral-500">
+        Overview
+      </p>
 
-          </div>
+      <h2 className="mb-10 text-[52px] font-light leading-[1.1] text-[#111]">
+        {service.subtitle}
+      </h2>
 
-          <div>
+      <div className="space-y-8 text-lg leading-9 text-neutral-600">
 
-            <p className="text-3xl leading-relaxed text-neutral-800 font-light">
-              {service.description}
-            </p>
+        <p>
+          {service.description}
+        </p>
 
-          </div>
+        <p>
+          Every project is developed through a thoughtful design process,
+          balancing aesthetics, functionality and craftsmanship to create
+          timeless spaces tailored to every client.
+        </p>
 
-        </div>
+      </div>
 
-      </section>
+    </div>
 
-      {/* WE DO Section */}
+    {/* RIGHT IMAGE */}
 
+    <div className="relative h-[650px] overflow-hidden rounded-sm">
+
+      <Image
+        src={service.heroImage}
+        alt={service.title}
+        fill
+        className="object-cover"
+      />
+
+    </div>
+
+  </div>
+</section>
+
+      {/* WE DO */}
       <ServicesSection />
-
     </main>
+        <Footer />
+    </>
   );
 }

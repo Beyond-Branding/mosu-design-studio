@@ -1,19 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Projects.module.css";
 
-interface Props {
-  project: {
-    title: string;
-    location: string;
-    image: string;
-  };
-}
-
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project }: any) {
   return (
-    <div className={styles.card}>
+    <Link href={`/projects/${project.slug}`} className={styles.card}>
       <Image
         src={project.image}
         alt={project.title}
@@ -22,9 +15,10 @@ export default function ProjectCard({ project }: Props) {
       />
 
       <div className={styles.overlay}>
+        <span>{project.category}</span>
         <h2>{project.title}</h2>
         <p>{project.location}</p>
       </div>
-    </div>
+    </Link>
   );
 }
