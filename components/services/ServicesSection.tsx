@@ -38,13 +38,19 @@ export default function ServicesSection({
 
     const tl = gsap.timeline({
   scrollTrigger: {
-    trigger: sectionRef.current,
-    start: "top top",
-    end: "+=2600",
-    scrub: 1,
-    pin: true,
-    anticipatePin: 1,
-  },
+  trigger: sectionRef.current,
+  start: "top top",
+  end: "+=2600",
+  scrub: 1,
+  pin: true,
+  pinSpacing: true,
+  invalidateOnRefresh: true,
+  anticipatePin: 1,
+},
+});
+
+requestAnimationFrame(() => {
+  ScrollTrigger.refresh();
 });
 
 // Initial state

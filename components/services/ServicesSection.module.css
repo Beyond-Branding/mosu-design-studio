@@ -34,7 +34,7 @@
   transform:translateX(-100%);
   font-size:clamp(8rem,12vw,14rem);
   font-weight:900;
-  color:#111;
+  color:#767070;
   line-height:1;
 }
 .do{
@@ -43,7 +43,7 @@
   transform:translateX(0%);
   font-size:clamp(8rem,12vw,14rem);
   font-weight:900;
-  color:#111;
+  color:#767070;
   line-height:1;
 }
 
@@ -63,7 +63,7 @@
 
 .word{
   font-size:clamp(2.5rem,3vw,4.5rem);
-  font-weight:900;
+  font-weight:700;
   text-transform:uppercase;
   color:#111;
   opacity:0;

@@ -2,125 +2,128 @@
 
 import Image from "next/image";
 import { team } from "./teamData";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function Team() {
-  const section = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".team-card", {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top 80%",
-        },
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={section}
-      className="bg-[#f4f4f4] py-20 md:py-28 lg:py-36"
-    >
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <section className="bg-[#f4f4f4] py-20 lg:py-28">
+      <div className="mx-auto max-w-[1700px] px-5 lg:px-10">
 
-        <p className="mb-4 text-center text-xs sm:text-sm uppercase tracking-[0.35em] text-neutral-500">
-          Our Team
-        </p>
+        {/* Header */}
 
-        <h2
-          className="
-            mb-12
-            md:mb-20
-            text-center
-            font-black
-            uppercase
-            leading-none
-            text-4xl
-            sm:text-5xl
-            md:text-6xl
-            lg:text-7xl
-            xl:text-[6rem]
-          "
-        >
-          Meet The Team
-        </h2>
+        <div className="mb-14 flex items-center justify-between">
 
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-4
-            gap-6
-            lg:gap-8
-          "
+          <div>
+           <p className="uppercase tracking-[0.35em] text-xs text-neutral-600">
+  OUR TEAM
+</p>
+
+<h2 className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black uppercase leading-none text-black">
+  Meet The Team
+</h2>
+
+          
+          </div>
+
+          {/* Arrows */}
+
+         <div className="hidden md:flex gap-4">
+  <button className="team-prev group flex h-14 w-14 items-center justify-center rounded-full border border-black bg-white transition-all duration-300 hover:bg-black">
+    <ChevronLeft
+      size={24}
+      strokeWidth={2.5}
+      className="text-black transition-colors duration-300 group-hover:text-white"
+    />
+  </button>
+
+  <button className="team-next group flex h-14 w-14 items-center justify-center rounded-full border border-black bg-white transition-all duration-300 hover:bg-black">
+    <ChevronRight
+      size={24}
+      strokeWidth={2.5}
+      className="text-black transition-colors duration-300 group-hover:text-white"
+    />
+  </button>
+</div>
+        </div>
+
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".team-prev",
+            nextEl: ".team-next",
+          }}
+          loop={true}
+          speed={700}
+          spaceBetween={28}
+          grabCursor
+          breakpoints={{
+            0: {
+              slidesPerView: 1.1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1400: {
+              slidesPerView: 4,
+            },
+          }}
         >
           {team.map((member) => (
-            <div
-              key={member.name}
-              className="team-card group"
-            >
-              <div
-                className="
-                  relative
-                  overflow-hidden
-                  rounded-sm
+            <SwiperSlide key={member.name}>
+              <div className="group">
 
-                  h-[420px]
-                  sm:h-[500px]
-                  lg:h-[520px]
-                "
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  sizes="(max-width:768px) 100vw,
-                         (max-width:1024px) 50vw,
-                         25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <div className="relative h-[430px] overflow-hidden rounded-sm">
+
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+
+                </div>
+
+                <h3 className="mt-6 text-3xl font-bold text-black">
+  {member.name}
+</h3>
+
+<p className="mt-2 uppercase tracking-[0.2em] text-sm text-neutral-600">
+  {member.role}
+</p>
               </div>
-
-              <h3
-                className="
-                  mt-6
-                  text-2xl
-                  md:text-3xl
-                  font-bold
-                "
-              >
-                {member.name}
-              </h3>
-
-              <p
-                className="
-                  mt-2
-                  text-xs
-                  md:text-sm
-                  uppercase
-                  tracking-[0.2em]
-                  text-neutral-500
-                "
-              >
-                {member.role}
-              </p>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
+
+        {/* Mobile Arrows */}
+
+       <div className="mt-10 flex justify-center gap-4 md:hidden">
+  <button className="team-prev group flex h-14 w-14 items-center justify-center rounded-full border border-black bg-white transition-all duration-300 hover:bg-black">
+    <ChevronLeft
+      size={24}
+      strokeWidth={2.5}
+      className="text-black transition-colors duration-300 group-hover:text-white"
+    />
+  </button>
+
+  <button className="team-next group flex h-14 w-14 items-center justify-center rounded-full border border-black bg-white transition-all duration-300 hover:bg-black">
+    <ChevronRight
+      size={24}
+      strokeWidth={2.5}
+      className="text-black transition-colors duration-300 group-hover:text-white"
+    />
+  </button>
+</div>
 
       </div>
     </section>

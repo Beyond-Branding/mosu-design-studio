@@ -14,58 +14,66 @@ export default function FeaturedProjects() {
 useEffect(() => {
   if (!sectionRef.current) return;
 
-  const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
+  const ctx = gsap.context(() => {
+    const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
 
-  // Hide all slides except the first on ALL devices
-  slides.forEach((slide, i) => {
-    gsap.set(slide, {
-      autoAlpha: i === 0 ? 1 : 0,
-      scale: 1,
-      zIndex: slides.length - i,
-    });
-  });
-
-  const mm = gsap.matchMedia();
-
-  mm.add("(min-width:1024px)", () => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: `+=${slides.length * 1000}`,
-        scrub: 1,
-        pin: true,
-      },
-    });
-
+    // Initial state
     slides.forEach((slide, i) => {
-      if (i === 0) return;
-
-      tl.to(
-        slides[i - 1],
-        {
-          autoAlpha: 0,
-          scale: 1.08,
-          duration: 1,
-        },
-        "+=0.2"
-      );
-
-      tl.to(
-        slide,
-        {
-          autoAlpha: 1,
-          scale: 1,
-          duration: 1,
-        },
-        "<"
-      );
+      gsap.set(slide, {
+        autoAlpha: i === 0 ? 1 : 0,
+        scale: 1,
+        zIndex: slides.length - i,
+      });
     });
-  });
 
-  return () => mm.revert();
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width:1024px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${slides.length * 1000}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      slides.forEach((slide, i) => {
+        if (i === 0) return;
+
+        tl.to(
+          slides[i - 1],
+          {
+            autoAlpha: 0,
+            scale: 1.08,
+            duration: 1,
+          },
+          "+=0.2"
+        ).to(
+          slide,
+          {
+            autoAlpha: 1,
+            scale: 1,
+            duration: 1,
+          },
+          "<"
+        );
+      });
+    });
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    return () => mm.revert();
+  }, sectionRef);
+
+  return () => ctx.revert();
 }, []);
-
 return (
   <section
     ref={sectionRef}

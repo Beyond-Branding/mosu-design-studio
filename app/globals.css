@@ -69,6 +69,20 @@ body,
 * {
   cursor: none;
 }
+/* Swiper disabled navigation */
+.team-prev.swiper-button-disabled,
+.team-next.swiper-button-disabled {
+  opacity: 1 !important;
+}
 
+.team-prev.swiper-button-disabled svg,
+.team-next.swiper-button-disabled svg {
+  color: #000 !important;
+}
+
+.team-prev.swiper-button-disabled,
+.team-next.swiper-button-disabled {
+  border-color: #000 !important;
+}
 
 

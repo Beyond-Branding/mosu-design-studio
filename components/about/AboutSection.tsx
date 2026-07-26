@@ -18,15 +18,19 @@ export default function AboutSection() {
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=4500",
-          scrub: 1.5,
-          pin: true,
-          anticipatePin: 1,
-        },
+       scrollTrigger: {
+  trigger: sectionRef.current,
+  start: "top top",
+  end: "+=4500",
+  scrub: 1.5,
+  pin: true,
+  anticipatePin: 1,
+  invalidateOnRefresh: true,
+},
       });
+      requestAnimationFrame(() => {
+  ScrollTrigger.refresh();
+});
 
       // Fade content first
       tl.to(

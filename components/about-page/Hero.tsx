@@ -107,23 +107,26 @@ export default function AboutHero() {
 
       {/* Content */}
       <div
-        className="
-          relative
-          z-20
+  className="
+    relative
+    z-20
+    flex
+    min-h-screen
+    flex-col
+    items-center
+    justify-center
 
-          flex
-          min-h-screen
-          flex-col
-          items-center
-          justify-center
+    mx-auto
+    w-full
+    max-w-[42rem]
 
-          px-6
-          sm:px-10
-          lg:px-16
+    px-6
+    sm:px-8
+    lg:px-10
 
-          text-center
-        "
-      >
+    text-center
+  "
+>
         <div ref={title}>
           <h2
             className="
@@ -157,25 +160,25 @@ export default function AboutHero() {
         </div>
 
         <p
-          ref={paragraph}
-          className="
-            mt-8
-            max-w-xs
-            sm:max-w-lg
-            lg:max-w-2xl
+  ref={paragraph}
+  className="
+    mt-8
+    w-full
+    max-w-full
 
-            text-sm
-            sm:text-base
-            lg:text-lg
+    text-sm
+    sm:text-base
+    lg:text-lg
 
-            leading-relaxed
-            text-neutral-300
-          "
-        >
-          MOSU is a globally operating architecture and design studio
-          crafting luxury residential, hospitality, and commercial spaces
-          with timeless design language and meticulous attention to detail.
-        </p>
+    leading-relaxed
+    text-neutral-300
+    break-words
+  "
+>
+  MOSU is a globally operating architecture and design studio
+  crafting luxury residential, hospitality, and commercial spaces
+  with timeless design language and meticulous attention to detail.
+</p>
       </div>
     </section>
   );
