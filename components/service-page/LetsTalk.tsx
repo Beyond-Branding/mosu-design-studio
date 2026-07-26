@@ -36,31 +36,45 @@ text-[#e8e8e8]
         </p>
 
         <Link
-          href="/contact"
-          className="
-group
-flex
-items-center
-gap-3
-rounded-full
-border
-border-black
-px-8
-py-4
-uppercase
-tracking-[0.2em]
-transition-all
-duration-500
-hover:bg-black
-hover:text-white
-"
-        >
-          Start a Project
+  href="/contact"
+  className="
+    group
+    inline-flex
+    items-center
+    gap-3
 
-          <ArrowUpRight
-            className="transition-transform duration-500 group-hover:rotate-45"
-          />
-        </Link>
+    rounded-full
+    border-2
+    border-neutral-900
+
+    bg-transparent
+    text-neutral-900
+
+    px-6
+    py-3
+    md:px-8
+    md:py-4
+
+    text-xs
+    md:text-sm
+
+    font-semibold
+    uppercase
+    tracking-[0.2em]
+
+    transition-all
+    duration-300
+
+    hover:bg-neutral-900
+    hover:text-white
+  "
+>
+  Start a Project
+
+  <ArrowUpRight
+    className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+  />
+</Link>
 
       </div>
 

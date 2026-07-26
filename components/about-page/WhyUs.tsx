@@ -12,65 +12,141 @@ export default function WhyUs() {
   const circleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        y: 120,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      });
+    const mm = gsap.matchMedia();
 
-      gsap.from(circleRef.current, {
-        scale: 0,
-        rotate: 180,
-        duration: 1,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      });
-    }, sectionRef);
+    mm.add("(min-width:1024px)", () => {
+      const ctx = gsap.context(() => {
+        gsap.from(titleRef.current, {
+          y: 120,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+          },
+        });
 
-    return () => ctx.revert();
+        gsap.from(circleRef.current, {
+          scale: 0,
+          rotate: 180,
+          duration: 1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+          },
+        });
+      }, sectionRef);
+
+      return () => ctx.revert();
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-screen items-center justify-center bg-[#f6f6f4]"
-    >
-      {/* Circle */}
+      className="
+        relative
+        flex
+        items-center
+        justify-center
 
+        min-h-[70vh]
+        lg:min-h-screen
+
+        bg-[#f6f6f4]
+
+        px-6
+        sm:px-8
+        lg:px-12
+      "
+    >
+      {/* Decorative Circle */}
       <div
         ref={circleRef}
-        className="absolute left-[28%] top-1/2 h-16 w-16 -translate-y-1/2 rounded-full border-2 border-neutral-800"
+        className="
+          absolute
+
+          left-6
+          top-14
+
+          h-10
+          w-10
+
+          sm:h-12
+          sm:w-12
+
+          lg:left-[28%]
+          lg:top-1/2
+          lg:h-16
+          lg:w-16
+          lg:-translate-y-1/2
+
+          rounded-full
+          border-2
+          border-neutral-800
+        "
       />
 
       {/* Content */}
+      <div
+        ref={titleRef}
+        className="text-center"
+      >
+        <p
+          className="
+            mb-4
 
-      <div ref={titleRef} className="text-center">
+            text-xs
+            sm:text-sm
 
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-neutral-500">
+            font-medium
+            uppercase
+            tracking-[0.35em]
+            text-neutral-500
+          "
+        >
           WHY US?
         </p>
 
-        <h2 className="leading-none font-black uppercase text-neutral-900">
+        <h2
+          className="
+            font-black
+            uppercase
+            leading-none
+            text-neutral-900
+          "
+        >
+          <span
+            className="
+              block
 
-          <span className="block text-[6vw]">
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-[6vw]
+            "
+          >
             5 REASONS
           </span>
 
-          <span className="block text-[5vw]">
+          <span
+            className="
+              mt-2
+              block
+
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-[5vw]
+            "
+          >
             TO WORK WITH MOSU
           </span>
-
         </h2>
-
       </div>
     </section>
   );

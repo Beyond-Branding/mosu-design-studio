@@ -12,45 +12,48 @@ export default function Experience() {
   const section = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const slides = gsap.utils.toArray<HTMLElement>(".exp-slide");
+    if (!section.current) return;
 
-    slides.forEach((slide, index) => {
-      if (index !== 0) {
+    const ctx = gsap.context(() => {
+      const slides = gsap.utils.toArray<HTMLElement>(".exp-slide");
+
+      slides.forEach((slide, index) => {
         gsap.set(slide, {
-          autoAlpha: 0,
+          autoAlpha: index === 0 ? 1 : 0,
         });
-      }
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section.current,
-        start: "top top",
-        end: "+=400%",
-        scrub: true,
-        pin: true,
-      },
-    });
-
-    slides.forEach((slide, index) => {
-      if (index === 0) return;
-
-      tl.to(slides[index - 1], {
-        autoAlpha: 0,
-        duration: 1,
       });
 
-      tl.to(
-        slide,
-        {
-          autoAlpha: 1,
-          duration: 1,
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top top",
+          end: `+=${slides.length * 1000}`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
         },
-        "<"
-      );
-    });
+      });
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+      slides.forEach((slide, index) => {
+        if (index === 0) return;
+
+        tl.to(slides[index - 1], {
+          autoAlpha: 0,
+          duration: 1,
+        });
+
+        tl.to(
+          slide,
+          {
+            autoAlpha: 1,
+            duration: 1,
+          },
+          "<"
+        );
+      });
+    }, section);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -63,29 +66,98 @@ export default function Experience() {
           key={item.title}
           className="exp-slide absolute inset-0"
         >
+          {/* Background */}
           <Image
             src={item.image}
             alt={item.title}
             fill
+            priority
+            sizes="100vw"
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/45" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
 
-          <div className="absolute left-24 top-1/2 -translate-y-1/2 text-white max-w-xl">
+          {/* Content */}
+          <div
+            className="
+              absolute
+              z-20
 
-            <h2 className="text-7xl font-black uppercase">
+              left-6
+              right-6
+              bottom-12
+
+              sm:left-10
+              sm:right-10
+              sm:bottom-16
+
+              md:left-14
+              md:right-20
+              md:bottom-20
+
+              lg:left-20
+              lg:right-auto
+              lg:top-1/2
+              lg:bottom-auto
+              lg:-translate-y-1/2
+              lg:max-w-xl
+
+              xl:left-24
+              xl:max-w-2xl
+
+              text-white
+            "
+          >
+            <h2
+              className="
+                font-black
+                uppercase
+                leading-none
+
+                text-4xl
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+                xl:text-8xl
+              "
+            >
               {item.title}
             </h2>
 
-            <h3 className="mt-4 text-3xl uppercase">
+            <h3
+              className="
+                mt-4
+                uppercase
+
+                text-lg
+                sm:text-xl
+                md:text-2xl
+                lg:text-3xl
+              "
+            >
               {item.subtitle}
             </h3>
 
-            <p className="mt-8 text-lg leading-8 text-neutral-300">
+            <p
+              className="
+                mt-6
+
+                max-w-xl
+
+                text-sm
+                sm:text-base
+                md:text-lg
+
+                leading-7
+                md:leading-8
+
+                text-neutral-300
+              "
+            >
               {item.description}
             </p>
-
           </div>
         </div>
       ))}

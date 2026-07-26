@@ -11,127 +11,213 @@ gsap.registerPlugin(ScrollTrigger);
 export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
+useEffect(() => {
+  if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
+  const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
 
-      // Hide every slide except the first
-      slides.forEach((slide, i) => {
-        gsap.set(slide, {
-          autoAlpha: i === 0 ? 1 : 0,
-          scale: i === 0 ? 1 : 1.08,
-        });
-      });
+  // Hide all slides except the first on ALL devices
+  slides.forEach((slide, i) => {
+    gsap.set(slide, {
+      autoAlpha: i === 0 ? 1 : 0,
+      scale: 1,
+      zIndex: slides.length - i,
+    });
+  });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${slides.length * 1000}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
+  const mm = gsap.matchMedia();
 
-      slides.forEach((slide, i) => {
-        if (i === 0) return;
+  mm.add("(min-width:1024px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: `+=${slides.length * 1000}`,
+        scrub: 1,
+        pin: true,
+      },
+    });
 
-        tl.to(slides[i - 1], {
+    slides.forEach((slide, i) => {
+      if (i === 0) return;
+
+      tl.to(
+        slides[i - 1],
+        {
           autoAlpha: 0,
           scale: 1.08,
           duration: 1,
-        });
+        },
+        "+=0.2"
+      );
 
-        tl.to(
-          slide,
-          {
-            autoAlpha: 1,
-            scale: 1,
-            duration: 1,
-          },
-          "<"
-        );
-      });
-    }, sectionRef);
+      tl.to(
+        slide,
+        {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 1,
+        },
+        "<"
+      );
+    });
+  });
 
-    return () => ctx.revert();
-  }, []);
+  return () => mm.revert();
+}, []);
 
-  return (
-    <section
-      ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
-    >
-      {projectData.map((item) => (
-        <div
-          key={item.title}
-          className="project-slide absolute inset-0"
+return (
+  <section
+    ref={sectionRef}
+    className="relative h-screen overflow-hidden bg-black"
+  >
+    {projectData.map((item) => (
+      <div
+        key={item.title}
+        className="project-slide absolute inset-0"
+      >
+        {/* Background */}
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Left Navigation */}
+        <aside
+          className="
+            absolute
+            left-4
+            md:left-8
+            lg:left-12
+            top-1/2
+            -translate-y-1/2
+            z-20
+
+            hidden
+            lg:block
+          "
         >
-          {/* Background */}
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            priority
-            className="object-cover"
-          />
+          <ul className="space-y-5 uppercase tracking-[0.22em] text-sm">
+            {[
+              "All Works",
+              "Hotels & Resorts",
+              "Residences",
+              "Bespoke Art",
+              "Wall Installations",
+              "Sculptures",
+              "Custom Lighting",
+              "Furniture",
+              "Doors & Partitions",
+              "Metal Works",
+            ].map((category) => (
+              <li
+                key={category}
+                className={`transition-colors duration-300 ${
+                  item.title === category
+                    ? "text-white"
+                    : "text-white/40 hover:text-white/70"
+                }`}
+              >
+                {category}
+              </li>
+            ))}
+          </ul>
+        </aside>
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/45" />
+        {/* Main Content */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-20
+            flex
+            flex-col
+            items-center
+            justify-center
+            text-center
+            text-white
+            px-6
+            md:px-12
+            lg:px-24
+          "
+        >
+          <p
+            className="
+              mb-5
+              text-[11px]
+              sm:text-xs
+              md:text-sm
+              uppercase
+              tracking-[0.35em]
+            "
+          >
+            {item.location}
+          </p>
 
-          {/* Left Category List */}
-          <div className="absolute left-12 top-1/2 -translate-y-1/2 z-20">
-            <ul className="space-y-5 uppercase tracking-[0.25em] text-sm text-white/40">
-              <li className={item.title === "All Works" ? "text-white" : ""}>All Works</li>
-              <li className={item.title === "Hotels & Resorts" ? "text-white" : ""}>Hotels & Resorts</li>
-              <li className={item.title === "Residences" ? "text-white" : ""}>Residences</li>
-              <li className={item.title === "Bespoke Art" ? "text-white" : ""}>Bespoke Art</li>
-              <li className={item.title === "Wall Installations" ? "text-white" : ""}>Wall Installations</li>
-              <li className={item.title === "Sculptures" ? "text-white" : ""}>Sculptures</li>
-              <li className={item.title === "Custom Lighting" ? "text-white" : ""}>Custom Lighting</li>
-              <li className={item.title === "Furniture" ? "text-white" : ""}>Furniture</li>
-              <li className={item.title === "Doors & Partitions" ? "text-white" : ""}>Doors & Partitions</li>
-              <li className={item.title === "Metal Works" ? "text-white" : ""}>Metal Works</li>
-            </ul>
-          </div>
+          <h2
+            className="
+              uppercase
+              font-black
+              leading-none
+              max-w-7xl
 
-          {/* Main Content */}
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-8">
-            <p className="mb-6 text-sm uppercase tracking-[0.35em]">
-              {item.location}
-            </p>
+              text-5xl
+              sm:text-6xl
+              md:text-7xl
+              lg:text-[7rem]
+              xl:text-[8rem]
+            "
+          >
+            {item.title}
+          </h2>
 
-            <h2 className="text-[clamp(4rem,8vw,8rem)] font-black uppercase leading-none">
-              {item.title}
-            </h2>
+          <button
+            className="
+              mt-8
+              md:mt-10
 
-            <button
-              className="
-              mt-10
               rounded-full
               border
               border-white
+
               bg-white
-              px-8
+              text-black
+
+              px-6
               py-3
-              text-sm
+
+              md:px-8
+              md:py-4
+
+              text-xs
+              md:text-sm
+
               uppercase
               tracking-[0.2em]
-              text-black
+
               transition-all
               duration-500
+
               hover:bg-transparent
               hover:text-white
-              "
-            >
-              View Project
-            </button>
-          </div>
+            "
+          >
+            View Project
+          </button>
         </div>
-      ))}
-    </section>
+
+        {/* Mobile Category */}
+        
+      </div>
+    ))}
+  </section>
+
   );
 }
