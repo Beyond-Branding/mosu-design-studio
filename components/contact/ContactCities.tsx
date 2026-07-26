@@ -10,49 +10,64 @@ export default function ContactCities() {
 
   return (
     <>
-      <section className="flex justify-center bg-[#f6f4f1] px-8 pb-20">
-        <div className="w-full max-w-3xl">
+      <section className="bg-[#f6f4f1] px-5 sm:px-8 pb-16 md:pb-24">
+        <div className="mx-auto w-full max-w-3xl">
 
           {cities.map((city) => (
             <div
               key={city.id}
               onMouseEnter={() => setHovered(city.id)}
+              onMouseLeave={() => setHovered(1)}
               onClick={() => setSelectedCity(city)}
-              className="cursor-pointer border-b border-neutral-300 py-6 transition-all duration-300"
+              className="cursor-pointer border-b border-neutral-300 py-5 md:py-7"
             >
-              <div className="flex flex-col items-center text-center">
+              <div className="text-center">
 
-                {/* City */}
                 <h2
-                  className={`font-black uppercase leading-none tracking-tight transition-all duration-300
-                  ${
-                    hovered === city.id
-                      ? "text-[#111]"
-                      : "text-neutral-300"
-                  }
-                  text-5xl md:text-6xl`}
+                  className={`
+                    font-black
+                    uppercase
+                    leading-none
+                    tracking-tight
+                    transition-all
+                    duration-300
+
+                    ${
+                      hovered === city.id
+                        ? "text-[#111]"
+                        : "text-neutral-300"
+                    }
+
+                    text-3xl
+                    sm:text-4xl
+                    md:text-5xl
+                    lg:text-6xl
+                  `}
                 >
                   {city.name}
                 </h2>
 
-                {/* Details */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 ${
-                    hovered === city.id
-                      ? "mt-3 max-h-24 opacity-100"
-                      : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="space-y-1 text-neutral-700">
+                  className={`
+                    overflow-hidden
+                    transition-all
+                    duration-500
 
-                    <p className="text-sm font-medium tracking-wide">
-                      <span className="font-bold">P.</span>{" "}
-                      {city.phone}
+                    ${
+                      hovered === city.id
+                        ? "max-h-40 opacity-100 mt-3"
+                        : "max-h-0 opacity-0"
+                    }
+                  `}
+                >
+                  <div className="space-y-2">
+
+                    <p className="text-xs sm:text-sm text-neutral-700">
+                      <span className="font-bold">P.</span> {city.phone}
                     </p>
 
-                    <p className="max-w-md text-sm leading-relaxed">
-                      <span className="font-bold">A.</span>{" "}
-                      {city.address}
+                    <p className="mx-auto max-w-md text-xs sm:text-sm leading-relaxed text-neutral-700">
+                      <span className="font-bold">A.</span> {city.address}
                     </p>
 
                   </div>
