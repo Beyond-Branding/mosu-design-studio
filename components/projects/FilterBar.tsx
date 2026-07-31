@@ -1,25 +1,39 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import styles from "./Projects.module.css";
 
-const filters = [
+export default function ProjectCard({ project }: any) {
+  const filters = [
   "ALL",
   "COMPLETED",
   "IN PROGRESS",
-  "RESIDENCES",
-  "RESTAURANTS",
-  "PUBLIC SPACES",
-  "PRIVATE JETS",
   "HOTELS & RESORTS",
-  "YACHTS",
+  "RESIDENCES",
+  "BESPOKE ART",
+  "WALL INSTALLATIONS",
+  "SCULPTURES",
+  "CUSTOM LIGHTING",
+  "FURNITURE",
+  "DOORS & PARTITIONS",
+  "METAL WORKS",
 ];
-
-export default function FilterBar() {
   return (
-    <div className={styles.filters}>
-      {filters.map((item) => (
-        <button key={item}>{item}</button>
-      ))}
-    </div>
+    
+    <Link href={`/projects/${project.slug}`} className={styles.card}>
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className={styles.image}
+      />
+
+      <div className={styles.overlay}>
+        <span>{project.category}</span>
+        <h2>{project.title}</h2>
+        <p>{project.location}</p>
+      </div>
+    </Link>
   );
 }

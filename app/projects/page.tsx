@@ -1,18 +1,28 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+"use client";
 
-import ProjectsHeader from "@/components/projects/ProjectsHeader";
+import { useState } from "react";
+
+import Navbar from "@/components/layout/Navbar";
 import FilterBar from "@/components/projects/FilterBar";
 import ProjectsGrid from "@/components/projects/ProjectsGrid";
+import Footer from "@/components/layout/Footer";
 
 export default function ProjectsPage() {
+  const [activeFilter, setActiveFilter] = useState("ALL");
+
   return (
     <>
-      <Navbar />
-      <ProjectsHeader />
-      <FilterBar />
-      <ProjectsGrid />
-      <Footer />
+      
+
+      <FilterBar
+        activeFilter={activeFilter}
+        setActiveFilter={setActiveFilter}
+      />
+
+      <ProjectsGrid
+        activeFilter={activeFilter}
+      />
+      <Footer/>
     </>
   );
 }

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Plus, Menu, X } from "lucide-react";
+import Image from "next/image";
+
 
 function NavItem({
   href,
@@ -74,15 +76,22 @@ export default function Navbar() {
           </nav>
 
           {/* Logo */}
-          <Link
-            href="/"
-            className="absolute left-1/2 -translate-x-1/2 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white"
-          >
-            MOSU
-          </Link>
+         <Link
+  href="/"
+  className="absolute left-1/2 -translate-x-1/2"
+>
+  <Image
+    src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+    alt="MOSU Logo"
+    width={180}
+    height={60}
+    priority
+    className="h-10 w-auto sm:h-12 lg:h-14"
+  />
+</Link>
 
           {/* Desktop Right */}
-          <div className="hidden items-center gap-14 lg:flex">
+          <div className="hidden items-center gap-14 lg:flex text-[13px] font-medium">
 
             <NavItem href="/about" text="ABOUT" />
 

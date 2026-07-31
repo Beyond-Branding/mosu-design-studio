@@ -19,17 +19,16 @@ export default function ServiceCard({
     <Link
       href={`/services/${slug}`}
       className="
-        group
-        relative
-        block
-        overflow-hidden
-        rounded-xl
+  group
+  relative
+  block
+  overflow-hidden
 
-        h-[320px]
-        sm:h-[420px]
-        md:h-[520px]
-        lg:h-[620px]
-      "
+  h-[320px]
+  sm:h-[420px]
+  md:h-[520px]
+  lg:h-[620px]
+"
     >
       {/* Background */}
       <Image
