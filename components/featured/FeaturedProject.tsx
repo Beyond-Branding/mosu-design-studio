@@ -2,40 +2,49 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projectData } from "./ProjectsData";
+import { projects } from "@/app/projects/projects";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const categories = [
+  { label: "ALL WORKS", href: "/projects" },
+  { label: "HOTELS & RESORTS", href: "/projects/hotels-resorts" },
+  { label: "RESIDENCES", href: "/projects/residences" },
+  { label: "BESPOKE ART", href: "/projects/bespoke-art" },
+  { label: "WALL INSTALLATIONS", href: "/projects/wall-installations" },
+  { label: "SCULPTURES", href: "/projects/sculptures" },
+  { label: "CUSTOM LIGHTING", href: "/projects/custom-lighting" },
+  { label: "FURNITURE", href: "/projects/furniture" },
+  { label: "DOORS & PARTITIONS", href: "/projects/doors-partitions" },
+  { label: "METAL WORKS", href: "/projects/metal-works" },
+];
 
 export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-useEffect(() => {
-  if (!sectionRef.current) return;
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-  const ctx = gsap.context(() => {
-    const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
+    const ctx = gsap.context(() => {
+      const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
 
-    // Initial state
-    slides.forEach((slide, i) => {
-      gsap.set(slide, {
-        autoAlpha: i === 0 ? 1 : 0,
-        scale: 1,
-        zIndex: slides.length - i,
+      slides.forEach((slide, i) => {
+        gsap.set(slide, {
+          autoAlpha: i === 0 ? 1 : 0,
+          scale: 1,
+          zIndex: slides.length - i,
+        });
       });
-    });
 
-    const mm = gsap.matchMedia();
-
-    mm.add("(min-width:1024px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=${slides.length * 1000}`,
+          end: `+=${projects.length * 1000}`,
           pin: true,
-          pinSpacing: true,
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -52,7 +61,7 @@ useEffect(() => {
             scale: 1.08,
             duration: 1,
           },
-          "+=0.2"
+          "+=0.25"
         ).to(
           slide,
           {
@@ -63,169 +72,136 @@ useEffect(() => {
           "<"
         );
       });
-    });
 
-    requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-    });
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    }, sectionRef);
 
-    return () => mm.revert();
-  }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
-  return () => ctx.revert();
-}, []);
-return (
-  <section
-    ref={sectionRef}
-    className="relative h-screen overflow-hidden bg-black"
-  >
-    {projectData.map((item) => (
-      <div
-        key={item.title}
-        className="project-slide absolute inset-0"
-      >
-        {/* Background */}
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-
-        {/* Left Navigation */}
-        <aside
-          className="
-            absolute
-            left-4
-            md:left-8
-            lg:left-12
-            top-1/2
-            -translate-y-1/2
-            z-20
-
-            hidden
-            lg:block
-          "
-        >
-          <ul className="space-y-5 uppercase tracking-[0.22em] text-sm">
-            {[
-              "All Works",
-              "Hotels & Resorts",
-              "Residences",
-              "Bespoke Art",
-              "Wall Installations",
-              "Sculptures",
-              "Custom Lighting",
-              "Furniture",
-              "Doors & Partitions",
-              "Metal Works",
-            ].map((category) => (
-              <li
-                key={category}
-                className={`transition-colors duration-300 ${
-                  item.title === category
-                    ? "text-white"
-                    : "text-white/40 hover:text-white/70"
-                }`}
-              >
-                {category}
-              </li>
-            ))}
-          </ul>
-        </aside>
-
-        {/* Main Content */}
+  return (
+    <section
+      ref={sectionRef}
+      className="relative h-screen overflow-hidden bg-black"
+    >
+      {projects.map((item, index) => (
         <div
-          className="
-            absolute
-            inset-0
-            z-20
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            text-white
-            px-6
-            md:px-12
-            lg:px-24
-          "
+          key={item.slug}
+          className="project-slide absolute inset-0"
         >
-          <p
-            className="
-              mb-5
-              text-[11px]
-              sm:text-xs
-              md:text-sm
-              uppercase
-              tracking-[0.35em]
-            "
-          >
-            {item.location}
-          </p>
+          {/* Background */}
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
 
-          <h2
-            className="
-              uppercase
-              font-black
-              leading-none
-              max-w-7xl
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/65" />
 
-              text-5xl
-              sm:text-6xl
-              md:text-7xl
-              lg:text-[7rem]
-              xl:text-[8rem]
-            "
-          >
-            {item.title}
-          </h2>
+          {/* Left Menu */}
+          <aside className="absolute left-12 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
+           <ul className="space-y-5">
+  {categories.map((category) => (
+    <li key={category.label}>
+      <Link
+        href={category.href}
+        className={`
+          block
+          uppercase
+          text-[11px]
+          tracking-[0.35em]
+          transition-all
+          duration-300
 
-          <button
-            className="
-              mt-8
-              md:mt-10
+          ${
+            item.title === category.label
+              ? "text-white"
+              : "text-white/25 hover:text-white hover:translate-x-2"
+          }
+        `}
+      >
+        {category.label}
+      </Link>
+    </li>
+  ))}
+</ul>
+          </aside>
 
-              rounded-full
-              border
-              border-white
+          {/* Center */}
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 text-white">
 
-              bg-white
-              text-black
+            <p className="mb-3 text-[11px] uppercase tracking-[0.45em] opacity-80">
+              {item.category}
+            </p>
 
-              px-6
-              py-3
+            <p className="mb-8 text-[11px] uppercase tracking-[0.35em] opacity-60">
+              {item.location}
+            </p>
 
-              md:px-8
-              md:py-4
+            <h2
+              className="
+                max-w-6xl
+                uppercase
+                font-light
+                leading-[0.9]
+                tracking-[-0.04em]
 
-              text-xs
-              md:text-sm
+                text-[3rem]
+                sm:text-[4rem]
+                md:text-[5rem]
+                lg:text-[6.5rem]
+                xl:text-[7.5rem]
+              "
+            >
+              {item.title}
+            </h2>
 
-              uppercase
-              tracking-[0.2em]
+            <Link
+              href={`/projects/${item.slug}`}
+              className="
+                mt-12
+                inline-flex
+                items-center
+                justify-center
 
-              transition-all
-              duration-500
+                rounded-full
+                border
+                border-white
 
-              hover:bg-transparent
-              hover:text-white
-            "
-          >
-            View Project
-          </button>
+                bg-white
+
+                px-8
+                py-4
+
+                text-[11px]
+                uppercase
+                tracking-[0.32em]
+                text-black
+
+                transition-all
+                duration-500
+
+                hover:bg-transparent
+                hover:text-white
+              "
+            >
+              View Project
+            </Link>
+          </div>
+
+          {/* Counter */}
+          <div className="absolute bottom-10 right-10 z-30 hidden lg:block">
+            <p className="text-white text-[13px] tracking-[0.35em]">
+              {String(index + 1).padStart(2, "0")} /{" "}
+              {String(projects.length).padStart(2, "0")}
+            </p>
+          </div>
         </div>
-
-        {/* Mobile Category */}
-        
-      </div>
-    ))}
-  </section>
-
+      ))}
+    </section>
   );
 }

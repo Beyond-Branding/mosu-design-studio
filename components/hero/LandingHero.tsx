@@ -68,7 +68,7 @@ export default function LandingHero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784915317/pexels-samarjit-9276243_g6uc4g.jpg"
+          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493725/NSP_0458_wwrt2c.jpg"
           alt="MOSU Hero"
           fill
           priority

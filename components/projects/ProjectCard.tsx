@@ -3,8 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Projects.module.css";
+import { Project } from "@/app/projects/projects";
 
-export default function ProjectCard({ project }: any) {
+interface ProjectCardProps {
+  project: Project;
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`} className={styles.card}>
       <Image

@@ -231,3 +231,102 @@ body {
   background: #fff;
   color: #111;
 }
+
+/* Heading spacing already handled by Tailwind */
+
+/* Filters */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.filters button {
+  border: 1px solid #d9d9d9;
+  background: white;
+  padding: 12px 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filters button:hover {
+  background: black;
+  color: white;
+}
+
+.activeFilter {
+  background: black !important;
+  color: white !important;
+}
+
+/* Grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 36px;
+}
+
+@media (max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Card */
+
+.card{
+  position:relative;
+  display:block;
+  height:620px;
+  overflow:hidden;
+}
+
+.image{
+  object-fit:cover;
+  transition:transform .8s ease;
+}
+
+.card:hover .image{
+  transform:scale(1.08);
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.05));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:42px;
+  color:white;
+}
+
+.overlay span{
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  opacity:.75;
+}
+
+.overlay h2{
+  margin-top:14px;
+  font-size:3rem;
+  font-weight:300;
+  letter-spacing:-.03em;
+  line-height:.95;
+}
+
+.overlay p{
+  margin-top:16px;
+  font-size:14px;
+  letter-spacing:.18em;
+  opacity:.75;
+  text-transform:uppercase;
+}

@@ -1,118 +1,150 @@
-export const projects = [
-  {
-    title: "Azure Bay Resort",
-    slug: "azure-bay-resort",
-    category: "Hotels & Resorts",
-    location: "Goa, India",
+export interface Project {
+  id: number;
+  slug: string;
+  title: string;
+  category: string;
+  status: "COMPLETED" | "IN PROGRESS";
+  location: string;
+  year: string;
+  image: string;
+  heroImage: string;
+  subtitle: string;
+  description: string;
+}
+
+export const projects: Project[] = [
+    {
+    id: 1,
+    slug: "hotels-resorts",
+    title: "HOTELS & RESORTS",
+    category: "ALL WORKS",
+    status: "COMPLETED",
+    location: "GOA, INDIA",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-    heroImage: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-    subtitle: "Luxury hospitality designed around experience.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784734603/pexels-costa-17729218_bgdsob.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784734603/pexels-costa-17729218_bgdsob.jpg",
+    subtitle: "Luxury hospitality designed around unforgettable experiences.",
     description:
-      "A contemporary beachfront resort blending architecture, interiors and landscape into a seamless guest experience.",
+      "Luxury resorts, boutique hotels and hospitality environments crafted to deliver timeless guest experiences.",
   },
 
   {
-    title: "The Horizon Residence",
-    slug: "the-horizon-residence",
-    category: "Residences",
-    location: "Mumbai, India",
+    id: 2,
+    slug: "residences",
+    title: "RESIDENCES",
+    category: "ALL WORKS",
+    status: "IN PROGRESS",
+    location: "MUMBAI, INDIA",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    subtitle: "Minimal luxury crafted for modern living.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
+    subtitle: "Minimal architecture with luxurious living.",
     description:
-      "A bespoke residence where clean lines, natural materials and refined detailing define every space.",
+      "Private residences combining timeless architecture with bespoke interiors.",
   },
 
   {
-    title: "The Reflection",
-    slug: "the-reflection",
-    category: "Bespoke Art",
-    location: "Dubai, UAE",
+    id: 3,
+    slug: "bespoke-art",
+    title: "BESPOKE ART",
+    category: "ALL WORKS",
+    status: "COMPLETED",
+    location: "DUBAI, UAE",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2",
-    heroImage: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2",
-    subtitle: "Art that becomes architecture.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20241010_182651_pguwjb.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493728/NSP_0904_lkofdq.jpg",
+    subtitle: "Art installations that define spaces.",
     description:
-      "A sculptural installation created for a luxury hotel lobby.",
+      "Large-scale commissioned artworks created exclusively for luxury interiors.",
   },
 
   {
-    title: "Organic Flow",
-    slug: "organic-flow",
-    category: "Wall Installations",
-    location: "Delhi, India",
+    id: 4,
+    slug: "wall-installations",
+    title: "WALL INSTALLATIONS",
+    category: "ALL WORKS",
+    status: "COMPLETED",
+    location: "DELHI, INDIA",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1494526585095-c41746248156",
-    heroImage: "https://images.unsplash.com/photo-1494526585095-c41746248156",
-    subtitle: "Walls transformed into experiences.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493725/20240914_172352_gyaxp4.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12881057_lmymgz.jpg",
+    subtitle: "Feature walls crafted as works of art.",
     description:
-      "Handcrafted feature walls integrating metal, stone and lighting.",
+      "Architectural wall features blending texture, lighting and craftsmanship.",
   },
 
   {
-    title: "Eternal Form",
-    slug: "eternal-form",
-    category: "Sculptures",
-    location: "London, UK",
+    id: 5,
+    slug: "sculptures",
+    title: "SCULPTURES",
+    category: "ALL WORKS",
+    status: "COMPLETED",
+    location: "LONDON, UK",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
-    heroImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
-    subtitle: "Large-scale sculptural storytelling.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-capture-crew-2153847797-33827313_ywxldi.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-capture-crew-2153847797-33827313_ywxldi.jpg",
+    subtitle: "Large-scale sculptural expressions.",
     description:
-      "A monumental sculpture defining the arrival experience.",
+      "Contemporary sculptures handcrafted for architectural environments.",
   },
 
   {
-    title: "Light Beyond",
-    slug: "light-beyond",
-    category: "Custom Lighting",
-    location: "Dubai, UAE",
+    id: 6,
+    slug: "custom-lighting",
+    title: "CUSTOM LIGHTING",
+    category: "ALL WORKS",
+    status: "IN PROGRESS",
+    location: "SINGAPORE",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    heroImage: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    subtitle: "Lighting that shapes emotion.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12913377_fbhnxm.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12913377_fbhnxm.jpg",
+    subtitle: "Lighting that transforms atmosphere.",
     description:
-      "Custom lighting installations designed for luxury interiors.",
+      "Bespoke lighting installations designed to shape mood and space.",
   },
 
   {
-    title: "Monolith Collection",
-    slug: "monolith-collection",
-    category: "Furniture",
-    location: "Bengaluru, India",
+    id: 7,
+    slug: "furniture",
+    title: "FURNITURE",
+    category: "ALL WORKS",
+    status: "IN PROGRESS",
+    location: "BENGALURU, INDIA",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    heroImage: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    subtitle: "Furniture designed as functional art.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-myhq-workspaces-3638298-5444194_yobovh.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750120/pexels-myhq-workspaces-3638298-5444194_yobovh.jpg",
+    subtitle: "Furniture designed as functional sculpture.",
     description:
-      "A curated collection of bespoke furniture.",
+      "Handcrafted furniture combining premium materials with timeless design.",
   },
 
   {
-    title: "The Divide",
-    slug: "the-divide",
-    category: "Doors & Partitions",
-    location: "Hyderabad, India",
+    id: 8,
+    slug: "doors-partitions",
+    title: "DOORS & PARTITIONS",
+    category: "ALL WORKS",
+    status: "IN PROGRESS",
+    location: "HYDERABAD, INDIA",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858",
-    heroImage: "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
     subtitle: "Elegant transitions between spaces.",
     description:
-      "Custom pivot doors and partitions for luxury homes.",
+      "Custom pivot doors and architectural partition systems.",
   },
 
   {
-    title: "Brass Atelier",
-    slug: "brass-atelier",
-    category: "Metal Works",
-    location: "Chennai, India",
+    id: 9,
+    slug: "metal-works",
+    title: "METAL WORKS",
+    category: "ALL WORKS",
+    status: "IN PROGRESS",
+    location: "CHENNAI, INDIA",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f",
-    heroImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f",
-    subtitle: "Precision-crafted decorative metalwork.",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784734603/pexels-nguyen-tran-327588-968440_sd2r5m.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784734603/pexels-nguyen-tran-327588-968440_sd2r5m.jpg",
+    subtitle: "Decorative metal craftsmanship.",
     description:
-      "Hand-finished brass and stainless steel architectural elements.",
+      "Luxury brass, bronze and stainless-steel elements for bespoke interiors.",
   },
 ];

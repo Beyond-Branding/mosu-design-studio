@@ -21,18 +21,16 @@ export default function Editorial() {
       const items = gsap.utils.toArray<HTMLElement>(".editorial-line");
 
       gsap.set(items, {
-        opacity: 0,
-        y: 40,
-        scale: 0.98,
-        filter: "blur(8px)",
-      });
+  opacity: 0,
+  x: 120,
+  filter: "blur(12px)",
+});
 
-      gsap.set(items[0], {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-      });
+gsap.set(items[0], {
+  opacity: 1,
+  x: 0,
+  filter: "blur(0px)",
+});
 
      const tl = gsap.timeline({
   scrollTrigger: {
@@ -49,37 +47,40 @@ export default function Editorial() {
 requestAnimationFrame(() => {
   ScrollTrigger.refresh();
 });
-      items.forEach((item, i) => {
-        if (i === items.length - 1) return;
+     items.forEach((item, i) => {
+  if (i === items.length - 1) return;
 
-        tl.to(item, {
-          opacity: 0,
-          y: -40,
-          scale: 0.98,
-          filter: "blur(8px)",
-          duration: 1,
-          ease: "power2.out",
-        });
+  // Current text leaves to the left
+  tl.to(
+    item,
+    {
+      x: -120,
+      opacity: 0,
+      filter: "blur(12px)",
+      duration: 1,
+      ease: "power3.inOut",
+    },
+    "+=0.2"
+  );
 
-        tl.fromTo(
-          items[i + 1],
-          {
-            opacity: 0,
-            y: 40,
-            scale: 0.98,
-            filter: "blur(8px)",
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1,
-            ease: "power2.out",
-          },
-          "<"
-        );
-      });
+  // Next text comes from the right
+  tl.fromTo(
+    items[i + 1],
+    {
+      x: 120,
+      opacity: 0,
+      filter: "blur(12px)",
+    },
+    {
+      x: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "power3.inOut",
+    },
+    "<"
+  );
+});
     }, sectionRef);
 
     return () => ctx.revert();

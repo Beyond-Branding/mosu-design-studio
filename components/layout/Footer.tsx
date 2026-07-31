@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaInstagram,
   FaFacebookF,
@@ -12,17 +13,25 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-[#1d1d1d] text-white">
-      <div className="mx-auto max-w-[1700px] px-10 py-24">
+      <div className="mx-auto max-w-[1700px] px-8 lg:px-10 pt-20 pb-6">
 
-        <div className="grid gap-16 md:grid-cols-4">
+        {/* Top */}
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Logo */}
           <div>
-            <h2 className="text-5xl font-black tracking-tight">
-              MOSU.
-            </h2>
+            <Link href="/">
+              <Image
+                src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+                alt="MOSU"
+                width={210}
+                height={70}
+                priority
+                className="h-auto w-[180px] lg:w-[220px]"
+              />
+            </Link>
 
-            <p className="mt-8 max-w-[280px] text-sm leading-8 text-gray-400">
+            <p className="mt-8 max-w-[290px] text-[15px] leading-8 text-gray-400">
               We create timeless architecture, interiors and bespoke spaces
               inspired by simplicity, craftsmanship and innovation.
             </p>
@@ -39,7 +48,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/hotels-resorts"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Hotels & Resorts
                 </Link>
@@ -48,7 +57,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/luxury-residences"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Luxury Residences
                 </Link>
@@ -57,7 +66,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/art-installations"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Art Installations
                 </Link>
@@ -66,7 +75,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sculptures"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Sculptures
                 </Link>
@@ -86,7 +95,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   About
                 </Link>
@@ -95,7 +104,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Projects
                 </Link>
@@ -104,7 +113,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Services
                 </Link>
@@ -113,7 +122,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2 inline-block"
+                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
                 >
                   Contact
                 </Link>
@@ -122,20 +131,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Socials */}
+          {/* Social */}
           <div>
             <h3 className="mb-6 text-lg font-semibold">
               Connect With Us
             </h3>
 
-            <div className="flex flex-col gap-5">
+            <div className="space-y-5">
 
               <Link
                 href="https://instagram.com"
                 target="_blank"
                 className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
               >
-                <FaInstagram size={22} />
+                <FaInstagram size={20} />
                 Instagram
               </Link>
 
@@ -144,7 +153,7 @@ export default function Footer() {
                 target="_blank"
                 className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
               >
-                <FaFacebookF size={22} />
+                <FaFacebookF size={20} />
                 Facebook
               </Link>
 
@@ -153,7 +162,7 @@ export default function Footer() {
                 target="_blank"
                 className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
               >
-                <FaLinkedinIn size={22} />
+                <FaLinkedinIn size={20} />
                 LinkedIn
               </Link>
 
@@ -162,7 +171,7 @@ export default function Footer() {
                 target="_blank"
                 className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
               >
-                <FaXTwitter size={22} />
+                <FaXTwitter size={20} />
                 X (Twitter)
               </Link>
 
@@ -171,7 +180,7 @@ export default function Footer() {
                 target="_blank"
                 className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
               >
-                <FaYoutube size={22} />
+                <FaYoutube size={20} />
                 YouTube
               </Link>
 
@@ -180,13 +189,16 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom */}
+        <div className="mt-12 border-t border-white/10 pt-5 flex flex-col gap-3 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
 
-        <div className="mt-20 border-t border-white/10 pt-8 flex flex-col gap-4 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+          <p>
+            © {new Date().getFullYear()} MOSU Studio. All rights reserved.
+          </p>
 
-          <p>© {new Date().getFullYear()} MOSU Studio. All rights reserved.</p>
-
-          <p>Designed & Developed by MOSU.</p>
+          <p>
+            Designed & Developed by MOSU.
+          </p>
 
         </div>
 
