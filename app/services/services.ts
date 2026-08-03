@@ -2,9 +2,9 @@ export const services = [
   {
     title: "Hotels & Resorts",
     slug: "hotels-resorts",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056868/pexels-wewe-yang-2383099-4566719_t9o0tp.jpg",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
 
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907677/pexels-kien-le-312590893-13584138_v4bpig.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
 
     subtitle: "Luxury hospitality spaces crafted for unforgettable experiences.",
 
@@ -24,9 +24,9 @@ export const services = [
   {
     title: "Luxury Residences",
     slug: "luxury-residences",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056869/pexels-gaborbalazs97-32457946_lk4nal.jpg",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
 
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784746547/pexels-chetanvlad-4082527_anilyy.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
 
     subtitle: "Elegant homes designed for modern living.",
 
@@ -46,9 +46,9 @@ export const services = [
   {
     title: "Art Installations",
     slug: "art-installations",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056867/pexels-igor-starkov-233202-756076_hk96ft.jpg",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
 
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907675/pexels-parth-patel-2161339175-37681448_ryt5mj.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
 
     subtitle: "Art that transforms spaces.",
 
@@ -68,10 +68,8 @@ export const services = [
   {
     title: "Sculptures",
     slug: "sculptures",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056867/pexels-magda-ehlers-pexels-37121734_u19dub.jpg",
-
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907678/pexels-aakashdeegutla-37703156_rpkvzv.jpg",
-
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
     subtitle: "Statement sculptures crafted with precision.",
 
     description:
@@ -90,9 +88,8 @@ export const services = [
   {
     title: "Lighting",
     slug: "lighting",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056866/pexels-patrick-leung-113942109-9714524_lcrlbk.jpg",
-
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907672/pexels-rye-bon-3017353-5561129_ks39ib.jpg",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
 
     subtitle: "Architectural lighting that defines spaces.",
 
@@ -112,9 +109,9 @@ export const services = [
   {
     title: "Mirrors & Chandeliers",
     slug: "mirrors-chandeliers",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056868/pexels-artbovich-6587905_ksljeh.jpg",
+    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
 
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907675/pexels-alisa-skripina-2147548092-35764835_pybfgv.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
 
     subtitle: "Luxury decorative lighting and mirror design.",
 
@@ -134,10 +131,8 @@ export const services = [
   {
     title: "Doors & Partitions",
     slug: "doors-partitions",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056874/pexels-jan-van-der-wolf-11680885-13917787_s2nmft.jpg",
-
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784907674/pexels-andre-124356440-35525173_zl4bqf.jpg",
-
+   image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
     subtitle: "Functional architectural partitions with timeless aesthetics.",
 
     description:
@@ -156,10 +151,8 @@ export const services = [
   {
     title: "Metal Finishes",
     slug: "metal-finishes",
-    image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785056868/pexels-jan-van-der-wolf-11680885-10685224_ktmljm.jpg",
-
-    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784746657/pexels-essentia-media-2154502099-33685860_x0yuxu.jpg",
-
+     image: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+    heroImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
     subtitle: "Premium metal craftsmanship for luxury interiors.",
 
     description:
