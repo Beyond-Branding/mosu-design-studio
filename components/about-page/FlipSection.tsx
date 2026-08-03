@@ -105,7 +105,7 @@ will-change-transform
 
         >
           <Image
-            src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784832102/pexels-chris-f-38966-14307406_dhiyte.jpg"
+            src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493728/NSP_0904_lkofdq.jpg"
             alt="MOSU"
             fill
             sizes="100vw"
