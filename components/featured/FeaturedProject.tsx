@@ -26,64 +26,79 @@ export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+  if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
+  const ctx = gsap.context(() => {
+    const slides = gsap.utils.toArray<HTMLElement>(".project-slide");
 
-      slides.forEach((slide, i) => {
-        gsap.set(slide, {
-          autoAlpha: i === 0 ? 1 : 0,
-          scale: 1,
-          zIndex: slides.length - i,
-        });
+    slides.forEach((slide, i) => {
+      gsap.set(slide, {
+        autoAlpha: i === 0 ? 1 : 0,
+        scale: 1,
+        zIndex: slides.length - i,
       });
+    });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${projects.length * 1000}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+
+        // Delay pinning slightly
+        start: "top+=50 top",
+
+        end: `+=${slides.length * 700}`,
+
+        pin: true,
+        pinSpacing: true,
+
+        scrub: 0.8,
+
+        anticipatePin: 0,
+
+        invalidateOnRefresh: true,
+
+        fastScrollEnd: true,
+
+        markers: false,
+      },
+    });
+
+    slides.forEach((slide, i) => {
+      if (i === 0) return;
+
+      tl.to(
+        slides[i - 1],
+        {
+          autoAlpha: 0,
+          scale: 1.08,
+          ease: "none",
+          duration: 1,
         },
-      });
+        "+=0.2"
+      ).to(
+        slide,
+        {
+          autoAlpha: 1,
+          scale: 1,
+          ease: "none",
+          duration: 1,
+        },
+        "<"
+      );
+    });
 
-      slides.forEach((slide, i) => {
-        if (i === 0) return;
+    ScrollTrigger.sort();
+    ScrollTrigger.refresh();
+  }, sectionRef);
 
-        tl.to(
-          slides[i - 1],
-          {
-            autoAlpha: 0,
-            scale: 1.08,
-            duration: 1,
-          },
-          "+=0.25"
-        ).to(
-          slide,
-          {
-            autoAlpha: 1,
-            scale: 1,
-            duration: 1,
-          },
-          "<"
-        );
-      });
-
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   return (
     <section
-      ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
-    >
+  ref={sectionRef}
+  className="relative min-h-screen overflow-hidden bg-black"
+>
       {projects.map((item, index) => (
         <div
           key={item.slug}
@@ -143,22 +158,22 @@ export default function FeaturedProjects() {
             </p>
 
             <h2
-              className="
-                max-w-6xl
-                uppercase
-                font-light
-                leading-[0.9]
-                tracking-[-0.04em]
+  className="
+    max-w-5xl
+    uppercase
+    font-light
+    leading-[1]
+    tracking-[-0.02em]
 
-                text-[3rem]
-                sm:text-[4rem]
-                md:text-[5rem]
-                lg:text-[6.5rem]
-                xl:text-[7.5rem]
-              "
-            >
-              {item.title}
-            </h2>
+    text-[2rem]
+    sm:text-[2.7rem]
+    md:text-[3.5rem]
+    lg:text-[4.3rem]
+    xl:text-[5rem]
+  "
+>
+  {item.title}
+</h2>
 
             <Link
               href={`/projects/${item.slug}`}

@@ -64,32 +64,7 @@ export default function WhyUs() {
         lg:px-12
       "
     >
-      {/* Decorative Circle */}
-      <div
-        ref={circleRef}
-        className="
-          absolute
-
-          left-6
-          top-14
-
-          h-10
-          w-10
-
-          sm:h-12
-          sm:w-12
-
-          lg:left-[28%]
-          lg:top-1/2
-          lg:h-16
-          lg:w-16
-          lg:-translate-y-1/2
-
-          rounded-full
-          border-2
-          border-neutral-800
-        "
-      />
+     
 
       {/* Content */}
       <div

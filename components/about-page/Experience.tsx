@@ -111,53 +111,56 @@ export default function Experience() {
             "
           >
             <h2
-              className="
-                font-black
-                uppercase
-                leading-none
+  className="
+    font-light
+    uppercase
+    leading-[0.95]
+    tracking-[-0.03em]
 
-                text-4xl
-                sm:text-5xl
-                md:text-6xl
-                lg:text-7xl
-                xl:text-8xl
-              "
-            >
-              {item.title}
-            </h2>
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    lg:text-6xl
+    xl:text-7xl
+  "
+>
+  {item.title}
+</h2>
 
-            <h3
-              className="
-                mt-4
-                uppercase
+          <h3
+  className="
+    mt-3
+    uppercase
+    tracking-[0.2em]
 
-                text-lg
-                sm:text-xl
-                md:text-2xl
-                lg:text-3xl
-              "
-            >
-              {item.subtitle}
-            </h3>
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+
+    text-neutral-200
+  "
+>
+  {item.subtitle}
+</h3>
 
             <p
-              className="
-                mt-6
+  className="
+    mt-5
+    max-w-lg
 
-                max-w-xl
+    text-sm
+    sm:text-[15px]
+    md:text-base
 
-                text-sm
-                sm:text-base
-                md:text-lg
+    leading-6
+    md:leading-7
 
-                leading-7
-                md:leading-8
-
-                text-neutral-300
-              "
-            >
-              {item.description}
-            </p>
+    text-neutral-300
+  "
+>
+  {item.description}
+</p>
           </div>
         </div>
       ))}
