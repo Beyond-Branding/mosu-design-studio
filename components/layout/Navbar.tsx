@@ -81,13 +81,13 @@ export default function Navbar() {
   className="absolute left-1/2 -translate-x-1/2"
 >
   <Image
-    src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
-    alt="MOSU Logo"
-    width={180}
-    height={60}
-    priority
-    className="h-10 w-auto sm:h-12 lg:h-14"
-  />
+  src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+  alt="MOSU Logo"
+  width={140}
+  height={45}
+  priority
+  className="h-8 w-auto sm:h-9 lg:h-10"
+/>
 </Link>
 
           {/* Desktop Right */}

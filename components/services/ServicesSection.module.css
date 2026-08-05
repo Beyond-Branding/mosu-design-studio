@@ -36,17 +36,22 @@
 .we,
 .do {
   position: absolute;
-
   top: 50%;
   transform: translateY(-50%);
 
-  font-size: clamp(8rem, 12vw, 14rem);
+  font-size: clamp(10rem, 15vw, 18rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: .9;
+  letter-spacing: -.05em;
 
-  color: #777;
+  color: #555;
 
   will-change: transform;
+}
+
+.word {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .we {

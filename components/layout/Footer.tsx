@@ -21,14 +21,14 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Link href="/">
-              <Image
-                src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
-                alt="MOSU"
-                width={210}
-                height={70}
-                priority
-                className="h-auto w-[180px] lg:w-[220px]"
-              />
+      <Image
+  src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+  alt="MOSU"
+  width={100}
+  height={35}
+  priority
+  className="h-auto w-[90px] lg:w-[110px]"
+/>
             </Link>
 
             <p className="mt-8 max-w-[290px] text-[15px] leading-8 text-gray-400">

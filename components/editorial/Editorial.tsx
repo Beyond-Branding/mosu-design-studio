@@ -97,23 +97,28 @@ requestAnimationFrame(() => {
             key={line}
             className="editorial-line absolute flex items-center justify-center w-full"
           >
-            <h2
-              className="
-                whitespace-pre-line
-                text-center
-                font-grey
-                uppercase
-                text-[#111]
-                leading-[0.95]
-                tracking-[-0.05em]
-                text-[2rem]
-                sm:text-[3rem]
-                md:text-[4rem]
-                lg:text-[5.5rem]
-              "
-            >
-              {line}
-            </h2>
+<h2
+  className="
+    whitespace-pre-line
+    text-center
+    font-grey
+    uppercase
+    text-[#111]
+    leading-[1]
+    tracking-[-0.03em]
+
+    max-w-[1500px]
+    mx-auto
+
+    text-[1.7rem]
+    sm:text-[2.2rem]
+    md:text-[3rem]
+    lg:text-[3.7rem]
+    xl:text-[4.3rem]
+  "
+>
+  {line}
+</h2>
           </div>
         ))}
       </div>

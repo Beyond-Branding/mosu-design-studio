@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { team } from "./teamData";
+import Link from "next/link";
+import { projects } from "@/app/projects/projects";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -22,11 +23,11 @@ export default function Team() {
 
           <div>
            <p className="uppercase tracking-[0.35em] text-xs text-neutral-600">
-  OUR TEAM
+  PROJECTS
 </p>
 
 <h2 className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black uppercase leading-none text-black">
-  Meet The Team
+  Explore Our Creations
 </h2>
 
           
@@ -54,54 +55,58 @@ export default function Team() {
         </div>
 
         <Swiper
-          modules={[Navigation]}
-          navigation={{
-            prevEl: ".team-prev",
-            nextEl: ".team-next",
-          }}
-          loop={true}
-          speed={700}
-          spaceBetween={28}
-          grabCursor
-          breakpoints={{
-            0: {
-              slidesPerView: 1.1,
-            },
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-            1400: {
-              slidesPerView: 4,
-            },
-          }}
-        >
-          {team.map((member) => (
-            <SwiperSlide key={member.name}>
-              <div className="group">
+  modules={[Navigation, Autoplay]}
+  navigation={{
+    prevEl: ".team-prev",
+    nextEl: ".team-next",
+  }}
+  autoplay={{
+    delay: 1000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  loop={true}
+  speed={1200}
+  spaceBetween={28}
+  grabCursor
+  breakpoints={{
+    0: {
+      slidesPerView: 1.1,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+    1400: {
+      slidesPerView: 4,
+    },
+  }}
+>
+          {projects.map((project) => (
+  <SwiperSlide key={project.slug}>
+  <Link href={`/projects/${project.slug}`} className="group block">
 
-                <div className="relative h-[430px] overflow-hidden rounded-sm">
+    <div className="relative h-[430px] overflow-hidden rounded-sm">
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className="object-cover transition duration-700 group-hover:scale-110"
+      />
+    </div>
 
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition duration-700 group-hover:scale-110"
-                  />
+    <h3 className="mt-6 text-3xl font-bold text-black">
+      {project.title}
+    </h3>
 
-                </div>
+    <p className="mt-2 uppercase tracking-[0.2em] text-sm text-neutral-600">
+      {project.location}
+    </p>
 
-                <h3 className="mt-6 text-3xl font-bold text-black">
-  {member.name}
-</h3>
-
-<p className="mt-2 uppercase tracking-[0.2em] text-sm text-neutral-600">
-  {member.role}
-</p>
-              </div>
-            </SwiperSlide>
+  </Link>
+</SwiperSlide>
           ))}
         </Swiper>
 
