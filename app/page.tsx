@@ -4,7 +4,8 @@ import Editorial from "@/components/editorial/Editorial";
 import AboutSection from "@/components/about/AboutSection";
 import Team from "@/components/about-page/Team";
 import FeaturedProject from "@/components/featured/FeaturedProject";
-import ServicesSection from "@/components/services/ServicesSection";
+import ServicesShowcase from "@/components/ServicesShowcase";
+
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
 <AboutSection />
 <Team />
 <FeaturedProject />
+ <ServicesShowcase />
 <Footer />
     </>
   );
