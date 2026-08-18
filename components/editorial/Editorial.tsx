@@ -20,67 +20,114 @@ export default function Editorial() {
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray<HTMLElement>(".editorial-line");
 
+      const characters = items.map((item) =>
+        gsap.utils.toArray<HTMLElement>(".char", item),
+      );
+
+      // Hide all containers
       gsap.set(items, {
-  opacity: 0,
-  x: 120,
-  filter: "blur(12px)",
-});
+        visibility: "hidden",
+      });
 
-gsap.set(items[0], {
-  opacity: 1,
-  x: 0,
-  filter: "blur(0px)",
-});
+      // Show first container
+      gsap.set(items[0], {
+        visibility: "visible",
+      });
 
-     const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: sectionRef.current,
-    start: "top top",
-    end: `+=${lines.length * 700}`,
-    pin: true,
-    scrub: 1,
-    anticipatePin: 1,
-    invalidateOnRefresh: true,
-  },
-});
+      // Hide all characters initially
+      gsap.set(characters.flat(), {
+        opacity: 0,
+      });
 
-requestAnimationFrame(() => {
-  ScrollTrigger.refresh();
-});
-     items.forEach((item, i) => {
-  if (i === items.length - 1) return;
+      // First text visible
+      gsap.set(characters[0], {
+        opacity: 1,
+      });
 
-  // Current text leaves to the left
-  tl.to(
-    item,
-    {
-      x: -120,
-      opacity: 0,
-      filter: "blur(12px)",
-      duration: 1,
-      ease: "power3.inOut",
-    },
-    "+=0.2"
-  );
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${lines.length * 1500}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
-  // Next text comes from the right
-  tl.fromTo(
-    items[i + 1],
-    {
-      x: 120,
-      opacity: 0,
-      filter: "blur(12px)",
-    },
-    {
-      x: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1,
-      ease: "power3.inOut",
-    },
-    "<"
-  );
-});
+      items.forEach((_, i) => {
+        if (i === items.length - 1) return;
+
+        const currentChars = characters[i];
+        const nextChars = characters[i + 1];
+
+        /*
+         * 1. CURRENT TEXT FADES OUT
+         *
+         * Characters disappear from RIGHT → LEFT.
+         * Small stagger means multiple characters
+         * are animating together in groups.
+         */
+        tl.to(
+          currentChars,
+          {
+            opacity: 0,
+            duration: 0.25,
+            stagger: {
+              each: 0.015,
+              from: "end",
+            },
+            ease: "power2.out",
+          },
+          "+=0.4",
+        );
+
+        /*
+         * 2. NEXT TEXT CONTAINER BECOMES VISIBLE
+         *
+         * Characters are still opacity: 0,
+         * so nothing pops onto the screen.
+         */
+        tl.set(items[i + 1], {
+          visibility: "visible",
+        });
+
+        /*
+         * 3. NEXT TEXT FADES IN
+         *
+         * Starts only AFTER the previous
+         * animation is completely finished.
+         *
+         * Characters appear LEFT → RIGHT
+         * in overlapping groups.
+         */
+        tl.to(
+          nextChars,
+          {
+            opacity: 1,
+            duration: 0.25,
+            stagger: {
+              each: 0.015,
+              from: "start",
+            },
+            ease: "power2.out",
+          },
+          "+=0.15",
+        );
+
+        // Hide old text after transition
+        tl.set(items[i], {
+          visibility: "hidden",
+        });
+
+        // Small pause before next transition
+        tl.to({}, { duration: 0.5 });
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -89,36 +136,25 @@ requestAnimationFrame(() => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#F5F3EE]"
+      className="relative bg-[#F5F3EE] h-screen overflow-hidden"
     >
-      <div className="absolute inset-0 flex items-center justify-center px-6 sm:px-10 lg:px-16">
+      <div className="absolute inset-0 flex justify-center items-center px-6 sm:px-10 lg:px-16">
         {lines.map((line) => (
           <div
             key={line}
-            className="editorial-line absolute flex items-center justify-center w-full"
+            className="absolute flex justify-center items-center w-full editorial-line"
           >
-<h2
-  className="
-    whitespace-pre-line
-    text-center
-    font-grey
-    uppercase
-    text-[#111]
-    leading-[1]
-    tracking-[-0.03em]
-
-    max-w-[1500px]
-    mx-auto
-
-    text-[1.7rem]
-    sm:text-[2.2rem]
-    md:text-[3rem]
-    lg:text-[3.7rem]
-    xl:text-[4.3rem]
-  "
->
-  {line}
-</h2>
+            <h2 className="mx-auto max-w-[1500px] font-grey text-[#111] text-[1.7rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.7rem] xl:text-[4.3rem] text-center uppercase leading-[1] tracking-[-0.03em]">
+              {line.split("\n").map((row, rowIndex) => (
+                <div key={rowIndex}>
+                  {Array.from(row).map((char, charIndex) => (
+                    <span key={charIndex} className="inline-block char">
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </h2>
           </div>
         ))}
       </div>
