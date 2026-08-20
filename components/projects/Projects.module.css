@@ -1,11 +1,22 @@
 /* =========================
+   PAGE
+========================= */
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+
+/* =========================
    HEADER
 ========================= */
 
 .header {
   padding: 170px 0 80px;
   text-align: center;
-  background: #fff;
+  background: #000;
+  color: #fff;
 }
 
 .header h1 {
@@ -13,13 +24,15 @@
   font-weight: 700;
   margin-bottom: 15px;
   letter-spacing: -0.04em;
+  color: #fff;
 }
 
 .header h2 {
   font-size: 1.8rem;
-  color: #777;
+  color: #aaa;
   font-weight: 400;
 }
+
 
 /* =========================
    FILTERS
@@ -27,35 +40,48 @@
 
 .filters {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 36px;
+  justify-content: center;
+  gap: 14px;
 
   padding: 32px 40px;
+  margin-bottom: 80px;
 
-  border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
+  background: #000;
+
+  border-top: 1px solid #2a2a2a;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .filters button {
-  background: none;
-  border: none;
+  border: 1px solid #444;
+  background: #000;
+  color: #fff;
 
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  padding: 12px 26px;
+
   text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
 
-  color: #666;
   cursor: pointer;
 
   transition: all 0.3s ease;
 }
 
-.filters button:hover,
-.filters button.active {
-  color: #111;
+.filters button:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }
+
+.filters button.active,
+.activeFilter {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
 
 /* =========================
    GRID
@@ -69,8 +95,11 @@
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 32px;
+
+  background: #000;
 }
+
 
 /* =========================
    CARD
@@ -80,21 +109,31 @@
   position: relative;
   display: block;
 
-  height: 520px;
+  height: 620px;
 
   overflow: hidden;
   cursor: pointer;
+
+  background: #111;
 }
 
-/* Image */
+
+/* =========================
+   IMAGE
+========================= */
 
 .image {
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(.22, .61, .36, 1),
-              filter 0.8s ease;
+
+  transition:
+    transform 0.8s cubic-bezier(.22, .61, .36, 1),
+    filter 0.8s ease;
 }
 
-/* Overlay */
+
+/* =========================
+   OVERLAY
+========================= */
 
 .overlay {
   position: absolute;
@@ -104,53 +143,72 @@
   flex-direction: column;
   justify-content: flex-end;
 
-  padding: 34px;
+  padding: 42px;
 
-  color: white;
+  color: #fff;
 
   background: linear-gradient(
     to top,
-    rgba(0,0,0,.7),
-    rgba(0,0,0,.2),
+    rgba(0, 0, 0, 0.78),
+    rgba(0, 0, 0, 0.08),
     transparent
   );
 
-  transition: all .5s ease;
+  transition: transform 0.5s ease;
 }
 
-/* Category */
 
-.category {
-  margin-bottom: 12px;
+/* =========================
+   CATEGORY
+========================= */
 
-  font-size: 12px;
-  letter-spacing: .3em;
+.overlay span {
+  font-size: 11px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 
-  opacity: .75;
+  color: #fff;
+  opacity: 0.75;
 }
 
-/* Title */
+
+/* =========================
+   TITLE
+========================= */
 
 .overlay h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.05;
+  margin-top: 14px;
 
-  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 300;
+
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+
+  color: #fff;
 }
 
-/* Location */
+
+/* =========================
+   LOCATION
+========================= */
 
 .overlay p {
-  font-size: .95rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+  margin-top: 16px;
 
-  opacity: .85;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+
+  color: #fff;
+  opacity: 0.75;
+
+  text-transform: uppercase;
 }
 
-/* White Glass Hover */
+
+/* =========================
+   WHITE GLASS HOVER
+========================= */
 
 .card::after {
   content: "";
@@ -158,15 +216,20 @@
   position: absolute;
   inset: 0;
 
-  background: rgba(255,255,255,.18);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
 
   opacity: 0;
 
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
+
+  pointer-events: none;
 }
 
-/* Hover */
+
+/* =========================
+   HOVER
+========================= */
 
 .card:hover::after {
   opacity: 1;
@@ -174,12 +237,13 @@
 
 .card:hover .image {
   transform: scale(1.08);
-  filter: blur(5px) brightness(.65);
+  filter: blur(5px) brightness(0.65);
 }
 
 .card:hover .overlay {
   transform: translateY(-10px);
 }
+
 
 /* =========================
    RESPONSIVE
@@ -188,6 +252,12 @@
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -205,8 +275,13 @@
   }
 
   .filters {
-    gap: 18px;
+    gap: 12px;
     padding: 24px;
+    margin-bottom: 50px;
+  }
+
+  .filters button {
+    padding: 10px 18px;
   }
 
   .grid {
@@ -218,115 +293,11 @@
     height: 420px;
   }
 
+  .overlay {
+    padding: 30px;
+  }
+
   .overlay h2 {
     font-size: 1.8rem;
   }
-}
-
-/* =========================
-   PAGE
-========================= */
-
-body {
-  background: #fff;
-  color: #111;
-}
-
-/* Heading spacing already handled by Tailwind */
-
-/* Filters */
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 80px;
-}
-
-.filters button {
-  border: 1px solid #d9d9d9;
-  background: white;
-  padding: 12px 26px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 11px;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.filters button:hover {
-  background: black;
-  color: white;
-}
-
-.activeFilter {
-  background: black !important;
-  color: white !important;
-}
-
-/* Grid */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-@media (max-width:900px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-}
-
-/* Card */
-
-.card{
-  position:relative;
-  display:block;
-  height:620px;
-  overflow:hidden;
-}
-
-.image{
-  object-fit:cover;
-  transition:transform .8s ease;
-}
-
-.card:hover .image{
-  transform:scale(1.08);
-}
-
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.05));
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:42px;
-  color:white;
-}
-
-.overlay span{
-  font-size:11px;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  opacity:.75;
-}
-
-.overlay h2{
-  margin-top:14px;
-  font-size:3rem;
-  font-weight:300;
-  letter-spacing:-.03em;
-  line-height:.95;
-}
-
-.overlay p{
-  margin-top:16px;
-  font-size:14px;
-  letter-spacing:.18em;
-  opacity:.75;
-  text-transform:uppercase;
 }

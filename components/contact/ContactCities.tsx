@@ -10,7 +10,7 @@ export default function ContactCities() {
 
   return (
     <>
-      <section className="bg-[#f6f4f1] px-5 sm:px-8 pb-16 md:pb-24">
+      <section className="bg-black px-5 pb-16 text-white sm:px-8 md:pb-24">
         <div className="mx-auto w-full max-w-3xl">
 
           {cities.map((city) => (
@@ -19,10 +19,11 @@ export default function ContactCities() {
               onMouseEnter={() => setHovered(city.id)}
               onMouseLeave={() => setHovered(1)}
               onClick={() => setSelectedCity(city)}
-              className="cursor-pointer border-b border-neutral-300 py-5 md:py-7"
+              className="cursor-pointer border-b border-white/20 py-5 transition-colors duration-300 md:py-7"
             >
               <div className="text-center">
 
+                {/* City Name */}
                 <h2
                   className={`
                     font-black
@@ -34,8 +35,8 @@ export default function ContactCities() {
 
                     ${
                       hovered === city.id
-                        ? "text-[#111]"
-                        : "text-neutral-300"
+                        ? "text-white"
+                        : "text-white/25"
                     }
 
                     text-3xl
@@ -47,6 +48,7 @@ export default function ContactCities() {
                   {city.name}
                 </h2>
 
+                {/* City Details */}
                 <div
                   className={`
                     overflow-hidden
@@ -55,19 +57,21 @@ export default function ContactCities() {
 
                     ${
                       hovered === city.id
-                        ? "max-h-40 opacity-100 mt-3"
+                        ? "mt-3 max-h-40 opacity-100"
                         : "max-h-0 opacity-0"
                     }
                   `}
                 >
                   <div className="space-y-2">
 
-                    <p className="text-xs sm:text-sm text-neutral-700">
-                      <span className="font-bold">P.</span> {city.phone}
+                    <p className="text-xs text-white/70 sm:text-sm">
+                      <span className="font-bold text-white">P.</span>{" "}
+                      {city.phone}
                     </p>
 
-                    <p className="mx-auto max-w-md text-xs sm:text-sm leading-relaxed text-neutral-700">
-                      <span className="font-bold">A.</span> {city.address}
+                    <p className="mx-auto max-w-md text-xs leading-relaxed text-white/70 sm:text-sm">
+                      <span className="font-bold text-white">A.</span>{" "}
+                      {city.address}
                     </p>
 
                   </div>

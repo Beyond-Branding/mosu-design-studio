@@ -37,10 +37,13 @@ export default function Experience() {
       slides.forEach((slide, index) => {
         if (index === 0) return;
 
-        tl.to(slides[index - 1], {
-          autoAlpha: 0,
-          duration: 1,
-        });
+        tl.to(
+          slides[index - 1],
+          {
+            autoAlpha: 0,
+            duration: 1,
+          }
+        );
 
         tl.to(
           slide,
@@ -64,9 +67,9 @@ export default function Experience() {
       {experienceData.map((item) => (
         <div
           key={item.title}
-          className="exp-slide absolute inset-0"
+          className="exp-slide absolute inset-0 bg-black"
         >
-          {/* Background */}
+          {/* IMAGE */}
           <Image
             src={item.image}
             alt={item.title}
@@ -76,14 +79,15 @@ export default function Experience() {
             className="object-cover"
           />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50" />
+          {/* DARK OVERLAY */}
+          <div className="absolute inset-0 bg-black/55" />
 
-          {/* Content */}
+          {/* CONTENT */}
           <div
             className="
               absolute
               z-20
+              text-white
 
               left-6
               right-6
@@ -106,61 +110,60 @@ export default function Experience() {
 
               xl:left-24
               xl:max-w-2xl
-
-              text-white
             "
           >
+            {/* TITLE */}
             <h2
-  className="
-    font-light
-    uppercase
-    leading-[0.95]
-    tracking-[-0.03em]
+              className="
+                font-light
+                uppercase
+                leading-[0.95]
+                tracking-[-0.03em]
+                text-white
 
-    text-3xl
-    sm:text-4xl
-    md:text-5xl
-    lg:text-6xl
-    xl:text-7xl
-  "
->
-  {item.title}
-</h2>
+                text-3xl
+                sm:text-4xl
+                md:text-5xl
+                lg:text-6xl
+                xl:text-7xl
+              "
+            >
+              {item.title}
+            </h2>
 
-          <h3
-  className="
-    mt-3
-    uppercase
-    tracking-[0.2em]
+            {/* SUBTITLE */}
+            <h3
+              className="
+                mt-3
+                uppercase
+                tracking-[0.2em]
+                text-white/80
 
-    text-base
-    sm:text-lg
-    md:text-xl
-    lg:text-2xl
+                text-base
+                sm:text-lg
+                md:text-xl
+                lg:text-2xl
+              "
+            >
+              {item.subtitle}
+            </h3>
 
-    text-neutral-200
-  "
->
-  {item.subtitle}
-</h3>
-
+            {/* DESCRIPTION */}
             <p
-  className="
-    mt-5
-    max-w-lg
+              className="
+                mt-5
+                max-w-lg
+                leading-6
+                text-white/65
 
-    text-sm
-    sm:text-[15px]
-    md:text-base
-
-    leading-6
-    md:leading-7
-
-    text-neutral-300
-  "
->
-  {item.description}
-</p>
+                text-sm
+                sm:text-[15px]
+                md:text-base
+                md:leading-7
+              "
+            >
+              {item.description}
+            </p>
           </div>
         </div>
       ))}

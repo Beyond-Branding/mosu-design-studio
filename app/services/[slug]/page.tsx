@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ServicesShowcase from "@/components/ServicesShowcase"; // <-- import your component
+import ServicesShowcase from "@/components/ServicesShowcase";
 
 import { services } from "../services";
 
@@ -13,9 +13,7 @@ interface Props {
   }>;
 }
 
-export default async function ServicePage({
-  params,
-}: Props) {
+export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
 
   const service = services.find(
@@ -30,45 +28,111 @@ export default async function ServicePage({
     <>
       <Navbar />
 
-      <main>
-        {/* Hero */}
-        <section className="relative h-screen">
+      <main className="bg-black text-white">
+
+        {/* ================= HERO ================= */}
+
+        <section className="relative h-screen overflow-hidden">
+
           <Image
             src={service.image}
             alt={service.title}
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/45" />
 
-          <div className="absolute bottom-20 left-20 z-10 text-white">
-            <p className="mb-4 uppercase tracking-[0.35em] text-sm">
+          <div
+            className="
+              absolute
+              bottom-16
+              left-6
+              right-6
+              z-10
+
+              sm:left-10
+              sm:bottom-20
+
+              lg:left-20
+              lg:bottom-24
+            "
+          >
+            <p className="mb-4 text-xs uppercase tracking-[0.4em] text-white/60">
               Service
             </p>
 
-            <h1 className="text-7xl font-black">
+            <h1
+              className="
+                max-w-6xl
+                text-5xl
+                font-black
+                uppercase
+                leading-[0.9]
+                tracking-[-0.04em]
+
+                sm:text-6xl
+                md:text-7xl
+                lg:text-[8vw]
+              "
+            >
               {service.title}
             </h1>
           </div>
+
         </section>
 
-        {/* Description */}
-        <section className="bg-white py-32">
-          <div className="mx-auto grid max-w-7xl items-center gap-24 px-10 lg:grid-cols-2">
+
+        {/* ================= DESCRIPTION ================= */}
+
+        <section className="bg-black py-28 lg:py-40">
+
+          <div
+            className="
+              mx-auto
+              grid
+              max-w-[1500px]
+              items-center
+              gap-16
+              px-6
+
+              md:px-10
+              lg:grid-cols-2
+              lg:gap-24
+            "
+          >
+
+            {/* TEXT */}
 
             <div>
-              <p className="mb-6 uppercase tracking-[0.35em] text-xs text-neutral-500">
+
+              <p className="mb-6 text-xs uppercase tracking-[0.35em] text-white/40">
                 Overview
               </p>
 
-              <h2 className="mb-10 text-[52px] font-light leading-[1.1] text-[#111]">
+              <h2
+                className="
+                  mb-10
+                  text-4xl
+                  font-light
+                  uppercase
+                  leading-[1.05]
+                  tracking-[-0.03em]
+
+                  sm:text-5xl
+                  lg:text-6xl
+                "
+              >
                 {service.subtitle}
               </h2>
 
-              <div className="space-y-8 text-lg leading-9 text-neutral-600">
-                <p>{service.description}</p>
+              <div className="max-w-xl space-y-8 text-base leading-8 text-white/60 lg:text-lg lg:leading-9">
+
+                <p>
+                  {service.description}
+                </p>
 
                 <p>
                   Every project is developed through a thoughtful design
@@ -76,23 +140,36 @@ export default async function ServicePage({
                   craftsmanship to create timeless spaces tailored to every
                   client.
                 </p>
+
               </div>
+
             </div>
 
-            <div className="relative h-[650px] overflow-hidden rounded-sm">
+
+            {/* IMAGE */}
+
+            <div className="relative h-[500px] overflow-hidden sm:h-[600px] lg:h-[700px]">
+
               <Image
                 src={service.heroImage}
                 alt={service.title}
                 fill
+                sizes="(max-width:1024px) 100vw, 50vw"
                 className="object-cover"
               />
+
             </div>
 
           </div>
+
         </section>
 
-        {/* Services */}
-        <ServicesShowcase />
+
+        {/* ================= SERVICES SHOWCASE ================= */}
+
+        <div className="bg-black">
+          <ServicesShowcase />
+        </div>
 
       </main>
 
