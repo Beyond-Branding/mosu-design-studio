@@ -27,16 +27,18 @@ export default function WhyUs() {
           },
         });
 
-        gsap.from(circleRef.current, {
-          scale: 0,
-          rotate: 180,
-          duration: 1,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-          },
-        });
+        if (circleRef.current) {
+          gsap.from(circleRef.current, {
+            scale: 0,
+            rotate: 180,
+            duration: 1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 75%",
+            },
+          });
+        }
       }, sectionRef);
 
       return () => ctx.revert();
@@ -57,15 +59,13 @@ export default function WhyUs() {
         min-h-[70vh]
         lg:min-h-screen
 
-        bg-[#f6f6f4]
+        bg-black
 
         px-6
         sm:px-8
         lg:px-12
       "
     >
-     
-
       {/* Content */}
       <div
         ref={titleRef}
@@ -81,7 +81,8 @@ export default function WhyUs() {
             font-medium
             uppercase
             tracking-[0.35em]
-            text-neutral-500
+
+            text-white/50
           "
         >
           WHY US?
@@ -92,7 +93,7 @@ export default function WhyUs() {
             font-black
             uppercase
             leading-none
-            text-neutral-900
+            text-white
           "
         >
           <span
@@ -117,6 +118,8 @@ export default function WhyUs() {
               sm:text-4xl
               md:text-5xl
               lg:text-[5vw]
+
+              text-white
             "
           >
             TO WORK WITH MOSU

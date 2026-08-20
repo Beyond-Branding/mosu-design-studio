@@ -12,186 +12,160 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1d1d1d] text-white">
-      <div className="mx-auto max-w-[1700px] px-8 lg:px-10 pt-20 pb-6">
+    <footer className="bg-black text-white">
 
-        {/* Top */}
+      <div className="mx-auto max-w-[1700px] px-6 sm:px-8 lg:px-10 pt-20 pb-6">
+
+        {/* ================= TOP ================= */}
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
 
-          {/* Logo */}
+          {/* LOGO / ABOUT */}
           <div>
-            <Link href="/">
-      <Image
-  src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
-  alt="MOSU"
-  width={100}
-  height={35}
-  priority
-  className="h-auto w-[90px] lg:w-[110px]"
-/>
+            <Link href="/" className="inline-block">
+              <Image
+                src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+                alt="MOSU"
+                width={110}
+                height={40}
+                priority
+                className="h-auto w-[90px] lg:w-[110px]"
+              />
             </Link>
 
-            <p className="mt-8 max-w-[290px] text-[15px] leading-8 text-gray-400">
+            <p className="mt-8 max-w-[290px] text-[15px] leading-8 text-white/50">
               We create timeless architecture, interiors and bespoke spaces
               inspired by simplicity, craftsmanship and innovation.
             </p>
           </div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold">
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
               Services
             </h3>
 
             <ul className="space-y-4">
-
-              <li>
-                <Link
-                  href="/services/hotels-resorts"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Hotels & Resorts
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/luxury-residences"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Luxury Residences
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/art-installations"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Art Installations
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/sculptures"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Sculptures
-                </Link>
-              </li>
-
+              {[
+                ["Hotels & Resorts", "/services/hotels-resorts"],
+                ["Luxury Residences", "/services/luxury-residences"],
+                ["Art Installations", "/services/art-installations"],
+                ["Sculptures", "/services/sculptures"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="
+                      inline-block
+                      text-white/50
+                      transition-all
+                      duration-300
+                      hover:translate-x-2
+                      hover:text-white
+                    "
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold">
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
               Quick Links
             </h3>
 
             <ul className="space-y-4">
-
-              <li>
-                <Link
-                  href="/about"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/projects"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Projects
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Services
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/contact"
-                  className="inline-block text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-                >
-                  Contact
-                </Link>
-              </li>
-
+              {[
+                ["About", "/about"],
+                ["Projects", "/projects"],
+                ["Services", "/services"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="
+                      inline-block
+                      text-white/50
+                      transition-all
+                      duration-300
+                      hover:translate-x-2
+                      hover:text-white
+                    "
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social */}
+          {/* SOCIAL */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold">
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
               Connect With Us
             </h3>
 
             <div className="space-y-5">
 
-              <Link
+              <SocialLink
                 href="https://instagram.com"
-                target="_blank"
-                className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-              >
-                <FaInstagram size={20} />
-                Instagram
-              </Link>
+                icon={<FaInstagram size={19} />}
+                label="Instagram"
+              />
 
-              <Link
+              <SocialLink
                 href="https://facebook.com"
-                target="_blank"
-                className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-              >
-                <FaFacebookF size={20} />
-                Facebook
-              </Link>
+                icon={<FaFacebookF size={19} />}
+                label="Facebook"
+              />
 
-              <Link
+              <SocialLink
                 href="https://linkedin.com"
-                target="_blank"
-                className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-              >
-                <FaLinkedinIn size={20} />
-                LinkedIn
-              </Link>
+                icon={<FaLinkedinIn size={19} />}
+                label="LinkedIn"
+              />
 
-              <Link
+              <SocialLink
                 href="https://x.com"
-                target="_blank"
-                className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-              >
-                <FaXTwitter size={20} />
-                X (Twitter)
-              </Link>
+                icon={<FaXTwitter size={19} />}
+                label="X (Twitter)"
+              />
 
-              <Link
+              <SocialLink
                 href="https://youtube.com"
-                target="_blank"
-                className="flex items-center gap-4 text-gray-400 transition-all duration-300 hover:text-white hover:translate-x-2"
-              >
-                <FaYoutube size={20} />
-                YouTube
-              </Link>
+                icon={<FaYoutube size={19} />}
+                label="YouTube"
+              />
 
             </div>
           </div>
 
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 border-t border-white/10 pt-5 flex flex-col gap-3 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+        {/* ================= BOTTOM ================= */}
 
+        <div
+          className="
+            mt-16
+            flex
+            flex-col
+            gap-3
+            border-t
+            border-white/10
+            pt-6
+            text-xs
+            uppercase
+            tracking-[0.12em]
+            text-white/35
+
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
           <p>
             © {new Date().getFullYear()} MOSU Studio. All rights reserved.
           </p>
@@ -199,10 +173,43 @@ export default function Footer() {
           <p>
             Designed & Developed by MOSU.
           </p>
-
         </div>
 
       </div>
     </footer>
+  );
+}
+
+
+/* ================= SOCIAL LINK ================= */
+
+function SocialLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        flex
+        items-center
+        gap-4
+        text-white/50
+        transition-all
+        duration-300
+        hover:translate-x-2
+        hover:text-white
+      "
+    >
+      {icon}
+      {label}
+    </Link>
   );
 }
