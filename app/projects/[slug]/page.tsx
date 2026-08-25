@@ -3,22 +3,11 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  use,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
-
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { use, useEffect, useState } from "react";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
 import { projects } from "../projects";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   params: Promise<{
@@ -26,1480 +15,872 @@ interface Props {
   }>;
 }
 
-export default function ProjectDetailPage({
-  params,
-}: Props) {
+export default function ProjectDetailPage({ params }: Props) {
   const { slug } = use(params);
 
-  const project = projects.find(
-    (item) => item.slug === slug
-  );
+  const project = projects.find((item) => item.slug === slug);
+
+  /*
+   * Keep hooks unconditional.
+   * This avoids React hook-order problems.
+   */
+  const gallery = project?.gallery?.length
+    ? project.gallery
+    : project
+      ? [project.heroImage, project.image].filter(Boolean)
+      : [];
+
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
+
+  /*
+   * Create exactly 3 images for the final image sequence.
+   *
+   * Preferred:
+   * gallery[4]
+   * gallery[5]
+   * gallery[6]
+   *
+   * If your project has fewer images, fall back to other
+   * available gallery images so the three sections still render.
+   */
+  const threeGalleryImages = [
+    gallery[4] || gallery[1] || gallery[0],
+    gallery[5] || gallery[2] || gallery[1] || gallery[0],
+    gallery[6] || gallery[3] || gallery[2] || gallery[0],
+  ].filter(Boolean);
+
+  /*
+   * LOCK PAGE SCROLL WHEN SLIDER IS OPEN
+   */
+  useEffect(() => {
+    if (galleryOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [galleryOpen]);
+
+  /*
+   * KEYBOARD CONTROLS
+   */
+  useEffect(() => {
+    if (!galleryOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setGalleryOpen(false);
+      }
+
+      if (event.key === "ArrowLeft") {
+        setActiveImage((current) =>
+          current === 0 ? gallery.length - 1 : current - 1
+        );
+      }
+
+      if (event.key === "ArrowRight") {
+        setActiveImage((current) =>
+          current === gallery.length - 1 ? 0 : current + 1
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [galleryOpen, gallery.length]);
 
   if (!project) {
     notFound();
   }
 
-  return <ProjectContent project={project} />;
-}
-
-
-/* =========================================================
-   PROJECT CONTENT
-========================================================= */
-
-function ProjectContent({
-  project,
-}: {
-  project: (typeof projects)[number];
-}) {
-  const pageRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
-
-  const gallery = project.gallery?.length
-    ? project.gallery
-    : [project.heroImage, project.image];
-
-
-  /* =====================================================
-     GSAP
-  ===================================================== */
-
-  useLayoutEffect(() => {
-    if (!pageRef.current) return;
-
-    const ctx = gsap.context(() => {
-
-      /* =================================================
-         HERO
-      ================================================= */
-
-      const heroImage =
-        heroRef.current?.querySelector(
-          ".hero-image"
-        );
-
-      if (heroImage) {
-        gsap.fromTo(
-          heroImage,
-          {
-            scale: 1.1,
-          },
-          {
-            scale: 1,
-            duration: 1.8,
-            ease: "power3.out",
-          }
-        );
-
-        gsap.to(heroImage, {
-          scale: 1.06,
-          yPercent: 7,
-          ease: "none",
-
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }
-
-
-      /* =================================================
-         REVEALS
-      ================================================= */
-
-      const reveals =
-        gsap.utils.toArray<HTMLElement>(
-          ".reveal"
-        );
-
-      reveals.forEach((element) => {
-        gsap.fromTo(
-          element,
-          {
-            opacity: 0,
-            y: 50,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-
-            scrollTrigger: {
-              trigger: element,
-              start: "top 88%",
-              once: true,
-            },
-          }
-        );
-      });
-
-
-      /* =================================================
-         PROJECT TITLE
-      ================================================= */
-
-      const title =
-        pageRef.current?.querySelector(
-          ".project-title"
-        );
-
-      if (title) {
-        gsap.fromTo(
-          title,
-          {
-            opacity: 0,
-            y: 70,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power4.out",
-          }
-        );
-      }
-
-
-      /* =================================================
-         META
-      ================================================= */
-
-      const metaItems =
-        gsap.utils.toArray<HTMLElement>(
-          ".meta-item"
-        );
-
-      gsap.fromTo(
-        metaItems,
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.07,
-          ease: "power3.out",
-        }
-      );
-
-
-      /* =================================================
-         MAP
-      ================================================= */
-
-      const map =
-        pageRef.current?.querySelector(
-          ".india-map"
-        );
-
-      if (map) {
-        gsap.fromTo(
-          map,
-          {
-            opacity: 0,
-            scale: 0.92,
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 1.4,
-            ease: "power3.out",
-
-            scrollTrigger: {
-              trigger: map,
-              start: "top 80%",
-              once: true,
-            },
-          }
-        );
-      }
-
-
-      /* =================================================
-         MAP MARKERS
-      ================================================= */
-
-      const markers =
-        gsap.utils.toArray<HTMLElement>(
-          ".map-marker"
-        );
-
-      gsap.fromTo(
-        markers,
-        {
-          opacity: 0,
-          scale: 0,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: "back.out(2)",
-
-          scrollTrigger: {
-            trigger: map,
-            start: "top 75%",
-            once: true,
-          },
-        }
-      );
-
-
-      /* =================================================
-         PROJECT IMAGES
-      ================================================= */
-
-      const images =
-        gsap.utils.toArray<HTMLElement>(
-          ".project-image"
-        );
-
-      images.forEach((image) => {
-        gsap.fromTo(
-          image,
-          {
-            scale: 1.08,
-          },
-          {
-            scale: 1,
-            ease: "none",
-
-            scrollTrigger: {
-              trigger: image,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
-          }
-        );
-      });
-
-
-      /* =================================================
-         ABOUT OVERLAY
-      ================================================= */
-
-      const about =
-        pageRef.current?.querySelector(
-          ".image-about"
-        );
-
-      if (about) {
-        gsap.fromTo(
-          about,
-          {
-            opacity: 0,
-            y: 40,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.1,
-            ease: "power3.out",
-
-            scrollTrigger: {
-              trigger: about,
-              start: "top 80%",
-              once: true,
-            },
-          }
-        );
-      }
-
-
-      ScrollTrigger.refresh();
-
-    }, pageRef);
-
-    return () => {
-      ctx.revert();
-    };
-
-  }, []);
-
-
   return (
     <>
       <Navbar />
 
-      <main
-        ref={pageRef}
-        className="
-          project-page
-          overflow-hidden
-          bg-[#f5f5f3]
-          text-[#111]
-        "
-      >
+      <main className="bg-black text-white">
 
         {/* =================================================
             01 — HERO
         ================================================= */}
 
-        <section
-          ref={heroRef}
-          className="
-            relative
-            h-[100svh]
-            min-h-[680px]
-            w-full
-            overflow-hidden
-            bg-black
-          "
-        >
-
+        <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-black">
           <Image
             src={project.heroImage}
             alt={project.title}
             fill
             priority
             sizes="100vw"
-            className="
-              hero-image
-              object-cover
-              will-change-transform
-            "
+            className="object-cover"
           />
 
           <div className="absolute inset-0 bg-black/10" />
 
-          <div
-            className="
-              absolute
-              bottom-8
-              left-6
-              z-10
-              flex
-              items-center
-              gap-4
-              text-white
-              sm:left-10
-              lg:left-16
-            "
-          >
-
+          <div className="absolute bottom-8 left-6 z-10 flex items-center gap-4 text-white sm:left-10 lg:left-16">
             <span className="h-px w-12 bg-white/60" />
 
-            <span
-              className="
-                text-[9px]
-                uppercase
-                tracking-[0.3em]
-              "
-            >
+            <span className="text-[9px] uppercase tracking-[0.3em]">
               Scroll to explore
             </span>
-
           </div>
-
         </section>
 
 
         {/* =================================================
-            02 — PROJECT TITLE + META
+            02 — BLACK MAP
         ================================================= */}
 
-        <section
-          className="
-            bg-[#f5f5f3]
-            px-6
-            py-20
-            sm:px-10
-            lg:px-16
-            lg:py-28
-          "
-        >
+        <section className="relative h-[390px] w-full overflow-hidden bg-black">
 
-          <div className="mx-auto max-w-[1600px]">
+          {/* DESIGN STYLE */}
 
-            {/* LOCATION */}
+          <div className="absolute left-[2%] top-1/2 z-10 -translate-y-1/2">
+            <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+              Design Style
+            </p>
 
-            <div className="reveal mb-6">
+            <p className="mt-1 text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+              {project.designStyle || "Contemporary Minimalism"}
+            </p>
+          </div>
 
-              <p
-                className="
-                  text-[8px]
-                  uppercase
-                  tracking-[0.35em]
-                  text-black/45
+
+          {/* MAP */}
+
+          <div className="absolute left-1/2 top-1/2 h-[290px] w-[400px] -translate-x-1/2 -translate-y-1/2">
+            <svg
+              viewBox="0 0 600 430"
+              className="h-full w-full"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="
+                  M126 42
+                  L151 34
+                  L175 38
+                  L197 53
+                  L224 73
+                  L250 91
+                  L277 111
+                  L306 128
+                  L337 132
+                  L361 141
+                  L378 158
+                  L393 174
+                  L405 199
+                  L419 214
+                  L430 238
+                  L453 251
+                  L471 253
+                  L486 267
+                  L484 288
+                  L470 299
+                  L463 321
+                  L447 331
+                  L428 340
+                  L409 347
+                  L389 355
+                  L367 362
+                  L346 369
+                  L329 380
+                  L313 396
+                  L297 411
+                  L285 397
+                  L272 387
+                  L254 379
+                  L239 366
+                  L222 358
+                  L211 340
+                  L195 329
+                  L182 311
+                  L168 297
+                  L157 278
+                  L145 264
+                  L132 245
+                  L119 227
+                  L109 207
+                  L99 190
+                  L91 171
+                  L83 153
+                  L77 136
+                  L82 119
+                  L94 108
+                  L108 102
+                  L119 91
+                  L128 78
+                  L121 65
+                  L112 54
+                  Z
                 "
-              >
-                {project.location}
-              </p>
-
-            </div>
-
-
-            {/* SMALLER TITLE */}
-
-            <h1
-              className="
-                project-title
-                max-w-[1100px]
-                text-[clamp(3.5rem,8vw,8.5rem)]
-                font-light
-                uppercase
-                leading-[0.8]
-                tracking-[-0.075em]
-              "
-            >
-              {project.title}
-            </h1>
-
-
-            {/* META */}
-
-            <div
-              className="
-                mt-20
-                grid
-                grid-cols-2
-                border-t
-                border-black/15
-                sm:grid-cols-3
-                lg:grid-cols-6
-              "
-            >
-
-              <Meta
-                label="Location"
-                value={project.location}
+                stroke="rgba(255,255,255,0.7)"
+                strokeWidth="1"
+                vectorEffect="non-scaling-stroke"
               />
+            </svg>
+          </div>
 
-              <Meta
-                label="Design Style"
-                value={
-                  project.designStyle ||
-                  "Contemporary"
-                }
-              />
 
-              <Meta
-                label="Coordinates"
-                value={
-                  project.coordinates || "—"
-                }
-              />
+          {/* LOCATION */}
 
-              <Meta
-                label="Status"
-                value={project.status}
-              />
+          <div className="absolute left-[47.5%] top-1/2 -translate-y-1/2">
+            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+              {project.location || "Riyadh, Saudi Arabia"}
+            </p>
 
-              <Meta
-                label="Type"
-                value={
-                  project.type ||
-                  project.category
-                }
-              />
+            <p className="whitespace-pre-line text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+              {project.coordinates ||
+                `24°41'15.83" N
+46°43'18.66" E`}
+            </p>
+          </div>
 
-              <Meta
-                label="Area"
-                value={
-                  project.area ||
-                  project.year ||
-                  "—"
-                }
-              />
 
-            </div>
+          {/* STATUS */}
 
+          <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
+            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+              {project.status || "In Progress"}
+            </p>
+
+            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+              {project.type || "Mosque"}
+            </p>
+          </div>
+
+
+          {/* AREA */}
+
+          <div className="absolute right-[2%] top-1/2 -translate-y-1/2">
+            <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+              {project.area || "2,260 FT²"}
+            </p>
           </div>
 
         </section>
 
 
         {/* =================================================
-            03 — INDIA MAP
-        ================================================= */}
-
-        <IndiaMap />
-
-
-        {/* =================================================
-            04 — FIRST IMAGE + ABOUT OVERLAY
+            03 — LONG VERTICAL IMAGE + ABOUT
         ================================================= */}
 
         {gallery[1] && (
+          <section className="relative min-h-[180svh] w-full overflow-hidden bg-black">
 
-          <FullImage
-            src={gallery[1]}
-            alt={`${project.title} 02`}
-            overlay
-            title="About"
-            text={project.description}
-            awards={project.awards}
-          />
+            <Image
+              src={gallery[1]}
+              alt={`${project.title} — Interior`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-        )}
+            <div className="absolute inset-0 bg-black/20" />
 
+            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/70" />
 
-        {/* =================================================
-            05 — CONCEPT
-        ================================================= */}
+            <div className="absolute inset-x-0 top-0 z-10 px-6 pt-20 sm:px-10 sm:pt-28 lg:px-16 lg:pt-36">
 
-        {project.concept && (
+              <div className="mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.25fr_0.75fr]">
 
-          <Editorial
-            number="01"
-            title="Concept"
-            text={project.concept}
-          />
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
+                    About
+                  </p>
+                </div>
 
-        )}
+                <div>
 
+                  {project.description && (
+                    <p className="max-w-[1000px] text-[clamp(1.8rem,3.5vw,4rem)] font-light leading-[1.02] tracking-[-0.04em] text-white">
+                      {project.description}
+                    </p>
+                  )}
 
-        {/* =================================================
-            06 — IMAGE
-        ================================================= */}
+                  {project.awards && (
+                    <p className="mt-8 max-w-[700px] text-[10px] leading-5 tracking-[0.02em] text-white/55">
+                      {project.awards}
+                    </p>
+                  )}
 
-        {gallery[2] && (
-
-          <FullImage
-            src={gallery[2]}
-            alt={`${project.title} 03`}
-          />
-
-        )}
-
-
-        {/* =================================================
-            07 — CHALLENGE
-        ================================================= */}
-
-        {project.challenge && (
-
-          <Editorial
-            number="02"
-            title="Challenge"
-            text={project.challenge}
-          />
-
-        )}
-
-
-        {/* =================================================
-            08 — IMAGE
-        ================================================= */}
-
-        {gallery[3] && (
-
-          <FullImage
-            src={gallery[3]}
-            alt={`${project.title} 04`}
-          />
-
-        )}
-
-
-        {/* =================================================
-            09 — COMPOSITION
-        ================================================= */}
-
-        {project.composition && (
-
-          <Editorial
-            number="03"
-            title="Composition"
-            text={project.composition}
-          />
-
-        )}
-
-
-        {/* =================================================
-            10 — EXTRA GALLERY
-        ================================================= */}
-
-        {gallery.length > 4 && (
-
-          <section
-            className="
-              bg-[#f5f5f3]
-              px-6
-              py-24
-              sm:px-10
-              lg:px-16
-            "
-          >
-
-            <div className="mx-auto max-w-[1700px]">
-
-              <div
-                className="
-                  mb-16
-                  flex
-                  items-center
-                  justify-between
-                "
-              >
-
-                <span
-                  className="
-                    text-[8px]
-                    uppercase
-                    tracking-[0.35em]
-                    text-black/40
-                  "
-                >
-                  Gallery
-                </span>
-
-                <span
-                  className="
-                    text-[8px]
-                    uppercase
-                    tracking-[0.25em]
-                    text-black/40
-                  "
-                >
-                  {gallery.length} Images
-                </span>
-
-              </div>
-
-
-              <div
-                className="
-                  grid
-                  gap-4
-                  md:grid-cols-2
-                "
-              >
-
-                {gallery
-                  .slice(4)
-                  .map((image, index) => (
-
-                    <div
-                      key={`${image}-${index}`}
-                      className="
-                        project-image
-                        relative
-                        aspect-[4/3]
-                        overflow-hidden
-                        bg-black
-                      "
-                    >
-
-                      <Image
-                        src={image}
-                        alt={`${project.title} ${
-                          index + 5
-                        }`}
-                        fill
-                        sizes="50vw"
-                        className="
-                          object-cover
-                          will-change-transform
-                          transition-transform
-                          duration-700
-                          hover:scale-[1.03]
-                        "
-                      />
-
-                    </div>
-
-                  ))}
+                </div>
 
               </div>
 
             </div>
 
           </section>
-
         )}
 
 
         {/* =================================================
-            11 — START PROJECT
+            04 — CLICKABLE LONG IMAGE
+                OPENS IMAGE SLIDER
         ================================================= */}
 
-        <section
-          className="
-            bg-[#f5f5f3]
-            px-6
-            py-28
-            sm:px-10
-            lg:px-16
-            lg:py-36
-          "
-        >
-
-          <div
-            className="
-              mx-auto
-              max-w-[850px]
-              text-center
-            "
+        {gallery.length > 0 && (
+          <section
+            onClick={() => {
+              setActiveImage(0);
+              setGalleryOpen(true);
+            }}
+            className="group relative min-h-[160svh] w-full cursor-pointer overflow-hidden bg-black"
           >
 
-            <span
-              className="
-                reveal
-                text-[8px]
-                uppercase
-                tracking-[0.4em]
-                text-black/40
-              "
-            >
-              Let's Talk
-            </span>
+            <Image
+              src={gallery[0]}
+              alt={`${project.title} — Project Gallery`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center transition-transform duration-[1800ms] ease-out group-hover:scale-[1.025]"
+            />
 
+            <div className="absolute inset-0 bg-black/10 transition-colors duration-700 group-hover:bg-black/25" />
 
-            <h2
-              className="
-                reveal
-                mx-auto
-                mt-7
-                max-w-[650px]
-                text-[clamp(2.8rem,5vw,5rem)]
-                font-light
-                uppercase
-                leading-[0.84]
-                tracking-[-0.065em]
-              "
-            >
-              About Your
-              <br />
-              Project
-            </h2>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
+            <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-12 text-white sm:px-10 sm:pb-16 lg:px-16 lg:pb-24">
 
-            <Link
-              href="/start-project"
-              className="
-                reveal
-                group
-                mt-10
-                inline-flex
-                items-center
-                gap-4
-                border
-                border-black
-                px-7
-                py-3.5
-                text-[8px]
-                uppercase
-                tracking-[0.3em]
-                transition-all
-                duration-500
-                hover:bg-black
-                hover:text-white
-              "
-            >
+              <div className="flex items-end justify-between gap-8">
 
-              <span>
-                Start a Project
-              </span>
+                <div>
 
-              <span
-                className="
-                  transition-transform
-                  duration-500
-                  group-hover:translate-x-1
-                "
-              >
-                →
-              </span>
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-white/55">
+                    Gallery
+                  </p>
 
-            </Link>
+                  <h2 className="mt-4 text-[clamp(3rem,7vw,8rem)] font-light uppercase leading-[0.8] tracking-[-0.07em]">
+                    Explore
+                    <br />
+                    Project
+                  </h2>
 
-          </div>
+                </div>
 
-        </section>
+                <div className="flex items-center gap-4 pb-2">
 
+                  <span className="h-px w-10 bg-white/60 transition-all duration-700 group-hover:w-20" />
 
-        {/* =================================================
-            12 — EXPLORE PROJECTS
-        ================================================= */}
+                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/70">
+                    View Images
+                  </span>
 
-        <section className="bg-black text-white">
+                  <span className="text-sm transition-transform duration-500 group-hover:translate-x-2">
+                    →
+                  </span>
 
-          <Link
-            href="/projects"
-            className="
-              group
-              block
-              px-6
-              py-24
-              sm:px-10
-              lg:px-16
-              lg:py-28
-            "
-          >
-
-            <div
-              className="
-                mx-auto
-                max-w-[900px]
-                text-center
-              "
-            >
-
-              <span
-                className="
-                  text-[8px]
-                  uppercase
-                  tracking-[0.4em]
-                  text-white/40
-                "
-              >
-                Next
-              </span>
-
-
-              <h2
-                className="
-                  mt-6
-                  text-[clamp(2.4rem,4.5vw,4.8rem)]
-                  font-light
-                  uppercase
-                  leading-[0.85]
-                  tracking-[-0.065em]
-                  transition-transform
-                  duration-700
-                  group-hover:scale-[1.02]
-                "
-              >
-                Explore Our
-                <br />
-                Projects
-              </h2>
-
-
-              <div
-                className="
-                  mt-8
-                  flex
-                  items-center
-                  justify-center
-                  gap-4
-                "
-              >
-
-                <span
-                  className="
-                    h-px
-                    w-10
-                    bg-white/40
-                    transition-all
-                    duration-700
-                    group-hover:w-16
-                  "
-                />
-
-                <span
-                  className="
-                    text-[8px]
-                    uppercase
-                    tracking-[0.3em]
-                    text-white/45
-                  "
-                >
-                  View all
-                </span>
-
-                <span
-                  className="
-                    h-px
-                    w-10
-                    bg-white/40
-                    transition-all
-                    duration-700
-                    group-hover:w-16
-                  "
-                />
+                </div>
 
               </div>
 
             </div>
 
-          </Link>
+          </section>
+        )}
+
+
+        {/* =================================================
+            05 — FULLSCREEN IMAGE SLIDER
+        ================================================= */}
+
+        {galleryOpen && gallery.length > 0 && (
+          <div className="fixed inset-0 z-[9999] bg-black">
+
+            <button
+              type="button"
+              onClick={() => setGalleryOpen(false)}
+              className="absolute right-6 top-6 z-50 text-[9px] uppercase tracking-[0.3em] text-white/70 transition-colors hover:text-white sm:right-10 sm:top-10"
+            >
+              Close
+            </button>
+
+            <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10 lg:p-16">
+
+              <Image
+                src={gallery[activeImage]}
+                alt={`${project.title} — Image ${activeImage + 1}`}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
+
+            </div>
+
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => {
+                setActiveImage((current) =>
+                  current === 0 ? gallery.length - 1 : current - 1
+                );
+              }}
+              className="absolute left-5 top-1/2 z-50 -translate-y-1/2 text-3xl font-light text-white/60 transition-all hover:-translate-x-1 hover:text-white sm:left-10"
+            >
+              ←
+            </button>
+
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => {
+                setActiveImage((current) =>
+                  current === gallery.length - 1 ? 0 : current + 1
+                );
+              }}
+              className="absolute right-5 top-1/2 z-50 -translate-y-1/2 text-3xl font-light text-white/60 transition-all hover:translate-x-1 hover:text-white sm:right-10"
+            >
+              →
+            </button>
+
+            <div className="absolute bottom-6 left-1/2 z-50 -translate-x-1/2 text-[9px] uppercase tracking-[0.3em] text-white/50">
+              {String(activeImage + 1).padStart(2, "0")}
+              {" / "}
+              {String(gallery.length).padStart(2, "0")}
+            </div>
+
+            {gallery.length > 1 && (
+              <div className="absolute bottom-5 right-6 z-50 hidden max-w-[45vw] gap-2 overflow-x-auto sm:flex sm:right-10">
+
+                {gallery.map((image, index) => (
+                  <button
+                    key={`${image}-${index}`}
+                    type="button"
+                    onClick={() => setActiveImage(index)}
+                    className={`relative h-12 w-16 shrink-0 overflow-hidden border transition-opacity ${
+                      activeImage === index
+                        ? "border-white opacity-100"
+                        : "border-white/20 opacity-50 hover:opacity-80"
+                    }`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      sizes="64px"
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+
+              </div>
+            )}
+
+          </div>
+        )}
+
+
+        {/* =================================================
+            06 — CONCEPT
+        ================================================= */}
+
+        <section className="relative min-h-[650px] w-full overflow-hidden bg-black text-white">
+
+          <div className="absolute left-[3.5vw] top-[10%] h-[68px] w-[68px] rounded-full border border-white/70" />
+
+          <div className="flex min-h-[650px] w-full flex-col items-center justify-center px-6 py-24 text-center">
+
+            <p className="mb-7 text-[13px] font-normal uppercase leading-none tracking-[-0.02em] text-white">
+              Concept
+            </p>
+
+            <h2 className="max-w-[1250px] text-[clamp(2.4rem,5vw,4.8rem)] font-medium uppercase leading-[0.92] tracking-[-0.055em] text-white">
+              Rooted in deep research, the design integrates spiritual
+              tradition with contemporary materiality and form.
+            </h2>
+
+            <p className="mt-10 max-w-[540px] text-[11px] font-normal uppercase leading-[1.2] tracking-[-0.01em] text-white/80">
+              With its minimalist geometry, natural textures, and custom
+              elements, the mosque seeks to evoke timelessness, serenity,
+              and inclusivity.
+            </p>
+
+          </div>
 
         </section>
 
-      </main>
 
-      <Footer />
-    </>
-  );
-}
+        {/* =================================================
+            07 — LONG IMAGE
+        ================================================= */}
 
+        {gallery[3] && (
+          <section className="relative h-[220svh] min-h-[1600px] w-full overflow-hidden bg-black">
 
-/* =========================================================
-   SINGLE CITY LOCATION — EDITORIAL MAP LAYOUT
-========================================================= */
+            <Image
+              src={gallery[3]}
+              alt={`${project.title} — Project Image`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-const studioLocation = {
-  city: "Mumbai",
-  country: "India",
-  coordinates: "19°04'36.0\" N\n72°52'39.0\" E",
-  index: "01",
-};
+            <div className="absolute inset-0 bg-black/10" />
 
-const cityMapPath = `
-  M205 25
-  L240 42 L270 65 L302 86 L325 118
-  L355 130 L371 157 L388 174 L400 202
-  L420 222 L430 251 L452 274 L447 302
-  L462 328 L450 356 L426 372 L416 398
-  L395 416 L382 449 L364 470 L351 500
-  L329 530 L313 559 L298 578 L282 554
-  L263 537 L244 528 L227 506 L207 493
-  L190 468 L177 438 L164 421 L147 407
-  L132 381 L120 354 L104 338 L96 311
-  L82 290 L70 263 L79 241 L95 228
-  L109 211 L122 192 L116 175 L98 161
-  L87 142 L98 124 L122 117 L143 103
-  L158 82 L174 69 L185 48 Z
-`;
+          </section>
+        )}
 
-function IndiaMap() {
-  const [hovered, setHovered] = useState(false);
 
-  return (
-    <section
-      className="
-        relative overflow-hidden
-        bg-[#f5f5f3]
-        px-6 py-16
-        sm:px-10
-        lg:px-16 lg:py-20
-      "
-    >
-      <div className="relative mx-auto max-w-[1500px]">
+       {/* =================================================
+    08 — CHALLENGE
+================================================= */}
 
-        {/* TOP LABEL */}
-        <div className="mb-8 flex items-center justify-between">
+<section className="w-full bg-black px-6 py-20 text-white sm:px-10 sm:py-24 lg:px-16 lg:py-28">
 
-          <div>
-            <p className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-              Studio Network
-            </p>
+  <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
 
-            <p className="mt-2 text-[10px] uppercase tracking-[0.12em]">
-              {studioLocation.country}
-            </p>
-          </div>
+    {/* LEFT — EMPTY */}
+    <div />
 
-          <div className="text-right">
-            <p className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-              Location
-            </p>
+    {/* RIGHT — CONTENT */}
+    <div className="max-w-[850px]">
 
-            <p className="mt-2 text-[10px] uppercase tracking-[0.12em]">
-              {studioLocation.index}
-            </p>
-          </div>
+      <h2 className="text-[clamp(2.8rem,5vw,5.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em]">
+        Challenge
+      </h2>
 
-        </div>
-
-
-        {/* SINGLE CITY MAP */}
-
-        <div
-          className="
-            relative h-[420px]
-            overflow-hidden
-            border-y border-black/10
-            sm:h-[480px]
-            lg:h-[500px]
-          "
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-
-          {/* MAP */}
-
-          <div
-            className={`
-              absolute left-1/2 top-1/2
-              h-[330px] w-[275px]
-              -translate-x-1/2 -translate-y-1/2
-              transition-transform
-              duration-[1100ms]
-              ease-[cubic-bezier(0.22,1,0.36,1)]
-              sm:h-[380px] sm:w-[315px]
-              ${
-                hovered
-                  ? "scale-[1.08]"
-                  : "scale-100"
-              }
-            `}
-          >
-
-            <svg
-              viewBox="0 0 500 600"
-              className="h-full w-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d={cityMapPath}
-                stroke="rgba(0,0,0,0.68)"
-                strokeWidth="1.1"
-                vectorEffect="non-scaling-stroke"
-              />
-
-            </svg>
-
-
-            {/* CITY POINT */}
-
-            <span
-              className={`
-                absolute left-[42%] top-[58%]
-                flex h-5 w-5
-                -translate-x-1/2 -translate-y-1/2
-                items-center justify-center
-                transition-transform duration-500
-                ${hovered ? "scale-125" : "scale-100"}
-              `}
-            >
-
-              <span
-                className="
-                  absolute h-7 w-7
-                  rounded-full
-                  border border-black/20
-                "
-              />
-
-              <span className="h-1.5 w-1.5 rounded-full bg-black" />
-
-            </span>
-
-          </div>
-
-
-          {/* CITY INFORMATION — LIKE THE REFERENCE */}
-
-          <div
-            className="
-              absolute left-[4%] top-1/2
-              -translate-y-1/2
-              sm:left-[7%]
-            "
-          >
-
-            <p className="text-[8px] uppercase tracking-[0.18em] text-black/50">
-              Studio Location
-            </p>
-
-            <p
-              className={`
-                mt-2 text-[11px] uppercase tracking-[0.12em]
-                transition-transform duration-700
-                ${
-                  hovered
-                    ? "translate-x-2"
-                    : "translate-x-0"
-                }
-              `}
-            >
-              {studioLocation.city}
-            </p>
-
-          </div>
-
-
-          {/* COUNTRY / COORDINATES */}
-
-          <div
-            className="
-              absolute left-1/2 top-[58%]
-              w-[180px]
-              -translate-x-[15%]
-              sm:w-[220px]
-            "
-          >
-
-            <p className="text-[9px] uppercase tracking-[0.08em]">
-              {studioLocation.city}, {studioLocation.country}
-            </p>
-
-            <p className="mt-1 whitespace-pre-line text-[8px] uppercase tracking-[0.08em] text-black/65">
-              {studioLocation.coordinates}
-            </p>
-
-          </div>
-
-
-          {/* RIGHT LOCATION COUNT */}
-
-          <div
-            className="
-              absolute right-[4%] top-1/2
-              -translate-y-1/2
-              text-right
-              sm:right-[7%]
-            "
-          >
-
-            <p className="text-[8px] uppercase tracking-[0.25em] text-black/40">
-              Locations
-            </p>
-
-            <p className="mt-2 text-[10px] uppercase tracking-[0.12em]">
-              01 City
-            </p>
-
-          </div>
-
-
-          {/* BOTTOM CITY NAME */}
-
-          <div
-            className="
-              absolute bottom-5 left-1/2
-              -translate-x-1/2
-              text-center
-            "
-          >
-
-            <p
-              className={`
-                text-[8px] uppercase
-                tracking-[0.4em]
-                transition-all duration-500
-                ${
-                  hovered
-                    ? "text-black"
-                    : "text-black/35"
-                }
-              `}
-            >
-              {studioLocation.city}
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
-/* =========================================================
-   FULL IMAGE
-========================================================= */
-
-function FullImage({
-  src,
-  alt,
-  overlay = false,
-  title,
-  text,
-  awards,
-}: {
-  src: string;
-  alt: string;
-  overlay?: boolean;
-  title?: string;
-  text?: string;
-  awards?: string;
-}) {
-  return (
-    <section
-      className="
-        relative
-        h-[100svh]
-        min-h-[650px]
-        w-full
-        overflow-hidden
-        bg-black
-      "
-    >
-
-      <div className="absolute inset-0 overflow-hidden">
-
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="100vw"
-          className="
-            project-image
-            object-cover
-            will-change-transform
-          "
-        />
-
-      </div>
-
-
-      {/* =================================================
-          IMAGE GRADIENT
-      ================================================= */}
-
-      {overlay && (
-
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/75
-            via-black/15
-            to-transparent
-          "
-        />
-
-      )}
-
-
-      {/* =================================================
-          ABOUT CONTENT ON IMAGE
-      ================================================= */}
-
-      {overlay && text && (
-
-        <div
-          className="
-            image-about
-            absolute
-            bottom-10
-            left-6
-            right-6
-            z-10
-            text-white
-            sm:bottom-14
-            sm:left-10
-            sm:right-10
-            lg:bottom-20
-            lg:left-16
-            lg:right-16
-          "
-        >
-
-          <div
-            className="
-              grid
-              gap-8
-              lg:grid-cols-[0.25fr_0.75fr]
-              lg:items-end
-            "
-          >
-
-            {/* LABEL */}
-
-            <div>
-
-              <span
-                className="
-                  text-[8px]
-                  uppercase
-                  tracking-[0.4em]
-                  text-white/55
-                "
-              >
-                {title || "About"}
-              </span>
-
-            </div>
-
-
-            {/* DESCRIPTION */}
-
-            <div>
-
-              <p
-                className="
-                  max-w-[950px]
-                  text-[clamp(1.6rem,3vw,3.5rem)]
-                  font-light
-                  leading-[1.05]
-                  tracking-[-0.035em]
-                "
-              >
-                {text}
-              </p>
-
-
-              {awards && (
-
-                <p
-                  className="
-                    mt-7
-                    max-w-[700px]
-                    text-[10px]
-                    leading-5
-                    tracking-[0.02em]
-                    text-white/55
-                  "
-                >
-                  {awards}
-                </p>
-
-              )}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      )}
-
-    </section>
-  );
-}
-
-
-/* =========================================================
-   META
-========================================================= */
-
-function Meta({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div
-      className="
-        meta-item
-        border-b
-        border-black/10
-        py-5
-        pr-5
-      "
-    >
-
-      <p
-        className="
-          text-[8px]
-          uppercase
-          tracking-[0.3em]
-          text-black/40
-        "
-      >
-        {label}
-      </p>
-
-      <p
-        className="
-          mt-3
-          text-[10px]
-          uppercase
-          leading-[1.3]
-          tracking-[0.08em]
-          text-black/80
-        "
-      >
-        {value}
+      <p className="mt-8 max-w-[800px] text-[13px] font-light uppercase leading-[1.35] tracking-[-0.01em] text-white/70 sm:text-[15px]">
+        {project.challenge ||
+          `Aligning architectural geometry with strict religious orientations without compromising aesthetic purity required exceptional precision. Material selection also posed complexity: modern finishes had to meet Islamic spiritual guidelines, such as using natural wool carpets and specific stone typologies. Additionally, sustainable solutions were tailored to local climate and religious rituals—like water-saving systems in the ablution area—balancing spiritual reverence with environmental responsibility.`}
       </p>
 
     </div>
-  );
-}
+
+  </div>
+
+</section>
 
 
-/* =========================================================
-   EDITORIAL
-========================================================= */
+        {/* =================================================
+            09 — LARGE IMAGE BANNER
+        ================================================= */}
 
-function Editorial({
-  number,
-  title,
-  text,
-}: {
-  number: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <section
+        {gallery[3] && (
+          <section className="relative h-[58vh] min-h-[420px] w-full overflow-hidden bg-black">
+
+            <Image
+              src={gallery[3]}
+              alt={`${project.title} — Composition`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+            <div className="absolute inset-0 bg-black/10" />
+
+          </section>
+        )}
+
+
+        {/* =================================================
+            10 — COMPOSITION
+        ================================================= */}
+
+        <section className="relative min-h-[720px] w-full bg-black text-white">
+
+          <div className="mx-auto grid min-h-[720px] w-full max-w-[1920px] grid-cols-1 lg:grid-cols-[1fr_1fr]">
+
+            <div />
+
+            <div className="flex flex-col justify-center px-8 py-28 sm:px-12 lg:px-16 xl:px-24">
+
+            <h2 className="text-[clamp(3.5rem,5.5vw,6rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] text-white">
+  Composition
+</h2>
+
+              <p className="mt-14 max-w-[780px] text-[14px] font-normal uppercase leading-[1.3] tracking-[-0.015em]">
+                The architectural composition is organized around a restrained
+                sequence of volumes, allowing movement, light, and proportion
+                to define the experience of the mosque.
+              </p>
+
+              <p className="mt-7 max-w-[780px] text-[14px] font-normal uppercase leading-[1.3] tracking-[-0.015em]">
+                A clear geometric language runs throughout the project.
+                Carefully controlled openings frame the surrounding landscape,
+                while layered ceilings and integrated architectural elements
+                introduce depth without disturbing the overall simplicity.
+              </p>
+
+              <p className="mt-7 max-w-[780px] text-[14px] font-normal uppercase leading-[1.3] tracking-[-0.015em]">
+                The result is a calm and deliberate interior where traditional
+                principles are interpreted through contemporary construction,
+                material restraint, and precise detailing.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            11 — THREE LONG IMAGES
+                WITH TINY DIVIDERS BETWEEN THEM
+        ================================================= */}
+
+        {threeGalleryImages[0] && (
+          <section className="relative h-[150svh] min-h-[1000px] w-full overflow-hidden bg-black">
+
+            <Image
+              src={threeGalleryImages[0]}
+              alt={`${project.title} — Gallery Image 01`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+          </section>
+        )}
+
+
+        {/* TINY DIVIDER */}
+
+        <div className="h-[3px] w-full bg-white/20" />
+
+
+        {threeGalleryImages[1] && (
+          <section className="relative h-[150svh] min-h-[1000px] w-full overflow-hidden bg-black">
+
+            <Image
+              src={threeGalleryImages[1]}
+              alt={`${project.title} — Gallery Image 02`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+          </section>
+        )}
+
+
+        {/* TINY DIVIDER */}
+
+        <div className="h-[3px] w-full bg-white/20" />
+
+
+        {threeGalleryImages[2] && (
+          <section className="relative h-[150svh] min-h-[1000px] w-full overflow-hidden bg-black">
+
+            <Image
+              src={threeGalleryImages[2]}
+              alt={`${project.title} — Gallery Image 03`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+          </section>
+        )}
+
+
+        {/* =================================================
+            12 — START PROJECT CTA
+        ================================================= */}
+
+        <Link
+  href="/StartProject"
+  className="group relative block min-h-[680px] w-full overflow-hidden bg-black text-white"
+>
+  {/* BACKGROUND TYPOGRAPHY */}
+
+  <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+    <p
       className="
-        bg-[#f5f5f3]
-        px-6
-        py-28
-        sm:px-10
-        lg:px-16
-        lg:py-36
+        translate-y-4
+        whitespace-nowrap
+        text-[clamp(8rem,22vw,28rem)]
+        font-medium
+        uppercase
+        leading-none
+        tracking-[-0.1em]
+        text-white/[0.07]
+        transition-transform
+        duration-[1400ms]
+        ease-out
+        group-hover:scale-[1.025]
       "
     >
+      LET&apos;S TALK
+    </p>
+  </div>
 
-      <div
+
+  {/* TOP RIGHT LABEL */}
+
+  <div
+    className="
+      absolute
+      right-6
+      top-10
+      flex
+      items-center
+      gap-3
+      sm:right-10
+      lg:right-16
+    "
+  >
+    <span className="h-px w-8 bg-white/30" />
+
+    <span className="text-[8px] uppercase tracking-[0.35em] text-white/45">
+      New Project
+    </span>
+  </div>
+
+
+  {/* CENTER CONTENT */}
+
+  <div
+    className="
+      relative
+      z-10
+      flex
+      min-h-[680px]
+      flex-col
+      items-center
+      justify-center
+      px-6
+      text-center
+    "
+  >
+    <p className="mb-7 text-[9px] uppercase tracking-[0.4em] text-white/45">
+      Start a conversation
+    </p>
+
+    <h2
+      className="
+        max-w-[850px]
+        text-[clamp(3.5rem,8vw,8rem)]
+        font-light
+        uppercase
+        leading-[0.82]
+        tracking-[-0.075em]
+      "
+    >
+      Let&apos;s
+      <br />
+      Create.
+    </h2>
+
+    <p
+      className="
+        mt-8
+        max-w-[430px]
+        text-[10px]
+        uppercase
+        leading-[1.5]
+        tracking-[0.08em]
+        text-white/45
+      "
+    >
+      Have a space, idea, or vision in mind?
+      <br />
+      Let&apos;s turn it into something meaningful.
+    </p>
+
+    {/* BUTTON */}
+
+    <div
+      className="
+        mt-10
+        flex
+        items-center
+        gap-4
+        rounded-full
+        border
+        border-white/20
+        px-5
+        py-3
+        transition-all
+        duration-500
+        group-hover:border-white/50
+        group-hover:bg-white
+        group-hover:text-black
+      "
+    >
+      <span className="text-[9px] uppercase tracking-[0.2em]">
+        Start Project
+      </span>
+
+      <span
         className="
-          mx-auto
-          grid
-          max-w-[1500px]
-          gap-12
-          lg:grid-cols-[0.3fr_0.7fr]
+          flex
+          h-7
+          w-7
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-black
+          transition-all
+          duration-500
+          group-hover:bg-black
+          group-hover:text-white
+          group-hover:translate-x-1
         "
       >
-
-        <div
-          className="
-            reveal
-            flex
-            items-start
-            gap-5
-          "
-        >
-
-          <span
-            className="
-              pt-2
-              text-[8px]
-              uppercase
-              tracking-[0.25em]
-              text-black/35
-            "
-          >
-            {number}
-          </span>
+        ↗
+      </span>
+    </div>
+  </div>
 
 
-          <h2
-            className="
-              text-[clamp(3rem,6vw,6.5rem)]
-              font-light
-              uppercase
-              leading-[0.78]
-              tracking-[-0.075em]
-            "
-          >
-            {title}
-          </h2>
+  {/* BOTTOM LEFT */}
 
-        </div>
+  <div
+    className="
+      absolute
+      bottom-8
+      left-6
+      flex
+      items-center
+      gap-3
+      sm:left-10
+      lg:left-16
+    "
+  >
+    <span className="h-px w-8 bg-white/30" />
+
+    <span className="text-[8px] uppercase tracking-[0.3em] text-white/35">
+      Your vision / Our craft
+    </span>
+  </div>
 
 
-        <div>
+  {/* BOTTOM RIGHT */}
 
-          <p
-            className="
-              reveal
-              max-w-[950px]
-              text-[clamp(1.5rem,2.7vw,3rem)]
-              font-light
-              leading-[1.08]
-              tracking-[-0.035em]
-              text-black/75
-            "
-          >
-            {text}
-          </p>
+  <div
+    className="
+      absolute
+      bottom-8
+      right-6
+      text-[11px]
+      text-white/30
+      transition-all
+      duration-500
+      group-hover:translate-x-2
+      group-hover:text-white
+      sm:right-10
+      lg:right-16
+    "
+  >
+    ↗
+  </div>
+</Link>
 
-        </div>
+{/* =================================================
+    15 — FOOTER
+================================================= */}
 
-      </div>
+<Footer />
 
-    </section>
+      </main>
+    </>
   );
 }
