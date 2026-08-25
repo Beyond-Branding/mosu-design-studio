@@ -1,189 +1,146 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import {
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
   FaYoutube,
-  FaXTwitter,
+  FaPinterestP,
+  FaTiktok,
 } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="relative bg-black text-white">
+      <div className="mx-auto flex min-h-[420px] max-w-[1900px] flex-col justify-between px-6 py-16 sm:px-10 lg:px-12">
 
-      <div className="mx-auto max-w-[1700px] px-6 sm:px-8 lg:px-10 pt-20 pb-6">
+        {/* ================= TOP / CENTER ================= */}
 
-        {/* ================= TOP ================= */}
-        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-1 flex-col items-center justify-center text-center">
 
-          {/* LOGO / ABOUT */}
-          <div>
-            <Link href="/" className="inline-block">
-              <Image
-                src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
-                alt="MOSU"
-                width={110}
-                height={40}
-                priority
-                className="h-auto w-[90px] lg:w-[110px]"
-              />
-            </Link>
+          {/* COPYRIGHT / DESCRIPTION */}
+          <p className="max-w-[720px] text-[12px] leading-5 text-white/70 sm:text-[13px] sm:leading-6">
+            Please be informed that the intellectual property rights to all
+            photos, designs and other materials on this Site belong to MOSU
+            Studio. You may request permission to use them by contacting us.
+          </p>
 
-            <p className="mt-8 max-w-[290px] text-[15px] leading-8 text-white/50">
-              We create timeless architecture, interiors and bespoke spaces
-              inspired by simplicity, craftsmanship and innovation.
-            </p>
+          {/* SOCIAL ICONS */}
+          <div className="mt-8 flex items-center justify-center gap-3">
+
+            <SocialIcon
+              href="https://instagram.com"
+              label="Instagram"
+              icon={<FaInstagram size={14} />}
+            />
+
+            <SocialIcon
+              href="https://youtube.com"
+              label="YouTube"
+              icon={<FaYoutube size={14} />}
+            />
+
+            <SocialIcon
+              href="https://facebook.com"
+              label="Facebook"
+              icon={<FaFacebookF size={14} />}
+            />
+
+            <SocialIcon
+              href="https://linkedin.com"
+              label="LinkedIn"
+              icon={<FaLinkedinIn size={14} />}
+            />
+
+            <SocialIcon
+              href="https://pinterest.com"
+              label="Pinterest"
+              icon={<FaPinterestP size={14} />}
+            />
+
+            <SocialIcon
+              href="https://tiktok.com"
+              label="TikTok"
+              icon={<FaTiktok size={14} />}
+            />
+
           </div>
-
-          {/* SERVICES */}
-          <div>
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Services
-            </h3>
-
-            <ul className="space-y-4">
-              {[
-                ["Hotels & Resorts", "/services/hotels-resorts"],
-                ["Luxury Residences", "/services/luxury-residences"],
-                ["Art Installations", "/services/art-installations"],
-                ["Sculptures", "/services/sculptures"],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="
-                      inline-block
-                      text-white/50
-                      transition-all
-                      duration-300
-                      hover:translate-x-2
-                      hover:text-white
-                    "
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* QUICK LINKS */}
-          <div>
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Quick Links
-            </h3>
-
-            <ul className="space-y-4">
-              {[
-                ["About", "/about"],
-                ["Projects", "/projects"],
-                ["Services", "/services"],
-                ["Contact", "/contact"],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="
-                      inline-block
-                      text-white/50
-                      transition-all
-                      duration-300
-                      hover:translate-x-2
-                      hover:text-white
-                    "
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* SOCIAL */}
-          <div>
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Connect With Us
-            </h3>
-
-            <div className="space-y-5">
-
-              <SocialLink
-                href="https://instagram.com"
-                icon={<FaInstagram size={19} />}
-                label="Instagram"
-              />
-
-              <SocialLink
-                href="https://facebook.com"
-                icon={<FaFacebookF size={19} />}
-                label="Facebook"
-              />
-
-              <SocialLink
-                href="https://linkedin.com"
-                icon={<FaLinkedinIn size={19} />}
-                label="LinkedIn"
-              />
-
-              <SocialLink
-                href="https://x.com"
-                icon={<FaXTwitter size={19} />}
-                label="X (Twitter)"
-              />
-
-              <SocialLink
-                href="https://youtube.com"
-                icon={<FaYoutube size={19} />}
-                label="YouTube"
-              />
-
-            </div>
-          </div>
-
         </div>
 
         {/* ================= BOTTOM ================= */}
 
         <div
           className="
-            mt-16
+            mt-14
             flex
             flex-col
-            gap-3
-            border-t
-            border-white/10
-            pt-6
-            text-xs
+            items-center
+            justify-between
+            gap-6
+            text-[10px]
+            font-medium
             uppercase
-            tracking-[0.12em]
-            text-white/35
+            tracking-[0.04em]
+            text-white/80
 
-            md:flex-row
-            md:items-center
-            md:justify-between
+            lg:flex-row
           "
         >
-          <p>
-            © {new Date().getFullYear()} MOSU Studio. All rights reserved.
+
+          {/* LEFT */}
+          <p className="whitespace-nowrap">
+            © {new Date().getFullYear()} MOSU. ALL RIGHTS RESERVED.
           </p>
 
-          <p>
-            Designed & Developed by MOSU.
+          {/* CENTER LINKS */}
+          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            <Link
+              href="/privacy"
+              className="transition-colors duration-300 hover:text-white/50"
+            >
+              PRIVACY POLICY
+            </Link>
+
+            <Link
+              href="/terms"
+              className="transition-colors duration-300 hover:text-white/50"
+            >
+              TERMS OF USE
+            </Link>
+
+            <Link
+              href="/accessibility"
+              className="transition-colors duration-300 hover:text-white/50"
+            >
+              ACCESSIBILITY STATEMENT
+            </Link>
+
+            <Link
+              href="/contact"
+              className="transition-colors duration-300 hover:text-white/50"
+            >
+              CONTACT US
+            </Link>
+          </nav>
+
+          {/* RIGHT */}
+          <p className="whitespace-nowrap">
+            MADE BY MOSU STUDIO
           </p>
+
         </div>
-
       </div>
     </footer>
   );
 }
 
 
-/* ================= SOCIAL LINK ================= */
+/* =========================================================
+   SOCIAL ICON
+========================================================= */
 
-function SocialLink({
+function SocialIcon({
   href,
   icon,
   label,
@@ -197,19 +154,23 @@ function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       className="
         flex
+        h-10
+        w-10
         items-center
-        gap-4
-        text-white/50
+        justify-center
+        rounded-full
+        bg-white
+        text-black
         transition-all
         duration-300
-        hover:translate-x-2
-        hover:text-white
+        hover:scale-105
+        hover:bg-white/80
       "
     >
       {icon}
-      {label}
     </Link>
   );
 }
