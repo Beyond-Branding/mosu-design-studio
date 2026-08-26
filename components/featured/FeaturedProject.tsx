@@ -128,17 +128,17 @@ export default function FeaturedProjects() {
           </aside>
 
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-8 text-center text-white">
-            <p className="mb-3 text-[11px] uppercase tracking-[0.45em] opacity-80">
-              {item.category}
-            </p>
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.45em] opacity-80">
+  {item.category}
+</p>
 
-            <p className="mb-8 text-[11px] uppercase tracking-[0.35em] opacity-60">
-              {item.location}
-            </p>
+<p className="mb-8 text-[11px] font-medium uppercase tracking-[0.35em] opacity-60">
+  {item.location}
+</p>
 
-            <h2 className="max-w-5xl text-[2rem] font-light uppercase leading-[1] tracking-[-0.02em] sm:text-[2.7rem] md:text-[3.5rem] lg:text-[4.3rem] xl:text-[5rem]">
-              {item.title}
-            </h2>
+<h2 className="max-w-5xl text-[2rem] font-bold uppercase leading-[1] tracking-[-0.02em] sm:text-[2.7rem] md:text-[3.5rem] lg:text-[4.3rem] xl:text-[5rem]">
+  {item.title}
+</h2>
 
             <Link
               href={`/projects/${item.slug}`}

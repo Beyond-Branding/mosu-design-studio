@@ -109,23 +109,22 @@ export default function ServicesShowcase() {
       );
 
       /* =========================================
-         2. SERVICES POP UP ONE BY ONE
-      ========================================= */
+   2. SERVICES POP UP ONE BY ONE
+========================================= */
 
-      serviceItems.forEach((item, index) => {
-        tl.to(
-          item,
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          `+=${index === 0 ? 0.2 : 0.25}`
-        );
-      });
-
+serviceItems.forEach((item, index) => {
+  tl.to(
+    item,
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.45,
+      ease: "power2.out",
+    },
+    `+=${index === 0 ? 0.1 : 0.08}`
+  );
+});
       /* =========================================
          3. BUTTON
       ========================================= */

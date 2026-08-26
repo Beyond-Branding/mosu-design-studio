@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Plus, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { Menu, Plus, X } from "lucide-react";
-
-const LOGO_URL =
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png";
 
 function NavItem({
   href,
@@ -57,107 +54,72 @@ function NavItem({
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  /* Prevent background scrolling when mobile menu is open */
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "auto";
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     };
   }, [open]);
-
-  /* Close mobile menu when screen becomes desktop */
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const closeMenu = () => {
-    setOpen(false);
-  };
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <header className="fixed inset-x-0 top-0 z-[999]">
-        {/* Gradient */}
-        <div
-          className="
-            pointer-events-none
-            absolute
-            inset-x-0
-            top-0
-            h-36
-            bg-gradient-to-b
-            from-black/70
-            via-black/30
-            to-transparent
-          "
-        />
 
-        <div
-          className="
-            relative
-            mx-auto
-            flex
-            h-24
-            max-w-[1800px]
-            items-center
-            justify-between
-            px-5
-            sm:px-8
-            lg:px-12
-          "
-        >
-          {/* ================= LEFT NAV ================= */}
+      <header className="fixed inset-x-0 top-0 z-[999]">
+
+        {/* Gradient */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/65 via-black/25 to-transparent" />
+
+        <div className="relative mx-auto flex h-24 max-w-[1800px] items-center justify-between px-5 sm:px-8 lg:px-12">
+
+          {/* ================= LEFT ================= */}
+
           <nav className="hidden items-center gap-14 text-[13px] font-medium lg:flex">
-            <NavItem href="/projects" text="PROJECTS" />
-            <NavItem href="/services" text="SERVICES" />
-            <NavItem href="/contact" text="CONTACT" />
+            <NavItem
+              href="/projects"
+              text="PROJECTS"
+            />
+
+            <NavItem
+              href="/services"
+              text="SERVICES"
+            />
+
+            <NavItem
+              href="/contact"
+              text="CONTACT"
+            />
           </nav>
 
           {/* ================= LOGO ================= */}
+
           <Link
             href="/"
-            className="
-              absolute
-              left-1/2
-              top-1/2
-              -translate-x-1/2
-              -translate-y-1/2
-            "
-            aria-label="MOSU Home"
+            className="absolute left-1/2 -translate-x-1/2"
           >
             <Image
-              src={LOGO_URL}
-              alt="MOSU"
+              src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+              alt="MOSU Logo"
               width={140}
               height={45}
               priority
-              unoptimized
               className="h-8 w-auto sm:h-9 lg:h-10"
             />
           </Link>
 
-          {/* ================= RIGHT NAV ================= */}
-          <div className="ml-auto hidden items-center gap-14 text-[13px] font-medium lg:flex">
-            <NavItem href="/about" text="ABOUT" />
+          {/* ================= RIGHT ================= */}
 
+          <div className="hidden items-center gap-14 text-[13px] font-medium lg:flex">
+
+            <NavItem
+              href="/about"
+              text="ABOUT"
+            />
+
+            {/* LET'S TALK */}
             <Link
-              href="/StartProject"
+              href="/#start-project"
               className="
                 group
                 flex
@@ -185,94 +147,78 @@ export default function Navbar() {
 
               <Plus
                 size={14}
-                strokeWidth={1.8}
-                className="
-                  transition-transform
-                  duration-300
-                  group-hover:rotate-90
-                "
+                className="transition-transform duration-300 group-hover:rotate-90"
               />
             </Link>
+
           </div>
 
           {/* ================= MOBILE BUTTON ================= */}
+
           <button
-            type="button"
             onClick={() => setOpen(true)}
-            className="
-              ml-auto
-              flex
-              items-center
-              justify-center
-              text-white
-              lg:hidden
-            "
+            className="ml-auto text-white lg:hidden"
             aria-label="Open menu"
-            aria-expanded={open}
           >
-            <Menu size={32} strokeWidth={1.5} />
+            <Menu size={34} />
           </button>
+
         </div>
       </header>
 
       {/* ================= MOBILE MENU ================= */}
+
       <div
-        className={`
-          fixed
-          inset-0
-          z-[1000]
-          bg-[#111]
-          transition-all
-          duration-500
-          ease-[cubic-bezier(.76,0,.24,1)]
-          ${
-            open
-              ? "translate-y-0 opacity-100"
-              : "pointer-events-none -translate-y-full opacity-0"
-          }
-        `}
-        aria-hidden={!open}
+        className={`fixed inset-0 z-[1000] bg-[#111] transition-all duration-500 ${
+          open
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-full opacity-0"
+        }`}
       >
-        {/* ================= MOBILE TOP ================= */}
-        <div className="flex h-24 items-center justify-between px-6 sm:px-8">
+
+        {/* Top */}
+
+        <div className="flex h-24 items-center justify-between px-6">
+
           <Link
             href="/"
-            onClick={closeMenu}
-            aria-label="MOSU Home"
+            onClick={() => setOpen(false)}
           >
             <Image
-              src={LOGO_URL}
-              alt="MOSU"
+              src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+              alt="MOSU Logo"
               width={140}
               height={45}
-              priority
-              unoptimized
               className="h-9 w-auto"
             />
           </Link>
 
           <button
-            type="button"
-            onClick={closeMenu}
-            className="text-white"
+            onClick={() => setOpen(false)}
             aria-label="Close menu"
           >
-            <X size={32} strokeWidth={1.5} />
+            <X
+              size={34}
+              className="text-white"
+            />
           </button>
+
         </div>
 
-        {/* ================= MOBILE LINKS ================= */}
-        <nav className="mt-20 flex flex-col items-center gap-8">
+        {/* Links */}
+
+        <nav className="mt-20 flex flex-col items-center gap-10">
+
           <Link
             href="/projects"
-            onClick={closeMenu}
+            onClick={() => setOpen(false)}
             className="
               text-4xl
               font-light
               uppercase
               tracking-wide
               text-white
-              transition-all
+              transition
               duration-300
               hover:translate-x-2
             "
@@ -282,14 +228,14 @@ export default function Navbar() {
 
           <Link
             href="/services"
-            onClick={closeMenu}
+            onClick={() => setOpen(false)}
             className="
               text-4xl
               font-light
               uppercase
               tracking-wide
               text-white
-              transition-all
+              transition
               duration-300
               hover:translate-x-2
             "
@@ -299,14 +245,14 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            onClick={closeMenu}
+            onClick={() => setOpen(false)}
             className="
               text-4xl
               font-light
               uppercase
               tracking-wide
               text-white
-              transition-all
+              transition
               duration-300
               hover:translate-x-2
             "
@@ -316,14 +262,14 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            onClick={closeMenu}
+            onClick={() => setOpen(false)}
             className="
               text-4xl
               font-light
               uppercase
               tracking-wide
               text-white
-              transition-all
+              transition
               duration-300
               hover:translate-x-2
             "
@@ -332,24 +278,25 @@ export default function Navbar() {
           </Link>
 
           {/* ================= MOBILE LET'S TALK ================= */}
+
           <Link
-            href="/StartProject"
-            onClick={closeMenu}
+            href="/#start-project"
+            onClick={() => setOpen(false)}
             className="
               group
-              mt-8
+              mt-10
               flex
               items-center
               gap-3
               rounded-full
               border
-              border-white/50
+              border-white
               px-8
               py-4
               uppercase
               tracking-[0.2em]
               text-white
-              transition-all
+              transition
               duration-300
               hover:bg-white
               hover:text-black
@@ -359,14 +306,10 @@ export default function Navbar() {
 
             <Plus
               size={14}
-              strokeWidth={1.8}
-              className="
-                transition-transform
-                duration-300
-                group-hover:rotate-90
-              "
+              className="transition-transform duration-300 group-hover:rotate-90"
             />
           </Link>
+
         </nav>
       </div>
     </>

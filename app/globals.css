@@ -1,23 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #e8e8e8;
+
+  --surface: #1d1d1d;
+  --surface-light: #242424;
+
+  --text-primary: #e8e8e8;
+  --text-secondary: #a8a8a8;
+  --text-muted: #777777;
+
+  --border: #3a3a3a;
+  --border-light: #4a4a4a;
+
+  --white: #ffffff;
+  --black: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* =========================
+   GLOBAL
+========================= */
 
 html,
 body {
@@ -25,10 +46,22 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+
   overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
+
+  background: #171717;
+  color: #e8e8e8;
+
   font-family: var(--font-neue-haas);
+}
+
+/* =========================
+   GLOBAL SELECTION
+========================= */
+
+::selection {
+  background: #e8e8e8;
+  color: #171717;
 }
 
 /* =========================
@@ -52,24 +85,40 @@ html.lenis body {
   overscroll-behavior: contain;
 }
 
-/* Optional: smoother rendering */
+/* =========================
+   GLOBAL RESET
+========================= */
+
 * {
+  box-sizing: border-box;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
 }
+
+/* =========================
+   IMAGES
+========================= */
 
 img {
   display: block;
   max-width: 100%;
 }
 
+/* =========================
+   CURSOR
+========================= */
+
 html,
 body,
 * {
   cursor: none;
 }
-/* Swiper disabled navigation */
+
+/* =========================
+   SWIPER
+========================= */
+
 .team-prev.swiper-button-disabled,
 .team-next.swiper-button-disabled {
   opacity: 1 !important;
@@ -77,13 +126,17 @@ body,
 
 .team-prev.swiper-button-disabled svg,
 .team-next.swiper-button-disabled svg {
-  color: #000 !important;
+  color: #e8e8e8 !important;
 }
 
 .team-prev.swiper-button-disabled,
 .team-next.swiper-button-disabled {
-  border-color: #000 !important;
+  border-color: #444444 !important;
 }
+
+/* =========================
+   TEXT REVEAL
+========================= */
 
 @keyframes textReveal {
   0% {
@@ -97,6 +150,10 @@ body,
   }
 }
 
+/* =========================
+   HERO IMAGE
+========================= */
+
 @keyframes heroImage {
   from {
     transform: scale(1.1);
@@ -106,6 +163,14 @@ body,
     transform: scale(1.04);
   }
 }
+
+.animate-hero-image {
+  animation: heroImage 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================
+   HERO TITLE
+========================= */
 
 @keyframes heroTitle {
   from {
@@ -119,6 +184,19 @@ body,
   }
 }
 
+.animate-title {
+  animation:
+    heroTitle
+    1.4s
+    0.25s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================
+   CIRCLE
+========================= */
+
 @keyframes circleIn {
   from {
     opacity: 0;
@@ -131,19 +209,18 @@ body,
   }
 }
 
-.animate-hero-image {
-  animation: heroImage 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-title {
-  animation: heroTitle 1.4s 0.25s cubic-bezier(0.16, 1, 0.3, 1)
-    both;
-}
-
 .animate-circle {
-  animation: circleIn 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+  animation:
+    circleIn
+    1s
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
     both;
 }
+
+/* =========================
+   FLOATING CIRCLE
+========================= */
 
 @keyframes floatingCircle {
   0% {
@@ -163,6 +240,10 @@ body,
   animation: floatingCircle 4s ease-in-out infinite;
 }
 
+/* =========================
+   MAP
+========================= */
+
 @keyframes map-in {
   from {
     opacity: 0;
@@ -176,5 +257,33 @@ body,
 }
 
 .animate-map-in {
-  animation: map-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation:
+    map-in
+    0.6s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+/* =========================
+   GLOBAL DARK EDITORIAL
+========================= */
+
+.bg-black {
+  background-color: #171717 !important;
+}
+
+.text-black {
+  color: #171717 !important;
+}
+
+.text-white {
+  color: #e8e8e8 !important;
+}
+
+.border-black {
+  border-color: #444444 !important;
+}
+
+.border-white {
+  border-color: #e8e8e8 !important;
 }

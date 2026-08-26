@@ -15,7 +15,7 @@ export default function Home() {
       <LandingHero />
       <Editorial />
       <AboutSection />
-      <Team />
+      
       <FeaturedProject />
       <ServicesShowcase />
       <Footer />
