@@ -126,7 +126,7 @@ export default function Footer() {
 
           {/* RIGHT */}
           <p className="whitespace-nowrap">
-            MADE BY MOSU STUDIO
+            MADE BY BEYOND BRANDING
           </p>
 
         </div>

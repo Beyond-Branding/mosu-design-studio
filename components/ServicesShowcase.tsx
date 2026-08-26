@@ -47,18 +47,18 @@ export default function ServicesShowcase() {
       ========================================= */
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top top",
-          end: `+=${Math.max(
-            3200,
-            serviceItems.length * 450 + 1200
-          )}`,
-          scrub: 0.85,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
+       scrollTrigger: {
+  trigger: section.current,
+  start: "top top",
+  end: `+=${Math.max(
+    2200,
+    serviceItems.length * 300 + 700
+  )}`,
+  scrub: 0.6,
+  pin: true,
+  anticipatePin: 1,
+  invalidateOnRefresh: true,
+},
       });
 
       /* =========================================
@@ -86,22 +86,22 @@ export default function ServicesShowcase() {
       );
 
       /* =========================================
-         2. SERVICES POP UP ONE BY ONE
-      ========================================= */
+   2. SERVICES POP UP ONE BY ONE
+========================================= */
 
-      serviceItems.forEach((item, index) => {
-        tl.to(
-          item,
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          index === 0 ? "+=0.25" : "+=0.3"
-        );
-      });
+serviceItems.forEach((item, index) => {
+  tl.to(
+    item,
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.45,
+      ease: "power2.out",
+    },
+    index === 0 ? "+=0.1" : "+=0.08"
+  );
+});
 
       /* =========================================
          3. SHOW BUTTON
@@ -125,7 +125,7 @@ export default function ServicesShowcase() {
   return (
     <section
       ref={section}
-      className="services-section bg-black text-white"
+      className="services-section bg-[#171717] text-white"
     >
       {/* =========================================
           WE DO

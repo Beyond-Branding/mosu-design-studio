@@ -29,7 +29,7 @@ export default function FilterBar({
         height: "64px",
         display: "flex",
         alignItems: "center",
-        background: "#000",
+        background: "#171717",
         borderTop: "1px solid rgba(255,255,255,0.14)",
         borderBottom: "1px solid rgba(255,255,255,0.14)",
         overflow: "hidden",

@@ -27,7 +27,7 @@ export default function ProjectsGrid({
   }, [activeFilter]);
 
   return (
-    <section className="bg-black py-24 text-white">
+    <section className="bg-[#171717] py-24 text-white">
       <div className="mx-auto max-w-[1700px] px-6">
         <div className={styles.grid}>
           {filteredProjects.map((project) => (

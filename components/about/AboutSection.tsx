@@ -77,7 +77,7 @@ useLayoutEffect(() => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
+      className="relative h-screen overflow-hidden bg-[#171717]"
     >
       {/* =========================
           FULL FOUNDER IMAGE
@@ -91,7 +91,7 @@ useLayoutEffect(() => {
       />
 
       {/* Slight image overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-[#171717]/20" />
 
       {/* =========================
           FOUNDER
@@ -152,7 +152,7 @@ useLayoutEffect(() => {
           w-full
           lg:w-1/2
 
-          bg-black
+          bg-[#171717]
           text-white
 
           flex
