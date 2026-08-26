@@ -6,15 +6,33 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "@/app/services/services";
 
-import "@/styles/ServicesShowcase.css";
+import "@/styles/WeOffer.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ServicesShowcase() {
-  const section = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const otherRef = useRef<HTMLHeadingElement>(null);
+  const servicesRef = useRef<HTMLHeadingElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    if (!section.current) return;
+    const section = sectionRef.current;
+    const other = otherRef.current;
+    const servicesTitle = servicesRef.current;
+    const wrapper = wrapperRef.current;
+    const button = buttonRef.current;
+
+    if (
+      !section ||
+      !other ||
+      !servicesTitle ||
+      !wrapper ||
+      !button
+    ) {
+      return;
+    }
 
     const ctx = gsap.context(() => {
       const serviceItems = gsap.utils.toArray<HTMLElement>(
@@ -25,21 +43,27 @@ export default function ServicesShowcase() {
          INITIAL STATES
       ========================================= */
 
-      gsap.set(".services-wrapper", {
+      gsap.set(other, {
+        x: 0,
+      });
+
+      gsap.set(servicesTitle, {
+        x: 0,
+      });
+
+      gsap.set(wrapper, {
         opacity: 1,
-        y: 0,
       });
 
-      gsap.set(".services-button", {
-        opacity: 0,
-        y: 30,
-      });
-
-      // Hide every service initially
       gsap.set(serviceItems, {
         opacity: 0,
-        y: 45,
+        y: 50,
         scale: 0.96,
+      });
+
+      gsap.set(button, {
+        opacity: 0,
+        y: 30,
       });
 
       /* =========================================
@@ -48,27 +72,26 @@ export default function ServicesShowcase() {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: section.current,
+          trigger: section,
           start: "top top",
           end: `+=${Math.max(
-            3200,
-            serviceItems.length * 450 + 1200
+            3500,
+            serviceItems.length * 500 + 1500
           )}`,
-          scrub: 0.85,
+          scrub: 1,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true,
         },
       });
 
       /* =========================================
-         1. SPLIT WE / DO
+         1. SPLIT OTHER / SERVICES
       ========================================= */
 
       tl.to(
-        ".we",
+        other,
         {
-          x: "-25vw",
+          x: "-18vw",
           duration: 1.5,
           ease: "power2.inOut",
         },
@@ -76,9 +99,9 @@ export default function ServicesShowcase() {
       );
 
       tl.to(
-        ".do",
+        servicesTitle,
         {
-          x: "25vw",
+          x: "18vw",
           duration: 1.5,
           ease: "power2.inOut",
         },
@@ -99,45 +122,53 @@ export default function ServicesShowcase() {
             duration: 0.8,
             ease: "power3.out",
           },
-          index === 0 ? "+=0.25" : "+=0.3"
+          `+=${index === 0 ? 0.2 : 0.25}`
         );
       });
 
       /* =========================================
-         3. SHOW BUTTON
+         3. BUTTON
       ========================================= */
 
       tl.to(
-        ".services-button",
+        button,
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.8,
           ease: "power3.out",
         },
         "+=0.3"
       );
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
     <section
-      ref={section}
-      className="services-section bg-black text-white"
+      ref={sectionRef}
+      className="services-section"
     >
       {/* =========================================
-          WE DO
+          BIG CENTER TITLE
       ========================================= */}
 
       <div className="hero-words">
-        <h1 className="we text-white">
-          WE
+        <h1
+          ref={otherRef}
+          className="hero-word other-word"
+        >
+          OTHER
         </h1>
 
-        <h1 className="do text-white">
-          DO
+        <h1
+          ref={servicesRef}
+          className="hero-word services-word"
+        >
+          SERVICES
         </h1>
       </div>
 
@@ -145,13 +176,16 @@ export default function ServicesShowcase() {
           SERVICES
       ========================================= */}
 
-      <div className="services-wrapper">
+      <div
+        ref={wrapperRef}
+        className="services-wrapper"
+      >
         <div className="services-list">
           {services.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="service-item text-white"
+              className="service-item"
             >
               {service.title}
             </Link>
@@ -159,10 +193,15 @@ export default function ServicesShowcase() {
         </div>
 
         <Link
+          ref={buttonRef}
           href="/services"
-          className="services-button text-white"
+          className="services-button"
         >
-          View All Services
+          <span>View All Services</span>
+
+          <span className="button-arrow">
+            ↗
+          </span>
         </Link>
       </div>
     </section>

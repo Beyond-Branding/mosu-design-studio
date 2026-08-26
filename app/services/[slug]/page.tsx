@@ -2,14 +2,12 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Reveal from "@/components/ui/Reveal";
-import ServicesShowcase from "@/components/ServicesShowcase";
+import WeOffer from "@/components/service-page/WeOffer";
 
 import { services } from "../services";
-
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -634,53 +632,49 @@ export default async function ServicePage({ params }: PageProps) {
             </p>
           </Reveal>
 
+{/* MAIN TEXT */}
 
-          {/* MAIN TEXT */}
+<Reveal delay={100}>
+  <h2
+    className="
+      w-full
+      max-w-[1100px]
+      text-[7vw]
+      font-medium
+      uppercase
+      leading-[0.9]
+      tracking-[-0.065em]
+      text-[#e9e9e7]
+      [word-spacing:0.15em]
+      sm:text-6xl
+      lg:text-[5.3vw]
+    "
+  >
+    <span className="cta-line block">
+      <span className="cta-line-inner">
+        LET US HELP YOU DESIGN
+      </span>
+    </span>
 
-          <Reveal delay={100}>
+    <span className="cta-line block">
+      <span className="cta-line-inner">
+        A SPACE THAT TRULY
+      </span>
+    </span>
 
-            <h2
-              className="
-                w-full
-                max-w-[1100px]
-                text-[7vw]
-                font-medium
-                uppercase
-                leading-[0.86]
-                tracking-[-0.065em]
-                text-[#e9e9e7]
-                sm:text-6xl
-                lg:text-[5.3vw]
-              "
-            >
+    <span className="cta-line block">
+      <span className="cta-line-inner">
+        REFLECTS YOUR UNIQUE
+      </span>
+    </span>
 
-              <span className="cta-line">
-                <span className="cta-line-inner">
-                  LET US HELP YOU DESIGN
-                </span>
-              </span>
-
-              <span className="cta-line">
-                <span className="cta-line-inner">
-                  A SPACE THAT TRULY
-                </span>
-              </span>
-
-              <span className="cta-line">
-                <span className="cta-line-inner">
-                  REFLECTS YOUR UNIQUE
-                </span>
-              </span>
-
-              <span className="cta-line">
-                <span className="cta-line-inner">
-                  STYLE AND NEEDS
-                </span>
-              </span>
-
-            </h2>
-
-          </Reveal>
+    <span className="cta-line block">
+      <span className="cta-line-inner">
+        STYLE AND NEEDS
+      </span>
+    </span>
+  </h2>
+</Reveal>
 
 
           {/* BUTTON */}
@@ -741,12 +735,12 @@ export default async function ServicePage({ params }: PageProps) {
       </section>
 
 
-      {/* =====================================================
-          05 — SERVICES
+       {/* =====================================================
+          05 — WE OFFER
       ===================================================== */}
 
       <div className="bg-[#111111]">
-        <ServicesShowcase />
+        <WeOffer />
       </div>
 
 
