@@ -7,14 +7,9 @@ export const cities = [
   },
   {
     id: 2,
-    name: "DELHI",
-    phone: "+91 99887 55443",
-    address: "Connaught Place, New Delhi",
+    name: "DUBAI",
+    phone: "+971 50 123 4567",
+    address: "Jumeirah, Dubai, UAE",
   },
-  {
-    id: 3,
-    name: "BANGALORE",
-    phone: "+91 99000 77665",
-    address: "Indiranagar, Bengaluru",
-  },
+  
 ];

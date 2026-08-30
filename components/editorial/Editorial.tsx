@@ -18,17 +18,15 @@ export default function Editorial() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray<HTMLElement>(
-        ".editorial-line"
-      );
+      const items = gsap.utils.toArray<HTMLElement>(".editorial-line");
 
       const characters = items.map((item) =>
         gsap.utils.toArray<HTMLElement>(".char", item)
       );
 
-      /* --------------------------------
+      /* =========================================
          INITIAL STATE
-      -------------------------------- */
+      ========================================= */
 
       gsap.set(items, {
         visibility: "hidden",
@@ -41,17 +39,17 @@ export default function Editorial() {
       gsap.set(characters.flat(), {
         opacity: 0,
         filter: "blur(0px)",
+        scale: 1,
         y: 0,
       });
 
-      // First sentence starts completely visible
       gsap.set(characters[0], {
         opacity: 1,
       });
 
-      /* --------------------------------
+      /* =========================================
          SCROLL TIMELINE
-      -------------------------------- */
+      ========================================= */
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -71,61 +69,53 @@ export default function Editorial() {
         const currentChars = characters[index];
         const nextChars = characters[index + 1];
 
-        /* --------------------------------
-           1. PAUSE ON CURRENT TEXT
-        -------------------------------- */
+        /* =========================================
+           HOLD
+        ========================================= */
 
         tl.to({}, {
           duration: 0.7,
         });
 
-        /* --------------------------------
-           2. ERASE CURRENT TEXT
+        /* =========================================
+           ERASE CURRENT TEXT
+           CENTER → OUTWARD
+        ========================================= */
 
-           Starts from the CENTER and spreads
-           outward.
+        tl.to(currentChars, {
+          opacity: 0,
+          filter: "blur(8px)",
+          scale: 0.98,
 
-           Blur increases while disappearing,
-           giving the soft editorial transition.
-        -------------------------------- */
+          duration: 0.8,
 
-        tl.to(
-          currentChars,
-          {
-            opacity: 0,
-            filter: "blur(8px)",
-            scale: 0.98,
+          stagger: {
+            each: 0.018,
+            from: "center",
+          },
 
-            duration: 0.8,
+          ease: "power2.inOut",
+        });
 
-            stagger: {
-              each: 0.018,
-              from: "center",
-            },
-
-            ease: "power2.inOut",
-          }
-        );
-
-        /* --------------------------------
-           3. HIDE OLD LINE
-        -------------------------------- */
+        /* =========================================
+           HIDE OLD LINE
+        ========================================= */
 
         tl.set(items[index], {
           visibility: "hidden",
         });
 
-        /* --------------------------------
-           4. SHOW NEXT CONTAINER
-        -------------------------------- */
+        /* =========================================
+           SHOW NEXT LINE
+        ========================================= */
 
         tl.set(items[index + 1], {
           visibility: "visible",
         });
 
-        /* --------------------------------
-           5. RESET NEXT CHARACTERS
-        -------------------------------- */
+        /* =========================================
+           RESET NEXT CHARACTERS
+        ========================================= */
 
         tl.set(nextChars, {
           opacity: 0,
@@ -133,49 +123,47 @@ export default function Editorial() {
           scale: 1.02,
         });
 
-        /* --------------------------------
-           6. REVEAL NEXT TEXT
+        /* =========================================
+           REVEAL NEXT TEXT
+           CENTER → OUTWARD
+        ========================================= */
 
-           Appears from CENTER outward,
-           opposite to the erase.
+        tl.to(nextChars, {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
 
-           Blur decreases as letters become
-           readable.
-        -------------------------------- */
+          duration: 0.8,
 
-        tl.to(
-          nextChars,
-          {
-            opacity: 1,
-            filter: "blur(0px)",
-            scale: 1,
+          stagger: {
+            each: 0.018,
+            from: "center",
+          },
 
-            duration: 0.8,
+          ease: "power2.out",
+        });
 
-            stagger: {
-              each: 0.018,
-              from: "center",
-            },
-
-            ease: "power2.out",
-          }
-        );
-
-        /* --------------------------------
-           7. HOLD NEW TEXT
-        -------------------------------- */
+        /* =========================================
+           HOLD
+        ========================================= */
 
         tl.to({}, {
           duration: 0.7,
         });
       });
 
+      /* =========================================
+         REFRESH
+      ========================================= */
+
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -185,7 +173,7 @@ export default function Editorial() {
         relative
         h-screen
         overflow-hidden
-        bg-[#171717]
+        bg-[#1F1F1F]
       "
     >
       <div
@@ -216,14 +204,16 @@ export default function Editorial() {
               className="
                 mx-auto
                 max-w-[1500px]
-
                 text-center
                 font-grey
+                font-semibold
                 uppercase
-                leading-[1]
-                tracking-[-0.03em]
 
-                text-white
+                leading-[1.02]
+
+                tracking-[-0.025em]
+
+                text-[#F2F2F2]
 
                 text-[1.7rem]
                 sm:text-[2.2rem]
@@ -231,9 +221,16 @@ export default function Editorial() {
                 lg:text-[3.7rem]
                 xl:text-[4.3rem]
               "
+              style={{
+                wordSpacing: "0.14em",
+                fontWeight: 400,
+              }}
             >
               {line.split("\n").map((row, rowIndex) => (
-                <div key={rowIndex}>
+                <div
+                  key={rowIndex}
+                  className="whitespace-nowrap"
+                >
                   {Array.from(row).map((char, charIndex) => (
                     <span
                       key={`${rowIndex}-${charIndex}`}

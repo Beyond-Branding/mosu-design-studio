@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #171717;
-  --foreground: #e8e8e8;
+  --background: #AFAFAE;
+  --foreground: #171717;
 
-  --surface: #1d1d1d;
-  --surface-light: #242424;
+  --surface: #BDBDBB;
+  --surface-light: #C8C8C6;
 
-  --text-primary: #e8e8e8;
-  --text-secondary: #a8a8a8;
-  --text-muted: #777777;
+  --text-primary: #171717;
+  --text-secondary: #444444;
+  --text-muted: #666666;
 
-  --border: #3a3a3a;
-  --border-light: #4a4a4a;
+  --border: #777777;
+  --border-light: #8A8A88;
 
-  --white: #ffffff;
-  --black: #171717;
+  --white: #171717;
+  --black: #AFAFAE;
 }
 
 @theme inline {
@@ -49,40 +49,10 @@ body {
 
   overflow-x: hidden;
 
-  background: #171717;
-  color: #e8e8e8;
+  background: #AFAFAE;
+  color: #171717;
 
   font-family: var(--font-neue-haas);
-}
-
-/* =========================
-   GLOBAL SELECTION
-========================= */
-
-::selection {
-  background: #e8e8e8;
-  color: #171717;
-}
-
-/* =========================
-   LENIS
-========================= */
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis [data-lenis-prevent] {
-  overscroll-behavior: contain;
 }
 
 /* =========================
@@ -94,6 +64,15 @@ html.lenis body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: #171717;
+  color: #AFAFAE;
 }
 
 /* =========================
@@ -116,22 +95,24 @@ body,
 }
 
 /* =========================
-   SWIPER
+   LENIS
 ========================= */
 
-.team-prev.swiper-button-disabled,
-.team-next.swiper-button-disabled {
-  opacity: 1 !important;
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
-.team-prev.swiper-button-disabled svg,
-.team-next.swiper-button-disabled svg {
-  color: #e8e8e8 !important;
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
-.team-prev.swiper-button-disabled,
-.team-next.swiper-button-disabled {
-  border-color: #444444 !important;
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 /* =========================
@@ -262,28 +243,4 @@ body,
     0.6s
     cubic-bezier(0.22, 1, 0.36, 1)
     forwards;
-}
-
-/* =========================
-   GLOBAL DARK EDITORIAL
-========================= */
-
-.bg-black {
-  background-color: #171717 !important;
-}
-
-.text-black {
-  color: #171717 !important;
-}
-
-.text-white {
-  color: #e8e8e8 !important;
-}
-
-.border-black {
-  border-color: #444444 !important;
-}
-
-.border-white {
-  border-color: #e8e8e8 !important;
 }
