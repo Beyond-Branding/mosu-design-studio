@@ -84,10 +84,7 @@ export default function ContactCities() {
         </div>
       </section>
 
-      <ContactModal
-        city={selectedCity}
-        onClose={() => setSelectedCity(null)}
-      />
+     
     </>
   );
 }

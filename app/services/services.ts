@@ -16,338 +16,188 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "Hotels & Resorts",
-    slug: "hotels",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-
-    subtitle:
-      "Luxury hospitality spaces crafted for unforgettable experiences.",
-
-    description:
-      "We design exceptional hotels and resorts that blend architecture, comfort, and timeless luxury.",
-
-    process: [
-      {
-        title: "Research",
-        text:
-          "Understanding the location and guest experience.",
-      },
-      {
-        title: "Concept",
-        text:
-          "Creating the design vision.",
-      },
-      {
-        title: "Design",
-        text:
-          "Detailed architectural development.",
-      },
-      {
-        title: "Execution",
-        text:
-          "From construction to completion.",
-      },
-    ],
-
-    gallery: [],
-  },
-
-  {
-    title: "Luxury Residences",
-    slug: "luxury-residences",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
-
-    subtitle:
-      "Elegant homes designed for modern living.",
-
-    description:
-      "Bespoke residences that combine refined aesthetics with functional living.",
-
-    process: [
-      {
-        title: "Brief",
-        text:
-          "Understanding the client's vision.",
-      },
-      {
-        title: "Planning",
-        text:
-          "Space planning and layouts.",
-      },
-      {
-        title: "Design",
-        text:
-          "Material selection and detailing.",
-      },
-      {
-        title: "Execution",
-        text:
-          "Site supervision and delivery.",
-      },
-    ],
-
-    gallery: [],
-  },
-
-  {
     title: "Art Installations",
     slug: "art-installations",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
-
-    subtitle:
-      "Art that transforms spaces.",
-
+    subtitle: "Art that transforms spaces.",
     description:
       "Custom installations that become the focal point of architecture and interiors.",
-
     process: [
       {
         title: "Concept",
-        text:
-          "Creative direction.",
+        text: "Creative direction.",
       },
       {
         title: "Design",
-        text:
-          "Visual development.",
+        text: "Visual development.",
       },
       {
         title: "Fabrication",
-        text:
-          "Craftsmanship and production.",
+        text: "Craftsmanship and production.",
       },
       {
         title: "Installation",
-        text:
-          "On-site execution.",
+        text: "On-site execution.",
       },
     ],
-
     gallery: [],
   },
 
   {
     title: "Sculptures",
     slug: "sculptures",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-
-    subtitle:
-      "Statement sculptures crafted with precision.",
-
+    subtitle: "Statement sculptures crafted with precision.",
     description:
       "Sculptural works that add identity and character to every environment.",
-
     process: [
       {
         title: "Sketch",
-        text:
-          "Initial concepts.",
+        text: "Initial concepts.",
       },
       {
         title: "Model",
-        text:
-          "Prototype development.",
+        text: "Prototype development.",
       },
       {
         title: "Fabrication",
-        text:
-          "Material craftsmanship.",
+        text: "Material craftsmanship.",
       },
       {
         title: "Installation",
-        text:
-          "Final placement.",
+        text: "Final placement.",
       },
     ],
-
     gallery: [],
   },
 
   {
     title: "Lighting",
     slug: "lighting",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-
-    subtitle:
-      "Architectural lighting that defines spaces.",
-
+    subtitle: "Architectural lighting that defines spaces.",
     description:
       "Thoughtfully designed lighting systems balancing beauty and functionality.",
-
     process: [
       {
         title: "Planning",
-        text:
-          "Lighting strategy.",
+        text: "Lighting strategy.",
       },
       {
         title: "Selection",
-        text:
-          "Fixtures and finishes.",
+        text: "Fixtures and finishes.",
       },
       {
         title: "Installation",
-        text:
-          "Technical execution.",
+        text: "Technical execution.",
       },
       {
         title: "Testing",
-        text:
-          "Final calibration.",
+        text: "Final calibration.",
       },
     ],
-
     gallery: [],
   },
 
   {
     title: "Mirrors & Chandeliers",
     slug: "mirrors-chandeliers",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
-
-    subtitle:
-      "Luxury decorative lighting and mirror design.",
-
+    subtitle: "Luxury decorative lighting and mirror design.",
     description:
       "Bespoke mirrors and chandeliers handcrafted to elevate interiors.",
-
     process: [
       {
         title: "Design",
-        text:
-          "Custom concepts.",
+        text: "Custom concepts.",
       },
       {
         title: "Engineering",
-        text:
-          "Technical detailing.",
+        text: "Technical detailing.",
       },
       {
         title: "Production",
-        text:
-          "Handcrafted fabrication.",
+        text: "Handcrafted fabrication.",
       },
       {
         title: "Installation",
-        text:
-          "On-site finishing.",
+        text: "On-site finishing.",
       },
     ],
-
     gallery: [],
   },
 
   {
     title: "Doors & Partitions",
     slug: "doors-partitions",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
-    subtitle:
-      "Functional architectural partitions with timeless aesthetics.",
-
+    subtitle: "Functional architectural partitions with timeless aesthetics.",
     description:
       "Custom doors and partition systems that seamlessly integrate into luxury spaces.",
-
     process: [
       {
         title: "Measurement",
-        text:
-          "Site survey.",
+        text: "Site survey.",
       },
       {
         title: "Design",
-        text:
-          "Custom detailing.",
+        text: "Custom detailing.",
       },
       {
         title: "Production",
-        text:
-          "Precision manufacturing.",
+        text: "Precision manufacturing.",
       },
       {
         title: "Installation",
-        text:
-          "Final fitting.",
+        text: "Final fitting.",
       },
     ],
-
     gallery: [],
   },
 
   {
     title: "Metal Finishes",
     slug: "metal-finishes",
-
     image:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-
-    subtitle:
-      "Premium metal craftsmanship for luxury interiors.",
-
+    subtitle: "Premium metal craftsmanship for luxury interiors.",
     description:
       "Decorative metal finishes designed to enrich architecture and interior spaces.",
-
     process: [
       {
         title: "Material Selection",
-        text:
-          "Choosing the perfect finish.",
+        text: "Choosing the perfect finish.",
       },
       {
         title: "Fabrication",
-        text:
-          "Precision metal work.",
+        text: "Precision metal work.",
       },
       {
         title: "Finishing",
-        text:
-          "Surface treatment.",
+        text: "Surface treatment.",
       },
       {
         title: "Installation",
-        text:
-          "Final execution.",
+        text: "Final execution.",
       },
     ],
-
     gallery: [],
   },
 ];

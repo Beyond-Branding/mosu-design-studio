@@ -13,19 +13,22 @@ export interface Project {
   subtitle: string;
   description: string;
 
-  /* YODEZEEN STYLE DETAIL DATA */
-  designStyle?: string;
-  coordinates?: string;
-  type?: string;
-  area?: string;
+  /* =========================
+     DETAIL PAGE
+  ========================= */
 
   gallery?: string[];
 
-  awards?: string;
+  designStyle?: string;
+  type?: string;
+  area?: string;
+  coordinates?: string;
 
   concept?: string;
   challenge?: string;
   composition?: string;
+
+  awards?: string;
 
   team?: {
     name: string;
@@ -33,14 +36,26 @@ export interface Project {
   }[];
 }
 
+
 export const projects: Project[] = [
+
+  /* =========================================================
+     01 — HOTELS & RESORTS
+  ========================================================= */
+
   {
     id: 1,
+
     slug: "hotels-resorts",
+
     title: "HOTELS & RESORTS",
+
     category: "HOTELS & RESORTS",
+
     status: "COMPLETED",
+
     location: "GOA, INDIA",
+
     year: "2025",
 
     image:
@@ -51,12 +66,6 @@ export const projects: Project[] = [
 
     gallery: [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -65,22 +74,22 @@ export const projects: Project[] = [
     description:
       "Luxury resorts, boutique hotels and hospitality environments crafted to deliver timeless guest experiences.",
 
-    designStyle: "Contemporary Luxury",
-    coordinates: "15°29′ N / 73°49′ E",
-    type: "Hotel & Resort",
+    designStyle: "Contemporary",
+
+    type: "Hospitality",
+
     area: "—",
 
-    awards:
-      "A hospitality environment developed around refined materiality, memorable experiences and a strong relationship with its natural surroundings.",
+    coordinates: "GOA, INDIA",
 
     concept:
-      "The project explores the relationship between contemporary luxury and the relaxed character of Goa. Natural materials, warm textures and carefully framed views create an atmosphere that feels sophisticated without losing its sense of place.",
+      "A hospitality environment shaped around natural materials, warm textures and a seamless connection between architecture and landscape.",
 
     challenge:
-      "The main challenge was creating a luxury hospitality experience that remained connected to the tropical environment while providing the level of comfort and refinement expected from a contemporary resort.",
+      "The project required a balance between luxury, comfort and a strong sense of place while maintaining a refined contemporary identity.",
 
     composition:
-      "The spatial composition combines open communal areas, private guest spaces and landscaped transitions. Carefully controlled lighting, custom furniture and tactile materials create a continuous hospitality experience.",
+      "Carefully layered materials, custom furniture and controlled lighting create a calm yet immersive hospitality experience.",
 
     team: [
       {
@@ -91,13 +100,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     02 — RESIDENCES
+  ========================================================= */
+
   {
     id: 2,
+
     slug: "residences",
+
     title: "RESIDENCES",
+
     category: "RESIDENCES",
+
     status: "IN PROGRESS",
+
     location: "MUMBAI, INDIA",
+
     year: "2025",
 
     image:
@@ -110,10 +129,6 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
 
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
-
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -123,21 +138,21 @@ export const projects: Project[] = [
       "Private residences combining timeless architecture with bespoke interiors.",
 
     designStyle: "Minimal Contemporary",
-    coordinates: "19°04′ N / 72°52′ E",
+
     type: "Private Residence",
+
     area: "—",
 
-    awards:
-      "A private residential project focused on proportion, materiality and quiet luxury.",
+    coordinates: "MUMBAI, INDIA",
 
     concept:
-      "The residence is conceived as a calm architectural environment where natural materials, restrained geometry and carefully framed views create a timeless living experience.",
+      "The residence explores a restrained architectural language where proportion, natural materials and carefully controlled light define the experience.",
 
     challenge:
-      "The challenge was to create a luxurious environment without relying on excessive decoration. Every element therefore needed to contribute to the overall architectural composition.",
+      "Creating a luxurious residence without excessive visual elements required precise detailing and a carefully considered material palette.",
 
     composition:
-      "Open living areas connect with private spaces through carefully proportioned thresholds. Bespoke furniture, integrated lighting and natural surfaces establish continuity throughout the residence.",
+      "Open living areas, sculptural furniture and custom architectural elements create a continuous relationship between the different spaces.",
 
     team: [
       {
@@ -148,13 +163,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     03 — BESPOKE ART
+  ========================================================= */
+
   {
     id: 3,
+
     slug: "bespoke-art",
+
     title: "BESPOKE ART",
+
     category: "BESPOKE ART",
+
     status: "COMPLETED",
+
     location: "DUBAI, UAE",
+
     year: "2024",
 
     image:
@@ -167,10 +192,6 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493728/NSP_0904_lkofdq.jpg",
 
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20241010_182651_pguwjb.jpg",
-
-      "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -180,21 +201,21 @@ export const projects: Project[] = [
       "Large-scale commissioned artworks created exclusively for luxury interiors.",
 
     designStyle: "Contemporary Art",
-    coordinates: "25°12′ N / 55°16′ E",
+
     type: "Art Installation",
+
     area: "—",
 
-    awards:
-      "Commissioned artwork developed specifically for a luxury interior environment.",
+    coordinates: "DUBAI, UAE",
 
     concept:
-      "The artwork is conceived as an architectural element rather than a decorative addition, allowing it to become part of the identity of the surrounding space.",
+      "The installation was developed as an architectural artwork rather than a decorative object, allowing the piece to become an integral part of its surrounding space.",
 
     challenge:
-      "Scale, fabrication and installation precision were central to achieving the intended visual impact while maintaining the integrity of the artwork.",
+      "Scale, material selection and installation precision were central to achieving the intended visual impact.",
 
     composition:
-      "Sculptural geometry, texture and controlled reflection create a strong focal point within the interior.",
+      "Sculptural geometry and carefully controlled surfaces create a strong focal point within the interior.",
 
     team: [
       {
@@ -205,13 +226,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     04 — WALL INSTALLATIONS
+  ========================================================= */
+
   {
     id: 4,
+
     slug: "wall-installations",
+
     title: "WALL INSTALLATIONS",
+
     category: "WALL INSTALLATIONS",
+
     status: "COMPLETED",
+
     location: "DELHI, INDIA",
+
     year: "2024",
 
     image:
@@ -224,10 +255,6 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12881057_lmymgz.jpg",
 
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493725/20240914_172352_gyaxp4.jpg",
-
-      "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -237,18 +264,21 @@ export const projects: Project[] = [
       "Architectural wall features blending texture, lighting and craftsmanship.",
 
     designStyle: "Sculptural Contemporary",
-    coordinates: "28°36′ N / 77°12′ E",
+
     type: "Wall Installation",
+
     area: "—",
 
+    coordinates: "DELHI, INDIA",
+
     concept:
-      "The wall becomes an architectural canvas, combining texture, material and light to create a distinctive visual identity.",
+      "The wall becomes an architectural canvas, combining material, texture and light to create a distinctive visual identity.",
 
     challenge:
-      "The installation required detailed fabrication and precise coordination with the surrounding architecture.",
+      "The installation required detailed fabrication and careful coordination with the existing architecture.",
 
     composition:
-      "Layered surfaces and integrated lighting create depth and movement across the installation.",
+      "Layered surfaces and integrated lighting create depth and movement across the wall.",
 
     team: [
       {
@@ -259,13 +289,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     05 — SCULPTURES
+  ========================================================= */
+
   {
     id: 5,
+
     slug: "sculptures",
+
     title: "SCULPTURES",
+
     category: "SCULPTURES",
+
     status: "COMPLETED",
+
     location: "LONDON, UK",
+
     year: "2023",
 
     image:
@@ -278,10 +318,6 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
 
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-
-      "https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -291,18 +327,21 @@ export const projects: Project[] = [
       "Contemporary sculptures handcrafted for architectural environments.",
 
     designStyle: "Contemporary Sculpture",
-    coordinates: "51°30′ N / 0°07′ W",
+
     type: "Sculpture",
+
     area: "—",
 
+    coordinates: "LONDON, UK",
+
     concept:
-      "The sculpture explores the relationship between volume, material and surrounding architecture.",
+      "The sculpture is conceived as a dialogue between material, volume and surrounding architecture.",
 
     challenge:
-      "Achieving the required scale while maintaining precision and structural integrity required extensive fabrication development.",
+      "Achieving the required scale while preserving the precision of the sculptural form was a central challenge.",
 
     composition:
-      "A controlled balance of solid and void creates a sculptural presence that interacts with the surrounding architecture.",
+      "A carefully controlled balance of solid and void creates a strong architectural presence.",
 
     team: [
       {
@@ -313,13 +352,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     06 — CUSTOM LIGHTING
+  ========================================================= */
+
   {
     id: 6,
+
     slug: "custom-lighting",
+
     title: "CUSTOM LIGHTING",
+
     category: "CUSTOM LIGHTING",
+
     status: "IN PROGRESS",
+
     location: "SINGAPORE",
+
     year: "2025",
 
     image:
@@ -330,10 +379,6 @@ export const projects: Project[] = [
 
     gallery: [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
-      "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -343,12 +388,15 @@ export const projects: Project[] = [
       "Bespoke lighting installations designed to shape mood and space.",
 
     designStyle: "Atmospheric Contemporary",
-    coordinates: "1°17′ N / 103°51′ E",
+
     type: "Custom Lighting",
+
     area: "—",
 
+    coordinates: "SINGAPORE",
+
     concept:
-      "Light is treated as an architectural material, defining atmosphere, movement and spatial hierarchy.",
+      "Light becomes an architectural material, defining atmosphere, movement and spatial hierarchy.",
 
     challenge:
       "The lighting system needed to integrate seamlessly with the architecture while remaining visually distinctive.",
@@ -365,13 +413,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     07 — FURNITURE
+  ========================================================= */
+
   {
     id: 7,
+
     slug: "furniture",
+
     title: "FURNITURE",
+
     category: "FURNITURE",
+
     status: "IN PROGRESS",
+
     location: "BENGALURU, INDIA",
+
     year: "2024",
 
     image:
@@ -384,10 +442,6 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/WhatsApp_Image_2026-01-03_at_6.59.12_PM_top8di.jpg",
 
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764168/WhatsApp_Image_2026-01-03_at_6.59.10_PM_umq9vl.jpg",
-
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -397,9 +451,12 @@ export const projects: Project[] = [
       "Handcrafted furniture combining premium materials with timeless design.",
 
     designStyle: "Contemporary",
-    coordinates: "12°58′ N / 77°35′ E",
+
     type: "Furniture",
+
     area: "—",
+
+    coordinates: "BENGALURU, INDIA",
 
     concept:
       "Each furniture piece is treated as an individual sculptural object while maintaining functionality and comfort.",
@@ -419,13 +476,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     08 — DOORS & PARTITIONS
+  ========================================================= */
+
   {
     id: 8,
+
     slug: "doors-partitions",
+
     title: "DOORS & PARTITIONS",
+
     category: "DOORS & PARTITIONS",
+
     status: "IN PROGRESS",
+
     location: "HYDERABAD, INDIA",
+
     year: "2024",
 
     image:
@@ -436,10 +503,6 @@ export const projects: Project[] = [
 
     gallery: [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -449,9 +512,12 @@ export const projects: Project[] = [
       "Custom pivot doors and architectural partition systems.",
 
     designStyle: "Contemporary Minimal",
-    coordinates: "17°23′ N / 78°29′ E",
+
     type: "Architectural Elements",
+
     area: "—",
+
+    coordinates: "HYDERABAD, INDIA",
 
     concept:
       "Doors and partitions are designed as architectural elements rather than simple functional boundaries.",
@@ -471,13 +537,23 @@ export const projects: Project[] = [
   },
 
 
+  /* =========================================================
+     09 — METAL WORKS
+  ========================================================= */
+
   {
     id: 9,
+
     slug: "metal-works",
+
     title: "METAL WORKS",
+
     category: "METAL WORKS",
+
     status: "IN PROGRESS",
+
     location: "CHENNAI, INDIA",
+
     year: "2025",
 
     image:
@@ -488,10 +564,6 @@ export const projects: Project[] = [
 
     gallery: [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-
-      "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90",
-
-      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=90",
     ],
 
     subtitle:
@@ -501,9 +573,12 @@ export const projects: Project[] = [
       "Luxury brass, bronze and stainless-steel elements for bespoke interiors.",
 
     designStyle: "Luxury Contemporary",
-    coordinates: "13°05′ N / 80°16′ E",
+
     type: "Metal Works",
+
     area: "—",
+
+    coordinates: "CHENNAI, INDIA",
 
     concept:
       "Metal is treated as a refined architectural material, combining craftsmanship with contemporary geometry.",
@@ -521,4 +596,5 @@ export const projects: Project[] = [
       },
     ],
   },
+
 ];

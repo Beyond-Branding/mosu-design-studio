@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Plus, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 function NavItem({
@@ -17,6 +17,7 @@ function NavItem({
       href={href}
       className="group relative block h-5 overflow-hidden text-white"
     >
+      {/* Main Text */}
       <span
         className="
           block
@@ -31,6 +32,7 @@ function NavItem({
         {text}
       </span>
 
+      {/* Hover Text */}
       <span
         className="
           absolute
@@ -64,39 +66,82 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
+      {/* =====================================================
+          DESKTOP NAVBAR
+      ===================================================== */}
 
       <header className="fixed inset-x-0 top-0 z-[999]">
 
-        {/* Gradient */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/65 via-black/25 to-transparent" />
+        {/* Top Gradient */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            top-0
+            h-36
+            bg-gradient-to-b
+            from-black/65
+            via-black/25
+            to-transparent
+          "
+        />
 
-        <div className="relative mx-auto flex h-24 max-w-[1800px] items-center justify-between px-5 sm:px-8 lg:px-12">
+        <div
+          className="
+            relative
+            mx-auto
+            flex
+            h-24
+            max-w-[1800px]
+            items-center
+            justify-between
+            px-5
+            sm:px-8
+            lg:px-12
+          "
+        >
 
-          {/* ================= LEFT ================= */}
+          {/* =================================================
+              LEFT SIDE
+              PROJECTS | PRODUCTS
+          ================================================= */}
 
-          <nav className="hidden items-center gap-14 text-[13px] font-medium lg:flex">
+          <nav
+            className="
+              hidden
+              items-center
+              gap-14
+              text-[13px]
+              font-medium
+              lg:flex
+            "
+          >
             <NavItem
               href="/projects"
               text="PROJECTS"
             />
 
+            {/* Display = PRODUCTS
+                Route = /services */}
             <NavItem
               href="/services"
-              text="SERVICES"
-            />
-
-            <NavItem
-              href="/contact"
-              text="CONTACT"
+              text="PRODUCTS"
             />
           </nav>
 
-          {/* ================= LOGO ================= */}
+
+          {/* =================================================
+              CENTER LOGO
+          ================================================= */}
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2"
+            className="
+              absolute
+              left-1/2
+              -translate-x-1/2
+            "
           >
             <Image
               src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
@@ -108,56 +153,46 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* ================= RIGHT ================= */}
 
-          <div className="hidden items-center gap-14 text-[13px] font-medium lg:flex">
+          {/* =================================================
+              RIGHT SIDE
+              CONTACT | ABOUT
+          ================================================= */}
+
+          <nav
+            className="
+              ml-auto
+              hidden
+              items-center
+              gap-14
+              text-[13px]
+              font-medium
+              lg:flex
+            "
+          >
+            <NavItem
+              href="/contact"
+              text="CONTACT"
+            />
 
             <NavItem
               href="/about"
               text="ABOUT"
             />
+          </nav>
 
-            {/* LET'S TALK */}
-            <Link
-              href="/#start-project"
-              className="
-                group
-                flex
-                items-center
-                gap-3
-                rounded-full
-                border
-                border-white/40
-                bg-white/10
-                px-7
-                py-3
-                uppercase
-                tracking-[0.18em]
-                text-[13px]
-                font-medium
-                text-white
-                backdrop-blur-md
-                transition-all
-                duration-300
-                hover:bg-white
-                hover:text-black
-              "
-            >
-              <span>LET'S TALK</span>
 
-              <Plus
-                size={14}
-                className="transition-transform duration-300 group-hover:rotate-90"
-              />
-            </Link>
-
-          </div>
-
-          {/* ================= MOBILE BUTTON ================= */}
+          {/* =================================================
+              MOBILE MENU BUTTON
+          ================================================= */}
 
           <button
             onClick={() => setOpen(true)}
-            className="ml-auto text-white lg:hidden"
+            className="
+              ml-auto
+              text-white
+              lg:hidden
+            "
             aria-label="Open menu"
           >
             <Menu size={34} />
@@ -166,19 +201,42 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ================= MOBILE MENU ================= */}
+
+      {/* =====================================================
+          MOBILE MENU
+      ===================================================== */}
 
       <div
-        className={`fixed inset-0 z-[1000] bg-[#111] transition-all duration-500 ${
-          open
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-full opacity-0"
-        }`}
+        className={`
+          fixed
+          inset-0
+          z-[1000]
+          bg-[#111]
+          transition-all
+          duration-500
+          ${
+            open
+              ? "translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-full opacity-0"
+          }
+        `}
       >
 
-        {/* Top */}
+        {/* =================================================
+            MOBILE HEADER
+        ================================================= */}
 
-        <div className="flex h-24 items-center justify-between px-6">
+        <div
+          className="
+            flex
+            h-24
+            items-center
+            justify-between
+            px-6
+          "
+        >
+
+          {/* Logo */}
 
           <Link
             href="/"
@@ -193,6 +251,9 @@ export default function Navbar() {
             />
           </Link>
 
+
+          {/* Close Button */}
+
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
@@ -205,9 +266,22 @@ export default function Navbar() {
 
         </div>
 
-        {/* Links */}
 
-        <nav className="mt-20 flex flex-col items-center gap-10">
+        {/* =================================================
+            MOBILE LINKS
+        ================================================= */}
+
+        <nav
+          className="
+            mt-20
+            flex
+            flex-col
+            items-center
+            gap-10
+          "
+        >
+
+          {/* PROJECTS */}
 
           <Link
             href="/projects"
@@ -226,6 +300,13 @@ export default function Navbar() {
             Projects
           </Link>
 
+
+          {/* PRODUCTS
+              IMPORTANT:
+              Text = Products
+              URL = /services
+          */}
+
           <Link
             href="/services"
             onClick={() => setOpen(false)}
@@ -240,25 +321,11 @@ export default function Navbar() {
               hover:translate-x-2
             "
           >
-            Services
+            Products
           </Link>
 
-          <Link
-            href="/about"
-            onClick={() => setOpen(false)}
-            className="
-              text-4xl
-              font-light
-              uppercase
-              tracking-wide
-              text-white
-              transition
-              duration-300
-              hover:translate-x-2
-            "
-          >
-            About
-          </Link>
+
+          {/* CONTACT */}
 
           <Link
             href="/contact"
@@ -277,40 +344,28 @@ export default function Navbar() {
             Contact
           </Link>
 
-          {/* ================= MOBILE LET'S TALK ================= */}
+
+          {/* ABOUT */}
 
           <Link
-            href="/#start-project"
+            href="/about"
             onClick={() => setOpen(false)}
             className="
-              group
-              mt-10
-              flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              border-white
-              px-8
-              py-4
+              text-4xl
+              font-light
               uppercase
-              tracking-[0.2em]
+              tracking-wide
               text-white
               transition
               duration-300
-              hover:bg-white
-              hover:text-black
+              hover:translate-x-2
             "
           >
-            <span>LET'S TALK</span>
-
-            <Plus
-              size={14}
-              className="transition-transform duration-300 group-hover:rotate-90"
-            />
+            About
           </Link>
 
         </nav>
+
       </div>
     </>
   );
