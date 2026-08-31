@@ -223,7 +223,7 @@ export default function Editorial() {
               "
               style={{
                 wordSpacing: "0.14em",
-                fontWeight: 400,
+                fontWeight: 550,
               }}
             >
               {line.split("\n").map((row, rowIndex) => (

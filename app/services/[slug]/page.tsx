@@ -1,40 +1,72 @@
-import { notFound } from "next/navigation";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLayoutEffect, useRef } from "react";
+import { useParams } from "next/navigation";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Reveal from "@/components/ui/Reveal";
-import WeOffer from "@/components/service-page/WeOffer";
-
 import { services } from "../services";
-interface PageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
 
-export default async function ServicePage({ params }: PageProps) {
-  const { slug } = await params;
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ServicePage() {
+  const params = useParams();
+  const slug = params.slug as string;
+
+  const pageRef = useRef<HTMLDivElement>(null);
 
   const service = services.find((item) => item.slug === slug);
 
+  useLayoutEffect(() => {
+    if (!pageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(".service-hero-content", {
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      gsap.utils.toArray(".gallery-card").forEach((card, index) => {
+        gsap.from(card as HTMLElement, {
+          y: 80,
+          opacity: 0,
+          duration: 1,
+          delay: (index % 4) * 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card as HTMLElement,
+            start: "top 88%",
+            once: true,
+          },
+        });
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   if (!service) {
-    notFound();
+    return null;
   }
 
   return (
-     <main className="min-h-screen overflow-hidden bg-[#111111] text-[#e9e9e7]">
-
-    {/* NAVBAR */}
-    <Navbar />
+    <main
+      ref={pageRef}
+      className="min-h-screen overflow-hidden bg-[#111111] text-[#e9e9e7]"
+    >
+      <Navbar />
 
       {/* =====================================================
-          01 — HERO
+          HERO
       ===================================================== */}
 
       <section className="relative h-[100svh] min-h-[650px] w-full overflow-hidden bg-black">
-
         <Image
           src={service.image}
           alt={service.title}
@@ -44,712 +76,366 @@ export default async function ServicePage({ params }: PageProps) {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-black/35" />
 
-        <div className="absolute inset-x-0 bottom-[7vh] z-10 px-6">
-
-          <h1
-  className="
-    whitespace-nowrap
-    text-center
-    text-[10vw]
-    font-normal
-    uppercase
-    leading-[0.82]
-    tracking-[-0.07em]
-    text-white
-    sm:text-[9vw]
-    lg:text-[8.5vw]
-  "
->
-            {service.title}
-          </h1>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          02 — WORK PROCESS
-      ===================================================== */}
-
-      <section className="relative min-h-[600px] w-full overflow-hidden bg-[#111111]">
-
-        {/* FLOATING CIRCLE */}
-
-        <div
-          className="
-            absolute
-            left-[4vw]
-            top-0
-            h-14
-            w-14
-            rounded-full
-            border
-            border-white/30
-            animate-floating-circle
-          "
-        />
-
-        <div
-          className="
-            flex
-            min-h-[600px]
-            w-full
-            flex-col
-            items-center
-            justify-center
-            px-6
-            py-16
-            text-center
-          "
-        >
-
-          {/* HEADING */}
-
-          <Reveal>
-            <h2
-              className="
-                text-[15vw]
-                font-semibold
-                uppercase
-                leading-[0.76]
-                tracking-[-0.085em]
-                text-[#e9e9e7]
-                sm:text-[12vw]
-                lg:text-[8.5vw]
-              "
-            >
-              WORK
-            </h2>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <h2
-              className="
-                text-[15vw]
-                font-semibold
-                uppercase
-                leading-[0.76]
-                tracking-[-0.085em]
-                text-[#e9e9e7]
-                sm:text-[12vw]
-                lg:text-[8.5vw]
-              "
-            >
-              PROCESS
-            </h2>
-          </Reveal>
-
-
-          {/* DESCRIPTION */}
-
-          <Reveal delay={180}>
-            <p
-              className="
-                mt-7
-                max-w-[390px]
-                text-[13px]
-                font-normal
-                leading-[1.2]
-                tracking-[-0.02em]
-                text-white/55
-                sm:text-[14px]
-              "
-            >
-              Where architecture meets emotion—we design hotel
-              experiences that guests remember long after checkout.
+        <div className="service-hero-content absolute inset-x-0 bottom-[8vh] z-10 px-6">
+          <div className="mx-auto max-w-[1500px]">
+            <p className="mb-5 text-center text-[9px] uppercase tracking-[0.35em] text-white/60">
+              {service.subtitle}
             </p>
-          </Reveal>
 
-
-          {/* SCROLL */}
-
-          <Reveal delay={280}>
-            <div className="mt-9 flex flex-col items-center">
-
-              <span
-                className="
-                  mb-4
-                  h-10
-                  w-px
-                  origin-top
-                  bg-white/25
-                  animate-scroll-line
-                "
-              />
-
-              <span
-                className="
-                  text-[7px]
-                  uppercase
-                  tracking-[0.4em]
-                  text-white/40
-                "
-              >
-                Scroll to explore
-              </span>
-
-              <span
-                className="
-                  mt-2
-                  text-xs
-                  text-white/50
-                  animate-scroll-arrow
-                "
-              >
-                ↓
-              </span>
-
-            </div>
-          </Reveal>
-
+            <h1
+              className="
+                text-center
+                text-[12vw]
+                font-medium
+                uppercase
+                leading-[0.8]
+                tracking-[-0.075em]
+                text-white
+                sm:text-[10vw]
+                lg:text-[8.5vw]
+              "
+            >
+              {service.title}
+            </h1>
+          </div>
         </div>
-
       </section>
 
-
       {/* =====================================================
-          03 — SERVICE IMAGE + PROCESS
+          INTRO
       ===================================================== */}
 
-      <section className="relative w-full bg-[#111111]">
+      <section className="px-6 py-[14vh] sm:px-10 lg:px-16">
+        
+          <div>
+           
+          
 
-        <div className="grid lg:grid-cols-[minmax(0,2.25fr)_minmax(320px,0.75fr)]">
+         
+        </div>
+      </section>
 
-          {/* =================================================
-              LEFT — IMAGE / MAP
-          ================================================= */}
+      {/* =====================================================
+          GALLERY HEADER
+      ===================================================== */}
 
-          <div className="relative h-[72vh] min-h-[560px] overflow-hidden bg-black">
+      <section className="px-6 pb-12 sm:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-[1500px] items-end justify-between border-b border-white/10 pb-5">
+          <div>
+            <p className="text-[8px] uppercase tracking-[0.35em] text-white/30">
+              02 — Selected Works
+            </p>
 
-            {/* IMAGE */}
+            <h2 className="mt-3 text-4xl font-medium uppercase leading-none tracking-[-0.06em] sm:text-5xl lg:text-6xl">
+              {service.title}
+            </h2>
+          </div>
 
-            <div className="absolute inset-0">
+          <span className="text-[9px] uppercase tracking-[0.25em] text-white/30">
+            {service.gallery.length} Works
+          </span>
+        </div>
+      </section>
 
-              <Image
-                src={service.heroImage}
-                alt={`${service.title} design`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 75vw"
-                className="object-cover"
-              />
+      {/* =====================================================
+          ART GRID
+      ===================================================== */}
 
-              <div className="absolute inset-0 bg-black/10" />
-
+      <section className="px-6 pb-[15vh] sm:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {service.gallery.map((item, index) => (
+            <article
+              key={item.title}
+              className={`
+                gallery-card
+                group
+                relative
+                overflow-hidden
+                bg-[#1a1a1a]
+                ${
+                  index % 5 === 0
+                    ? "lg:col-span-2 lg:row-span-2"
+                    : ""
+                }
+                ${index % 7 === 0 ? "sm:min-h-[500px]" : ""}
+              `}
+            >
               <div
-                className="
-                  absolute
-                  left-[14%]
-                  top-[8%]
-                  z-10
-                  h-14
-                  w-14
-                  rounded-full
-                  border
-                  border-white/60
-                "
-              />
-
-            </div>
-
-
-            {/* WORLDWIDE REACH */}
-
-            <details className="group absolute inset-0 z-20">
-
-              <summary
-                className="
-                  absolute
-                  bottom-6
-                  left-6
-                  z-30
-                  cursor-pointer
-                  list-none
-                  text-[9px]
-                  uppercase
-                  tracking-[0.22em]
-                  text-white
-                  sm:bottom-8
-                  sm:left-8
-                "
-              >
-
-                <span className="flex items-center gap-3">
-
-                  <span
-                    className="
-                      flex
-                      h-7
-                      w-7
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-white/50
-                      text-sm
-                      transition-transform
-                      duration-500
-                      group-open:rotate-45
-                    "
-                  >
-                    +
-                  </span>
-
-                  <span>Worldwide Reach</span>
-
-                </span>
-
-              </summary>
-
-
-              {/* MAP */}
-
-              <div
-                className="
-                  absolute
-                  inset-0
+                className={`
+                  relative
+                  h-[430px]
                   overflow-hidden
-                  bg-[#151515]
-                  opacity-0
-                  transition-opacity
-                  duration-700
-                  group-open:opacity-100
-                "
+                  ${
+                    index % 5 === 0
+                      ? "lg:h-[760px]"
+                      : "lg:h-[520px]"
+                  }
+                `}
               >
-
-                <iframe
-                  title="Worldwide Studio Reach"
-                  src="https://www.google.com/maps?q=World&output=embed"
-                  className="h-full w-full border-0 grayscale"
-                  loading="lazy"
-                  allowFullScreen
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="
+                    (max-width: 640px) 100vw,
+                    (max-width: 1024px) 50vw,
+                    25vw
+                  "
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-[1200ms]
+                    ease-out
+                    group-hover:scale-[1.06]
+                  "
                 />
 
-                <div className="pointer-events-none absolute inset-0 bg-black/20" />
+                {/* DARK OVERLAY */}
 
                 <div
                   className="
                     absolute
-                    left-6
-                    top-6
+                    inset-0
+                    bg-black/0
+                    transition-all
+                    duration-700
+                    group-hover:bg-black/55
+                  "
+                />
+
+                {/* TOP NUMBER */}
+
+                <div
+                  className="
+                    absolute
+                    left-5
+                    top-5
                     z-10
-                    text-white
-                    mix-blend-difference
-                    sm:left-8
-                    sm:top-8
+                    text-[8px]
+                    uppercase
+                    tracking-[0.25em]
+                    text-white/70
                   "
                 >
-
-                  <p
-                    className="
-                      text-[8px]
-                      uppercase
-                      tracking-[0.3em]
-                    "
-                  >
-                    Worldwide Reach
-                  </p>
-
-                  <p
-                    className="
-                      mt-2
-                      text-[clamp(1.8rem,3.5vw,3.5rem)]
-                      font-normal
-                      uppercase
-                      leading-[0.85]
-                      tracking-[-0.05em]
-                    "
-                  >
-                    Global
-                    <br />
-                    Perspective
-                  </p>
-
+                  {String(index + 1).padStart(2, "0")}
                 </div>
 
-              </div>
+                {/* DEFAULT TITLE */}
 
-            </details>
+                <div
+                  className="
+                    absolute
+                    inset-x-5
+                    bottom-5
+                    z-10
+                    transition-all
+                    duration-700
+                    group-hover:bottom-8
+                  "
+                >
+                  <p className="mb-2 text-[8px] uppercase tracking-[0.3em] text-white/60">
+                    {item.category}
+                  </p>
 
-          </div>
-
-
-          {/* =================================================
-              RIGHT — PROCESS
-          ================================================= */}
-
-          <div
-            className="
-              flex
-              min-h-[560px]
-              flex-col
-              justify-between
-              bg-[#111111]
-              px-7
-              py-8
-              sm:px-9
-              lg:px-10
-              lg:py-8
-            "
-          >
-
-            <div className="space-y-4">
-
-              {/* FADED */}
-
-              <div
-                className="
-                  text-[17px]
-                  font-medium
-                  uppercase
-                  leading-[0.92]
-                  tracking-[-0.045em]
-                  text-white/15
-                "
-              >
-                Architectural Concept
-                <br />
-                Interior Design Concept
-              </div>
-
-
-              {/* ACTIVE */}
-
-              <div className="border-t border-white/10 pt-4">
-
-                <div className="flex items-start gap-3">
-
-                  <span
+                  <h3
                     className="
-                      mt-0.5
-                      h-5
-                      w-5
-                      shrink-0
-                      rounded-full
-                      border
-                      border-white/70
-                    "
-                  />
-
-                  <div>
-
-                    <h3
-                      className="
-                        text-[17px]
-                        font-medium
-                        uppercase
-                        leading-[0.92]
-                        tracking-[-0.045em]
-                      "
-                    >
-                      FF&E and Budgeting
-                    </h3>
-
-                    <p
-                      className="
-                        mt-3
-                        max-w-[340px]
-                        text-[13px]
-                        font-normal
-                        leading-[1.25]
-                        tracking-[-0.015em]
-                        text-white/50
-                      "
-                    >
-                      Furniture, lighting, and decorative elements
-                      are selected for both visual impact and
-                      long-term performance. We coordinate with
-                      global suppliers, optimizing costs without
-                      compromising quality.
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* FADED */}
-
-              <div
-                className="
-                  pt-2
-                  text-[17px]
-                  font-medium
-                  uppercase
-                  leading-[0.92]
-                  tracking-[-0.045em]
-                  text-white/15
-                "
-              >
-                Design & Build Supervision
-              </div>
-
-
-              {/* WORLDWIDE */}
-
-              <div className="pt-1">
-
-                <details className="group">
-
-                  <summary
-                    className="
-                      flex
-                      cursor-pointer
-                      list-none
-                      items-center
-                      gap-3
-                      text-[17px]
+                      text-xl
                       font-medium
                       uppercase
-                      leading-[0.92]
+                      leading-none
                       tracking-[-0.045em]
+                      text-white
+                      sm:text-2xl
                     "
                   >
+                    {item.title}
+                  </h3>
+                </div>
 
-                    <span
-                      className="
-                        flex
-                        h-5
-                        w-5
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-white/70
-                        text-sm
-                        font-normal
-                        transition-transform
-                        duration-500
-                        group-open:rotate-45
-                      "
-                    >
-                      +
-                    </span>
+                {/* HOVER DESCRIPTION */}
 
-                    <span>Worldwide Reach</span>
-
-                  </summary>
-
-                  <p
-                    className="
-                      mt-3
-                      max-w-[340px]
-                      pl-8
-                      text-[13px]
-                      font-normal
-                      leading-[1.25]
-                      tracking-[-0.015em]
-                      text-white/45
-                    "
-                  >
-                    Our studio works across international markets,
-                    coordinating design, sourcing, consultants,
-                    and project execution across different regions.
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-x-5
+                    bottom-20
+                    z-10
+                    max-w-[350px]
+                    translate-y-5
+                    opacity-0
+                    transition-all
+                    duration-700
+                    group-hover:translate-y-0
+                    group-hover:opacity-100
+                  "
+                >
+                  <p className="text-[12px] leading-[1.45] tracking-[-0.01em] text-white/75">
+                    {item.description}
                   </p>
+                </div>
 
-                </details>
+                {/* ARROW */}
 
+                <div
+                  className="
+                    absolute
+                    right-5
+                    top-5
+                    z-10
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/30
+                    text-sm
+                    text-white
+                    opacity-0
+                    transition-all
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                >
+                  ↗
+                </div>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
+      {/* =====================================================
+          PROCESS
+      ===================================================== */}
+
+      <section className="border-t border-white/10 px-6 py-[15vh] sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-[1500px]">
+          <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="text-[8px] uppercase tracking-[0.35em] text-white/30">
+                03 — Our Process
+              </p>
+
+              <h2 className="mt-5 max-w-[400px] text-5xl font-medium uppercase leading-[0.85] tracking-[-0.065em] lg:text-7xl">
+                From idea
+                <br />
+                to object
+              </h2>
             </div>
 
+            <div className="border-t border-white/10">
+              {service.process.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="
+                    grid
+                    grid-cols-[60px_1fr]
+                    border-b
+                    border-white/10
+                    py-7
+                    sm:grid-cols-[100px_1fr]
+                  "
+                >
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-            {/* BOTTOM LABEL */}
+                  <div>
+                    <h3 className="text-xl font-medium uppercase tracking-[-0.04em]">
+                      {step.title}
+                    </h3>
 
-            <div
-              className="
-                mt-8
-                flex
-                items-center
-                justify-between
-                border-t
-                border-white/10
-                pt-4
-                text-[8px]
-                uppercase
-                tracking-[0.22em]
-                text-white/25
-              "
-            >
-              <span>Hotel & Resort Design</span>
-              <span>03 / 07</span>
+                    <p className="mt-2 text-[12px] text-white/40">
+                      {step.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-
           </div>
-
         </div>
-
       </section>
 
-
       {/* =====================================================
-          04 — FINAL CTA
+          CTA
       ===================================================== */}
 
-      <section
-        className="
-          relative
-          overflow-hidden
-          bg-[#111111]
-          px-6
-          py-[11vh]
-          sm:px-10
-          lg:px-16
-        "
-      >
+      <section className="px-6 py-[15vh] sm:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-[1300px] flex-col items-center text-center">
+          <p className="mb-7 text-[8px] uppercase tracking-[0.35em] text-white/30">
+            Let&apos;s Create Something
+          </p>
 
-        <div
-          className="
-            mx-auto
-            flex
-            min-h-[500px]
-            max-w-[1350px]
-            flex-col
-            items-center
-            justify-center
-            text-center
-          "
-        >
+          <h2
+            className="
+              max-w-[1100px]
+              text-[8vw]
+              font-medium
+              uppercase
+              leading-[0.86]
+              tracking-[-0.07em]
+              sm:text-6xl
+              lg:text-[5.5vw]
+            "
+          >
+            Have a space
+            <br />
+            that needs
+            <br />
+            something unique?
+          </h2>
 
-          {/* LABEL */}
+          <Link
+            href="/contact"
+            className="
+              group
+              mt-10
+              inline-flex
+              items-center
+              gap-3
+              rounded-full
+              border
+              border-white/15
+              px-7
+              py-3
+              text-[9px]
+              uppercase
+              tracking-[0.12em]
+              transition-all
+              duration-500
+              hover:bg-white
+              hover:text-black
+            "
+          >
+            <span>Start a Project</span>
 
-          <Reveal>
-            <p
+            <span
               className="
-                mb-7
-                text-[8px]
-                uppercase
-                tracking-[0.32em]
-                text-white/30
-              "
-            >
-              Let&apos;s Talk
-            </p>
-          </Reveal>
-
-{/* MAIN TEXT */}
-
-<Reveal delay={100}>
-  <h2
-    className="
-      w-full
-      max-w-[1100px]
-      text-[7vw]
-      font-medium
-      uppercase
-      leading-[0.9]
-      tracking-[-0.065em]
-      text-[#e9e9e7]
-      [word-spacing:0.15em]
-      sm:text-6xl
-      lg:text-[5.3vw]
-    "
-  >
-    <span className="cta-line block">
-      <span className="cta-line-inner">
-        LET US HELP YOU DESIGN
-      </span>
-    </span>
-
-    <span className="cta-line block">
-      <span className="cta-line-inner">
-        A SPACE THAT TRULY
-      </span>
-    </span>
-
-    <span className="cta-line block">
-      <span className="cta-line-inner">
-        REFLECTS YOUR UNIQUE
-      </span>
-    </span>
-
-    <span className="cta-line block">
-      <span className="cta-line-inner">
-        STYLE AND NEEDS
-      </span>
-    </span>
-  </h2>
-</Reveal>
-
-
-          {/* BUTTON */}
-
-          <Reveal delay={220}>
-
-            <Link
-              href="/contact"
-              className="
-                group
-                mt-8
-                inline-flex
+                flex
+                h-5
+                w-5
                 items-center
-                gap-3
+                justify-center
                 rounded-full
-                border
-                border-white/10
-                bg-white/[0.04]
-                px-6
-                py-2.5
-                text-[9px]
-                uppercase
-                tracking-[0.08em]
-                text-white/80
-                transition-all
+                bg-white
+                text-black
+                transition-transform
                 duration-500
-                hover:bg-white
-                hover:text-black
+                group-hover:translate-x-1
               "
             >
-
-              <span>Send Request</span>
-
-              <span
-                className="
-                  flex
-                  h-5
-                  w-5
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-white
-                  text-black
-                  transition-transform
-                  duration-500
-                  group-hover:translate-x-1
-                "
-              >
-                ↗
-              </span>
-
-            </Link>
-
-          </Reveal>
-
+              ↗
+            </span>
+          </Link>
         </div>
-
       </section>
-
-
-       {/* =====================================================
-          05 — WE OFFER
-      ===================================================== */}
-
-      <div className="bg-[#111111]">
-        <WeOffer />
-      </div>
-
-
-      {/* =====================================================
-          FOOTER
-      ===================================================== */}
 
       <Footer />
-
     </main>
   );
 }
