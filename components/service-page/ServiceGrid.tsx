@@ -3,52 +3,47 @@ import { services } from "@/app/services/services";
 
 export default function ServiceGrid() {
   return (
-    <section className="bg-black py-20 text-white md:py-28">
+    
       <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-10">
+{/* ================= HEADING ================= */}
+<div className="mb-16 text-center">
 
-        {/* Heading */}
-        <div className="mb-16 text-center">
+  <h1
+    className="
+      uppercase
+      font-medium
+      leading-none
+      tracking-[-0.04em]
+      text-white
+      text-[2.2rem]
+      sm:text-[2.6rem]
+      md:text-[3rem]
+      lg:text-[3.4rem]
+    "
+  >
+    Our Products
+  </h1>
 
-          <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/60 sm:text-sm">
-            What We Do
-          </p>
+  <p
+    className="
+      mt-3
+      uppercase
+      font-light
+      leading-none
+      tracking-[-0.03em]
+      text-white/55
+      text-[1.5rem]
+      sm:text-[1.8rem]
+      md:text-[2.1rem]
+      lg:text-[2.4rem]
+    "
+  >
+    Architecture / Interior Design
+  </p>
 
-          <h1
-            className="
-              text-center
-              font-black
-              uppercase
-              leading-none
-              text-white
+</div>
 
-              text-5xl
-              sm:text-6xl
-              md:text-7xl
-              lg:text-8xl
-            "
-          >
-            Our Services
-          </h1>
-
-          <p
-            className="
-              mx-auto
-              mt-8
-              max-w-3xl
-
-              text-base
-              leading-relaxed
-              text-white/60
-              md:text-lg
-            "
-          >
-            We create bespoke interiors, luxury hospitality spaces, custom
-            furniture, lighting, sculptures, and architectural solutions
-            tailored to every project.
-          </p>
-        </div>
-
-        {/* Services Grid */}
+        {/* ================= PRODUCTS GRID ================= */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {services.map((service) => (
             <ServiceCard
@@ -61,6 +56,6 @@ export default function ServiceGrid() {
         </div>
 
       </div>
-    </section>
+   
   );
 }

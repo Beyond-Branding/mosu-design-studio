@@ -7,15 +7,9 @@ interface FilterBarProps {
 
 const filters = [
   "ALL",
-  "COMPLETED",
-  "IN PROGRESS",
   "RESIDENCES",
-  "RESTAURANTS",
-  "PUBLIC SPACES",
-  "PRIVATE JETS",
-  "HOTELS & RESORTS",
-  "YACHTS",
-  "LOCATION",
+  "HOTELS",
+  "RESORTS",
 ];
 
 export default function FilterBar({
@@ -29,6 +23,7 @@ export default function FilterBar({
         height: "64px",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         background: "#171717",
         borderTop: "1px solid rgba(255,255,255,0.14)",
         borderBottom: "1px solid rgba(255,255,255,0.14)",
@@ -37,12 +32,10 @@ export default function FilterBar({
     >
       <div
         style={{
-          width: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 32px",
-          gap: "28px",
+          justifyContent: "center",
+          gap: "120px",
           whiteSpace: "nowrap",
         }}
       >
@@ -52,28 +45,40 @@ export default function FilterBar({
             type="button"
             onClick={() => setActiveFilter(filter)}
             style={{
+              position: "relative",
               flexShrink: 0,
               border: "none",
               outline: "none",
               background: "transparent",
-              padding: 0,
-
+              padding: "24px 0",
               color:
                 activeFilter === filter
                   ? "#fff"
-                  : "rgba(255,255,255,0.65)",
-
+                  : "rgba(255,255,255,0.55)",
               fontFamily: "inherit",
               fontSize: "13px",
               fontWeight: 400,
               lineHeight: "1",
-              letterSpacing: "-0.025em",
-
+              letterSpacing: "0.12em",
               whiteSpace: "nowrap",
               cursor: "pointer",
             }}
           >
             {filter}
+
+            {/* Active underline */}
+            {activeFilter === filter && (
+              <span
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  bottom: "10px",
+                  height: "1px",
+                  background: "#fff",
+                }}
+              />
+            )}
           </button>
         ))}
       </div>

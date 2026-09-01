@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -35,10 +36,7 @@ export default function ServiceCard({
         lg:h-[620px]
       "
     >
-      {/* =====================================================
-          IMAGE
-      ===================================================== */}
-
+      {/* IMAGE */}
       <Image
         src={image}
         alt={title}
@@ -58,10 +56,7 @@ export default function ServiceCard({
         "
       />
 
-      {/* =====================================================
-          DARK OVERLAY
-      ===================================================== */}
-
+      {/* DARK OVERLAY */}
       <div
         className="
           absolute
@@ -73,10 +68,7 @@ export default function ServiceCard({
         "
       />
 
-      {/* =====================================================
-          TOP LABEL
-      ===================================================== */}
-
+      {/* TOP LABEL */}
       <div
         className="
           absolute
@@ -97,20 +89,6 @@ export default function ServiceCard({
           lg:top-10
         "
       >
-        <span
-          className="
-            text-[8px]
-            uppercase
-            tracking-[0.32em]
-            text-white/65
-
-            sm:text-[9px]
-          "
-        >
-          Services
-        </span>
-
-        {/* Number / arrow */}
 
         <span
           className="
@@ -127,23 +105,23 @@ export default function ServiceCard({
             transition-all
             duration-500
             group-hover:opacity-100
-            group-hover:rotate-0
           "
         >
           <ArrowUpRight className="h-4 w-4" />
         </span>
       </div>
 
-      {/* =====================================================
-          CONTENT
-      ===================================================== */}
-
+      {/* CONTENT */}
       <div
         className="
           absolute
           inset-x-5
           bottom-6
           z-20
+          flex
+          flex-col
+          items-center
+          text-center
 
           sm:inset-x-8
           sm:bottom-8
@@ -153,16 +131,16 @@ export default function ServiceCard({
           lg:bottom-12
         "
       >
-        {/* Subtitle */}
-
+        {/* SUBTITLE */}
         {subtitle && (
           <p
             className="
-              mb-3
+              mb-4
               text-[8px]
+              font-medium
               uppercase
-              tracking-[0.28em]
-              text-white/60
+              tracking-[0.32em]
+              text-white/65
 
               sm:text-[9px]
             "
@@ -171,15 +149,15 @@ export default function ServiceCard({
           </p>
         )}
 
-        {/* Title */}
-
+        {/* TITLE */}
         <h2
           className="
-            max-w-[95%]
-            font-black
+            max-w-[90%]
+            text-center
+            font-extrabold
             uppercase
-            leading-[0.88]
-            tracking-[-0.045em]
+            leading-[0.92]
+            tracking-[-0.035em]
             text-white
 
             text-2xl
@@ -192,19 +170,18 @@ export default function ServiceCard({
           {title}
         </h2>
 
-        {/* =================================================
-            HOVER DESCRIPTION
-        ================================================= */}
-
+        {/* DESCRIPTION */}
         {description && (
           <p
             className="
-              mt-4
+              mt-5
               max-w-[420px]
               translate-y-4
+              text-center
               text-[11px]
-              leading-[1.45]
-              tracking-[-0.01em]
+              font-normal
+              leading-[1.55]
+              tracking-[0.005em]
               text-white/70
               opacity-0
 
@@ -222,26 +199,24 @@ export default function ServiceCard({
           </p>
         )}
 
-        {/* =================================================
-            LEARN MORE
-        ================================================= */}
-
+        {/* LEARN MORE */}
         <span
           className="
-            mt-5
+            mt-6
             inline-flex
             items-center
+            justify-center
             gap-2
 
             rounded-full
             bg-white
-            px-5
+            px-6
             py-2.5
 
             text-[9px]
-            font-medium
+            font-semibold
             uppercase
-            tracking-[0.18em]
+            tracking-[0.2em]
             text-black
 
             translate-y-3
@@ -253,7 +228,7 @@ export default function ServiceCard({
             group-hover:translate-y-0
             group-hover:opacity-100
 
-            sm:px-6
+            sm:px-7
             sm:py-3
             sm:text-[10px]
 
@@ -266,10 +241,7 @@ export default function ServiceCard({
         </span>
       </div>
 
-      {/* =====================================================
-          BOTTOM GRADIENT
-      ===================================================== */}
-
+      {/* BOTTOM GRADIENT */}
       <div
         className="
           pointer-events-none
@@ -287,3 +259,4 @@ export default function ServiceCard({
     </Link>
   );
 }
+

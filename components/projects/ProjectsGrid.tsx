@@ -13,30 +13,34 @@ export default function ProjectsGrid({
   activeFilter,
 }: ProjectsGridProps) {
   const filteredProjects = useMemo(() => {
-    if (activeFilter === "ALL") return projects;
-
-    if (activeFilter === "COMPLETED") {
-      return projects.filter((p) => p.status === "COMPLETED");
+    if (activeFilter === "ALL") {
+      return projects;
     }
 
-    if (activeFilter === "IN PROGRESS") {
-      return projects.filter((p) => p.status === "IN PROGRESS");
-    }
-
-    return projects.filter((p) => p.category === activeFilter);
+    return projects.filter(
+      (project) => project.category?.toUpperCase() === activeFilter
+    );
   }, [activeFilter]);
 
   return (
     <section className="bg-[#171717] py-24 text-white">
       <div className="mx-auto max-w-[1700px] px-6">
-        <div className={styles.grid}>
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-            />
-          ))}
-        </div>
+        {filteredProjects.length > 0 ? (
+          <div className={styles.grid}>
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex min-h-[300px] items-center justify-center">
+            <p className="text-sm uppercase tracking-[0.2em] text-white/40">
+              No projects found
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
