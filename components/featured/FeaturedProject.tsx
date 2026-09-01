@@ -1,86 +1,118 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projects } from "@/app/projects/projects";
+import { services } from "@/app/services/services";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   { label: "ALL WORKS", href: "/projects" },
-  { label: "HOTELS & RESORTS", href: "/projects/hotels-resorts" },
-  { label: "RESIDENCES", href: "/projects/residences" },
-  { label: "BESPOKE ART", href: "/projects/bespoke-art" },
-  { label: "WALL INSTALLATIONS", href: "/projects/wall-installations" },
-  { label: "SCULPTURES", href: "/projects/sculptures" },
-  { label: "CUSTOM LIGHTING", href: "/projects/custom-lighting" },
-  { label: "FURNITURE", href: "/projects/furniture" },
-  { label: "DOORS & PARTITIONS", href: "/projects/doors-partitions" },
-  { label: "METAL WORKS", href: "/projects/metal-works" },
+  { label: "ART INSTALLATIONS", href: "/services/art-installations" },
+  { label: "SCULPTURES", href: "/services/sculptures" },
+  { label: "LIGHTING", href: "/services/lighting" },
+  {
+    label: "MIRRORS & CHANDELIERS",
+    href: "/services/mirrors-chandeliers",
+  },
+  {
+    label: "DOORS & PARTITIONS",
+    href: "/services/doors-partitions",
+  },
+  {
+    label: "METAL FINISHES",
+    href: "/services/metal-finishes",
+  },
 ];
 
 export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
+  useLayoutEffect(() => {
+    if (!sectionRef.current || services.length === 0) return;
 
-    const slides = gsap.utils.toArray<HTMLElement>(
-      sectionRef.current.querySelectorAll(".project-slide")
-    );
-
-    slides.forEach((slide, i) => {
-      gsap.set(slide, {
-        autoAlpha: i === 0 ? 1 : 0,
-        scale: 1,
-        zIndex: slides.length - i,
-      });
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: `+=${projects.length * 700}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.8,
-        anticipatePin: 1,
-      },
-    });
-
-    slides.forEach((slide, i) => {
-      if (i === 0) return;
-
-      tl.to(
-        slides[i - 1],
-        {
-          autoAlpha: 0,
-          scale: 1.08,
-          duration: 1,
-          ease: "none",
-        },
-        "+=0.2"
-      ).to(
-        slide,
-        {
-          autoAlpha: 1,
-          scale: 1,
-          duration: 1,
-          ease: "none",
-        },
-        "<"
+    const ctx = gsap.context(() => {
+      const slides = gsap.utils.toArray<HTMLElement>(
+        ".project-slide"
       );
-    });
 
-    ScrollTrigger.refresh();
+      // Initial state
+      slides.forEach((slide, index) => {
+        gsap.set(slide, {
+          autoAlpha: index === 0 ? 1 : 0,
+          scale: index === 0 ? 1 : 1.04,
+          zIndex: services.length - index,
+        });
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${services.length * 700}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      services.forEach((_, index) => {
+        if (index === 0) return;
+
+        const previousSlide = slides[index - 1];
+        const currentSlide = slides[index];
+
+        // Small pause
+        tl.to({}, {
+          duration: 0.3,
+        });
+
+        // Previous service fades away
+        tl.to(
+          previousSlide,
+          {
+            autoAlpha: 0,
+            scale: 1.08,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          ">"
+        );
+
+        // Current service comes in
+        tl.fromTo(
+          currentSlide,
+          {
+            autoAlpha: 0,
+            scale: 1.04,
+          },
+          {
+            autoAlpha: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "<"
+        );
+
+        // Hold
+        tl.to({}, {
+          duration: 0.4,
+        });
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, sectionRef);
 
     return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
+      ctx.revert();
     };
   }, []);
 
@@ -89,36 +121,49 @@ export default function FeaturedProjects() {
       ref={sectionRef}
       className="relative h-screen overflow-hidden bg-black"
     >
-      {/* Keeps the section height while slides are absolute */}
+      {/* Keeps section height */}
       <div className="h-screen" />
 
-      {projects.map((item, index) => (
+      {services.map((service, index) => (
         <div
-          key={item.slug}
+          key={service.slug}
           className="project-slide absolute inset-0"
         >
+          {/* =========================
+              IMAGE
+          ========================= */}
           <Image
-            src={item.image}
-            alt={item.title}
+            src={service.image}
+            alt={service.title}
             fill
             priority={index === 0}
             sizes="100vw"
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/65" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/70" />
 
-          <aside className="absolute left-12 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
+          {/* =========================
+              CATEGORY NAVIGATION
+          ========================= */}
+          <aside className="absolute left-12 top-1/2 z-30 hidden -translate-y-1/2 lg:block">
             <ul className="space-y-5">
               {categories.map((category) => (
                 <li key={category.label}>
                   <Link
                     href={category.href}
-                    className={`block uppercase text-[11px] tracking-[0.35em] transition-all duration-300 ${
-                      item.title === category.label
-                        ? "text-white"
-                        : "text-white/25 hover:text-white hover:translate-x-2"
-                    }`}
+                    className="
+                      block
+                      uppercase
+                      text-[11px]
+                      tracking-[0.3em]
+                      text-white/30
+                      transition-all
+                      duration-300
+                      hover:translate-x-2
+                      hover:text-white
+                    "
                   >
                     {category.label}
                   </Link>
@@ -127,31 +172,75 @@ export default function FeaturedProjects() {
             </ul>
           </aside>
 
+          {/* =========================
+              SERVICE CONTENT
+          ========================= */}
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-8 text-center text-white">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.45em] opacity-80">
-  {item.category}
-</p>
+            <h2
+              className="
+                max-w-5xl
+                text-[2rem]
+                font-bold
+                uppercase
+                leading-[1]
+                tracking-[-0.02em]
+                sm:text-[2.7rem]
+                md:text-[3.5rem]
+                lg:text-[4.3rem]
+                xl:text-[5rem]
+              "
+            >
+              {service.title}
+            </h2>
 
-<p className="mb-8 text-[11px] font-medium uppercase tracking-[0.35em] opacity-60">
-  {item.location}
-</p>
-
-<h2 className="max-w-5xl text-[2rem] font-bold uppercase leading-[1] tracking-[-0.02em] sm:text-[2.7rem] md:text-[3.5rem] lg:text-[4.3rem] xl:text-[5rem]">
-  {item.title}
-</h2>
+            <p
+              className="
+                mt-5
+                max-w-xl
+                text-sm
+                font-light
+                leading-relaxed
+                text-white/80
+                sm:text-base
+              "
+            >
+              {service.subtitle}
+            </p>
 
             <Link
-              href={`/projects/${item.slug}`}
-              className="mt-12 inline-flex items-center justify-center rounded-full border border-white bg-white px-8 py-4 text-[11px] uppercase tracking-[0.32em] text-black transition-all duration-500 hover:bg-transparent hover:text-white"
+              href={`/services/${service.slug}`}
+              className="
+                mt-10
+                inline-flex
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white
+                bg-white
+                px-8
+                py-4
+                text-[11px]
+                uppercase
+                tracking-[0.32em]
+                text-black
+                transition-all
+                duration-500
+                hover:bg-transparent
+                hover:text-white
+              "
             >
-              View Project
+              View Product
             </Link>
           </div>
 
+          {/* =========================
+              NUMBER
+          ========================= */}
           <div className="absolute bottom-10 right-10 z-30 hidden lg:block">
             <p className="text-[13px] tracking-[0.35em] text-white">
               {String(index + 1).padStart(2, "0")} /{" "}
-              {String(projects.length).padStart(2, "0")}
+              {String(services.length).padStart(2, "0")}
             </p>
           </div>
         </div>

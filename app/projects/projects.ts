@@ -1,600 +1,486 @@
 export interface Project {
-  id: number;
-  slug: string;
   title: string;
-  category: string;
-  status: "COMPLETED" | "IN PROGRESS";
-  location: string;
-  year: string;
-
+  slug: string;
   image: string;
   heroImage: string;
-
-  subtitle: string;
-  description: string;
-
-  /* =========================
-     DETAIL PAGE
-  ========================= */
-
-  gallery?: string[];
-
+  gallery: string[];
+  category: string;
+  location: string;
+  status?: string;
   designStyle?: string;
   type?: string;
   area?: string;
   coordinates?: string;
-
-  concept?: string;
+  description?: string;
   challenge?: string;
-  composition?: string;
-
   awards?: string;
-
-  team?: {
-    name: string;
-    role: string;
-  }[];
 }
 
-
 export const projects: Project[] = [
-
-  /* =========================================================
-     01 — HOTELS & RESORTS
-  ========================================================= */
-
-  {
-    id: 1,
-
-    slug: "hotels-resorts",
-
-    title: "HOTELS & RESORTS",
-
-    category: "HOTELS & RESORTS",
-
-    status: "COMPLETED",
-
-    location: "GOA, INDIA",
-
-    year: "2025",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_090000199_1_j7jjtq.jpg",
-    ],
-
-    subtitle:
-      "Luxury hospitality designed around unforgettable experiences.",
-
-    description:
-      "Luxury resorts, boutique hotels and hospitality environments crafted to deliver timeless guest experiences.",
-
-    designStyle: "Contemporary",
-
-    type: "Hospitality",
-
-    area: "—",
-
-    coordinates: "GOA, INDIA",
-
-    concept:
-      "A hospitality environment shaped around natural materials, warm textures and a seamless connection between architecture and landscape.",
-
-    challenge:
-      "The project required a balance between luxury, comfort and a strong sense of place while maintaining a refined contemporary identity.",
-
-    composition:
-      "Carefully layered materials, custom furniture and controlled lighting create a calm yet immersive hospitality experience.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Architecture & Interior Design",
-      },
-    ],
-  },
-
-
-  /* =========================================================
-     02 — RESIDENCES
-  ========================================================= */
+  // =====================================================
+  // RESIDENCES
+  // =====================================================
 
   {
-    id: 2,
-
-    slug: "residences",
-
-    title: "RESIDENCES",
-
+    title: "Luxury Residence",
+    slug: "luxury-residence",
     category: "RESIDENCES",
-
-    status: "IN PROGRESS",
-
-    location: "MUMBAI, INDIA",
-
-    year: "2025",
+    location: "Mumbai, India",
+    status: "Completed",
+    designStyle: "Contemporary Minimalism",
+    type: "Residence",
+    area: "4,250 FT²",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=80",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231102_090000199_rsatec.jpg",
-
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491870/PXL_20230807_110331569_zeomvz.jpg",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
     ],
-
-    subtitle:
-      "Minimal architecture with luxurious living.",
 
     description:
-      "Private residences combining timeless architecture with bespoke interiors.",
-
-    designStyle: "Minimal Contemporary",
-
-    type: "Private Residence",
-
-    area: "—",
-
-    coordinates: "MUMBAI, INDIA",
-
-    concept:
-      "The residence explores a restrained architectural language where proportion, natural materials and carefully controlled light define the experience.",
+      "A refined residential environment shaped by clean geometry, natural materials, and carefully controlled light.",
 
     challenge:
-      "Creating a luxurious residence without excessive visual elements required precise detailing and a carefully considered material palette.",
+      "Creating a sophisticated residential atmosphere while maintaining a restrained architectural language required careful coordination between proportion, materiality, lighting, and spatial flow.",
 
-    composition:
-      "Open living areas, sculptural furniture and custom architectural elements create a continuous relationship between the different spaces.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Architecture & Interior Design",
-      },
-    ],
+    awards:
+      "Residential Architecture / Interior Design",
   },
 
 
-  /* =========================================================
-     03 — BESPOKE ART
-  ========================================================= */
-
   {
-    id: 3,
-
-    slug: "bespoke-art",
-
-    title: "BESPOKE ART",
-
-    category: "BESPOKE ART",
-
-    status: "COMPLETED",
-
-    location: "DUBAI, UAE",
-
-    year: "2024",
+    title: "Modern Residence",
+    slug: "modern-residence",
+    category: "RESIDENCES",
+    location: "Mumbai, India",
+    status: "Completed",
+    designStyle: "Modern Architecture",
+    type: "Residence",
+    area: "3,800 FT²",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20241010_182651_pguwjb.jpg",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493728/NSP_0904_lkofdq.jpg",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493728/NSP_0904_lkofdq.jpg",
-
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20241010_182651_pguwjb.jpg",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
     ],
-
-    subtitle:
-      "Art installations that define spaces.",
 
     description:
-      "Large-scale commissioned artworks created exclusively for luxury interiors.",
-
-    designStyle: "Contemporary Art",
-
-    type: "Art Installation",
-
-    area: "—",
-
-    coordinates: "DUBAI, UAE",
-
-    concept:
-      "The installation was developed as an architectural artwork rather than a decorative object, allowing the piece to become an integral part of its surrounding space.",
+      "A contemporary residence built around openness, natural light, and a precise relationship between interior and exterior spaces.",
 
     challenge:
-      "Scale, material selection and installation precision were central to achieving the intended visual impact.",
+      "The project required balancing large open spaces with privacy while preserving a consistent modern architectural language.",
 
-    composition:
-      "Sculptural geometry and carefully controlled surfaces create a strong focal point within the interior.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Art Direction & Design",
-      },
-    ],
+    awards:
+      "Residential Architecture",
   },
 
 
-  /* =========================================================
-     04 — WALL INSTALLATIONS
-  ========================================================= */
-
   {
-    id: 4,
-
-    slug: "wall-installations",
-
-    title: "WALL INSTALLATIONS",
-
-    category: "WALL INSTALLATIONS",
-
-    status: "COMPLETED",
-
-    location: "DELHI, INDIA",
-
-    year: "2024",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493725/20240914_172352_gyaxp4.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12881057_lmymgz.jpg",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-pu-ca-adryan-163345030-12881057_lmymgz.jpg",
-
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493725/20240914_172352_gyaxp4.jpg",
-    ],
-
-    subtitle:
-      "Feature walls crafted as works of art.",
-
-    description:
-      "Architectural wall features blending texture, lighting and craftsmanship.",
-
-    designStyle: "Sculptural Contemporary",
-
-    type: "Wall Installation",
-
-    area: "—",
-
-    coordinates: "DELHI, INDIA",
-
-    concept:
-      "The wall becomes an architectural canvas, combining material, texture and light to create a distinctive visual identity.",
-
-    challenge:
-      "The installation required detailed fabrication and careful coordination with the existing architecture.",
-
-    composition:
-      "Layered surfaces and integrated lighting create depth and movement across the wall.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Design & Fabrication",
-      },
-    ],
-  },
-
-
-  /* =========================================================
-     05 — SCULPTURES
-  ========================================================= */
-
-  {
-    id: 5,
-
-    slug: "sculptures",
-
-    title: "SCULPTURES",
-
-    category: "SCULPTURES",
-
-    status: "COMPLETED",
-
-    location: "LONDON, UK",
-
-    year: "2023",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-    ],
-
-    subtitle:
-      "Large-scale sculptural expressions.",
-
-    description:
-      "Contemporary sculptures handcrafted for architectural environments.",
-
-    designStyle: "Contemporary Sculpture",
-
-    type: "Sculpture",
-
-    area: "—",
-
-    coordinates: "LONDON, UK",
-
-    concept:
-      "The sculpture is conceived as a dialogue between material, volume and surrounding architecture.",
-
-    challenge:
-      "Achieving the required scale while preserving the precision of the sculptural form was a central challenge.",
-
-    composition:
-      "A carefully controlled balance of solid and void creates a strong architectural presence.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Sculpture Design",
-      },
-    ],
-  },
-
-
-  /* =========================================================
-     06 — CUSTOM LIGHTING
-  ========================================================= */
-
-  {
-    id: 6,
-
-    slug: "custom-lighting",
-
-    title: "CUSTOM LIGHTING",
-
-    category: "CUSTOM LIGHTING",
-
-    status: "IN PROGRESS",
-
-    location: "SINGAPORE",
-
-    year: "2025",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-    ],
-
-    subtitle:
-      "Lighting that transforms atmosphere.",
-
-    description:
-      "Bespoke lighting installations designed to shape mood and space.",
-
-    designStyle: "Atmospheric Contemporary",
-
-    type: "Custom Lighting",
-
-    area: "—",
-
-    coordinates: "SINGAPORE",
-
-    concept:
-      "Light becomes an architectural material, defining atmosphere, movement and spatial hierarchy.",
-
-    challenge:
-      "The lighting system needed to integrate seamlessly with the architecture while remaining visually distinctive.",
-
-    composition:
-      "Custom fixtures and carefully positioned light sources establish a layered atmospheric experience.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Lighting Design",
-      },
-    ],
-  },
-
-
-  /* =========================================================
-     07 — FURNITURE
-  ========================================================= */
-
-  {
-    id: 7,
-
-    slug: "furniture",
-
-    title: "FURNITURE",
-
-    category: "FURNITURE",
-
-    status: "IN PROGRESS",
-
-    location: "BENGALURU, INDIA",
-
-    year: "2024",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764168/WhatsApp_Image_2026-01-03_at_6.59.10_PM_umq9vl.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/WhatsApp_Image_2026-01-03_at_6.59.12_PM_top8di.jpg",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/WhatsApp_Image_2026-01-03_at_6.59.12_PM_top8di.jpg",
-
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764168/WhatsApp_Image_2026-01-03_at_6.59.10_PM_umq9vl.jpg",
-    ],
-
-    subtitle:
-      "Furniture designed as functional sculpture.",
-
-    description:
-      "Handcrafted furniture combining premium materials with timeless design.",
-
+    title: "Contemporary Villa",
+    slug: "contemporary-villa",
+    category: "RESIDENCES",
+    location: "Pune, India",
+    status: "In Progress",
     designStyle: "Contemporary",
+    type: "Villa",
+    area: "5,100 FT²",
 
-    type: "Furniture",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80",
 
-    area: "—",
+    heroImage:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
 
-    coordinates: "BENGALURU, INDIA",
+    gallery: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+    ],
 
-    concept:
-      "Each furniture piece is treated as an individual sculptural object while maintaining functionality and comfort.",
+    description:
+      "A contemporary villa where strong architectural volumes are softened through landscape, natural textures, and generous openings.",
 
     challenge:
-      "The design required a balance between sculptural form, ergonomics and material craftsmanship.",
+      "The main challenge was establishing a strong architectural identity without overwhelming the surrounding landscape.",
 
-    composition:
-      "Simple silhouettes are elevated through proportion, texture and carefully selected materials.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Furniture Design",
-      },
-    ],
+    awards:
+      "Villa Architecture",
   },
 
 
-  /* =========================================================
-     08 — DOORS & PARTITIONS
-  ========================================================= */
-
   {
-    id: 8,
-
-    slug: "doors-partitions",
-
-    title: "DOORS & PARTITIONS",
-
-    category: "DOORS & PARTITIONS",
-
-    status: "IN PROGRESS",
-
-    location: "HYDERABAD, INDIA",
-
-    year: "2024",
+    title: "Minimalist House",
+    slug: "minimalist-house",
+    category: "RESIDENCES",
+    location: "Bangalore, India",
+    status: "Completed",
+    designStyle: "Minimalism",
+    type: "House",
+    area: "3,200 FT²",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2000&q=80",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
     ],
-
-    subtitle:
-      "Elegant transitions between spaces.",
 
     description:
-      "Custom pivot doors and architectural partition systems.",
-
-    designStyle: "Contemporary Minimal",
-
-    type: "Architectural Elements",
-
-    area: "—",
-
-    coordinates: "HYDERABAD, INDIA",
-
-    concept:
-      "Doors and partitions are designed as architectural elements rather than simple functional boundaries.",
+      "A calm minimalist home defined by simple geometry, natural finishes, and an emphasis on light and proportion.",
 
     challenge:
-      "The systems needed to provide privacy and separation while maintaining visual continuity throughout the interior.",
+      "The design focused on reducing visual noise while ensuring the home remained warm, functional, and connected to its surroundings.",
 
-    composition:
-      "Minimal frames, refined materials and carefully proportioned openings create seamless transitions.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Architectural Design",
-      },
-    ],
+    awards:
+      "Minimal Residential Architecture",
   },
 
 
-  /* =========================================================
-     09 — METAL WORKS
-  ========================================================= */
+  // =====================================================
+  // HOTELS
+  // =====================================================
 
   {
-    id: 9,
-
-    slug: "metal-works",
-
-    title: "METAL WORKS",
-
-    category: "METAL WORKS",
-
-    status: "IN PROGRESS",
-
-    location: "CHENNAI, INDIA",
-
-    year: "2025",
-
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-
-    heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-
-    gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-    ],
-
-    subtitle:
-      "Decorative metal craftsmanship.",
-
-    description:
-      "Luxury brass, bronze and stainless-steel elements for bespoke interiors.",
-
+    title: "Luxury Hotel",
+    slug: "luxury-hotel",
+    category: "HOTELS",
+    location: "Dubai, UAE",
+    status: "Completed",
     designStyle: "Luxury Contemporary",
+    type: "Hotel",
+    area: "85,000 FT²",
 
-    type: "Metal Works",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80",
 
-    area: "—",
+    heroImage:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
 
-    coordinates: "CHENNAI, INDIA",
+    gallery: [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+    ],
 
-    concept:
-      "Metal is treated as a refined architectural material, combining craftsmanship with contemporary geometry.",
+    description:
+      "A high-end hospitality destination combining contemporary luxury with carefully composed public and private spaces.",
 
     challenge:
-      "Achieving precise finishes and complex forms required close coordination between design and fabrication.",
+      "Creating a memorable hospitality experience while maintaining operational efficiency across a large and complex program.",
 
-    composition:
-      "Brass, bronze and stainless steel elements introduce texture, reflection and visual depth into the interior.",
-
-    team: [
-      {
-        name: "MOSU STUDIO",
-        role: "Design & Metal Fabrication",
-      },
-    ],
+    awards:
+      "Hospitality Architecture / Interior Design",
   },
 
+
+  {
+    title: "Urban Grand Hotel",
+    slug: "urban-grand-hotel",
+    category: "HOTELS",
+    location: "Singapore",
+    status: "Completed",
+    designStyle: "Urban Contemporary",
+    type: "Hotel",
+    area: "72,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "An urban hotel concept that brings together refined hospitality, strong geometry, and a sophisticated material palette.",
+
+    challenge:
+      "The project had to create a strong identity within a dense urban environment while providing a calm interior experience.",
+
+    awards:
+      "Hospitality Design",
+  },
+
+
+  {
+    title: "The Heritage Hotel",
+    slug: "heritage-hotel",
+    category: "HOTELS",
+    location: "Jaipur, India",
+    status: "Completed",
+    designStyle: "Contemporary Heritage",
+    type: "Hotel",
+    area: "58,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "A contemporary interpretation of heritage hospitality, combining traditional character with modern spatial planning.",
+
+    challenge:
+      "The project required preserving a sense of cultural identity while introducing contemporary comfort and functionality.",
+
+    awards:
+      "Heritage Hospitality",
+  },
+
+
+  {
+    title: "Boutique Hotel",
+    slug: "boutique-hotel",
+    category: "HOTELS",
+    location: "London, UK",
+    status: "In Progress",
+    designStyle: "Minimal Luxury",
+    type: "Boutique Hotel",
+    area: "31,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "A compact boutique hotel concept focused on intimacy, material richness, and carefully framed experiences.",
+
+    challenge:
+      "Maximizing guest experience within a compact footprint required precise planning and disciplined material selection.",
+
+    awards:
+      "Boutique Hospitality Design",
+  },
+
+
+  // =====================================================
+  // RESORTS
+  // =====================================================
+
+  {
+    title: "Grand Resort",
+    slug: "grand-resort",
+    category: "RESORTS",
+    location: "Goa, India",
+    status: "Completed",
+    designStyle: "Tropical Contemporary",
+    type: "Resort",
+    area: "120,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "A tropical resort designed around landscape, water, and a sequence of relaxed indoor and outdoor experiences.",
+
+    challenge:
+      "The design needed to respond to the tropical climate while creating a coherent luxury hospitality experience.",
+
+    awards:
+      "Resort Architecture",
+  },
+
+
+  {
+    title: "Oceanfront Resort",
+    slug: "oceanfront-resort",
+    category: "RESORTS",
+    location: "Maldives",
+    status: "Completed",
+    designStyle: "Tropical Minimalism",
+    type: "Resort",
+    area: "95,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "An oceanfront retreat where architecture dissolves into the landscape through light materials and open planning.",
+
+    challenge:
+      "Working within a sensitive island environment required a careful balance between construction, landscape, and coastal conditions.",
+
+    awards:
+      "Resort & Hospitality",
+  },
+
+
+  {
+    title: "Mountain Retreat",
+    slug: "mountain-retreat",
+    category: "RESORTS",
+    location: "Manali, India",
+    status: "In Progress",
+    designStyle: "Mountain Contemporary",
+    type: "Retreat",
+    area: "42,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "A mountain retreat that frames the surrounding landscape through carefully positioned volumes and generous openings.",
+
+    challenge:
+      "The architectural language needed to respond to the mountain terrain and climate without becoming visually heavy.",
+
+    awards:
+      "Mountain Hospitality",
+  },
+
+
+  {
+    title: "Tropical Retreat",
+    slug: "tropical-retreat",
+    category: "RESORTS",
+    location: "Bali, Indonesia",
+    status: "Completed",
+    designStyle: "Tropical Minimalism",
+    type: "Retreat",
+    area: "38,000 FT²",
+
+    image:
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2000&q=80",
+
+    heroImage:
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+
+    gallery: [
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=85",
+    ],
+
+    description:
+      "A tropical retreat centered around landscape, filtered light, and a relaxed relationship between architecture and nature.",
+
+    challenge:
+      "The design had to create privacy and comfort while keeping the natural environment visually present throughout the experience.",
+
+    awards:
+      "Tropical Architecture",
+  },
 ];

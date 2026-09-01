@@ -1,18 +1,5 @@
 export const projectData = [
-  {
-    title: "Hotels & Resorts",
-    location: "Riyadh, Saudi Arabia",
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710699/pexels-pppsdavid-1654138_orqnjt.jpg",
-  },
-
-  {
-    title: "Residences",
-    location: "Dubai, UAE",
-    image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1784750119/pexels-lebih-dari-ini-3915826-19939584_yzqjk4.jpg",
-  },
-
+  
   {
     title: "Bespoke Art",
     location: "London, United Kingdom",

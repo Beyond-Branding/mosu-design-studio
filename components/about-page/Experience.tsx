@@ -114,20 +114,20 @@ export default function Experience() {
           >
             {/* TITLE */}
             <h2
-              className="
-                font-light
-                uppercase
-                leading-[0.95]
-                tracking-[-0.03em]
-                text-white
+  className="
+    font-medium
+    uppercase
+    leading-[0.95]
+    tracking-[-0.03em]
+    text-white
 
-                text-3xl
-                sm:text-4xl
-                md:text-5xl
-                lg:text-6xl
-                xl:text-7xl
-              "
-            >
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    lg:text-6xl
+    xl:text-7xl
+  "
+>
               {item.title}
             </h2>
 

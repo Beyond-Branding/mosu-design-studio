@@ -22,7 +22,6 @@ export default function ProjectDetailPage({ params }: Props) {
 
   /*
    * Keep hooks unconditional.
-   * This avoids React hook-order problems.
    */
   const gallery = project?.gallery?.length
     ? project.gallery
@@ -34,20 +33,19 @@ export default function ProjectDetailPage({ params }: Props) {
   const [activeImage, setActiveImage] = useState(0);
 
   /*
-   * Create exactly 3 images for the final image sequence.
+   * FINAL THREE IMAGES
    *
-   * Preferred:
-   * gallery[4]
-   * gallery[5]
-   * gallery[6]
+   * gallery[5] → Image 01
+   * gallery[6] → Image 02
+   * gallery[7] → Image 03
    *
-   * If your project has fewer images, fall back to other
-   * available gallery images so the three sections still render.
+   * Fallbacks are included in case a project has
+   * fewer than 8 gallery images.
    */
   const threeGalleryImages = [
-    gallery[4] || gallery[1] || gallery[0],
-    gallery[5] || gallery[2] || gallery[1] || gallery[0],
-    gallery[6] || gallery[3] || gallery[2] || gallery[0],
+    gallery[5] || gallery[2] || gallery[0],
+    gallery[6] || gallery[1] || gallery[0],
+    gallery[7] || gallery[2] || gallery[1] || gallery[0],
   ].filter(Boolean);
 
   /*
@@ -111,6 +109,7 @@ export default function ProjectDetailPage({ params }: Props) {
         ================================================= */}
 
         <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-black">
+
           <Image
             src={project.heroImage}
             alt={project.title}
@@ -123,12 +122,15 @@ export default function ProjectDetailPage({ params }: Props) {
           <div className="absolute inset-0 bg-black/10" />
 
           <div className="absolute bottom-8 left-6 z-10 flex items-center gap-4 text-white sm:left-10 lg:left-16">
+
             <span className="h-px w-12 bg-white/60" />
 
             <span className="text-[9px] uppercase tracking-[0.3em]">
               Scroll to explore
             </span>
+
           </div>
+
         </section>
 
 
@@ -141,6 +143,7 @@ export default function ProjectDetailPage({ params }: Props) {
           {/* DESIGN STYLE */}
 
           <div className="absolute left-[2%] top-1/2 z-10 -translate-y-1/2">
+
             <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
               Design Style
             </p>
@@ -148,18 +151,21 @@ export default function ProjectDetailPage({ params }: Props) {
             <p className="mt-1 text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
               {project.designStyle || "Contemporary Minimalism"}
             </p>
+
           </div>
 
 
           {/* MAP */}
 
           <div className="absolute left-1/2 top-1/2 h-[290px] w-[400px] -translate-x-1/2 -translate-y-1/2">
+
             <svg
               viewBox="0 0 600 430"
               className="h-full w-full"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
+
               <path
                 d="
                   M126 42
@@ -223,13 +229,16 @@ export default function ProjectDetailPage({ params }: Props) {
                 strokeWidth="1"
                 vectorEffect="non-scaling-stroke"
               />
+
             </svg>
+
           </div>
 
 
           {/* LOCATION */}
 
           <div className="absolute left-[47.5%] top-1/2 -translate-y-1/2">
+
             <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
               {project.location || "Riyadh, Saudi Arabia"}
             </p>
@@ -239,12 +248,14 @@ export default function ProjectDetailPage({ params }: Props) {
                 `24°41'15.83" N
 46°43'18.66" E`}
             </p>
+
           </div>
 
 
           {/* STATUS */}
 
           <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
+
             <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
               {project.status || "In Progress"}
             </p>
@@ -252,15 +263,18 @@ export default function ProjectDetailPage({ params }: Props) {
             <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
               {project.type || "Mosque"}
             </p>
+
           </div>
 
 
           {/* AREA */}
 
           <div className="absolute right-[2%] top-1/2 -translate-y-1/2">
+
             <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
               {project.area || "2,260 FT²"}
             </p>
+
           </div>
 
         </section>
@@ -290,9 +304,11 @@ export default function ProjectDetailPage({ params }: Props) {
               <div className="mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.25fr_0.75fr]">
 
                 <div>
+
                   <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                     About
                   </p>
+
                 </div>
 
                 <div>
@@ -413,6 +429,8 @@ export default function ProjectDetailPage({ params }: Props) {
 
             </div>
 
+            {/* PREVIOUS */}
+
             <button
               type="button"
               aria-label="Previous image"
@@ -425,6 +443,9 @@ export default function ProjectDetailPage({ params }: Props) {
             >
               ←
             </button>
+
+
+            {/* NEXT */}
 
             <button
               type="button"
@@ -439,11 +460,17 @@ export default function ProjectDetailPage({ params }: Props) {
               →
             </button>
 
+
+            {/* COUNTER */}
+
             <div className="absolute bottom-6 left-1/2 z-50 -translate-x-1/2 text-[9px] uppercase tracking-[0.3em] text-white/50">
               {String(activeImage + 1).padStart(2, "0")}
               {" / "}
               {String(gallery.length).padStart(2, "0")}
             </div>
+
+
+            {/* THUMBNAILS */}
 
             {gallery.length > 1 && (
               <div className="absolute bottom-5 right-6 z-50 hidden max-w-[45vw] gap-2 overflow-x-auto sm:flex sm:right-10">
@@ -459,6 +486,7 @@ export default function ProjectDetailPage({ params }: Props) {
                         : "border-white/20 opacity-50 hover:opacity-80"
                     }`}
                   >
+
                     <Image
                       src={image}
                       alt={`Thumbnail ${index + 1}`}
@@ -466,6 +494,7 @@ export default function ProjectDetailPage({ params }: Props) {
                       sizes="64px"
                       className="object-cover"
                     />
+
                   </button>
                 ))}
 
@@ -508,13 +537,14 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {/* =================================================
             07 — LONG IMAGE
-        ================================================= */}
+                gallery[2]
+================================================= */}
 
-        {gallery[3] && (
+        {gallery[2] && (
           <section className="relative h-[220svh] min-h-[1600px] w-full overflow-hidden bg-black">
 
             <Image
-              src={gallery[3]}
+              src={gallery[2]}
               alt={`${project.title} — Project Image`}
               fill
               sizes="100vw"
@@ -527,38 +557,9 @@ export default function ProjectDetailPage({ params }: Props) {
         )}
 
 
-       {/* =================================================
-    08 — CHALLENGE
-================================================= */}
-
-<section className="w-full bg-black px-6 py-20 text-white sm:px-10 sm:py-24 lg:px-16 lg:py-28">
-
-  <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
-
-    {/* LEFT — EMPTY */}
-    <div />
-
-    {/* RIGHT — CONTENT */}
-    <div className="max-w-[850px]">
-
-      <h2 className="text-[clamp(2.8rem,5vw,5.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em]">
-        Challenge
-      </h2>
-
-      <p className="mt-8 max-w-[800px] text-[13px] font-light uppercase leading-[1.35] tracking-[-0.01em] text-white/70 sm:text-[15px]">
-        {project.challenge ||
-          `Aligning architectural geometry with strict religious orientations without compromising aesthetic purity required exceptional precision. Material selection also posed complexity: modern finishes had to meet Islamic spiritual guidelines, such as using natural wool carpets and specific stone typologies. Additionally, sustainable solutions were tailored to local climate and religious rituals—like water-saving systems in the ablution area—balancing spiritual reverence with environmental responsibility.`}
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
         {/* =================================================
-            09 — LARGE IMAGE BANNER
+            08 — CHALLENGE IMAGE
+                gallery[3]
         ================================================= */}
 
         {gallery[3] && (
@@ -566,33 +567,109 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <Image
               src={gallery[3]}
-              alt={`${project.title} — Composition`}
+              alt={`${project.title} — Challenge`}
               fill
               sizes="100vw"
               className="object-cover object-center"
             />
 
-            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute inset-0 bg-black/15" />
+
+            <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
+
+              <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
+                Challenge
+              </p>
+
+            </div>
 
           </section>
         )}
 
 
         {/* =================================================
-            10 — COMPOSITION
+            09 — CHALLENGE TEXT
+        ================================================= */}
+
+        <section className="w-full bg-black px-6 py-20 text-white sm:px-10 sm:py-24 lg:px-16 lg:py-28">
+
+          <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
+
+            {/* LEFT — EMPTY */}
+
+            <div />
+
+
+            {/* RIGHT — CONTENT */}
+
+            <div className="max-w-[850px]">
+
+              <h2 className="text-[clamp(2.8rem,5vw,5.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em]">
+                Challenge
+              </h2>
+
+              <p className="mt-8 max-w-[800px] text-[13px] font-light uppercase leading-[1.35] tracking-[-0.01em] text-white/70 sm:text-[15px]">
+                {project.challenge ||
+                  `Aligning architectural geometry with strict religious orientations without compromising aesthetic purity required exceptional precision. Material selection also posed complexity: modern finishes had to meet Islamic spiritual guidelines, such as using natural wool carpets and specific stone typologies. Additionally, sustainable solutions were tailored to local climate and religious rituals—like water-saving systems in the ablution area—balancing spiritual reverence with environmental responsibility.`}
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            10 — COMPOSITION IMAGE
+                gallery[4]
+        ================================================= */}
+
+        {gallery[4] && (
+          <section className="relative h-[58vh] min-h-[420px] w-full overflow-hidden bg-black">
+
+            <Image
+              src={gallery[4]}
+              alt={`${project.title} — Composition`}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+            <div className="absolute inset-0 bg-black/15" />
+
+            <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
+
+              <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
+                Composition
+              </p>
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* =================================================
+            11 — COMPOSITION TEXT
         ================================================= */}
 
         <section className="relative min-h-[720px] w-full bg-black text-white">
 
           <div className="mx-auto grid min-h-[720px] w-full max-w-[1920px] grid-cols-1 lg:grid-cols-[1fr_1fr]">
 
+            {/* LEFT — EMPTY */}
+
             <div />
+
+
+            {/* RIGHT — CONTENT */}
 
             <div className="flex flex-col justify-center px-8 py-28 sm:px-12 lg:px-16 xl:px-24">
 
-            <h2 className="text-[clamp(3.5rem,5.5vw,6rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] text-white">
-  Composition
-</h2>
+              <h2 className="text-[clamp(3.5rem,5.5vw,6rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] text-white">
+                Composition
+              </h2>
 
               <p className="mt-14 max-w-[780px] text-[14px] font-normal uppercase leading-[1.3] tracking-[-0.015em]">
                 The architectural composition is organized around a restrained
@@ -621,8 +698,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =================================================
-            11 — THREE LONG IMAGES
-                WITH TINY DIVIDERS BETWEEN THEM
+            12 — THREE LONG IMAGES
         ================================================= */}
 
         {threeGalleryImages[0] && (
@@ -681,204 +757,221 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =================================================
-            12 — START PROJECT CTA
+            13 — START PROJECT CTA
         ================================================= */}
 
         <Link
-  href="/StartProject"
-  className="group relative block min-h-[680px] w-full overflow-hidden bg-black text-white"
->
-  {/* BACKGROUND TYPOGRAPHY */}
+          href="/StartProject"
+          className="group relative block min-h-[680px] w-full overflow-hidden bg-black text-white"
+        >
 
-  <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
-    <p
-      className="
-        translate-y-4
-        whitespace-nowrap
-        text-[clamp(8rem,22vw,28rem)]
-        font-medium
-        uppercase
-        leading-none
-        tracking-[-0.1em]
-        text-white/[0.07]
-        transition-transform
-        duration-[1400ms]
-        ease-out
-        group-hover:scale-[1.025]
-      "
-    >
-      LET&apos;S TALK
-    </p>
-  </div>
+          {/* BACKGROUND TYPOGRAPHY */}
 
+         <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
 
-  {/* TOP RIGHT LABEL */}
-
-  <div
+  <p
     className="
-      absolute
-      right-6
-      top-10
-      flex
-      items-center
-      gap-3
-      sm:right-10
-      lg:right-16
-    "
-  >
-    <span className="h-px w-8 bg-white/30" />
-
-    <span className="text-[8px] uppercase tracking-[0.35em] text-white/45">
-      New Project
-    </span>
-  </div>
-
-
-  {/* CENTER CONTENT */}
-
-  <div
-    className="
-      relative
-      z-10
-      flex
-      min-h-[680px]
-      flex-col
-      items-center
-      justify-center
-      px-6
+      w-full
       text-center
+      whitespace-nowrap
+      text-[clamp(6rem,17vw,20rem)]
+      font-medium
+      uppercase
+      leading-none
+      tracking-[-0.035em]
+      text-white/[0.07]
+      transition-transform
+      duration-[1400ms]
+      ease-out
+      group-hover:scale-[1.02]
     "
   >
-    <p className="mb-7 text-[9px] uppercase tracking-[0.4em] text-white/45">
-      Start a conversation
-    </p>
+    LET&apos;S TALK
+  </p>
 
-    <h2
-      className="
-        max-w-[850px]
-        text-[clamp(3.5rem,8vw,8rem)]
-        font-light
-        uppercase
-        leading-[0.82]
-        tracking-[-0.075em]
-      "
-    >
-      Let&apos;s
-      <br />
-      Create.
-    </h2>
+</div>
 
-    <p
-      className="
-        mt-8
-        max-w-[430px]
-        text-[10px]
-        uppercase
-        leading-[1.5]
-        tracking-[0.08em]
-        text-white/45
-      "
-    >
-      Have a space, idea, or vision in mind?
-      <br />
-      Let&apos;s turn it into something meaningful.
-    </p>
-
-    {/* BUTTON */}
-
-    <div
-      className="
-        mt-10
-        flex
-        items-center
-        gap-4
-        rounded-full
-        border
-        border-white/20
-        px-5
-        py-3
-        transition-all
-        duration-500
-        group-hover:border-white/50
-        group-hover:bg-white
-        group-hover:text-black
-      "
-    >
-      <span className="text-[9px] uppercase tracking-[0.2em]">
-        Start Project
-      </span>
-
-      <span
-        className="
-          flex
-          h-7
-          w-7
-          items-center
-          justify-center
-          rounded-full
-          bg-white
-          text-black
-          transition-all
-          duration-500
-          group-hover:bg-black
-          group-hover:text-white
-          group-hover:translate-x-1
-        "
-      >
-        ↗
-      </span>
-    </div>
-  </div>
+         
 
 
-  {/* BOTTOM LEFT */}
+          {/* TOP RIGHT LABEL */}
 
-  <div
-    className="
-      absolute
-      bottom-8
-      left-6
-      flex
-      items-center
-      gap-3
-      sm:left-10
-      lg:left-16
-    "
-  >
-    <span className="h-px w-8 bg-white/30" />
+          <div
+            className="
+              absolute
+              right-6
+              top-10
+              flex
+              items-center
+              gap-3
+              sm:right-10
+              lg:right-16
+            "
+          >
 
-    <span className="text-[8px] uppercase tracking-[0.3em] text-white/35">
-      Your vision / Our craft
-    </span>
-  </div>
+            <span className="h-px w-8 bg-white/30" />
+
+            <span className="text-[8px] uppercase tracking-[0.35em] text-white/45">
+              New Project
+            </span>
+
+          </div>
 
 
-  {/* BOTTOM RIGHT */}
+          {/* CENTER CONTENT */}
 
-  <div
-    className="
-      absolute
-      bottom-8
-      right-6
-      text-[11px]
-      text-white/30
-      transition-all
-      duration-500
-      group-hover:translate-x-2
-      group-hover:text-white
-      sm:right-10
-      lg:right-16
-    "
-  >
-    ↗
-  </div>
-</Link>
+          <div
+            className="
+              relative
+              z-10
+              flex
+              min-h-[680px]
+              flex-col
+              items-center
+              justify-center
+              px-6
+              text-center
+            "
+          >
 
-{/* =================================================
-    15 — FOOTER
-================================================= */}
+            <p className="mb-7 text-[9px] uppercase tracking-[0.4em] text-white/45">
+              Start a conversation
+            </p>
 
-<Footer />
+            <h2
+              className="
+                max-w-[850px]
+                text-[clamp(3.5rem,8vw,8rem)]
+                font-light
+                uppercase
+                leading-[0.82]
+                tracking-[-0.075em]
+              "
+            >
+              Let&apos;s
+              <br />
+              Create.
+            </h2>
+
+            <p
+              className="
+                mt-8
+                max-w-[430px]
+                text-[10px]
+                uppercase
+                leading-[1.5]
+                tracking-[0.08em]
+                text-white/45
+              "
+            >
+              Have a space, idea, or vision in mind?
+              <br />
+              Let&apos;s turn it into something meaningful.
+            </p>
+
+
+            {/* BUTTON */}
+
+            <div
+              className="
+                mt-10
+                flex
+                items-center
+                gap-4
+                rounded-full
+                border
+                border-white/20
+                px-5
+                py-3
+                transition-all
+                duration-500
+                group-hover:border-white/50
+                group-hover:bg-white
+                group-hover:text-black
+              "
+            >
+
+              <span className="text-[9px] uppercase tracking-[0.2em]">
+                Start Project
+              </span>
+
+              <span
+                className="
+                  flex
+                  h-7
+                  w-7
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white
+                  text-black
+                  transition-all
+                  duration-500
+                  group-hover:bg-black
+                  group-hover:text-white
+                  group-hover:translate-x-1
+                "
+              >
+                ↗
+              </span>
+
+            </div>
+
+          </div>
+
+
+          {/* BOTTOM LEFT */}
+
+          <div
+            className="
+              absolute
+              bottom-8
+              left-6
+              flex
+              items-center
+              gap-3
+              sm:left-10
+              lg:left-16
+            "
+          >
+
+            <span className="h-px w-8 bg-white/30" />
+
+            <span className="text-[8px] uppercase tracking-[0.3em] text-white/35">
+              Your vision / Our craft
+            </span>
+
+          </div>
+
+
+          {/* BOTTOM RIGHT */}
+
+          <div
+            className="
+              absolute
+              bottom-8
+              right-6
+              text-[11px]
+              text-white/30
+              transition-all
+              duration-500
+              group-hover:translate-x-2
+              group-hover:text-white
+              sm:right-10
+              lg:right-16
+            "
+          >
+            ↗
+          </div>
+
+        </Link>
+
+
+        {/* =================================================
+            14 — FOOTER
+        ================================================= */}
+
+        <Footer />
 
       </main>
     </>

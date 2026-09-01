@@ -24,146 +24,136 @@ export default function Editorial() {
         gsap.utils.toArray<HTMLElement>(".char", item)
       );
 
-      /* =========================================
-         INITIAL STATE
-      ========================================= */
+      /*
+       * =========================
+       * INITIAL STATE
+       * =========================
+       * Everything is completely
+       * invisible when section starts.
+       */
 
       gsap.set(items, {
-        visibility: "hidden",
-      });
-
-      gsap.set(items[0], {
-        visibility: "visible",
+        autoAlpha: 0,
       });
 
       gsap.set(characters.flat(), {
         opacity: 0,
-        filter: "blur(0px)",
-        scale: 1,
+        filter: "blur(8px)",
+        scale: 1.02,
         y: 0,
       });
 
-      gsap.set(characters[0], {
-        opacity: 1,
-      });
-
-      /* =========================================
-         SCROLL TIMELINE
-      ========================================= */
+      /*
+       * =========================
+       * SCROLL ANIMATION
+       * =========================
+       */
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
+
+          // Section starts blank
           start: "top top",
+
+          // Gives enough scroll distance
+          // for both sentences
           end: `+=${lines.length * 1200}`,
+
+          // Keep section on screen
           pin: true,
+
+          // Animation follows scrolling
           scrub: 1,
+
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
-      items.forEach((_, index) => {
-        if (index === items.length - 1) return;
+      /*
+       * =========================
+       * FIRST SENTENCE
+       * =========================
+       */
 
-        const currentChars = characters[index];
-        const nextChars = characters[index + 1];
-
-        /* =========================================
-           HOLD
-        ========================================= */
-
-        tl.to({}, {
-          duration: 0.7,
-        });
-
-        /* =========================================
-           ERASE CURRENT TEXT
-           CENTER → OUTWARD
-        ========================================= */
-
-        tl.to(currentChars, {
-          opacity: 0,
-          filter: "blur(8px)",
-          scale: 0.98,
-
-          duration: 0.8,
-
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-
-          ease: "power2.inOut",
-        });
-
-        /* =========================================
-           HIDE OLD LINE
-        ========================================= */
-
-        tl.set(items[index], {
-          visibility: "hidden",
-        });
-
-        /* =========================================
-           SHOW NEXT LINE
-        ========================================= */
-
-        tl.set(items[index + 1], {
-          visibility: "visible",
-        });
-
-        /* =========================================
-           RESET NEXT CHARACTERS
-        ========================================= */
-
-        tl.set(nextChars, {
-          opacity: 0,
-          filter: "blur(8px)",
-          scale: 1.02,
-        });
-
-        /* =========================================
-           REVEAL NEXT TEXT
-           CENTER → OUTWARD
-        ========================================= */
-
-        tl.to(nextChars, {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-
-          duration: 0.8,
-
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-
-          ease: "power2.out",
-        });
-
-        /* =========================================
-           HOLD
-        ========================================= */
-
-        tl.to({}, {
-          duration: 0.7,
-        });
+      // First sentence appears
+      tl.set(items[0], {
+        autoAlpha: 1,
       });
 
-      /* =========================================
-         REFRESH
-      ========================================= */
+      tl.to(characters[0], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.out",
+      });
+
+      // Hold first sentence
+      tl.to({}, {
+        duration: 1,
+      });
+
+      /*
+       * =========================
+       * FIRST SENTENCE DISAPPEARS
+       * =========================
+       */
+
+      tl.to(characters[0], {
+        opacity: 0,
+        filter: "blur(8px)",
+        scale: 0.98,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.inOut",
+      });
+
+      tl.set(items[0], {
+        autoAlpha: 0,
+      });
+
+      /*
+       * =========================
+       * SECOND SENTENCE
+       * =========================
+       */
+
+      tl.set(items[1], {
+        autoAlpha: 1,
+      });
+
+      tl.to(characters[1], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.out",
+      });
+
+      // Hold second sentence
+      tl.to({}, {
+        duration: 1,
+      });
 
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
     }, sectionRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -208,13 +198,9 @@ export default function Editorial() {
                 font-grey
                 font-semibold
                 uppercase
-
                 leading-[1.02]
-
                 tracking-[-0.025em]
-
                 text-[#F2F2F2]
-
                 text-[1.7rem]
                 sm:text-[2.2rem]
                 md:text-[3rem]
@@ -223,7 +209,7 @@ export default function Editorial() {
               "
               style={{
                 wordSpacing: "0.14em",
-                fontWeight: 400,
+                fontWeight: 550,
               }}
             >
               {line.split("\n").map((row, rowIndex) => (

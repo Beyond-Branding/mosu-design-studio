@@ -13,114 +13,106 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ServicesShowcase() {
   const section = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    if (!section.current) return;
+useEffect(() => {
+  if (!section.current) return;
 
-    const ctx = gsap.context(() => {
-      const serviceItems = gsap.utils.toArray<HTMLElement>(
-        ".service-item"
-      );
+  const ctx = gsap.context(() => {
+    const categoryItems = gsap.utils.toArray<HTMLElement>(
+      ".service-item"
+    );
 
-      /* =========================================
-         INITIAL STATES
-      ========================================= */
-
-      gsap.set(".services-wrapper", {
-        opacity: 1,
-        y: 0,
-      });
-
-      gsap.set(".services-button", {
-        opacity: 0,
-        y: 30,
-      });
-
-      // Hide every service initially
-      gsap.set(serviceItems, {
-        opacity: 0,
-        y: 45,
-        scale: 0.96,
-      });
-
-      /* =========================================
-         MAIN SCROLL TIMELINE
-      ========================================= */
-
-      const tl = gsap.timeline({
-       scrollTrigger: {
-  trigger: section.current,
-  start: "top top",
-  end: `+=${Math.max(
-    2200,
-    serviceItems.length * 300 + 700
-  )}`,
-  scrub: 0.6,
-  pin: true,
-  anticipatePin: 1,
-  invalidateOnRefresh: true,
-},
-      });
-
-      /* =========================================
-         1. SPLIT WE / DO
-      ========================================= */
-
-      tl.to(
-        ".we",
-        {
-          x: "-25vw",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      );
-
-      tl.to(
-        ".do",
-        {
-          x: "25vw",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      );
-
-      /* =========================================
-   2. SERVICES POP UP ONE BY ONE
-========================================= */
-
-serviceItems.forEach((item, index) => {
-  tl.to(
-    item,
-    {
+    gsap.set(".services-wrapper", {
       opacity: 1,
       y: 0,
-      scale: 1,
-      duration: 0.45,
-      ease: "power2.out",
-    },
-    index === 0 ? "+=0.1" : "+=0.08"
-  );
-});
+    });
 
-      /* =========================================
-         3. SHOW BUTTON
-      ========================================= */
+    gsap.set(".services-button", {
+      opacity: 0,
+      y: 30,
+    });
 
+    gsap.set(categoryItems, {
+      opacity: 0,
+      y: 45,
+      scale: 0.96,
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        id: "services-showcase-trigger",
+        trigger: section.current,
+        start: "top top",
+        end: `+=${Math.max(
+          1800,
+          categoryItems.length * 400 + 700
+        )}`,
+        scrub: 0.6,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    tl.to(
+      ".we",
+      {
+        x: "-25vw",
+        duration: 1.5,
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+    tl.to(
+      ".do",
+      {
+        x: "25vw",
+        duration: 1.5,
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+    categoryItems.forEach((item, index) => {
       tl.to(
-        ".services-button",
+        item,
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          ease: "power3.out",
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out",
         },
-        "+=0.3"
+        index === 0 ? "+=0.15" : "+=0.12"
       );
-    }, section);
+    });
 
-    return () => ctx.revert();
-  }, []);
+    tl.to(
+      ".services-button",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      },
+      "+=0.3"
+    );
+  }, section);
+
+  return () => {
+    // Stop all animations belonging to this component
+    ctx.revert();
+
+    // Make absolutely sure the pinned ScrollTrigger is removed
+    const trigger = ScrollTrigger.getById(
+      "services-showcase-trigger"
+    );
+
+    if (trigger) {
+      trigger.kill(true);
+    }
+  };
+}, []);
 
   return (
     <section
