@@ -83,7 +83,7 @@ useLayoutEffect(() => {
           FULL FOUNDER IMAGE
       ========================= */}
       <Image
-        src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1784710319/pexels-cihan-karacayir-774859403-18889065_dwumod.jpg"
+        src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788445914/founders_zgwqsa.png"
         alt="Founder"
         fill
         priority
@@ -110,31 +110,70 @@ useLayoutEffect(() => {
           text-white
         "
       >
-        <p
-          className="
-            text-[9px]
-            sm:text-[10px]
-            lg:text-[11px]
-            uppercase
-            tracking-[0.45em]
-            opacity-80
-          "
-        >
-          Founder
-        </p>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
 
-        <h2
-          className="
-            mt-2
-            text-3xl
-            sm:text-4xl
-            lg:text-6xl
-            font-extralight
-            tracking-tight
-          "
-        >
-          Your Name
-        </h2>
+  {/* PERSON 1 */}
+  <div>
+    <p
+      className="
+        text-[9px]
+        sm:text-[10px]
+        lg:text-[11px]
+        font-medium
+        uppercase
+        tracking-[0.4em]
+        opacity-80
+      "
+    >
+      Founder & CEO
+    </p>
+
+    <h2
+      className="
+        mt-2
+        text-3xl
+        sm:text-4xl
+        lg:text-5xl
+        font-light
+        tracking-tight
+      "
+    >
+      Pawan Sundriyal
+    </h2>
+  </div>
+
+
+  {/* PERSON 2 */}
+  <div>
+    <p
+      className="
+        text-[9px]
+        sm:text-[10px]
+        lg:text-[11px]
+        font-medium
+        uppercase
+        tracking-[0.4em]
+        opacity-80
+      "
+    >
+      Director & Creative Head
+    </p>
+
+    <h2
+      className="
+        mt-2
+        text-3xl
+        sm:text-4xl
+        lg:text-5xl
+        font-light
+        tracking-tight
+      "
+    >
+      Shreya Chakraborty
+    </h2>
+  </div>
+
+</div>
       </div>
 
       {/* =========================

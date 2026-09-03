@@ -67,13 +67,11 @@ export default function Intro() {
         />
 
         <div className="absolute bottom-10 left-10 text-white">
-          <p className="text-sm uppercase">DOG ARENA</p>
-          <p className="text-sm uppercase">KYIV, UKRAINE</p>
+          <p className="text-sm uppercase">76 HAZRA</p>
+          
         </div>
 
-        <button className="absolute bottom-10 right-10 rounded-full bg-white px-8 py-3 text-sm font-medium">
-          VIEW PROJECT
-        </button>
+        
       </div>
 
       {/* White intro */}

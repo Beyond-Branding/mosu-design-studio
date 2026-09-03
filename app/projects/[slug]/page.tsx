@@ -138,20 +138,52 @@ export default function ProjectDetailPage({ params }: Props) {
     02 — PROJECT INFORMATION + MAP
 ================================================= */}
 
-<section className="relative h-[390px] w-full overflow-hidden bg-black">
+<section className="relative min-h-[390px] w-full overflow-hidden bg-black">
 
   {/* DESIGN STYLE */}
-
-  <div className="absolute left-[2%] top-1/2 z-20 -translate-y-1/2">
-
+  <div
+    className="
+      absolute
+      left-[2%]
+      top-1/2
+      z-20
+      hidden
+      -translate-y-1/2
+      md:block
+    "
+  >
     <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
       Design Style
     </p>
 
-    <p className="mt-1 text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+    <p className="mt-1 max-w-[180px] text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
       {project.designStyle || "Organic Contemporary"}
     </p>
+  </div>
 
+
+  {/* =================================================
+      LOCATION
+  ================================================= */}
+
+  <div
+    className="
+      absolute
+      left-[18%]
+      top-1/2
+      z-20
+      hidden
+      -translate-y-1/2
+      lg:block
+    "
+  >
+    <p className="mb-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
+      Location
+    </p>
+
+    <p className="max-w-[180px] text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+      {project.location || "Andhra Pradesh, India"}
+    </p>
   </div>
 
 
@@ -171,7 +203,6 @@ export default function ProjectDetailPage({ params }: Props) {
       -translate-y-1/2
     "
   >
-
     {project.mapImage && (
       <Image
         src={project.mapImage}
@@ -182,28 +213,6 @@ export default function ProjectDetailPage({ params }: Props) {
         priority
       />
     )}
-
-  </div>
-
-
-  {/* =================================================
-      LOCATION
-  ================================================= */}
-
-  <div
-    className="
-      absolute
-      left-[47.5%]
-      top-1/2
-      z-20
-      -translate-y-1/2
-    "
-  >
-
-    <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-      {project.location || "Andhra Pradesh, India"}
-    </p>
-
   </div>
 
 
@@ -217,10 +226,11 @@ export default function ProjectDetailPage({ params }: Props) {
       right-[20%]
       top-1/2
       z-20
+      hidden
       -translate-y-1/2
+      lg:block
     "
   >
-
     <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
       {project.status || "Completed"}
     </p>
@@ -228,7 +238,6 @@ export default function ProjectDetailPage({ params }: Props) {
     <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
       {project.type || "Resort"}
     </p>
-
   </div>
 
 
@@ -242,14 +251,78 @@ export default function ProjectDetailPage({ params }: Props) {
       right-[2%]
       top-1/2
       z-20
+      hidden
       -translate-y-1/2
+      md:block
     "
   >
-
     <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
       {project.area || "2,260 FT²"}
     </p>
+  </div>
 
+
+  {/* =================================================
+      MOBILE INFORMATION
+  ================================================= */}
+
+  <div
+    className="
+      relative
+      z-20
+      flex
+      min-h-[390px]
+      flex-col
+      justify-center
+      gap-8
+      px-6
+      py-16
+      lg:hidden
+    "
+  >
+    <div>
+      <p className="mb-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
+        Design Style
+      </p>
+
+      <p className="text-[15px] font-medium uppercase leading-[1.05]">
+        {project.designStyle || "Organic Contemporary"}
+      </p>
+    </div>
+
+    <div>
+      <p className="mb-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
+        Location
+      </p>
+
+      <p className="max-w-[220px] text-[15px] font-medium uppercase leading-[1.05]">
+        {project.location || "Andhra Pradesh, India"}
+      </p>
+    </div>
+
+    <div>
+      <p className="mb-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
+        Status
+      </p>
+
+      <p className="text-[15px] font-medium uppercase leading-[1.05]">
+        {project.status || "Completed"}
+      </p>
+
+      <p className="text-[15px] font-medium uppercase leading-[1.05]">
+        {project.type || "Resort"}
+      </p>
+    </div>
+
+    <div>
+      <p className="mb-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
+        Area
+      </p>
+
+      <p className="text-[15px] font-medium uppercase leading-[1.05]">
+        {project.area || "2,260 FT²"}
+      </p>
+    </div>
   </div>
 
 </section>
