@@ -135,151 +135,124 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =================================================
-            02 — BLACK MAP
-        ================================================= */}
+    02 — PROJECT INFORMATION + MAP
+================================================= */}
 
-        <section className="relative h-[390px] w-full overflow-hidden bg-black">
+<section className="relative h-[390px] w-full overflow-hidden bg-black">
 
-          {/* DESIGN STYLE */}
+  {/* DESIGN STYLE */}
 
-          <div className="absolute left-[2%] top-1/2 z-10 -translate-y-1/2">
+  <div className="absolute left-[2%] top-1/2 z-20 -translate-y-1/2">
 
-            <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
-              Design Style
-            </p>
+    <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+      Design Style
+    </p>
 
-            <p className="mt-1 text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
-              {project.designStyle || "Contemporary Minimalism"}
-            </p>
+    <p className="mt-1 text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+      {project.designStyle || "Organic Contemporary"}
+    </p>
 
-          </div>
-
-
-          {/* MAP */}
-
-          <div className="absolute left-1/2 top-1/2 h-[290px] w-[400px] -translate-x-1/2 -translate-y-1/2">
-
-            <svg
-              viewBox="0 0 600 430"
-              className="h-full w-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="
-                  M126 42
-                  L151 34
-                  L175 38
-                  L197 53
-                  L224 73
-                  L250 91
-                  L277 111
-                  L306 128
-                  L337 132
-                  L361 141
-                  L378 158
-                  L393 174
-                  L405 199
-                  L419 214
-                  L430 238
-                  L453 251
-                  L471 253
-                  L486 267
-                  L484 288
-                  L470 299
-                  L463 321
-                  L447 331
-                  L428 340
-                  L409 347
-                  L389 355
-                  L367 362
-                  L346 369
-                  L329 380
-                  L313 396
-                  L297 411
-                  L285 397
-                  L272 387
-                  L254 379
-                  L239 366
-                  L222 358
-                  L211 340
-                  L195 329
-                  L182 311
-                  L168 297
-                  L157 278
-                  L145 264
-                  L132 245
-                  L119 227
-                  L109 207
-                  L99 190
-                  L91 171
-                  L83 153
-                  L77 136
-                  L82 119
-                  L94 108
-                  L108 102
-                  L119 91
-                  L128 78
-                  L121 65
-                  L112 54
-                  Z
-                "
-                stroke="rgba(255,255,255,0.7)"
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-              />
-
-            </svg>
-
-          </div>
+  </div>
 
 
-          {/* LOCATION */}
+  {/* =================================================
+      CLOUDINARY MAP IMAGE
+  ================================================= */}
 
-          <div className="absolute left-[47.5%] top-1/2 -translate-y-1/2">
+  <div
+    className="
+      absolute
+      left-1/2
+      top-1/2
+      z-10
+      h-[320px]
+      w-[500px]
+      -translate-x-1/2
+      -translate-y-1/2
+    "
+  >
 
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-              {project.location || "Riyadh, Saudi Arabia"}
-            </p>
+    {project.mapImage && (
+      <Image
+        src={project.mapImage}
+        alt={`${project.location || project.title} map`}
+        fill
+        sizes="500px"
+        className="object-contain"
+        priority
+      />
+    )}
 
-            <p className="whitespace-pre-line text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-              {project.coordinates ||
-                `24°41'15.83" N
-46°43'18.66" E`}
-            </p>
-
-          </div>
-
-
-          {/* STATUS */}
-
-          <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
-
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-              {project.status || "In Progress"}
-            </p>
-
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-              {project.type || "Mosque"}
-            </p>
-
-          </div>
-
-
-          {/* AREA */}
-
-          <div className="absolute right-[2%] top-1/2 -translate-y-1/2">
-
-            <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
-              {project.area || "2,260 FT²"}
-            </p>
-
-          </div>
-
-        </section>
+  </div>
 
 
+  {/* =================================================
+      LOCATION
+  ================================================= */}
+
+  <div
+    className="
+      absolute
+      left-[47.5%]
+      top-1/2
+      z-20
+      -translate-y-1/2
+    "
+  >
+
+    <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+      {project.location || "Andhra Pradesh, India"}
+    </p>
+
+  </div>
+
+
+  {/* =================================================
+      STATUS
+  ================================================= */}
+
+  <div
+    className="
+      absolute
+      right-[20%]
+      top-1/2
+      z-20
+      -translate-y-1/2
+    "
+  >
+
+    <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+      {project.status || "Completed"}
+    </p>
+
+    <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+      {project.type || "Resort"}
+    </p>
+
+  </div>
+
+
+  {/* =================================================
+      AREA
+  ================================================= */}
+
+  <div
+    className="
+      absolute
+      right-[2%]
+      top-1/2
+      z-20
+      -translate-y-1/2
+    "
+  >
+
+    <p className="text-[15px] font-medium uppercase leading-[1] tracking-[-0.03em]">
+      {project.area || "2,260 FT²"}
+    </p>
+
+  </div>
+
+</section>
         {/* =================================================
             03 — LONG VERTICAL IMAGE + ABOUT
         ================================================= */}

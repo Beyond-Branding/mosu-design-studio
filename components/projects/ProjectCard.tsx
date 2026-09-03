@@ -19,15 +19,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         src={project.image}
         alt={project.title}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className={styles.image}
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
 
       <div className={styles.overlay}>
         <span>{project.category}</span>
-
         <h2>{project.title}</h2>
-
         <p>{project.location}</p>
       </div>
     </Link>
