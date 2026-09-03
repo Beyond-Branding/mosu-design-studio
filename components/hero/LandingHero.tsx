@@ -91,51 +91,15 @@ export default function LandingHero() {
         <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 lg:bottom-10 lg:left-10 uppercase text-white">
 
           <p className="text-[11px] sm:text-[12px] lg:text-[14px] tracking-[0.18em]">
-            Dog Arena
+            76 HAZRA
           </p>
 
-          <p className="mt-2 text-[10px] sm:text-[11px] lg:text-[14px] tracking-[0.18em] text-white/70">
-            Kyiv, Ukraine
-          </p>
+          
 
         </div>
 
         {/* Bottom Right Button */}
-        <button
-          className="
-            absolute
-            bottom-5
-            right-5
-            sm:bottom-8
-            sm:right-8
-            lg:bottom-10
-            lg:right-10
-            rounded-full
-            border
-            border-black
-            bg-white
-            px-5
-            py-2.5
-            sm:px-6
-            sm:py-3
-            lg:px-8
-            lg:py-3
-            text-[10px]
-            sm:text-[11px]
-            lg:text-[13px]
-            font-medium
-            uppercase
-            tracking-[0.18em]
-            text-black
-            transition-all
-            duration-300
-            hover:bg-black
-            hover:text-white
-            hover:border-black
-          "
-        >
-          View Project
-        </button>
+        
       </div>
     </section>
   );

@@ -69,10 +69,7 @@ export default function ContactCities() {
                       {city.phone}
                     </p>
 
-                    <p className="mx-auto max-w-md text-xs leading-relaxed text-white/70 sm:text-sm">
-                      <span className="font-bold text-white">A.</span>{" "}
-                      {city.address}
-                    </p>
+                    
 
                   </div>
                 </div>

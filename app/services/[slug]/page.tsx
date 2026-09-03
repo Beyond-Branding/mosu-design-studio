@@ -29,6 +29,10 @@ export default function ServicePage() {
 
   const service = services.find((item) => item.slug === slug);
 
+  /* =====================================================
+     PAGE ANIMATIONS
+  ===================================================== */
+
   useLayoutEffect(() => {
     if (!pageRef.current) return;
 
@@ -120,6 +124,10 @@ export default function ServicePage() {
     };
   }, [activeImage]);
 
+  /* =====================================================
+     NO SERVICE
+  ===================================================== */
+
   if (!service) {
     return null;
   }
@@ -145,7 +153,7 @@ export default function ServicePage() {
           className="object-cover"
         />
 
-        {/* Overlay */}
+        {/* HERO OVERLAY */}
         <div className="absolute inset-0 bg-black/40" />
 
         {/* HERO CONTENT */}
@@ -161,7 +169,6 @@ export default function ServicePage() {
                   uppercase
                   tracking-[0.3em]
                   text-white/70
-
                   sm:text-[11px]
                 "
               >
@@ -180,7 +187,6 @@ export default function ServicePage() {
                 leading-[0.88]
                 tracking-[-0.055em]
                 text-white
-
                 sm:text-[8vw]
                 lg:text-[6.8vw]
                 xl:text-[6.3vw]
@@ -199,6 +205,7 @@ export default function ServicePage() {
       <section className="px-6 py-[12vh] sm:px-10 lg:px-16">
         <div className="mx-auto max-w-[1500px]">
           <div className="mx-auto max-w-[850px] text-center">
+
             <p className="mb-5 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
               01 — About The Service
             </p>
@@ -210,7 +217,6 @@ export default function ServicePage() {
                 uppercase
                 leading-[0.95]
                 tracking-[-0.045em]
-
                 sm:text-4xl
                 lg:text-5xl
               "
@@ -223,6 +229,7 @@ export default function ServicePage() {
             <p className="mx-auto mt-7 max-w-[680px] text-sm leading-[1.7] text-white/55 sm:text-base">
               {service.description}
             </p>
+
           </div>
         </div>
       </section>
@@ -232,7 +239,21 @@ export default function ServicePage() {
       ===================================================== */}
 
       <section className="px-6 pb-10 sm:px-10 lg:px-16">
-        <div className="mx-auto flex max-w-[1500px] flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+        <div
+          className="
+            mx-auto
+            flex
+            max-w-[1500px]
+            flex-col
+            gap-5
+            border-b
+            border-white/10
+            pb-6
+            sm:flex-row
+            sm:items-end
+            sm:justify-between
+          "
+        >
 
           <div>
             <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
@@ -247,7 +268,6 @@ export default function ServicePage() {
                 uppercase
                 leading-none
                 tracking-[-0.045em]
-
                 sm:text-4xl
                 lg:text-5xl
               "
@@ -259,409 +279,512 @@ export default function ServicePage() {
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">
             {service.gallery.length} Works
           </span>
+
         </div>
       </section>
-{/* =====================================================
-    ART GRID — COLLAGE
-===================================================== */}
 
-<section className="px-6 pb-[15vh] sm:px-10 lg:px-16">
-  <div className="mx-auto max-w-[1500px]">
+      {/* =====================================================
+          GALLERY
+          BEFORE HOVER = ONLY IMAGE
+          ON HOVER = CONTENT
+      ===================================================== */}
 
-    {/* ================= LARGE FIRST ROW ================= */}
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <section className="px-6 pb-[15vh] sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-[1500px]">
 
-      {service.gallery.slice(0, 2).map((item, index) => (
-        <button
-          key={item.title}
-          type="button"
-          onClick={() => openSlider(index)}
-          className="
-            gallery-card
-            group
-            relative
-            block
-            h-[430px]
-            w-full
-            overflow-hidden
-            bg-[#1a1a1a]
-            p-0
-            text-left
-            outline-none
-            lg:h-[620px]
-          "
-        >
-          {/* IMAGE */}
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="
-              object-cover
-              transition-transform
-              duration-[1200ms]
-              ease-out
-              group-hover:scale-[1.06]
-            "
-          />
+          {/* =====================================================
+              LARGE FIRST ROW
+          ===================================================== */}
 
-          {/* OVERLAY */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-black/20
-              transition-all
-              duration-700
-              group-hover:bg-black/60
-            "
-          />
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
 
-          {/* NUMBER */}
-          <div
-            className="
-              absolute
-              left-5
-              top-5
-              z-20
-              text-[10px]
-              font-medium
-              uppercase
-              tracking-[0.25em]
-              text-white/70
-            "
-          >
-            {String(index + 1).padStart(2, "0")}
+            {service.gallery.slice(0, 2).map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                onClick={() => openSlider(index)}
+                className="
+                  gallery-card
+                  group
+                  relative
+                  block
+                  h-[430px]
+                  w-full
+                  overflow-hidden
+                  bg-[#1a1a1a]
+                  p-0
+                  text-left
+                  outline-none
+                  lg:h-[620px]
+                "
+              >
+
+                {/* =================================================
+                    IMAGE
+                ================================================= */}
+
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-[1200ms]
+                    ease-out
+                    group-hover:scale-[1.06]
+                  "
+                />
+
+                {/* =================================================
+                    HOVER OVERLAY
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/0
+                    transition-all
+                    duration-700
+                    group-hover:bg-black/60
+                  "
+                />
+
+                {/* =================================================
+                    NUMBER
+                    HIDDEN BEFORE HOVER
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    left-5
+                    top-5
+                    z-20
+                    text-[10px]
+                    font-medium
+                    uppercase
+                    tracking-[0.25em]
+                    text-white/70
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+
+                {/* =================================================
+                    ARROW
+                    HIDDEN BEFORE HOVER
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    right-5
+                    top-5
+                    z-20
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/30
+                    text-white
+                    opacity-0
+                    transition-all
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                >
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+
+                {/* =================================================
+                    HOVER CONTENT
+                    COMPLETELY HIDDEN BEFORE HOVER
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    z-10
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    px-8
+                    text-center
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                >
+
+                  {/* CATEGORY */}
+
+                  <p
+                    className="
+                      mb-4
+                      translate-y-5
+                      text-[9px]
+                      font-medium
+                      uppercase
+                      tracking-[0.3em]
+                      text-white/70
+                      transition-transform
+                      duration-700
+                      group-hover:translate-y-0
+                      sm:text-[10px]
+                    "
+                  >
+                    {item.category}
+                  </p>
+
+                  {/* TITLE */}
+
+                  <h3
+                    className="
+                      max-w-[90%]
+                      translate-y-5
+                      text-2xl
+                      font-semibold
+                      uppercase
+                      leading-[0.92]
+                      tracking-[-0.035em]
+                      text-white
+                      transition-transform
+                      duration-700
+                      group-hover:translate-y-0
+                      sm:text-3xl
+                    "
+                  >
+                    {item.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+
+                  <p
+                    className="
+                      mt-5
+                      max-w-[380px]
+                      translate-y-5
+                      text-center
+                      text-xs
+                      leading-[1.55]
+                      text-white/75
+                      opacity-0
+                      transition-all
+                      delay-100
+                      duration-700
+                      group-hover:translate-y-0
+                      group-hover:opacity-100
+                      sm:text-sm
+                    "
+                  >
+                    {item.description}
+                  </p>
+
+                  {/* BUTTON */}
+
+                  <span
+                    className="
+                      mt-6
+                      inline-flex
+                      translate-y-5
+                      items-center
+                      justify-center
+                      gap-2
+                      rounded-full
+                      bg-white
+                      px-6
+                      py-3
+                      text-[9px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      text-black
+                      opacity-0
+                      transition-all
+                      delay-200
+                      duration-700
+                      group-hover:translate-y-0
+                      group-hover:opacity-100
+                    "
+                  >
+                    View Image
+
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+
+                </div>
+              </button>
+            ))}
+
           </div>
 
-          {/* ARROW */}
+          {/* =====================================================
+              NORMAL CARDS
+          ===================================================== */}
+
           <div
             className="
-              absolute
-              right-5
-              top-5
-              z-20
-              flex
-              h-9
-              w-9
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-white/30
-              text-white
-              opacity-0
-              transition-all
-              duration-500
-              group-hover:opacity-100
+              mt-4
+              grid
+              grid-cols-1
+              gap-4
+              sm:grid-cols-2
+              lg:grid-cols-4
             "
           >
-            <ArrowUpRight className="h-4 w-4" />
+
+            {service.gallery.slice(2).map((item, index) => {
+              const realIndex = index + 2;
+
+              return (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={() => openSlider(realIndex)}
+                  className="
+                    gallery-card
+                    group
+                    relative
+                    block
+                    h-[430px]
+                    w-full
+                    overflow-hidden
+                    bg-[#1a1a1a]
+                    p-0
+                    text-left
+                    outline-none
+                    lg:h-[520px]
+                  "
+                >
+
+                  {/* =================================================
+                      IMAGE
+                  ================================================= */}
+
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="
+                      (max-width: 640px) 100vw,
+                      (max-width: 1024px) 50vw,
+                      25vw
+                    "
+                    className="
+                      object-cover
+                      transition-transform
+                      duration-[1200ms]
+                      ease-out
+                      group-hover:scale-[1.06]
+                    "
+                  />
+
+                  {/* =================================================
+                      HOVER OVERLAY
+                  ================================================= */}
+
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-black/0
+                      transition-all
+                      duration-700
+                      group-hover:bg-black/60
+                    "
+                  />
+
+                  {/* =================================================
+                      NUMBER
+                  ================================================= */}
+
+                  <div
+                    className="
+                      absolute
+                      left-5
+                      top-5
+                      z-20
+                      text-[10px]
+                      font-medium
+                      uppercase
+                      tracking-[0.25em]
+                      text-white/70
+                      opacity-0
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-100
+                    "
+                  >
+                    {String(realIndex + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* =================================================
+                      ARROW
+                  ================================================= */}
+
+                  <div
+                    className="
+                      absolute
+                      right-5
+                      top-5
+                      z-20
+                      flex
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/30
+                      text-white
+                      opacity-0
+                      transition-all
+                      duration-500
+                      group-hover:opacity-100
+                    "
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+
+                  {/* =================================================
+                      HOVER CONTENT
+                  ================================================= */}
+
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      z-10
+                      flex
+                      flex-col
+                      items-center
+                      justify-center
+                      px-8
+                      text-center
+                      opacity-0
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-100
+                    "
+                  >
+
+                    {/* CATEGORY */}
+
+                    <p
+                      className="
+                        mb-4
+                        translate-y-5
+                        text-[9px]
+                        font-medium
+                        uppercase
+                        tracking-[0.3em]
+                        text-white/70
+                        transition-transform
+                        duration-700
+                        group-hover:translate-y-0
+                        sm:text-[10px]
+                      "
+                    >
+                      {item.category}
+                    </p>
+
+                    {/* TITLE */}
+
+                    <h3
+                      className="
+                        max-w-[90%]
+                        translate-y-5
+                        text-2xl
+                        font-semibold
+                        uppercase
+                        leading-[0.92]
+                        tracking-[-0.035em]
+                        text-white
+                        transition-transform
+                        duration-700
+                        group-hover:translate-y-0
+                        sm:text-3xl
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    {/* DESCRIPTION */}
+
+                    <p
+                      className="
+                        mt-5
+                        max-w-[380px]
+                        translate-y-5
+                        text-center
+                        text-xs
+                        leading-[1.55]
+                        text-white/75
+                        opacity-0
+                        transition-all
+                        delay-100
+                        duration-700
+                        group-hover:translate-y-0
+                        group-hover:opacity-100
+                        sm:text-sm
+                      "
+                    >
+                      {item.description}
+                    </p>
+
+                    {/* BUTTON */}
+
+                    <span
+                      className="
+                        mt-6
+                        inline-flex
+                        translate-y-5
+                        items-center
+                        justify-center
+                        gap-2
+                        rounded-full
+                        bg-white
+                        px-6
+                        py-3
+                        text-[9px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.2em]
+                        text-black
+                        opacity-0
+                        transition-all
+                        delay-200
+                        duration-700
+                        group-hover:translate-y-0
+                        group-hover:opacity-100
+                      "
+                    >
+                      View Image
+
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+
+                  </div>
+                </button>
+              );
+            })}
+
           </div>
-
-          {/* CONTENT */}
-          <div
-            className="
-              absolute
-              inset-0
-              z-10
-              flex
-              flex-col
-              items-center
-              justify-center
-              px-8
-              text-center
-            "
-          >
-            <p
-              className="
-                mb-4
-                text-[9px]
-                font-medium
-                uppercase
-                tracking-[0.3em]
-                text-white/70
-                sm:text-[10px]
-              "
-            >
-              {item.category}
-            </p>
-
-            <h3
-              className="
-                max-w-[90%]
-                text-2xl
-                font-semibold
-                uppercase
-                leading-[0.92]
-                tracking-[-0.035em]
-                text-white
-                sm:text-3xl
-              "
-            >
-              {item.title}
-            </h3>
-
-            <p
-              className="
-                mt-5
-                max-w-[380px]
-                translate-y-4
-                text-center
-                text-xs
-                leading-[1.55]
-                text-white/75
-                opacity-0
-                transition-all
-                duration-700
-                group-hover:translate-y-0
-                group-hover:opacity-100
-                sm:text-sm
-              "
-            >
-              {item.description}
-            </p>
-
-            <span
-              className="
-                mt-6
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                rounded-full
-                bg-white
-                px-6
-                py-3
-                text-[9px]
-                font-semibold
-                uppercase
-                tracking-[0.2em]
-                text-black
-                translate-y-4
-                opacity-0
-                transition-all
-                duration-700
-                group-hover:translate-y-0
-                group-hover:opacity-100
-              "
-            >
-              View Image
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-          </div>
-        </button>
-      ))}
-    </div>
-
-    {/* ================= NORMAL CARDS ================= */}
-
-    <div
-      className="
-        mt-4
-        grid
-        grid-cols-1
-        gap-4
-        sm:grid-cols-2
-        lg:grid-cols-4
-      "
-    >
-      {service.gallery.slice(2).map((item, index) => {
-        const realIndex = index + 2;
-
-        return (
-          <button
-            key={item.title}
-            type="button"
-            onClick={() => openSlider(realIndex)}
-            className="
-              gallery-card
-              group
-              relative
-              block
-              h-[430px]
-              w-full
-              overflow-hidden
-              bg-[#1a1a1a]
-              p-0
-              text-left
-              outline-none
-              lg:h-[520px]
-            "
-          >
-            {/* IMAGE */}
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              sizes="
-                (max-width: 640px) 100vw,
-                (max-width: 1024px) 50vw,
-                25vw
-              "
-              className="
-                object-cover
-                transition-transform
-                duration-[1200ms]
-                ease-out
-                group-hover:scale-[1.06]
-              "
-            />
-
-            {/* OVERLAY */}
-            <div
-              className="
-                absolute
-                inset-0
-                bg-black/20
-                transition-all
-                duration-700
-                group-hover:bg-black/60
-              "
-            />
-
-            {/* NUMBER */}
-            <div
-              className="
-                absolute
-                left-5
-                top-5
-                z-20
-                text-[10px]
-                font-medium
-                uppercase
-                tracking-[0.25em]
-                text-white/70
-              "
-            >
-              {String(realIndex + 1).padStart(2, "0")}
-            </div>
-
-            {/* ARROW */}
-            <div
-              className="
-                absolute
-                right-5
-                top-5
-                z-20
-                flex
-                h-9
-                w-9
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-white/30
-                text-white
-                opacity-0
-                transition-all
-                duration-500
-                group-hover:opacity-100
-              "
-            >
-              <ArrowUpRight className="h-4 w-4" />
-            </div>
-
-            {/* CONTENT */}
-            <div
-              className="
-                absolute
-                inset-0
-                z-10
-                flex
-                flex-col
-                items-center
-                justify-center
-                px-8
-                text-center
-              "
-            >
-              <p
-                className="
-                  mb-4
-                  text-[9px]
-                  font-medium
-                  uppercase
-                  tracking-[0.3em]
-                  text-white/70
-                  sm:text-[10px]
-                "
-              >
-                {item.category}
-              </p>
-
-              <h3
-                className="
-                  max-w-[90%]
-                  text-2xl
-                  font-semibold
-                  uppercase
-                  leading-[0.92]
-                  tracking-[-0.035em]
-                  text-white
-                  sm:text-3xl
-                "
-              >
-                {item.title}
-              </h3>
-
-              <p
-                className="
-                  mt-5
-                  max-w-[380px]
-                  translate-y-4
-                  text-center
-                  text-xs
-                  leading-[1.55]
-                  text-white/75
-                  opacity-0
-                  transition-all
-                  duration-700
-                  group-hover:translate-y-0
-                  group-hover:opacity-100
-                  sm:text-sm
-                "
-              >
-                {item.description}
-              </p>
-
-              <span
-                className="
-                  mt-6
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  bg-white
-                  px-6
-                  py-3
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-black
-                  translate-y-4
-                  opacity-0
-                  transition-all
-                  duration-700
-                  group-hover:translate-y-0
-                  group-hover:opacity-100
-                "
-              >
-                View Image
-                <ArrowUpRight className="h-4 w-4" />
-              </span>
-            </div>
-          </button>
-        );
-      })}
-    </div>
-
-  </div>
-</section>
-
+        </div>
+      </section>
 
       {/* =====================================================
           PROCESS
@@ -672,30 +795,33 @@ export default function ServicePage() {
 
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.5fr]">
 
+            {/* PROCESS TITLE */}
+
             <div>
               <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
                 03 — Our Process
               </p>
 
-  <h2
-  className="
-    mt-5
-    max-w-[500px]
-    text-4xl
-    font-medium
-    uppercase
-    leading-[0.9]
-    tracking-[0.02em]
-
-    sm:text-5xl
-    lg:text-6xl
-  "
->
-  FROM IDEA
-  <br />
-  TO OBJECT
-</h2>
+              <h2
+                className="
+                  mt-5
+                  max-w-[500px]
+                  text-4xl
+                  font-medium
+                  uppercase
+                  leading-[0.9]
+                  tracking-[0.02em]
+                  sm:text-5xl
+                  lg:text-6xl
+                "
+              >
+                FROM IDEA
+                <br />
+                TO OBJECT
+              </h2>
             </div>
+
+            {/* PROCESS STEPS */}
 
             <div className="border-t border-white/10">
 
@@ -708,15 +834,16 @@ export default function ServicePage() {
                     border-b
                     border-white/10
                     py-7
-
                     sm:grid-cols-[80px_1fr]
                   "
                 >
+
                   <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div>
+
                     <h3 className="text-lg font-medium uppercase tracking-[-0.025em] sm:text-xl">
                       {step.title}
                     </h3>
@@ -724,6 +851,7 @@ export default function ServicePage() {
                     <p className="mt-3 max-w-[650px] text-sm leading-[1.6] text-white/45">
                       {step.text}
                     </p>
+
                   </div>
                 </div>
               ))}
@@ -752,7 +880,6 @@ export default function ServicePage() {
               uppercase
               leading-[0.9]
               tracking-[-0.055em]
-
               sm:text-5xl
               lg:text-[5vw]
             "
@@ -777,15 +904,12 @@ export default function ServicePage() {
               border-white/15
               px-7
               py-3
-
               text-[10px]
               font-medium
               uppercase
               tracking-[0.15em]
-
               transition-all
               duration-500
-
               hover:bg-white
               hover:text-black
             "
@@ -804,13 +928,13 @@ export default function ServicePage() {
                 text-black
                 transition-transform
                 duration-500
-
                 group-hover:translate-x-1
               "
             >
               ↗
             </span>
           </Link>
+
         </div>
       </section>
 
@@ -834,7 +958,9 @@ export default function ServicePage() {
             sm:p-10
           "
         >
+
           {/* CLOSE */}
+
           <button
             type="button"
             onClick={closeSlider}
@@ -857,7 +983,6 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-
               sm:right-8
               sm:top-8
             "
@@ -866,6 +991,7 @@ export default function ServicePage() {
           </button>
 
           {/* PREVIOUS */}
+
           <button
             type="button"
             onClick={previousImage}
@@ -889,7 +1015,6 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-
               sm:left-8
             "
           >
@@ -897,6 +1022,7 @@ export default function ServicePage() {
           </button>
 
           {/* IMAGE */}
+
           <div className="relative h-[75vh] w-[82vw] max-w-[1200px]">
             <Image
               src={service.gallery[activeImage].image}
@@ -908,6 +1034,7 @@ export default function ServicePage() {
           </div>
 
           {/* NEXT */}
+
           <button
             type="button"
             onClick={nextImage}
@@ -931,7 +1058,6 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-
               sm:right-8
             "
           >
@@ -939,6 +1065,7 @@ export default function ServicePage() {
           </button>
 
           {/* IMAGE INFORMATION */}
+
           <div
             className="
               absolute
@@ -948,10 +1075,10 @@ export default function ServicePage() {
               w-[90%]
               -translate-x-1/2
               text-center
-
               sm:bottom-8
             "
           >
+
             <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/45 sm:text-[10px]">
               {String(activeImage + 1).padStart(2, "0")} /{" "}
               {String(service.gallery.length).padStart(2, "0")}
@@ -964,6 +1091,7 @@ export default function ServicePage() {
             <p className="mt-1 text-xs text-white/45">
               {service.gallery[activeImage].category}
             </p>
+
           </div>
         </div>
       )}

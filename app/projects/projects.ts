@@ -15,6 +15,7 @@ export interface Project {
   type?: string;
   area?: string;
   awards?: string;
+
   challenge?: string;
 
   gallery: string[];
@@ -41,10 +42,10 @@ export const projects: Project[] = [
   designStyle: "Coastal Contemporary",
 
   image:
-    "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2000&q=85",
+    "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/94_zv7ywh.png",
 
   heroImage:
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=85",
+    "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788448114/10_plgpsm.png",
 
   mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
 
@@ -224,10 +225,10 @@ export const projects: Project[] = [
     designStyle: "Contemporary Eclectic",
 
     image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/95_l4amrl.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/85_srb2yd.png",
 
     description:
       "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
@@ -241,19 +242,19 @@ export const projects: Project[] = [
     execution:
       "Metal and wooden wall installations, mosaic art, textured canvases, bead and sequin artworks, sculptural wall pieces and FRP sculptures with gloss finishes.",
 
-    mapImage: "/maps/goa.png",
+    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.37_ns65lq.jpg",
 
     challenge:
       "The challenge was to create visual richness and individuality across four storeys while maintaining a cohesive relationship with the contemporary architecture.",
 
     gallery: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/91_otjxcv.png",
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/85_srb2yd.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/95_l4amrl.png",
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446998/84_wgcvo5.png",
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
     ],
   },
@@ -388,7 +389,7 @@ export const projects: Project[] = [
     execution:
       "Textured wall art, thread and fabric artworks, dimensional wooden wall pieces, Pichwai-inspired works and bespoke feature panels.",
 
-    mapImage: "/maps/goa.png",
+    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446878/MUMBAI_detn95.png",
 
     challenge:
       "The artwork needed to introduce character without disturbing the residence's understated atmosphere, requiring a restrained palette and carefully scaled interventions.",

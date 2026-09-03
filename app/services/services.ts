@@ -42,23 +42,23 @@ export const services: Service[] = [
       "Custom art installations created to transform architecture, interiors and hospitality spaces through scale, material and emotion.",
 
     process: [
-      {
-        title: "Concept",
-        text: "Creative direction.",
-      },
-      {
-        title: "Design",
-        text: "Visual development.",
-      },
-      {
-        title: "Fabrication",
-        text: "Craftsmanship and production.",
-      },
-      {
-        title: "Installation",
-        text: "On-site execution.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Concepts developed around the client's space, story and brand. No two pieces are the same.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Hand-crafted using a mix of traditional and contemporary techniques and materials.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Careful on-site installation to protect both the artwork and the surrounding space.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Guidance on care and long-term preservation of the piece.",
+  },
+],
 
     gallery: [
       {
@@ -164,23 +164,23 @@ export const services: Service[] = [
       "Sculptural works created through a balance of form, material and craftsmanship, bringing identity and character to every environment.",
 
     process: [
-      {
-        title: "Sketch",
-        text: "Initial concepts.",
-      },
-      {
-        title: "Model",
-        text: "Prototype development.",
-      },
-      {
-        title: "Fabrication",
-        text: "Material craftsmanship.",
-      },
-      {
-        title: "Installation",
-        text: "Final placement.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Concepts explore form, scale and material to create a focal point for the space.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Fabricated in metal, resin or mixed media depending on the design and setting.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Structural and safety considerations handled for both indoor and outdoor placements.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Support for relocation, cleaning or restoration over time.",
+  },
+],
 
     gallery: [
       {
@@ -286,23 +286,23 @@ export const services: Service[] = [
       "Thoughtfully designed lighting systems balancing atmosphere, beauty and functionality to shape the experience of a space.",
 
     process: [
-      {
-        title: "Planning",
-        text: "Lighting strategy.",
-      },
-      {
-        title: "Selection",
-        text: "Fixtures and finishes.",
-      },
-      {
-        title: "Installation",
-        text: "Technical execution.",
-      },
-      {
-        title: "Testing",
-        text: "Final calibration.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Fixtures designed to a space's exact proportions, mood and light requirements.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Built using premium materials and finishes, engineered for durability and safety.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Precise on-site installation and calibration for the intended ambience.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Maintenance guidance and replacement parts sourcing.",
+  },
+],
 
     gallery: [
       {
@@ -408,23 +408,23 @@ export const services: Service[] = [
       "Bespoke mirrors and chandeliers handcrafted to elevate interiors through proportion, reflection, material and light.",
 
     process: [
-      {
-        title: "Design",
-        text: "Custom concepts.",
-      },
-      {
-        title: "Engineering",
-        text: "Technical detailing.",
-      },
-      {
-        title: "Production",
-        text: "Handcrafted fabrication.",
-      },
-      {
-        title: "Installation",
-        text: "On-site finishing.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Statement pieces conceived to anchor a room and reflect the space's overall design language.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Custom framing, glasswork and metal detailing crafted to specification.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Handled and installed with care given the scale and fragility of these pieces.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Long-term care advice and touch-up service.",
+  },
+],
 
     gallery: [
       {
@@ -530,23 +530,23 @@ export const services: Service[] = [
       "Custom doors and partition systems that seamlessly integrate into luxury spaces while creating privacy, movement and architectural definition.",
 
     process: [
-      {
-        title: "Measurement",
-        text: "Site survey.",
-      },
-      {
-        title: "Design",
-        text: "Custom detailing.",
-      },
-      {
-        title: "Production",
-        text: "Precision manufacturing.",
-      },
-      {
-        title: "Installation",
-        text: "Final fitting.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Designed to merge craftsmanship with functional zoning of a space.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Fabricated from wood, metal, glass or mixed materials to match the interior.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Precision-fitted on site for smooth, long-lasting function.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Servicing for hardware and finishes as needed.",
+  },
+],
 
     gallery: [
       {
@@ -652,23 +652,23 @@ export const services: Service[] = [
       "Decorative metal finishes designed to enrich architecture and interior spaces through texture, colour, reflection and precision craftsmanship.",
 
     process: [
-      {
-        title: "Material Selection",
-        text: "Choosing the perfect finish.",
-      },
-      {
-        title: "Fabrication",
-        text: "Precision metal work.",
-      },
-      {
-        title: "Finishing",
-        text: "Surface treatment.",
-      },
-      {
-        title: "Installation",
-        text: "Final execution.",
-      },
-    ],
+  {
+    title: "Design Concept",
+    text: "Concepts developed for railings, screens, cladding and decorative metal elements.",
+  },
+  {
+    title: "Material & Fabrication",
+    text: "Custom fabrication finished to an architectural standard using brass, bronze, steel and more.",
+  },
+  {
+    title: "Installation & Finishing",
+    text: "Installed and finished on site to match surrounding materials.",
+  },
+  {
+    title: "Ongoing Support",
+    text: "Care guidance to preserve finish and prevent corrosion over time.",
+  },
+],
 
     gallery: [
       {

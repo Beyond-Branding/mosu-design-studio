@@ -154,7 +154,7 @@ useEffect(() => {
           href="/services"
           className="services-button text-white"
         >
-          View All Services
+          View All Products
         </Link>
       </div>
     </section>
