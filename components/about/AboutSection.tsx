@@ -2,308 +2,358 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
 
-useLayoutEffect(() => {
-  if (!sectionRef.current) return;
+  useLayoutEffect(() => {
+    if (!sectionRef.current || !panelRef.current) return;
 
-  const ctx = gsap.context(() => {
-    const textElements =
-      gsap.utils.toArray<HTMLElement>(".about-reveal");
+    const ctx = gsap.context(() => {
+      const textElements =
+        gsap.utils.toArray<HTMLElement>(".about-reveal");
 
-    // Text hidden initially
-    gsap.set(textElements, {
-      opacity: 0,
-      clipPath: "inset(0 100% 0 0)",
-    });
+      /*
+       * INITIAL STATE
+       * -------------------------
+       * Black panel covers the ENTIRE image.
+       */
+      gsap.set(panelRef.current, {
+        xPercent: 0,
+      });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=4500",
-        scrub: 1.5,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+      gsap.set(textElements, {
+        opacity: 0,
+        y: 30,
+      });
 
-    requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-    });
+      /*
+       * MAIN SCROLL TIMELINE
+       */
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=5000",
+          scrub: 1.8,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
-    /*
-     * 1. TEXT APPEARS WHILE PANEL IS STATIONARY
-     */
-    tl.to(textElements, {
-      opacity: 1,
-      clipPath: "inset(0 0% 0 0)",
-      duration: 2.5,
-      stagger: 0.35,
-      ease: "power2.out",
-    });
+      /*
+       * --------------------------------
+       * 1. ABOUT CONTENT APPEARS
+       * --------------------------------
+       */
+      tl.to(textElements, {
+        opacity: 1,
+        y: 0,
+        duration: 2.5,
+        stagger: 0.35,
+        ease: "power2.out",
+      });
 
-    /*
-     * 2. HOLD THE TEXT
-     * Gives the user time to READ
-     */
-    tl.to({}, {
-      duration: 1.5,
-    });
+      /*
+       * --------------------------------
+       * 2. HOLD
+       * --------------------------------
+       *
+       * Gives enough time to read
+       * the About content.
+       */
+      tl.to({}, {
+        duration: 2,
+      });
 
-    /*
-     * 3. NOW MOVE THE BLACK PANEL
-     * RIGHT → revealing the full image
-     */
-    tl.to(panelRef.current, {
-      xPercent: 100,
-      duration: 2.5,
-      ease: "power1.inOut",
-    });
-  }, sectionRef);
+      /*
+       * --------------------------------
+       * 3. BLACK PANEL MOVES RIGHT
+       * --------------------------------
+       *
+       * 100% → completely outside
+       * of the viewport.
+       */
+      tl.to(panelRef.current, {
+        xPercent: 100,
+        duration: 5,
+        ease: "power1.inOut",
+      });
 
-  return () => ctx.revert();
-}, []);
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#171717]"
+      className="relative h-screen w-full overflow-hidden bg-black"
     >
-      {/* =========================
-          FULL FOUNDER IMAGE
-      ========================= */}
+      {/* =====================================================
+          FULL FOUNDERS IMAGE
+          ===================================================== */}
+
       <Image
         src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788445914/founders_zgwqsa.png"
-        alt="Founder"
+        alt="MOSU Founders"
         fill
         priority
-        className="object-cover"
+        sizes="100vw"
+        className="object-cover object-center"
       />
 
-      {/* Slight image overlay */}
-      <div className="absolute inset-0 bg-[#171717]/20" />
+      {/* Image overlay */}
+      <div className="absolute inset-0 bg-black/10" />
 
-      {/* =========================
-          FOUNDER
-      ========================= */}
-      <div
+
+      {/* =====================================================
+    FOUNDERS INFORMATION
+    LEFT  → Founder
+    RIGHT → Director
+    Behind the black panel initially
+===================================================== */}
+
+<div
+  className="
+    absolute
+    inset-x-0
+    bottom-8
+    z-10
+
+    px-6
+    sm:bottom-12
+    sm:px-10
+    lg:bottom-16
+    lg:px-16
+
+    text-white
+  "
+>
+  <div className="flex w-full items-end justify-between">
+
+    {/* =========================
+        LEFT — FOUNDER
+    ========================= */}
+
+    <div className="text-left">
+      <p
         className="
-          absolute
-          bottom-6
-          right-6
-          sm:bottom-10
-          sm:right-10
-          lg:bottom-16
-          lg:right-16
-          z-10
-          text-right
-          text-white
+          text-[9px]
+          font-medium
+          uppercase
+          tracking-[0.4em]
+          text-white/80
+
+          sm:text-[10px]
+          lg:text-[11px]
         "
       >
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+        Founder & CEO
+      </p>
 
-  {/* PERSON 1 */}
-  <div>
-    <p
-      className="
-        text-[9px]
-        sm:text-[10px]
-        lg:text-[11px]
-        font-medium
-        uppercase
-        tracking-[0.4em]
-        opacity-80
-      "
-    >
-      Founder & CEO
-    </p>
+      <h2
+        className="
+          mt-2
+          text-3xl
+          font-medium
+          tracking-tight
 
-    <h2
-      className="
-        mt-2
-        text-3xl
-        sm:text-4xl
-        lg:text-5xl
-        font-light
-        tracking-tight
-      "
-    >
-      Pawan Sundriyal
-    </h2>
+          sm:text-4xl
+          lg:text-5xl
+        "
+      >
+        Pawan Sundriyal
+      </h2>
+    </div>
+
+
+    {/* =========================
+        RIGHT — DIRECTOR
+    ========================= */}
+
+    <div className="text-right">
+      <p
+        className="
+          text-[9px]
+          font-medium
+          uppercase
+          tracking-[0.4em]
+          text-white/80
+
+          sm:text-[10px]
+          lg:text-[11px]
+        "
+      >
+        Director & Creative Head
+      </p>
+
+      <h2
+        className="
+          mt-2
+          text-3xl
+          font-medium
+          tracking-tight
+
+          sm:text-4xl
+          lg:text-5xl
+        "
+      >
+        Shreya Chakraborty
+      </h2>
+    </div>
+
   </div>
-
-
-  {/* PERSON 2 */}
-  <div>
-    <p
-      className="
-        text-[9px]
-        sm:text-[10px]
-        lg:text-[11px]
-        font-medium
-        uppercase
-        tracking-[0.4em]
-        opacity-80
-      "
-    >
-      Director & Creative Head
-    </p>
-
-    <h2
-      className="
-        mt-2
-        text-3xl
-        sm:text-4xl
-        lg:text-5xl
-        font-light
-        tracking-tight
-      "
-    >
-      Shreya Chakraborty
-    </h2>
-  </div>
-
 </div>
-      </div>
 
-      {/* =========================
-          RIGHT BLACK PANEL
-          STARTS AT 50%
-      ========================= */}
+
+
+      {/* =====================================================
+          BLACK SLIDER PANEL
+          
+          IMPORTANT:
+          Starts covering 100% of the image.
+      ===================================================== */}
+
       <div
         ref={panelRef}
         className="
           absolute
-          inset-y-0
-          right-0
-          z-20
-
-          w-full
-          lg:w-1/2
-
-          bg-[#171717]
-          text-white
+          inset-0
+          z-30
 
           flex
           items-center
+
+          bg-[#171717]
+          text-white
         "
       >
+
+        {/* =================================================
+            ABOUT CONTENT
+        ================================================= */}
+
         <div
-          ref={contentRef}
           className="
             w-full
-            max-w-[520px]
+            max-w-[760px]
 
             px-8
             sm:px-12
             lg:px-16
-            xl:px-20
-
-            text-white
+            xl:px-24
           "
         >
-          {/* =========================
-              ABOUT LABEL
-          ========================= */}
+
+          {/* ABOUT LABEL */}
+
           <p
             className="
               about-reveal
 
-              mb-6
-              lg:mb-8
+              mb-7
 
               text-[10px]
-              lg:text-[11px]
-
               uppercase
               tracking-[0.45em]
 
               text-white/50
+
+              lg:text-[11px]
             "
           >
             ABOUT MOSU
           </p>
 
-          {/* =========================
-              TEXT
-          ========================= */}
+
+          {/* MAIN TEXT */}
+
           <div className="space-y-5 lg:space-y-6">
 
             <p
               className="
                 about-reveal
 
-                text-[15px]
-                lg:text-[17px]
+                max-w-[700px]
 
+                text-[16px]
                 font-light
+                leading-[1.7]
 
-                leading-7
-                lg:leading-[1.9]
+                lg:text-[18px]
+                lg:leading-[1.8]
               "
             >
               Every remarkable project begins with an idea worth believing in.
             </p>
 
+
             <p
               className="
                 about-reveal
 
-                text-[15px]
-                lg:text-[17px]
+                max-w-[700px]
 
+                text-[16px]
                 font-light
+                leading-[1.7]
 
-                leading-7
-                lg:leading-[1.9]
+                lg:text-[18px]
+                lg:leading-[1.8]
               "
             >
               At MOSU, we create architecture, interiors and bespoke design
               that balances timeless aesthetics with purposeful functionality.
             </p>
 
+
             <p
               className="
                 about-reveal
 
-                text-[15px]
-                lg:text-[17px]
+                max-w-[700px]
 
+                text-[16px]
                 font-light
+                leading-[1.7]
 
-                leading-7
-                lg:leading-[1.9]
+                lg:text-[18px]
+                lg:leading-[1.8]
               "
             >
               Every proportion, material and detail is carefully considered to
               shape spaces that feel calm, elegant and enduring.
             </p>
 
+
+            {/* FINAL STATEMENT */}
+
             <p
               className="
                 about-reveal
 
-                pt-2
+                pt-4
 
-                text-[18px]
-                sm:text-[20px]
-                lg:text-[22px]
+                max-w-[700px]
 
+                text-[21px]
                 font-light
-
-                leading-[1.5]
-
+                leading-[1.45]
                 tracking-[-0.02em]
+
+                sm:text-[24px]
+                lg:text-[28px]
               "
             >
               We don't simply design spaces.
@@ -314,57 +364,62 @@ useLayoutEffect(() => {
               </span>
             </p>
 
-          </div>
 
-          {/* =========================
-              BUTTON
-          ========================= */}
-          <div className="about-reveal">
-            <Link
-              href="/about"
-              className="
-                mt-8
-                lg:mt-12
+            {/* BUTTON */}
 
-                inline-flex
-                items-center
+            <div className="about-reveal pt-5">
 
-                gap-2
-                lg:gap-3
+              <Link
+                href="/about"
+                className="
+                  inline-flex
+                  items-center
+                  gap-3
 
-                rounded-full
+                  rounded-full
+                  border
+                  border-white
 
-                border
-                border-white
+                  px-7
+                  py-3.5
 
-                px-6
-                py-3
+                  text-[10px]
+                  uppercase
+                  tracking-[0.25em]
 
-                lg:px-8
-                lg:py-4
+                  transition-all
+                  duration-500
 
-                text-[10px]
-                lg:text-[12px]
+                  hover:bg-white
+                  hover:text-black
 
-                uppercase
-                tracking-[0.25em]
+                  lg:px-8
+                  lg:py-4
+                  lg:text-[11px]
+                "
+              >
+                DISCOVER MORE
 
-                text-white
+                <span
+                  className="
+                    transition-transform
+                    duration-500
+                    group-hover:translate-x-1
+                  "
+                >
+                  →
+                </span>
 
-                transition-all
-                duration-500
+              </Link>
 
-                hover:bg-white
-                hover:text-black
-              "
-            >
-              DISCOVER MORE
-              <span>→</span>
-            </Link>
+            </div>
+
           </div>
 
         </div>
+
       </div>
+
     </section>
   );
 }
