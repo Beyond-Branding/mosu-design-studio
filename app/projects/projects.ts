@@ -15,12 +15,23 @@ export interface Project {
   type?: string;
   area?: string;
   awards?: string;
-
   challenge?: string;
 
+  /*
+   * GALLERY ORDER
+   *
+   * gallery[0] → Main image
+   * gallery[1] → Second large image
+   * gallery[2] → Composition image
+   * gallery[3] → Image after Composition
+   * gallery[4] → Challenge image
+   * gallery[5] → Image after Challenge
+   * gallery[6] → Grid image
+   * gallery[7] → Grid image
+   * gallery[8] → Grid image
+   */
   gallery: string[];
 
-  // Project-specific content
   brief?: string;
   concept?: string;
   execution?: string;
@@ -32,42 +43,68 @@ export const projects: Project[] = [
   // ============================================================
 
   {
-  title: "TAJ GATEWAY PALOLEM",
-  slug: "taj-gateway-palolem",
+    title: "TAJ GATEWAY PALOLEM",
+    slug: "taj-gateway-palolem",
 
-  category: "RESORTS",
-  location: "GOA, INDIA",
-  status: "COMPLETED",
-  type: "RESORT",
-  designStyle: "Coastal Contemporary",
+    category: "RESORTS",
+    location: "GOA, INDIA",
+    status: "COMPLETED",
+    type: "RESORT",
+    designStyle: "Coastal Contemporary",
 
-  image:
-    "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/94_zv7ywh.png",
+    image:
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2000&q=85",
 
-  heroImage:
-    "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788448114/10_plgpsm.png",
+    heroImage:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=85",
 
-  mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
 
-  description:
-    "A distinctive artistic identity for a coastal resort in South Goa, inspired by the beaches, landscape and local culture of Palolem.",
+    description:
+      "A distinctive artistic identity for a coastal resort in South Goa, inspired by the beaches, landscape and local culture of Palolem.",
 
-  brief:
-    "To create a distinctive artistic identity for a coastal resort in South Goa, carrying the character of its beaches, landscape and local culture through the property.",
+    brief:
+      "To create a distinctive artistic identity for a coastal resort in South Goa, carrying the character of its beaches, landscape and local culture through the property.",
 
-  concept:
-    "The sea became the thread that connects the project, moving from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
+    concept:
+      "The sea became the thread that connects the project, moving from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
 
-  execution:
-    "Hand-cut glass mosaic artworks, layered birchwood wall installations, blown-glass fish sculptures, sculptural mirrors, surfboard installations, room signage, large-scale wall art and handmade glass chandeliers.",
+    execution:
+      "Hand-cut glass mosaic artworks, layered birchwood wall installations, blown-glass fish sculptures, sculptural mirrors, surfboard installations, room signage, large-scale wall art and handmade glass chandeliers.",
 
-  challenge:
-    "Creating a cohesive artistic identity while allowing each artwork to respond to the coastal character of South Goa required a varied approach to materials, scale and visual language.",
+    challenge:
+      "Creating a cohesive artistic identity while allowing each artwork to respond to the coastal character of South Goa required a varied approach to materials, scale and visual language.",
 
-  gallery: [
-    // ...
-  ],
-},
+    gallery: [
+      // 01 — Main image
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=85",
+
+      // 02 — Second large image
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2400&q=85",
+
+      // 03 — Composition image
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=2400&q=85",
+
+      // 04 — Image after Composition
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=85",
+
+      // 05 — Challenge image
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2400&q=85",
+
+      // 06 — Image after Challenge
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+
+      // 07 — Bottom grid 01
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+
+      // 08 — Bottom grid 02
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+
+      // 09 — Bottom grid 03
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+    ],
+  },
 
   // ============================================================
   // 02 — HYATT REGENCY DEHRADUN
@@ -89,7 +126,8 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2400&q=85",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421742/WhatsApp_Image_2026-09-03_at_13.03.27_zrfnou.jpg",
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421742/WhatsApp_Image_2026-09-03_at_13.03.27_zrfnou.jpg",
 
     description:
       "A quieter artistic language inspired by the natural character of Dehradun, complementing the warmth of the architecture through organic textures and botanical forms.",
@@ -103,19 +141,36 @@ export const projects: Project[] = [
     execution:
       "Textured wall reliefs, sculptural wall installations, framed botanical artworks, decorative panels and freestanding nature-inspired sculptural forms.",
 
-
     challenge:
       "The artwork needed to enrich the hospitality environment without overpowering the architecture, creating a balance between natural references, texture and restraint.",
 
     gallery: [
+      // 01
       "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2400&q=85",
+
+      // 02
       "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=85",
+
+      // 03 — Composition
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=85",
+
+      // 04
       "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85",
+
+      // 05 — Challenge
       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=85",
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=85",
+
+      // 06
       "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85",
+
+      // 07 — Grid
       "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=2400&q=85",
+
+      // 08 — Grid
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=85",
+
+      // 09 — Grid
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -124,42 +179,68 @@ export const projects: Project[] = [
   // ============================================================
 
   {
-  title: "MY HOME TIRUMALA",
-  slug: "my-home-tirumala",
+    title: "MY HOME TIRUMALA",
+    slug: "my-home-tirumala",
 
-  category: "HOTELS",
-  location: "ANDHRA PRADESH, INDIA",
-  status: "COMPLETED",
-  type: "HOTEL",
-  designStyle: "Traditional Contemporary",
+    category: "HOTELS",
+    location: "ANDHRA PRADESH, INDIA",
+    status: "COMPLETED",
+    type: "HOTEL",
+    designStyle: "Traditional Contemporary",
 
-  image:
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85",
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85",
 
-  heroImage:
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+    heroImage:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
 
-  mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
 
-  description:
-    "A contemporary guest house enriched with traditional iconography and Kalamkari, creating a cultural identity that feels rooted yet contemporary.",
+    description:
+      "A contemporary guest house enriched with traditional iconography and Kalamkari, creating a cultural identity that feels rooted yet contemporary.",
 
-  brief:
-    "To bring a sense of tradition and cultural familiarity into a contemporary guest house without making the expression feel overly ceremonial.",
+    brief:
+      "To bring a sense of tradition and cultural familiarity into a contemporary guest house without making the expression feel overly ceremonial.",
 
-  concept:
-    "Traditional iconography and Kalamkari became the foundation, reinterpreted through different scales, formats and materials to create a collection that feels rooted yet contemporary.",
+    concept:
+      "Traditional iconography and Kalamkari became the foundation, reinterpreted through different scales, formats and materials to create a collection that feels rooted yet contemporary.",
 
-  execution:
-    "Hand-painted canvas artworks, wall sculptures, hand-painted wooden panels, devotional art compositions, planters and framed canvas works.",
+    execution:
+      "Hand-painted canvas artworks, wall sculptures, hand-painted wooden panels, devotional art compositions, planters and framed canvas works.",
 
-  challenge:
-    "The challenge was to preserve the cultural character of the project while ensuring the artworks remained appropriate for a contemporary hospitality environment.",
+    challenge:
+      "The challenge was to preserve the cultural character of the project while ensuring the artworks remained appropriate for a contemporary hospitality environment.",
 
-  gallery: [
-    // ...
-  ],
-},
+    gallery: [
+      // 01
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+
+      // 02
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+
+      // 03 — Composition
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+
+      // 04
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+
+      // 05 — Challenge
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+
+      // 06
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+
+      // 07 — Grid
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+
+      // 08 — Grid
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+
+      // 09 — Grid
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+    ],
+  },
 
   // ============================================================
   // 04 — TRISHVAM TGI PALOLEM
@@ -181,6 +262,9 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85",
 
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
+
     description:
       "A playful coastal art direction using the surfboard as a familiar form and transforming it into a recurring visual signature across the guest rooms.",
 
@@ -193,20 +277,36 @@ export const projects: Project[] = [
     execution:
       "Bespoke surfboard-shaped wall artworks developed in varied colours and compositions across the guest rooms.",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
-
     challenge:
       "Creating a recognisable visual identity within individual guest rooms while maintaining a relaxed and playful coastal atmosphere.",
 
     gallery: [
+      // 01
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85",
+
+      // 02
       "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=2400&q=85",
+
+      // 03 — Composition
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=85",
+
+      // 04
       "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2400&q=85",
+
+      // 05 — Challenge
       "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=85",
+
+      // 06
       "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=2400&q=85",
+
+      // 07 — Grid
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2400&q=85",
+
+      // 08 — Grid
       "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=85",
+
+      // 09 — Grid
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -225,10 +325,12 @@ export const projects: Project[] = [
     designStyle: "Contemporary Eclectic",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/95_l4amrl.png",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/85_srb2yd.png",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+
+    mapImage: "/maps/goa.png",
 
     description:
       "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
@@ -242,20 +344,19 @@ export const projects: Project[] = [
     execution:
       "Metal and wooden wall installations, mosaic art, textured canvases, bead and sequin artworks, sculptural wall pieces and FRP sculptures with gloss finishes.",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.37_ns65lq.jpg",
-
     challenge:
       "The challenge was to create visual richness and individuality across four storeys while maintaining a cohesive relationship with the contemporary architecture.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/91_otjxcv.png",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788447000/85_srb2yd.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446999/95_l4amrl.png",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446998/84_wgcvo5.png",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -279,6 +380,9 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
 
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
+
     description:
       "An extensive art collection for a vibrant four-storey residence, allowing individual rooms and passages to develop their own visual identities.",
 
@@ -290,8 +394,6 @@ export const projects: Project[] = [
 
     execution:
       "Hand-painted canvases, textured dust-marble artworks, painted wooden panels, alcohol-ink works, gallery walls, layered wooden installations and sculptural feature compositions.",
-
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
 
     challenge:
       "The challenge was to manage a broad collection of artistic styles and materials while maintaining a strong sense of continuity throughout the residence.",
@@ -305,6 +407,7 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -328,6 +431,9 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
 
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
+
     description:
       "A Venetian-style mansion defined by scale, ornament and craftsmanship, using reflection and light to create a sense of grandeur.",
 
@@ -339,8 +445,6 @@ export const projects: Project[] = [
 
     execution:
       "Venetian and Murano mirrors, Murano chandeliers, Asfour crystal chandeliers, cascading crystal light installations, metal curtains, carved wooden frames and decorative wall inlays.",
-
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
 
     challenge:
       "Working with elaborate decorative elements required careful coordination of scale, craftsmanship, light and architectural detailing.",
@@ -354,6 +458,7 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -377,6 +482,8 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
 
+    mapImage: "/maps/goa.png",
+
     description:
       "A warm and understated residence enriched with contemporary artistic interventions built around line, texture and movement.",
 
@@ -388,8 +495,6 @@ export const projects: Project[] = [
 
     execution:
       "Textured wall art, thread and fabric artworks, dimensional wooden wall pieces, Pichwai-inspired works and bespoke feature panels.",
-
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788446878/MUMBAI_detn95.png",
 
     challenge:
       "The artwork needed to introduce character without disturbing the residence's understated atmosphere, requiring a restrained palette and carefully scaled interventions.",
@@ -403,6 +508,7 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 
@@ -426,6 +532,9 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
 
+    mapImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
+
     description:
       "A varied collection of statement pieces where art becomes part of the architecture through layered wood, sculptural forms, ceramic compositions and bespoke lighting.",
 
@@ -437,8 +546,6 @@ export const projects: Project[] = [
 
     execution:
       "Layered wooden wall installations, sculptural linear wall pieces, textured feature artworks, ceramic disc compositions, large-scale graphic wall art, bespoke chandeliers and patinated metal feature panels.",
-
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
 
     challenge:
       "The project required artworks to function as architectural elements while maintaining a varied and sophisticated visual language across the residence.",
@@ -452,6 +559,7 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
     ],
   },
 ];
