@@ -168,9 +168,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
           <div className="absolute left-[47.5%] top-1/2 -translate-y-1/2">
 
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
-              {project.location}
-            </p>
+          
 
           </div>
 

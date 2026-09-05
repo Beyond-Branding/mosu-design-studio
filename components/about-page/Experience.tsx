@@ -24,15 +24,15 @@ export default function Experience() {
       });
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top top",
-          end: `+=${slides.length * 1000}`,
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
+  scrollTrigger: {
+    trigger: section.current,
+    start: "top top",
+    end: `+=${slides.length * 1800}`,
+    scrub: 2.5,
+    pin: true,
+    anticipatePin: 1,
+  },
+});
 
       slides.forEach((slide, index) => {
         if (index === 0) return;
