@@ -111,7 +111,7 @@ export const projects: Project[] = [
   // ============================================================
 
   {
-    title: "HYATT REGENCY DEHRADUN",
+    title: "HYATT REGENCY ",
     slug: "hyatt-regency-dehradun",
 
     category: "RESORTS",
@@ -194,6 +194,8 @@ export const projects: Project[] = [
     heroImage:
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
 
+
+      
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
 
