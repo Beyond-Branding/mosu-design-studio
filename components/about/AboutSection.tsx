@@ -221,7 +221,7 @@ export default function AboutSection() {
         "
       >
         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788445914/founders_zgwqsa.png"
+          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788680982/founders_2_yr0toi.png"
           alt="MOSU Founders"
           fill
           priority

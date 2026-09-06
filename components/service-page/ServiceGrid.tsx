@@ -24,23 +24,6 @@ export default function ServiceGrid() {
     Our Products
   </h1>
 
-  <p
-    className="
-      mt-3
-      uppercase
-      font-light
-      leading-none
-      tracking-[-0.03em]
-      text-white/55
-      text-[1.5rem]
-      sm:text-[1.8rem]
-      md:text-[2.1rem]
-      lg:text-[2.4rem]
-    "
-  >
-    Architecture / Interior Design
-  </p>
-
 </div>
 
         {/* ================= PRODUCTS GRID ================= */}

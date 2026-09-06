@@ -11,21 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   { label: "ALL WORKS", href: "/projects" },
-  { label: "ART INSTALLATIONS", href: "/services/art-installations" },
-  { label: "SCULPTURES", href: "/services/sculptures" },
-  { label: "LIGHTING", href: "/services/lighting" },
-  {
-    label: "MIRRORS & CHANDELIERS",
-    href: "/services/mirrors-chandeliers",
-  },
-  {
-    label: "DOORS & PARTITIONS",
-    href: "/services/doors-partitions",
-  },
-  {
-    label: "METAL FINISHES",
-    href: "/services/metal-finishes",
-  },
+  { label: "TAJ GATEWAY PALOLEM", href: "/projects/taj-gateway-palolem" },
+  { label: "HYATT REGENCY", href: "/projects/hyatt-regency-dehradun" },
+  { label: "76 HAZRA", href: "/projects/76-hazra" },
+  { label: "GUNTUR PROJECT", href: "/projects/guntur-project" },
+  { label: "COIMBATORE MANSION", href: "/projects/coimbatore-mansion" },
+  { label: "BIYANI'S RESIDENCE", href: "/projects/biyanies-residence" },
+  { label: "SALEM BUNGALOW", href: "/projects/salem-bungalow" },
 ];
 
 export default function FeaturedProjects() {
