@@ -1,15 +1,35 @@
+/* =========================
+   SERVICES SECTION
+========================= */
+
 .services-section {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 400vh;
+
     background: #171717;
     color: #e8e8e8;
 }
 
 
 /* =========================
-   WE DO
+   PINNED SCREEN
+========================= */
+
+.services-pin {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #171717;
+}
+
+
+/* =========================
+   WE / DO
 ========================= */
 
 .hero-words {
@@ -21,22 +41,28 @@
     align-items: center;
 
     z-index: 2;
+
     pointer-events: none;
 }
 
 .we,
 .do {
+    margin: 0;
+
     font-size: 9vw;
     font-weight: 400;
-    line-height: .9;
-    letter-spacing: -.08em;
+
+    line-height: 0.9;
+    letter-spacing: -0.08em;
 
     color: #e8e8e8;
+
+    will-change: transform;
 }
 
 
 /* =========================
-   SERVICES
+   SERVICES WRAPPER
 ========================= */
 
 .services-wrapper {
@@ -56,6 +82,8 @@
     z-index: 5;
 
     opacity: 1;
+
+    pointer-events: auto;
 }
 
 
@@ -68,9 +96,9 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 3px;
-
     width: 100%;
+
+    gap: 3px;
 }
 
 
@@ -96,44 +124,107 @@
 
     color: #e8e8e8;
 
-    opacity: 0.45;
+    opacity: 1;
 
     cursor: pointer;
 
+    will-change: transform, opacity;
+
     transition:
         opacity 0.35s ease,
-        transform 0.35s ease;
+        transform 0.35s ease,
+        color 0.35s ease;
 }
+
+
+/* Hover */
 
 .service-item:hover {
     opacity: 1;
+
     transform: translateY(-3px);
 
     color: #ffffff;
 }
 
-.service-item.active {
-    color: #ffffff;
-    opacity: 1;
-}
-
 
 /* =========================
-   VIEW ALL SERVICES BUTTON
+   VIEW ALL BUTTON
 ========================= */
 
 .services-button {
+    display: inline-block;
+
     margin-top: 30px;
 
     padding: 10px 22px;
 
     font-size: 0.7rem;
 
+    line-height: 1;
+
     color: #e8e8e8;
-    border-color: #666;
+
+    border: 1px solid #666;
+
+    text-decoration: none;
+
+    opacity: 0;
+
+    will-change: transform, opacity;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .services-button:hover {
     background: #e8e8e8;
+
     color: #171717;
+
+    border-color: #e8e8e8;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .services-section {
+        min-height: 280vh;
+    }
+
+    .services-pin {
+        height: 100svh;
+    }
+
+    .we,
+    .do {
+        font-size: 18vw;
+    }
+
+    .services-wrapper {
+        top: 55%;
+
+        width: 92vw;
+    }
+
+    .service-item {
+        font-size: clamp(
+            1.35rem,
+            6vw,
+            2rem
+        );
+
+        margin: 4px 0;
+    }
+
+    .services-button {
+        margin-top: 24px;
+    }
+}
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,63 +11,72 @@ export default function FlipSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const card = cardRef.current;
+
+    if (!section || !card) return;
+
     const mm = gsap.matchMedia();
 
     mm.add("(min-width:1024px)", () => {
-      if (!sectionRef.current || !cardRef.current) return;
+      const ctx = gsap.context(() => {
+        gsap.set(card, {
+          rotateY: -25,
+          rotateX: 8,
+          scale: 0.6,
+          y: 150,
+          transformPerspective: 1500,
+          transformOrigin: "center center",
+          force3D: true,
+        });
 
-      gsap.set(cardRef.current, {
-        rotateY: -25,
-        rotateX: 8,
-        scale: 0.6,
-        y: 150,
-        transformPerspective: 1500,
-        transformOrigin: "center center",
-        force3D: true,
-      });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=220%",
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=220%",
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // Flip into position
-      tl.to(cardRef.current, {
-        rotateY: 0,
-        rotateX: 0,
-        scale: 1,
-        y: 0,
-        ease: "power2.out",
-        duration: 1,
-      });
-
-      // Expand to fullscreen
-      tl.to(
-        cardRef.current,
-        {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-          borderRadius: 0,
-          ease: "power3.inOut",
+        // Flip into position
+        tl.to(card, {
+          rotateY: 0,
+          rotateX: 0,
+          scale: 1,
+          y: 0,
+          ease: "power2.out",
           duration: 1,
-        },
-        ">0.2"
-      );
+        });
 
-      return () => tl.kill();
+        // Expand to fullscreen
+        tl.to(
+          card,
+          {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+            borderRadius: 0,
+            ease: "power3.inOut",
+            duration: 1,
+          },
+          ">0.2"
+        );
+      }, section);
+
+      return () => {
+        ctx.revert();
+      };
     });
 
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+    };
   }, []);
 
   return (
@@ -123,11 +132,9 @@ export default function FlipSection() {
               flex
               flex-col
               justify-end
-
               p-6
               sm:p-8
               lg:p-10
-
               text-white
             "
           >
@@ -152,7 +159,6 @@ export default function FlipSection() {
                 uppercase
                 leading-none
                 text-white
-
                 text-3xl
                 sm:text-4xl
                 lg:text-5xl

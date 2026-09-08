@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,45 +12,54 @@ export default function AboutHero() {
   const title = useRef<HTMLDivElement>(null);
   const paragraph = useRef<HTMLParagraphElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const element = section.current;
+    const titleElement = title.current;
+    const paragraphElement = paragraph.current;
+
+    if (!element || !titleElement || !paragraphElement) return;
+
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 1024px)", () => {
-      const ctx = gsap.context(() => {
-        gsap.set(paragraph.current, {
-          opacity: 0,
-          y: 60,
-        });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "top top",
+          end: "+=200%",
+          scrub: true,
+          pin: true,
+        },
+      });
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section.current,
-            start: "top top",
-            end: "+=200%",
-            scrub: true,
-            pin: true,
-          },
-        });
+      // Initial paragraph state
+      gsap.set(paragraphElement, {
+        opacity: 0,
+        y: 60,
+      });
 
-        tl.to(title.current, {
-          scale: 0.55,
-          y: -120,
+      // Title animation
+      tl.to(titleElement, {
+        scale: 0.55,
+        y: -120,
+        ease: "none",
+      });
+
+      // Paragraph animation
+      tl.to(
+        paragraphElement,
+        {
+          opacity: 1,
+          y: 0,
           ease: "none",
-        }).to(
-          paragraph.current,
-          {
-            opacity: 1,
-            y: 0,
-            ease: "none",
-          },
-          "-=0.3"
-        );
-      }, section);
-
-      return () => ctx.revert();
+        },
+        "-=0.3"
+      );
     });
 
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+    };
   }, []);
 
   return (
@@ -70,7 +79,6 @@ export default function AboutHero() {
           absolute
           inset-y-0
           left-0
-
           w-1/4
           lg:w-[30%]
         "
@@ -89,7 +97,6 @@ export default function AboutHero() {
           absolute
           inset-y-0
           right-0
-
           w-1/4
           lg:w-[30%]
         "
@@ -107,33 +114,30 @@ export default function AboutHero() {
 
       {/* Content */}
       <div
-  className="
-    relative
-    z-20
-    flex
-    min-h-screen
-    flex-col
-    items-center
-    justify-center
-
-    mx-auto
-    w-full
-    max-w-[42rem]
-
-    px-6
-    sm:px-8
-    lg:px-10
-
-    text-center
-  "
->
+        className="
+          relative
+          z-20
+          flex
+          min-h-screen
+          flex-col
+          items-center
+          justify-center
+          mx-auto
+          w-full
+          max-w-[42rem]
+          px-6
+          sm:px-8
+          lg:px-10
+          text-center
+        "
+      >
+        {/* Title */}
         <div ref={title}>
           <h2
             className="
               font-black
               uppercase
               leading-none
-
               text-4xl
               sm:text-6xl
               md:text-7xl
@@ -148,7 +152,6 @@ export default function AboutHero() {
               font-black
               uppercase
               leading-none
-
               text-6xl
               sm:text-7xl
               md:text-8xl
@@ -159,26 +162,25 @@ export default function AboutHero() {
           </h1>
         </div>
 
+        {/* Paragraph */}
         <p
-  ref={paragraph}
-  className="
-    mt-8
-    w-full
-    max-w-full
-
-    text-sm
-    sm:text-base
-    lg:text-lg
-
-    leading-relaxed
-    text-neutral-300
-    break-words
-  "
->
-  MOSU is a globally operating architecture and design studio
-  crafting luxury residential, hospitality, and commercial spaces
-  with timeless design language and meticulous attention to detail.
-</p>
+          ref={paragraph}
+          className="
+            mt-8
+            w-full
+            max-w-full
+            text-sm
+            sm:text-base
+            lg:text-lg
+            leading-relaxed
+            text-neutral-300
+            break-words
+          "
+        >
+          MOSU is a globally operating architecture and design studio
+          crafting luxury residential, hospitality, and commercial spaces
+          with timeless design language and meticulous attention to detail.
+        </p>
       </div>
     </section>
   );

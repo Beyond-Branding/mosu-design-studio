@@ -163,7 +163,7 @@ export default function Editorial() {
         relative
         h-screen
         overflow-hidden
-        bg-[#1F1F1F]
+        bg-[#242323]
       "
     >
       <div

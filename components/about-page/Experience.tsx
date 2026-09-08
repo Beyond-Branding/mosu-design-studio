@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,8 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Experience() {
   const section = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!section.current) return;
+  useLayoutEffect(() => {
+    const root = section.current;
+
+    if (!root) return;
 
     const ctx = gsap.context(() => {
       const slides = gsap.utils.toArray<HTMLElement>(".exp-slide");
@@ -24,26 +26,23 @@ export default function Experience() {
       });
 
       const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: section.current,
-    start: "top top",
-    end: `+=${slides.length * 1800}`,
-    scrub: 2.5,
-    pin: true,
-    anticipatePin: 1,
-  },
-});
+        scrollTrigger: {
+          trigger: root,
+          start: "top top",
+          end: `+=${slides.length * 1800}`,
+          scrub: 2.5,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
 
       slides.forEach((slide, index) => {
         if (index === 0) return;
 
-        tl.to(
-          slides[index - 1],
-          {
-            autoAlpha: 0,
-            duration: 1,
-          }
-        );
+        tl.to(slides[index - 1], {
+          autoAlpha: 0,
+          duration: 1,
+        });
 
         tl.to(
           slide,
@@ -54,9 +53,11 @@ export default function Experience() {
           "<"
         );
       });
-    }, section);
+    }, root);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -114,20 +115,20 @@ export default function Experience() {
           >
             {/* TITLE */}
             <h2
-  className="
-    font-medium
-    uppercase
-    leading-[0.95]
-    tracking-[-0.03em]
-    text-white
+              className="
+                font-medium
+                uppercase
+                leading-[0.95]
+                tracking-[-0.03em]
+                text-white
 
-    text-3xl
-    sm:text-4xl
-    md:text-5xl
-    lg:text-6xl
-    xl:text-7xl
-  "
->
+                text-3xl
+                sm:text-4xl
+                md:text-5xl
+                lg:text-6xl
+                xl:text-7xl
+              "
+            >
               {item.title}
             </h2>
 

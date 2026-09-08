@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,10 +11,14 @@ export default function WhyUs() {
   const titleRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width:1024px)", () => {
+    mm.add("(min-width: 1024px)", () => {
       const ctx = gsap.context(() => {
         gsap.from(titleRef.current, {
           y: 120,
@@ -22,7 +26,7 @@ export default function WhyUs() {
           duration: 1.2,
           ease: "power4.out",
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: section,
             start: "top 75%",
           },
         });
@@ -34,17 +38,21 @@ export default function WhyUs() {
             duration: 1,
             ease: "back.out(1.7)",
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: section,
               start: "top 75%",
             },
           });
         }
-      }, sectionRef);
+      }, section);
 
-      return () => ctx.revert();
+      return () => {
+        ctx.revert();
+      };
     });
 
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+    };
   }, []);
 
   return (
@@ -55,12 +63,9 @@ export default function WhyUs() {
         flex
         items-center
         justify-center
-
         min-h-[70vh]
         lg:min-h-screen
-
         bg-black
-
         px-6
         sm:px-8
         lg:px-12
@@ -74,14 +79,11 @@ export default function WhyUs() {
         <p
           className="
             mb-4
-
             text-xs
             sm:text-sm
-
             font-medium
             uppercase
             tracking-[0.35em]
-
             text-white/50
           "
         >
@@ -99,7 +101,6 @@ export default function WhyUs() {
           <span
             className="
               block
-
               text-4xl
               sm:text-5xl
               md:text-6xl
@@ -113,12 +114,10 @@ export default function WhyUs() {
             className="
               mt-2
               block
-
               text-3xl
               sm:text-4xl
               md:text-5xl
               lg:text-[5vw]
-
               text-white
             "
           >

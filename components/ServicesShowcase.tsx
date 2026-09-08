@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,16 +12,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ServicesShowcase() {
   const section = useRef<HTMLElement>(null);
+  const pin = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = section.current;
+    const pinElement = pin.current;
 
-    if (!element) return;
+    if (!element || !pinElement) return;
 
     const ctx = gsap.context(() => {
-      const categoryItems = gsap.utils.toArray<HTMLElement>(
-        ".service-item"
-      );
+      const items = gsap.utils.toArray<HTMLElement>(".service-item");
 
       gsap.set(".services-wrapper", {
         opacity: 1,
@@ -33,27 +33,29 @@ export default function ServicesShowcase() {
         y: 30,
       });
 
-      gsap.set(categoryItems, {
+      gsap.set(items, {
         opacity: 0,
         y: 45,
         scale: 0.96,
       });
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "services-showcase-trigger",
-          trigger: element,
-          start: "top top",
-          end: `+=${Math.max(
-            1800,
-            categoryItems.length * 400 + 700
-          )}`,
-          scrub: 0.6,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+  scrollTrigger: {
+    trigger: element,
+    start: "top top",
+
+    end: `+=${Math.max(
+      2500,
+      items.length * 350 + 500
+    )}`,
+
+    scrub: 0.6,
+    pin: pinElement,
+    pinSpacing: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  },
+});
 
       tl.to(
         ".we",
@@ -75,7 +77,7 @@ export default function ServicesShowcase() {
         0
       );
 
-      categoryItems.forEach((item, index) => {
+      items.forEach((item, index) => {
         tl.to(
           item,
           {
@@ -102,13 +104,6 @@ export default function ServicesShowcase() {
     }, element);
 
     return () => {
-      /*
-       * IMPORTANT:
-       * ctx.revert() handles the GSAP animation,
-       * timeline and ScrollTrigger created inside this context.
-       *
-       * Do NOT call trigger.kill(true) afterwards.
-       */
       ctx.revert();
     };
   }, []);
@@ -118,35 +113,33 @@ export default function ServicesShowcase() {
       ref={section}
       className="services-section bg-[#171717] text-white"
     >
-      <div className="hero-words">
-        <h1 className="we text-white">
-          WE
-        </h1>
+      <div ref={pin} className="services-pin">
+        <div className="hero-words">
+          <h1 className="we text-white">WE</h1>
 
-        <h1 className="do text-white">
-          DO
-        </h1>
-      </div>
-
-      <div className="services-wrapper">
-        <div className="services-list">
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className="service-item text-white"
-            >
-              {service.title}
-            </Link>
-          ))}
+          <h1 className="do text-white">DO</h1>
         </div>
 
-        <Link
-          href="/services"
-          className="services-button text-white"
-        >
-          View All Products
-        </Link>
+        <div className="services-wrapper">
+          <div className="services-list">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="service-item text-white"
+              >
+                {service.title}
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            href="/services"
+            className="services-button text-white"
+          >
+            View All Products
+          </Link>
+        </div>
       </div>
     </section>
   );
