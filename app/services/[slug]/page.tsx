@@ -10,8 +10,9 @@ import {
   ArrowUpRight,
   X,
 } from "lucide-react";
+
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -37,36 +38,41 @@ export default function ServicePage() {
     if (!pageRef.current) return;
 
     const ctx = gsap.context(() => {
-      /* HERO ANIMATION */
+      /* HERO */
+
       gsap.from(".service-hero-content", {
-        y: 50,
+        y: 60,
         opacity: 0,
-        duration: 1.1,
+        duration: 1.2,
         ease: "power3.out",
       });
 
-      /* GALLERY ANIMATION */
-      gsap.utils.toArray(".gallery-card").forEach((card, index) => {
-        gsap.from(card as HTMLElement, {
-          y: 60,
-          opacity: 0,
-          duration: 0.9,
-          delay: (index % 4) * 0.06,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card as HTMLElement,
-            start: "top 90%",
-            once: true,
-          },
+      /* COLLAGE IMAGES */
+
+      gsap.utils
+        .toArray<HTMLElement>(".gallery-card")
+        .forEach((card, index) => {
+          gsap.from(card, {
+            y: 70,
+            opacity: 0,
+            duration: 1,
+            delay: (index % 5) * 0.05,
+            ease: "power3.out",
+
+            scrollTrigger: {
+              trigger: card,
+              start: "top 92%",
+              once: true,
+            },
+          });
         });
-      });
     }, pageRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [slug]);
 
   /* =====================================================
-     SLIDER CONTROLS
+     SLIDER
   ===================================================== */
 
   const openSlider = (index: number) => {
@@ -125,6 +131,16 @@ export default function ServicePage() {
   }, [activeImage]);
 
   /* =====================================================
+     CLEANUP
+  ===================================================== */
+
+  useLayoutEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  /* =====================================================
      NO SERVICE
   ===================================================== */
 
@@ -135,7 +151,7 @@ export default function ServicePage() {
   return (
     <main
       ref={pageRef}
-      className="min-h-screen overflow-hidden bg-[#111111] text-[#e9e9e7]"
+      className="min-h-screen overflow-hidden bg-[#242323] text-[#e9e9e7]"
     >
       <Navbar />
 
@@ -143,9 +159,9 @@ export default function ServicePage() {
           HERO
       ===================================================== */}
 
-      <section className="relative h-[82svh] min-h-[560px] w-full overflow-hidden bg-black sm:h-[88svh]">
+      <section className="relative h-[82svh] min-h-[560px] w-full overflow-hidden bg-[#242323] sm:h-[88svh]">
         <Image
-          src={service.image}
+          src={service.heroImage}
           alt={service.title}
           fill
           priority
@@ -153,25 +169,16 @@ export default function ServicePage() {
           className="object-cover"
         />
 
-        {/* HERO OVERLAY */}
+        {/* Overlay */}
+
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* HERO CONTENT */}
+        {/* Content */}
+
         <div className="service-hero-content absolute inset-x-0 bottom-[9vh] z-10 px-6 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-[1500px] text-center">
-
             {service.subtitle && (
-              <p
-                className="
-                  mb-5
-                  text-[10px]
-                  font-medium
-                  uppercase
-                  tracking-[0.3em]
-                  text-white/70
-                  sm:text-[11px]
-                "
-              >
+              <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.3em] text-white/70 sm:text-[11px]">
                 {service.subtitle}
               </p>
             )}
@@ -184,8 +191,8 @@ export default function ServicePage() {
                 text-[9vw]
                 font-semibold
                 uppercase
-                leading-[0.88]
-                tracking-[-0.055em]
+                leading-[0.92]
+                tracking-[0.01em]
                 text-white
                 sm:text-[8vw]
                 lg:text-[6.8vw]
@@ -202,10 +209,9 @@ export default function ServicePage() {
           INTRO
       ===================================================== */}
 
-      <section className="px-6 py-[12vh] sm:px-10 lg:px-16">
+      <section className="bg-[#242323] px-6 py-[12vh] sm:px-10 lg:px-16">
         <div className="mx-auto max-w-[1500px]">
           <div className="mx-auto max-w-[850px] text-center">
-
             <p className="mb-5 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
               01 — About The Service
             </p>
@@ -229,7 +235,6 @@ export default function ServicePage() {
             <p className="mx-auto mt-7 max-w-[680px] text-sm leading-[1.7] text-white/55 sm:text-base">
               {service.description}
             </p>
-
           </div>
         </div>
       </section>
@@ -238,7 +243,7 @@ export default function ServicePage() {
           GALLERY HEADER
       ===================================================== */}
 
-      <section className="px-6 pb-10 sm:px-10 lg:px-16">
+      <section className="bg-[#242323] px-6 pb-10 sm:px-10 lg:px-16">
         <div
           className="
             mx-auto
@@ -254,347 +259,81 @@ export default function ServicePage() {
             sm:justify-between
           "
         >
-
           <div>
             <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
               02 — Selected Works
             </p>
-
-            <h2
-              className="
-                mt-3
-                text-3xl
-                font-medium
-                uppercase
-                leading-none
-                tracking-[-0.045em]
-                sm:text-4xl
-                lg:text-5xl
-              "
-            >
-              {service.title}
-            </h2>
           </div>
 
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">
             {service.gallery.length} Works
           </span>
-
         </div>
       </section>
 
       {/* =====================================================
-          GALLERY
-          BEFORE HOVER = ONLY IMAGE
-          ON HOVER = CONTENT
+          COLLAGE GALLERY
       ===================================================== */}
 
-      <section className="px-6 pb-[15vh] sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-[1500px]">
-
-          {/* =====================================================
-              LARGE FIRST ROW
-          ===================================================== */}
-
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-
-            {service.gallery.slice(0, 2).map((item, index) => (
+      <section className="bg-[#242323] px-4 pb-[15vh] sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1600px]">
+          <div
+            className="
+              columns-1
+              gap-4
+              sm:columns-2
+              lg:columns-3
+              xl:columns-4
+              [column-fill:_balance]
+            "
+          >
+            {service.gallery.map((image, index) => (
               <button
-                key={item.title}
+                key={`${image}-${index}`}
                 type="button"
                 onClick={() => openSlider(index)}
                 className="
                   gallery-card
                   group
                   relative
+                  mb-4
                   block
-                  h-[430px]
                   w-full
+                  break-inside-avoid
                   overflow-hidden
-                  bg-[#1a1a1a]
+                  bg-[#242323]
                   p-0
                   text-left
                   outline-none
-                  lg:h-[620px]
                 "
               >
+                {/* IMAGE */}
 
-                {/* =================================================
-                    IMAGE
-                ================================================= */}
-
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-[1200ms]
-                    ease-out
-                    group-hover:scale-[1.06]
-                  "
-                />
-
-                {/* =================================================
-                    HOVER OVERLAY
-                ================================================= */}
-
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    bg-black/0
-                    transition-all
-                    duration-700
-                    group-hover:bg-black/60
-                  "
-                />
-
-                {/* =================================================
-                    NUMBER
-                    HIDDEN BEFORE HOVER
-                ================================================= */}
-
-                <div
-                  className="
-                    absolute
-                    left-5
-                    top-5
-                    z-20
-                    text-[10px]
-                    font-medium
-                    uppercase
-                    tracking-[0.25em]
-                    text-white/70
-                    opacity-0
-                    transition-opacity
-                    duration-500
-                    group-hover:opacity-100
-                  "
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-
-                {/* =================================================
-                    ARROW
-                    HIDDEN BEFORE HOVER
-                ================================================= */}
-
-                <div
-                  className="
-                    absolute
-                    right-5
-                    top-5
-                    z-20
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/30
-                    text-white
-                    opacity-0
-                    transition-all
-                    duration-500
-                    group-hover:opacity-100
-                  "
-                >
-                  <ArrowUpRight className="h-4 w-4" />
-                </div>
-
-                {/* =================================================
-                    HOVER CONTENT
-                    COMPLETELY HIDDEN BEFORE HOVER
-                ================================================= */}
-
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    z-10
-                    flex
-                    flex-col
-                    items-center
-                    justify-center
-                    px-8
-                    text-center
-                    opacity-0
-                    transition-opacity
-                    duration-500
-                    group-hover:opacity-100
-                  "
-                >
-
-                  {/* CATEGORY */}
-
-                  <p
-                    className="
-                      mb-4
-                      translate-y-5
-                      text-[9px]
-                      font-medium
-                      uppercase
-                      tracking-[0.3em]
-                      text-white/70
-                      transition-transform
-                      duration-700
-                      group-hover:translate-y-0
-                      sm:text-[10px]
-                    "
-                  >
-                    {item.category}
-                  </p>
-
-                  {/* TITLE */}
-
-                  <h3
-                    className="
-                      max-w-[90%]
-                      translate-y-5
-                      text-2xl
-                      font-semibold
-                      uppercase
-                      leading-[0.92]
-                      tracking-[-0.035em]
-                      text-white
-                      transition-transform
-                      duration-700
-                      group-hover:translate-y-0
-                      sm:text-3xl
-                    "
-                  >
-                    {item.title}
-                  </h3>
-
-                  {/* DESCRIPTION */}
-
-                  <p
-                    className="
-                      mt-5
-                      max-w-[380px]
-                      translate-y-5
-                      text-center
-                      text-xs
-                      leading-[1.55]
-                      text-white/75
-                      opacity-0
-                      transition-all
-                      delay-100
-                      duration-700
-                      group-hover:translate-y-0
-                      group-hover:opacity-100
-                      sm:text-sm
-                    "
-                  >
-                    {item.description}
-                  </p>
-
-                  {/* BUTTON */}
-
-                  <span
-                    className="
-                      mt-6
-                      inline-flex
-                      translate-y-5
-                      items-center
-                      justify-center
-                      gap-2
-                      rounded-full
-                      bg-white
-                      px-6
-                      py-3
-                      text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.2em]
-                      text-black
-                      opacity-0
-                      transition-all
-                      delay-200
-                      duration-700
-                      group-hover:translate-y-0
-                      group-hover:opacity-100
-                    "
-                  >
-                    View Image
-
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-
-                </div>
-              </button>
-            ))}
-
-          </div>
-
-          {/* =====================================================
-              NORMAL CARDS
-          ===================================================== */}
-
-          <div
-            className="
-              mt-4
-              grid
-              grid-cols-1
-              gap-4
-              sm:grid-cols-2
-              lg:grid-cols-4
-            "
-          >
-
-            {service.gallery.slice(2).map((item, index) => {
-              const realIndex = index + 2;
-
-              return (
-                <button
-                  key={item.title}
-                  type="button"
-                  onClick={() => openSlider(realIndex)}
-                  className="
-                    gallery-card
-                    group
-                    relative
-                    block
-                    h-[430px]
-                    w-full
-                    overflow-hidden
-                    bg-[#1a1a1a]
-                    p-0
-                    text-left
-                    outline-none
-                    lg:h-[520px]
-                  "
-                >
-
-                  {/* =================================================
-                      IMAGE
-                  ================================================= */}
-
+                <div className="relative w-full">
                   <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
+                    src={image}
+                    alt={`${service.title} ${index + 1}`}
+                    width={1200}
+                    height={1600}
                     sizes="
                       (max-width: 640px) 100vw,
                       (max-width: 1024px) 50vw,
+                      (max-width: 1280px) 33vw,
                       25vw
                     "
                     className="
+                      block
+                      h-auto
+                      w-full
                       object-cover
                       transition-transform
                       duration-[1200ms]
                       ease-out
-                      group-hover:scale-[1.06]
+                      group-hover:scale-[1.045]
                     "
                   />
 
-                  {/* =================================================
-                      HOVER OVERLAY
-                  ================================================= */}
+                  {/* HOVER OVERLAY */}
 
                   <div
                     className="
@@ -603,13 +342,11 @@ export default function ServicePage() {
                       bg-black/0
                       transition-all
                       duration-700
-                      group-hover:bg-black/60
+                      group-hover:bg-black/55
                     "
                   />
 
-                  {/* =================================================
-                      NUMBER
-                  ================================================= */}
+                  {/* NUMBER */}
 
                   <div
                     className="
@@ -621,19 +358,17 @@ export default function ServicePage() {
                       font-medium
                       uppercase
                       tracking-[0.25em]
-                      text-white/70
+                      text-white
                       opacity-0
                       transition-opacity
                       duration-500
                       group-hover:opacity-100
                     "
                   >
-                    {String(realIndex + 1).padStart(2, "0")}
+                    {String(index + 1).padStart(2, "0")}
                   </div>
 
-                  {/* =================================================
-                      ARROW
-                  ================================================= */}
+                  {/* ARROW */}
 
                   <div
                     className="
@@ -659,9 +394,7 @@ export default function ServicePage() {
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
 
-                  {/* =================================================
-                      HOVER CONTENT
-                  ================================================= */}
+                  {/* CENTER CONTENT */}
 
                   <div
                     className="
@@ -672,7 +405,7 @@ export default function ServicePage() {
                       flex-col
                       items-center
                       justify-center
-                      px-8
+                      px-6
                       text-center
                       opacity-0
                       transition-opacity
@@ -680,12 +413,8 @@ export default function ServicePage() {
                       group-hover:opacity-100
                     "
                   >
-
-                    {/* CATEGORY */}
-
-                    <p
+                    <span
                       className="
-                        mb-4
                         translate-y-5
                         text-[9px]
                         font-medium
@@ -695,93 +424,35 @@ export default function ServicePage() {
                         transition-transform
                         duration-700
                         group-hover:translate-y-0
-                        sm:text-[10px]
                       "
                     >
-                      {item.category}
-                    </p>
+                      View Image
+                    </span>
 
-                    {/* TITLE */}
-
-                    <h3
+                    <span
                       className="
-                        max-w-[90%]
+                        mt-4
+                        flex
+                        h-12
+                        w-12
                         translate-y-5
-                        text-2xl
-                        font-semibold
-                        uppercase
-                        leading-[0.92]
-                        tracking-[-0.035em]
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/40
                         text-white
                         transition-transform
                         duration-700
                         group-hover:translate-y-0
-                        sm:text-3xl
                       "
                     >
-                      {item.title}
-                    </h3>
-
-                    {/* DESCRIPTION */}
-
-                    <p
-                      className="
-                        mt-5
-                        max-w-[380px]
-                        translate-y-5
-                        text-center
-                        text-xs
-                        leading-[1.55]
-                        text-white/75
-                        opacity-0
-                        transition-all
-                        delay-100
-                        duration-700
-                        group-hover:translate-y-0
-                        group-hover:opacity-100
-                        sm:text-sm
-                      "
-                    >
-                      {item.description}
-                    </p>
-
-                    {/* BUTTON */}
-
-                    <span
-                      className="
-                        mt-6
-                        inline-flex
-                        translate-y-5
-                        items-center
-                        justify-center
-                        gap-2
-                        rounded-full
-                        bg-white
-                        px-6
-                        py-3
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.2em]
-                        text-black
-                        opacity-0
-                        transition-all
-                        delay-200
-                        duration-700
-                        group-hover:translate-y-0
-                        group-hover:opacity-100
-                      "
-                    >
-                      View Image
-
-                      <ArrowUpRight className="h-4 w-4" />
+                      <ArrowUpRight className="h-5 w-5" />
                     </span>
-
                   </div>
-                </button>
-              );
-            })}
-
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -790,12 +461,11 @@ export default function ServicePage() {
           PROCESS
       ===================================================== */}
 
-      <section className="border-t border-white/10 px-6 py-[13vh] sm:px-10 lg:px-16">
+      <section className="border-t border-white/10 bg-[#242323] px-6 py-[13vh] sm:px-10 lg:px-16">
         <div className="mx-auto max-w-[1500px]">
-
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.5fr]">
 
-            {/* PROCESS TITLE */}
+            {/* TITLE */}
 
             <div>
               <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
@@ -821,10 +491,9 @@ export default function ServicePage() {
               </h2>
             </div>
 
-            {/* PROCESS STEPS */}
+            {/* STEPS */}
 
             <div className="border-t border-white/10">
-
               {service.process.map((step, index) => (
                 <div
                   key={step.title}
@@ -837,13 +506,11 @@ export default function ServicePage() {
                     sm:grid-cols-[80px_1fr]
                   "
                 >
-
                   <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div>
-
                     <h3 className="text-lg font-medium uppercase tracking-[-0.025em] sm:text-xl">
                       {step.title}
                     </h3>
@@ -851,11 +518,9 @@ export default function ServicePage() {
                     <p className="mt-3 max-w-[650px] text-sm leading-[1.6] text-white/45">
                       {step.text}
                     </p>
-
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
         </div>
@@ -865,7 +530,7 @@ export default function ServicePage() {
           CTA
       ===================================================== */}
 
-      <section className="px-6 py-[14vh] sm:px-10 lg:px-16">
+      <section className="bg-[#242323] px-6 py-[14vh] sm:px-10 lg:px-16">
         <div className="mx-auto flex max-w-[1300px] flex-col items-center text-center">
 
           <p className="mb-6 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
@@ -934,14 +599,13 @@ export default function ServicePage() {
               ↗
             </span>
           </Link>
-
         </div>
       </section>
 
       <Footer />
 
       {/* =====================================================
-          FULLSCREEN IMAGE SLIDER
+          FULLSCREEN SLIDER
       ===================================================== */}
 
       {activeImage !== null && (
@@ -998,7 +662,7 @@ export default function ServicePage() {
             aria-label="Previous image"
             className="
               absolute
-              left-4
+              left-3
               top-1/2
               z-30
               flex
@@ -1023,13 +687,14 @@ export default function ServicePage() {
 
           {/* IMAGE */}
 
-          <div className="relative h-[75vh] w-[82vw] max-w-[1200px]">
+          <div className="relative h-[78vh] w-[80vw] max-w-[1300px]">
             <Image
-              src={service.gallery[activeImage].image}
-              alt={service.gallery[activeImage].title}
+              src={service.gallery[activeImage]}
+              alt={`${service.title} ${activeImage + 1}`}
               fill
               sizes="90vw"
               className="object-contain"
+              priority
             />
           </div>
 
@@ -1041,7 +706,7 @@ export default function ServicePage() {
             aria-label="Next image"
             className="
               absolute
-              right-4
+              right-3
               top-1/2
               z-30
               flex
@@ -1064,34 +729,26 @@ export default function ServicePage() {
             <ArrowRight className="h-5 w-5" />
           </button>
 
-          {/* IMAGE INFORMATION */}
+          {/* IMAGE NUMBER */}
 
           <div
             className="
               absolute
-              bottom-6
+              bottom-7
               left-1/2
               z-30
-              w-[90%]
               -translate-x-1/2
               text-center
-              sm:bottom-8
             "
           >
-
-            <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/45 sm:text-[10px]">
+            <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/50 sm:text-[10px]">
               {String(activeImage + 1).padStart(2, "0")} /{" "}
               {String(service.gallery.length).padStart(2, "0")}
             </p>
 
-            <h3 className="mt-2 text-lg font-medium uppercase tracking-[-0.025em] text-white sm:text-xl">
-              {service.gallery[activeImage].title}
-            </h3>
-
-            <p className="mt-1 text-xs text-white/45">
-              {service.gallery[activeImage].category}
+            <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
+              {service.title}
             </p>
-
           </div>
         </div>
       )}

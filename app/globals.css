@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #AFAFAE;
-  --foreground: #171717;
+  --background: #242323;
+  --foreground: #e9e9e7;
 
-  --surface: #BDBDBB;
-  --surface-light: #C8C8C6;
+  --surface: #2b2a2a;
+  --surface-light: #323131;
 
-  --text-primary: #171717;
-  --text-secondary: #444444;
-  --text-muted: #666666;
+  --text-primary: #e9e9e7;
+  --text-secondary: #c0c0be;
+  --text-muted: #888886;
 
-  --border: #777777;
-  --border-light: #8A8A88;
+  --border: #555454;
+  --border-light: #666565;
 
-  --white: #171717;
-  --black: #AFAFAE;
+  --white: #ffffff;
+  --black: #242323;
 }
 
 @theme inline {
@@ -49,8 +49,8 @@ body {
 
   overflow-x: hidden;
 
-  background: #AFAFAE;
-  color: #171717;
+  background: #242323;
+  color: #e9e9e7;
 
   font-family: var(--font-neue-haas);
 }
@@ -61,7 +61,6 @@ body {
 
 * {
   box-sizing: border-box;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -71,8 +70,8 @@ body {
 ========================= */
 
 ::selection {
-  background: #171717;
-  color: #AFAFAE;
+  background: #ffffff;
+  color: #242323;
 }
 
 /* =========================
@@ -117,31 +116,6 @@ html.lenis body {
 
 html {
   scroll-behavior: auto;
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden;
-  background: #111111;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-::selection {
-  background: #ffffff;
-  color: #111111;
-}
-
-html {
-  scroll-behavior: auto;
-}
-
-body {
-  margin: 0;
-  background: #111111;
-  color: #e9e9e7;
 }
 
 /* =========================

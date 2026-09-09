@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788684887/extra_1_toal6p.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.01_h3woer.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964219/goa_a174sa.png",
 
     description:
       "A distinctive artistic identity for a coastal resort in South Goa, inspired by the beaches, landscape and local culture of Palolem.",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935247/2_mr592n.webp",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421742/WhatsApp_Image_2026-09-03_at_13.03.27_zrfnou.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964215/uttrakhand_yow720.png",
 
     description:
       "A quieter artistic language inspired by the natural character of Dehradun, complementing the warmth of the architecture through organic textures and botanical forms.",
@@ -196,7 +196,7 @@ export const projects: Project[] = [
 
       
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964221/andhra_pradesh_by1y56.png",
 
     description:
       "A contemporary guest house enriched with traditional iconography and Kalamkari, creating a cultural identity that feels rooted yet contemporary.",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937861/d6_slrwcd.png",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.37_ns65lq.jpg",
+    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964212/west_bengal_iqluhu.png",
 
     description:
       "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
@@ -326,7 +326,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939060/e1_cgxabw.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964221/andhra_pradesh_by1y56.png",
 
     description:
       "An extensive art collection for a vibrant four-storey residence, allowing individual rooms and passages to develop their own visual identities.",
@@ -391,7 +391,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g19_avfb4d.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964216/TAMIL_NADU_kfyeaz.png",
 
     description:
       "A Venetian-style mansion defined by scale, ornament and craftsmanship, using reflection and light to create a sense of grandeur.",
@@ -455,7 +455,7 @@ export const projects: Project[] = [
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940535/h2_cz8ffb.png",
 
-    mapImage: "/maps/goa.png",
+    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964211/MUMBAI_zjktpr.png",
 
     description:
       "A warm and understated residence enriched with contemporary artistic interventions built around line, texture and movement.",
@@ -520,7 +520,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939537/f7_h0r82u.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964216/TAMIL_NADU_kfyeaz.png",
 
     description:
       "A varied collection of statement pieces where art becomes part of the architecture through layered wood, sculptural forms, ceramic compositions and bespoke lighting.",

@@ -40,7 +40,7 @@ export default function ContactModal({ city, onClose }: Props) {
           rounded-3xl
           border
           border-white/10
-          bg-black
+          bg-[#242323]
 
           p-5
           sm:p-7
@@ -195,19 +195,19 @@ export default function ContactModal({ city, onClose }: Props) {
             <option
               value=""
               disabled
-              className="bg-black text-white"
+              className="bg-[#242323] text-white"
             >
               Select Service
             </option>
 
-            <option className="bg-black">Hotels & Resorts</option>
-            <option className="bg-black">Luxury Residences</option>
-            <option className="bg-black">Art Installations</option>
-            <option className="bg-black">Sculptures</option>
-            <option className="bg-black">Lighting</option>
-            <option className="bg-black">Mirrors & Chandeliers</option>
-            <option className="bg-black">Doors & Partitions</option>
-            <option className="bg-black">Metal Finishes</option>
+            <option className="bg-[#242323]">Hotels & Resorts</option>
+            <option className="bg-[#242323]">Luxury Residences</option>
+            <option className="bg-[#242323]">Art Installations</option>
+            <option className="bg-[#242323]">Sculptures</option>
+            <option className="bg-[#242323]">Lighting</option>
+            <option className="bg-[#242323]">Mirrors & Chandeliers</option>
+            <option className="bg-[#242323]">Doors & Partitions</option>
+            <option className="bg-[#242323]">Metal Finishes</option>
           </select>
 
           {/* Message */}

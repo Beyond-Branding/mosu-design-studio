@@ -65,7 +65,7 @@ export default function WhyUs() {
         justify-center
         min-h-[70vh]
         lg:min-h-screen
-        bg-black
+        bg-[#242323]
         px-6
         sm:px-8
         lg:px-12

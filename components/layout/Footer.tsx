@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white">
+    <footer className="relative bg-[#242323] text-white">
       <div className="mx-auto flex min-h-[420px] max-w-[1900px] flex-col justify-between px-6 py-16 sm:px-10 lg:px-12">
 
         {/* ================= TOP / CENTER ================= */}
@@ -20,6 +20,7 @@ export default function Footer() {
         <div className="flex flex-1 flex-col items-center justify-center text-center">
 
           {/* COPYRIGHT / DESCRIPTION */}
+
           <p className="max-w-[720px] text-[12px] leading-5 text-white/70 sm:text-[13px] sm:leading-6">
             Please be informed that the intellectual property rights to all
             photos, designs and other materials on this Site belong to MOSU
@@ -27,6 +28,7 @@ export default function Footer() {
           </p>
 
           {/* SOCIAL ICONS */}
+
           <div className="mt-8 flex items-center justify-center gap-3">
 
             <SocialIcon
@@ -83,17 +85,18 @@ export default function Footer() {
             uppercase
             tracking-[0.04em]
             text-white/80
-
             lg:flex-row
           "
         >
 
           {/* LEFT */}
+
           <p className="whitespace-nowrap">
             © {new Date().getFullYear()} MOSU. ALL RIGHTS RESERVED.
           </p>
 
           {/* CENTER LINKS */}
+
           <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
             <Link
               href="/privacy"
@@ -125,6 +128,7 @@ export default function Footer() {
           </nav>
 
           {/* RIGHT */}
+
           <p className="whitespace-nowrap">
             MADE BY BEYOND BRANDING
           </p>
@@ -134,7 +138,6 @@ export default function Footer() {
     </footer>
   );
 }
-
 
 /* =========================================================
    SOCIAL ICON

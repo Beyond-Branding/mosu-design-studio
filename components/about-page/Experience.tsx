@@ -63,12 +63,12 @@ export default function Experience() {
   return (
     <section
       ref={section}
-      className="relative h-screen overflow-hidden bg-black"
+      className="relative h-screen overflow-hidden bg-[#242323]"
     >
       {experienceData.map((item) => (
         <div
           key={item.title}
-          className="exp-slide absolute inset-0 bg-black"
+          className="exp-slide absolute inset-0 bg-[#242323]"
         >
           {/* IMAGE */}
           <Image

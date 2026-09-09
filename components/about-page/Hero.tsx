@@ -69,7 +69,7 @@ export default function AboutHero() {
         relative
         min-h-screen
         overflow-hidden
-        bg-black
+        bg-[#242323]
         text-white
       "
     >
@@ -110,8 +110,8 @@ export default function AboutHero() {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/45" />
-
+{/* Overlay */}
+<div className="absolute inset-0 bg-black/2" />
       {/* Content */}
       <div
         className="

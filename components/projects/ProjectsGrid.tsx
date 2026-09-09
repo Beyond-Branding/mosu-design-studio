@@ -17,7 +17,7 @@ export default function ProjectsGrid({
   );
 
   return (
-    <section className="bg-[#171717] py-24 text-white">
+    <section className="bg-[#242323] py-24 text-white">
       <div className="mx-auto max-w-[1700px] px-6">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project) => {

@@ -10,7 +10,7 @@ export default function ContactCities() {
 
   return (
     <>
-      <section className="bg-black px-5 pb-16 text-white sm:px-8 md:pb-24">
+      <section className="bg-[#242323] px-5 pb-16 text-white sm:px-8 md:pb-24">
         <div className="mx-auto w-full max-w-3xl">
 
           {cities.map((city) => (
@@ -69,8 +69,6 @@ export default function ContactCities() {
                       {city.phone}
                     </p>
 
-                    
-
                   </div>
                 </div>
 
@@ -80,8 +78,6 @@ export default function ContactCities() {
 
         </div>
       </section>
-
-     
     </>
   );
 }

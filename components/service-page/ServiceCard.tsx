@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -29,7 +28,7 @@ export default function ServiceCard({
         block
         h-[320px]
         overflow-hidden
-        bg-black
+        bg-[#242323]
 
         sm:h-[420px]
         md:h-[520px]
@@ -89,7 +88,6 @@ export default function ServiceCard({
           lg:top-10
         "
       >
-
         <span
           className="
             flex
@@ -259,4 +257,3 @@ export default function ServiceCard({
     </Link>
   );
 }
-

@@ -4,7 +4,7 @@ export default function HeroBanner({
   title: string;
 }) {
   return (
-    <section className="relative flex h-screen items-end overflow-hidden bg-black">
+    <section className="relative flex h-screen items-end overflow-hidden bg-[#242323]">
       <div className="absolute inset-0 bg-black" />
 
       <div className="relative z-10 bottom-24 left-6 sm:left-10 lg:left-20">
