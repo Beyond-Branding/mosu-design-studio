@@ -121,13 +121,13 @@ export default function ProjectDetailPage({ params }: Props) {
     <>
       <Navbar />
 
-      <main className="bg-black text-white">
+      <main className="bg-[#242323] text-white">
 
         {/* =====================================================
             01 — HERO
         ===================================================== */}
 
-        <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-black">
+        <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-[#242323]">
 
           <Image
             src={project.heroImage}
@@ -157,65 +157,191 @@ export default function ProjectDetailPage({ params }: Props) {
             02 — PROJECT INFORMATION + MAP
         ===================================================== */}
 
-        <section className="relative h-[390px] w-full overflow-hidden bg-black">
+        <section
+          className="
+            relative
+            min-h-[620px]
+            w-full
+            overflow-hidden
+            bg-[#242323]
 
-          {/* DESIGN STYLE */}
-
-          <div className="absolute left-[2%] top-1/2 z-10 -translate-y-1/2">
-
-            <p className="text-[12px] uppercase tracking-[0.3em] text-white/50">
-              Design Style
-            </p>
-
-            <p className="mt-2 text-[15px] font-medium uppercase tracking-[-0.03em]">
-              {project.designStyle || "Contemporary"}
-            </p>
-
-          </div>
-
-
-          {/* MAP */}
+            md:h-[390px]
+            md:min-h-0
+          "
+        >
+          {/* =====================================================
+              MAP
+          ===================================================== */}
 
           {project.mapImage && (
-            <div className="absolute left-1/2 top-1/2 h-[290px] w-[400px] -translate-x-1/2 -translate-y-1/2">
+            <div
+              className="
+                absolute
+                left-1/2
+                top-[42%]
+                h-[190px]
+                w-[270px]
+                -translate-x-1/2
+                -translate-y-1/2
+                bg-[#242323]
 
+                sm:h-[220px]
+                sm:w-[320px]
+
+                md:top-1/2
+                md:h-[290px]
+                md:w-[400px]
+              "
+            >
               <Image
                 src={project.mapImage}
-                alt={`${project.location} map`}
+                alt={`${project.title} location map`}
                 fill
-                sizes="400px"
                 className="object-contain"
               />
-
             </div>
           )}
 
+          {/* =====================================================
+              DESIGN STYLE
+          ===================================================== */}
 
-          {/* STATUS */}
+          <div
+            className="
+              absolute
+              left-5
+              top-[55%]
+              z-10
 
-          <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
+              sm:left-8
+              sm:top-[58%]
 
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+              md:left-[2%]
+              md:top-1/2
+              md:-translate-y-1/2
+            "
+          >
+            <p
+              className="
+                text-[9px]
+                uppercase
+                tracking-[0.25em]
+                text-white/50
+
+                sm:text-[10px]
+
+                md:text-[12px]
+                md:tracking-[0.3em]
+              "
+            >
+              Design Style
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-[12px]
+                font-medium
+                uppercase
+                tracking-[-0.03em]
+
+                sm:text-[14px]
+
+                md:mt-2
+                md:text-[15px]
+              "
+            >
+              {project.designStyle || "Contemporary"}
+            </p>
+          </div>
+
+          {/* =====================================================
+              STATUS
+          ===================================================== */}
+
+          <div
+            className="
+              absolute
+              right-5
+              top-[55%]
+              z-10
+
+              sm:right-8
+              sm:top-[58%]
+
+              md:right-[20%]
+              md:top-1/2
+              md:-translate-y-1/2
+            "
+          >
+            <p
+              className="
+                text-[12px]
+                font-medium
+                uppercase
+                leading-[1.05]
+                tracking-[-0.03em]
+
+                sm:text-[14px]
+
+                md:text-[15px]
+              "
+            >
               {project.status || "COMPLETED"}
             </p>
 
-            <p className="text-[15px] font-medium uppercase leading-[1.05] tracking-[-0.03em]">
+            <p
+              className="
+                text-[12px]
+                font-medium
+                uppercase
+                leading-[1.05]
+                tracking-[-0.03em]
+
+                sm:text-[14px]
+
+                md:text-[15px]
+              "
+            >
               {project.type || "PROJECT"}
             </p>
-
           </div>
 
+          {/* =====================================================
+              AREA
+          ===================================================== */}
 
-          {/* AREA */}
+          <div
+            className="
+              absolute
+              bottom-10
+              left-5
+              z-10
 
-          <div className="absolute right-[2%] top-1/2 -translate-y-1/2">
+              sm:bottom-12
+              sm:left-8
 
-            <p className="text-[15px] font-medium uppercase">
+              md:bottom-auto
+              md:left-auto
+              md:right-[2%]
+              md:top-1/2
+              md:-translate-y-1/2
+            "
+          >
+            <p
+              className="
+                text-[12px]
+                font-medium
+                uppercase
+
+                sm:text-[14px]
+
+                md:text-[15px]
+              "
+            >
               {project.area || ""}
             </p>
-
           </div>
-
         </section>
 
 
@@ -225,7 +351,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {mainImage && (
           <section
-            className="group relative h-[110svh] min-h-[750px] w-full cursor-pointer overflow-hidden bg-black"
+            className="group relative h-[110svh] min-h-[750px] w-full cursor-pointer overflow-hidden bg-[#242323]"
             onClick={() => openGallery(0)}
           >
 
@@ -256,7 +382,7 @@ export default function ProjectDetailPage({ params }: Props) {
         ===================================================== */}
 
         {secondImage && (
-          <section className="relative min-h-[110svh] w-full overflow-hidden bg-black">
+          <section className="relative min-h-[110svh] w-full overflow-hidden bg-[#242323]">
 
             <Image
               src={secondImage}
@@ -314,7 +440,7 @@ export default function ProjectDetailPage({ params }: Props) {
             05 — CONCEPT
         ===================================================== */}
 
-        <section className="relative min-h-[650px] w-full bg-black">
+        <section className="relative min-h-[650px] w-full bg-[#242323]">
 
           <div className="absolute left-[3.5vw] top-[10%] h-[68px] w-[68px] rounded-full border border-white/60" />
 
@@ -346,7 +472,7 @@ export default function ProjectDetailPage({ params }: Props) {
             06 — COMPOSITION
         ===================================================== */}
 
-        <section className="relative min-h-[720px] w-full bg-black">
+        <section className="relative min-h-[720px] w-full bg-[#242323]">
 
           <div className="mx-auto grid min-h-[720px] max-w-[1920px] grid-cols-1 lg:grid-cols-2">
 
@@ -382,7 +508,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {compositionImage && (
           <section
-            className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-black"
+            className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-[#242323]"
             onClick={() => openGallery(2)}
           >
 
@@ -412,7 +538,7 @@ export default function ProjectDetailPage({ params }: Props) {
             08 — CHALLENGE TEXT ONLY
         ===================================================== */}
 
-        <section className="w-full bg-black px-6 py-24 text-white sm:px-10 lg:px-16 lg:py-32">
+        <section className="w-full bg-[#242323] px-6 py-24 text-white sm:px-10 lg:px-16 lg:py-32">
 
           <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
 
@@ -447,7 +573,7 @@ export default function ProjectDetailPage({ params }: Props) {
         ===================================================== */}
 
         {gridImages.length > 0 && (
-          <section className="w-full bg-black px-4 py-4 sm:px-6 lg:px-8">
+          <section className="w-full bg-[#242323] px-4 py-4 sm:px-6 lg:px-8">
 
             <div
               className="
@@ -473,7 +599,7 @@ export default function ProjectDetailPage({ params }: Props) {
                     relative
                     min-h-[500px]
                     overflow-hidden
-                    bg-[#111]
+                    bg-[#242323]
                     lg:col-start-1
                     lg:row-start-1
                     lg:row-span-2
@@ -518,7 +644,7 @@ export default function ProjectDetailPage({ params }: Props) {
                     relative
                     min-h-[300px]
                     overflow-hidden
-                    bg-[#111]
+                    bg-[#242323]
                     lg:col-start-2
                     lg:row-start-1
                     lg:min-h-0
@@ -556,7 +682,7 @@ export default function ProjectDetailPage({ params }: Props) {
                     relative
                     min-h-[300px]
                     overflow-hidden
-                    bg-[#111]
+                    bg-[#242323]
                     lg:col-start-3
                     lg:row-start-1
                     lg:min-h-0
@@ -594,7 +720,7 @@ export default function ProjectDetailPage({ params }: Props) {
                     relative
                     min-h-[300px]
                     overflow-hidden
-                    bg-[#111]
+                    bg-[#242323]
                     lg:col-start-2
                     lg:row-start-2
                     lg:min-h-0
@@ -632,7 +758,7 @@ export default function ProjectDetailPage({ params }: Props) {
                     relative
                     min-h-[300px]
                     overflow-hidden
-                    bg-[#111]
+                    bg-[#242323]
                     lg:col-start-3
                     lg:row-start-2
                     lg:min-h-0
@@ -744,8 +870,8 @@ export default function ProjectDetailPage({ params }: Props) {
         ===================================================== */}
 
         <Link
-          href="/StartProject"
-          className="group relative block min-h-[680px] w-full overflow-hidden bg-black text-white"
+          href="/contact"
+          className="group relative block min-h-[680px] w-full overflow-hidden bg-[#242323] text-white"
         >
 
           {/* BACKGROUND TEXT */}

@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function LetsTalk() {
   return (
-    <section className="relative overflow-hidden bg-black py-40">
+    <section className="relative overflow-hidden bg-[#242323] py-40">
 
       {/* Huge Background Text */}
       <h1

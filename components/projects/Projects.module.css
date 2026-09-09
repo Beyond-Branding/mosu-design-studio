@@ -3,7 +3,7 @@
 ========================= */
 
 body {
-  background: #171717;
+  background: #242323;
   color: #e8e8e8;
 }
 
@@ -16,7 +16,7 @@ body {
   padding: 105px 24px 58px;
   text-align: center;
 
-  background: #171717;
+  background: #242323;
   color: #e8e8e8;
 }
 
@@ -65,7 +65,7 @@ body {
 
   margin-bottom: 0;
 
-  background: #171717;
+  background: #242323;
 
   border-top: 1px solid #3a3a3a;
   border-bottom: 1px solid #3a3a3a;
@@ -96,7 +96,7 @@ body {
 
   border: 1px solid #555;
 
-  background: #171717;
+  background: #242323;
 
   color: #e8e8e8;
 
@@ -122,7 +122,7 @@ body {
 .filters button:hover {
   background: #e8e8e8;
 
-  color: #171717;
+  color: #242323;
 
   border-color: #e8e8e8;
 }
@@ -154,7 +154,7 @@ body {
 
   gap: 32px;
 
-  background: #171717;
+  background: #242323;
 }
 
 

@@ -3,13 +3,6 @@ export interface ServiceProcess {
   text: string;
 }
 
-export interface GalleryItem {
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-}
-
 export interface Service {
   title: string;
   slug: string;
@@ -17,739 +10,363 @@ export interface Service {
   heroImage: string;
   subtitle: string;
   description: string;
+  gallery: string[];
   process: ServiceProcess[];
-  gallery: GalleryItem[];
 }
 
 export const services: Service[] = [
-  // =========================================================
-  // 01 — ART INSTALLATIONS
-  // =========================================================
-
   {
     title: "Art Installations",
     slug: "art-installations",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952092/15_rjzr1f.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/9_1_xqknm9.png",
 
     subtitle: "Art that transforms spaces.",
 
     description:
-      "Custom art installations created to transform architecture, interiors and hospitality spaces through scale, material and emotion.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Concepts developed around the client's space, story and brand. No two pieces are the same.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Hand-crafted using a mix of traditional and contemporary techniques and materials.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Careful on-site installation to protect both the artwork and the surrounding space.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Guidance on care and long-term preservation of the piece.",
-  },
-],
+      "We create distinctive art installations that bring character, emotion and identity to interiors.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952069/27_jkm9hb.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952071/8_shuwmo.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952072/14_utkwhs.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952075/34_am5c9i.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952075/32_x97qrk.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952089/2e_dnzghl.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952091/5_pzi6zf.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952094/20_cz2yfu.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952083/3_a1olug.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952082/31_pu0wnd.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/35_hufqyx.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952076/30_a3jyao.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952071/8_shuwmo.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952078/7_h7qhdt.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952090/6_howcv7.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952085/16_azsxkm.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952076/37_ldg15m.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/24_kczsld.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952092/13_fchnbn.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952091/11_uozvpx.png",
+    ],
+
+    process: [
       {
-        title: "The Sacred Form",
-        category: "Wall Installation",
-        description:
-          "A sculptural wall installation created to bring cultural expression and visual depth into contemporary interiors.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
+        title: "Concept",
+        text: "Understanding the space and developing a strong visual concept.",
       },
       {
-        title: "Organic Flow",
-        category: "Sculptural Art",
-        description:
-          "An organic composition inspired by natural movement and designed to create a quiet visual rhythm.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
+        title: "Design",
+        text: "Creating artwork that complements the architecture and interior.",
       },
       {
-        title: "Heritage Lines",
-        category: "Bespoke Art",
-        description:
-          "A contemporary interpretation of traditional forms developed specifically for a luxury interior.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Living Sculpture",
-        category: "Sculptural Installation",
-        description:
-          "A statement sculpture conceived as an architectural focal point within the space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-      },
-      {
-        title: "Light & Form",
-        category: "Light Installation",
-        description:
-          "A layered artwork where light, shadow and material interact to create an atmospheric experience.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-      },
-      {
-        title: "The Whale",
-        category: "Art Installation",
-        description:
-          "A handcrafted sculptural artwork developed as a strong visual identity element for hospitality spaces.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-      },
-      {
-        title: "Material Study",
-        category: "Mixed Media",
-        description:
-          "An exploration of texture and materiality combining handcrafted surfaces with contemporary detailing.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "Quiet Geometry",
-        category: "Wall Art",
-        description:
-          "Minimal geometric artwork created to complement the architectural language of the surrounding space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-      },
-      {
-        title: "Cultural Narrative",
-        category: "Bespoke Installation",
-        description:
-          "A site-specific artwork translating cultural references into a refined contemporary composition.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Architectural Rhythm",
-        category: "Spatial Art",
-        description:
-          "A large-scale installation designed to connect artwork with the rhythm and proportions of architecture.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Execution",
+        text: "Producing and installing the final artwork with precision.",
       },
     ],
   },
 
-  // =========================================================
-  // 02 — SCULPTURES
-  // =========================================================
+  {
+    title: "Wall Arts",
+    slug: "wall-arts",
+
+    image:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953882/4_ri30fm.png",
+
+    heroImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953895/59_qrewig.png",
+
+    subtitle: "Walls with a story.",
+
+    description:
+      "Statement wall art designed to add depth, personality and visual interest to spaces.",
+
+    gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953893/56_w7btew.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953888/18_ygdj9r.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953885/12_jx1hpv.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953879/193_upo4ob.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953877/62_mwt8fs.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953869/24_dqunoe.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953867/21_uszy2o.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953872/52_g4aimv.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953876/57_dzqllm.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953882/4_ri30fm.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953890/22_acvv3p.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953896/61_ianh5f.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953891/48_jp5njx.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953883/5_ccxwex.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953878/63_mba6py.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953874/53_szr0k5.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953864/19_x8fk11.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953861/60_wo5x5b.png",
+    ],
+
+    process: [
+      {
+        title: "Concept",
+        text: "Understanding the mood and character of the space.",
+      },
+      {
+        title: "Design",
+        text: "Developing artwork suited to the interior.",
+      },
+      {
+        title: "Installation",
+        text: "Carefully installing the artwork in its final location.",
+      },
+    ],
+  },
 
   {
     title: "Sculptures",
     slug: "sculptures",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/4_nhli7q.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952538/10_isqyop.png",
 
-    subtitle: "Statement sculptures crafted with precision.",
+    subtitle: "Form meets expression.",
 
     description:
-      "Sculptural works created through a balance of form, material and craftsmanship, bringing identity and character to every environment.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Concepts explore form, scale and material to create a focal point for the space.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Fabricated in metal, resin or mixed media depending on the design and setting.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Structural and safety considerations handled for both indoor and outdoor placements.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Support for relocation, cleaning or restoration over time.",
-  },
-],
+      "Sculptural pieces created to become powerful focal points within a space.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952546/9_kehqly.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952537/12_rawpcc.webp",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952537/6_jsviba.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/2_moreyx.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952538/8_qlaf2h.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952539/11_bjw3h8.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952541/7_oqo5vo.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/4_nhli7q.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/1_eevopr.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/5_pfkgek.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/3_dedj7o.png",
+    ],
+
+    process: [
       {
-        title: "The Guardian",
-        category: "Figurative Sculpture",
-        description:
-          "A powerful sculptural presence designed to create a sense of strength and character within the interior.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
+        title: "Concept",
+        text: "Developing the artistic direction and form.",
       },
       {
-        title: "Fluid Form",
-        category: "Contemporary Sculpture",
-        description:
-          "A flowing sculptural composition exploring movement, balance and organic geometry.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
+        title: "Craft",
+        text: "Creating the sculpture with carefully selected materials.",
       },
       {
-        title: "Ancient Memory",
-        category: "Cultural Sculpture",
-        description:
-          "A contemporary sculptural interpretation inspired by traditional artistic language.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
-      },
-      {
-        title: "Natural Balance",
-        category: "Organic Sculpture",
-        description:
-          "A sculptural study inspired by natural forms and the relationship between mass and space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
-      },
-      {
-        title: "Dark Matter",
-        category: "Statement Sculpture",
-        description:
-          "A dramatic sculptural object designed to become the visual anchor of a room.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-      },
-      {
-        title: "The Curve",
-        category: "Abstract Sculpture",
-        description:
-          "An abstract form created around continuous curves and controlled proportions.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-      },
-      {
-        title: "Material Dialogue",
-        category: "Mixed Material",
-        description:
-          "Contrasting materials come together to create a tactile and visually layered sculptural object.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "Monument",
-        category: "Large Scale Sculpture",
-        description:
-          "A monumental work conceived specifically for large architectural environments.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-      },
-      {
-        title: "Silent Form",
-        category: "Minimal Sculpture",
-        description:
-          "A restrained sculptural composition focused on proportion, negative space and material.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Sculptural Landscape",
-        category: "Spatial Sculpture",
-        description:
-          "A large-scale sculptural arrangement developed to interact with architecture and movement.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
+        title: "Placement",
+        text: "Positioning the sculpture to work naturally within the space.",
       },
     ],
   },
-
-  // =========================================================
-  // 03 — LIGHTING
-  // =========================================================
 
   {
     title: "Lighting",
     slug: "lighting",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/14_ej69hd.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/15_fdao2k.png",
 
-    subtitle: "Architectural lighting that defines spaces.",
+    subtitle: "Light as an experience.",
 
     description:
-      "Thoughtfully designed lighting systems balancing atmosphere, beauty and functionality to shape the experience of a space.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Fixtures designed to a space's exact proportions, mood and light requirements.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Built using premium materials and finishes, engineered for durability and safety.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Precise on-site installation and calibration for the intended ambience.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Maintenance guidance and replacement parts sourcing.",
-  },
-],
+      "Unique lighting pieces that combine function, atmosphere and artistic expression.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953484/e2_gsucrg.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953483/18_ksmtz1.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953482/17_nkc3jc.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/14_ej69hd.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953477/11_jskc4e.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953477/8_v2ugre.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953476/6_vhva8h.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953473/10_scvmlo.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953475/5_obcjgh.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953471/4_oyzgfq.png",
+    ],
+
+    process: [
       {
-        title: "Ambient Glow",
-        category: "Architectural Lighting",
-        description:
-          "Soft ambient illumination designed to create warmth and depth across the interior.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Concept",
+        text: "Understanding the lighting requirements of the space.",
       },
       {
-        title: "Sculptural Light",
-        category: "Decorative Lighting",
-        description:
-          "A lighting element designed to function equally as an illuminated object and an architectural feature.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+        title: "Design",
+        text: "Developing a lighting piece that balances form and function.",
       },
       {
-        title: "Linear Rhythm",
-        category: "Linear Lighting",
-        description:
-          "A precise lighting composition following the architectural geometry of the space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
-      },
-      {
-        title: "Atmosphere",
-        category: "Hospitality Lighting",
-        description:
-          "Layered lighting designed to create a calm and immersive hospitality experience.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
-      },
-      {
-        title: "Statement Pendant",
-        category: "Feature Lighting",
-        description:
-          "A dramatic pendant designed to become the focal point above a central architectural space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-      },
-      {
-        title: "Light Sculpture",
-        category: "Art Lighting",
-        description:
-          "A sculptural lighting installation combining material, shadow and illumination.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Warm Architecture",
-        category: "Interior Lighting",
-        description:
-          "Warm-toned illumination designed to enhance materiality and architectural surfaces.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-      },
-      {
-        title: "Shadow Play",
-        category: "Ambient Installation",
-        description:
-          "Lighting designed around shadow and contrast to introduce depth into the environment.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "Golden Detail",
-        category: "Decorative Light",
-        description:
-          "A refined lighting composition using warm finishes to create a luxurious atmosphere.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-      },
-      {
-        title: "Night Composition",
-        category: "Spatial Lighting",
-        description:
-          "A complete lighting composition developed to transform the character of the space after dark.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Installation",
+        text: "Installing and positioning the final lighting element.",
       },
     ],
   },
-
-  // =========================================================
-  // 04 — MIRRORS & CHANDELIERS
-  // =========================================================
 
   {
     title: "Mirrors & Chandeliers",
     slug: "mirrors-chandeliers",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940050/g12_kmgmbh.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682220/coimbatore_Mansion_1_gt0y0l.png",
 
-    subtitle: "Luxury decorative lighting and mirror design.",
+    subtitle: "Reflective statements.",
 
     description:
-      "Bespoke mirrors and chandeliers handcrafted to elevate interiors through proportion, reflection, material and light.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Statement pieces conceived to anchor a room and reflect the space's overall design language.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Custom framing, glasswork and metal detailing crafted to specification.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Handled and installed with care given the scale and fragility of these pieces.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Long-term care advice and touch-up service.",
-  },
-],
+      "Mirrors and chandeliers designed to create elegance, scale and visual drama.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954644/e13_dpare1.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954638/e10_yevqfm.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954635/6_waekgj.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954628/3_u8no31.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954633/5_riady7.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954639/e11_ypdwha.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954646/e14_aktgv3.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954641/e12_fgvv3i.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954633/4_zkeuqp.png",
+    ],
+
+    process: [
       {
-        title: "The Grand Mirror",
-        category: "Bespoke Mirror",
-        description:
-          "A statement mirror designed to amplify the architecture and create a strong decorative focal point.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
+        title: "Concept",
+        text: "Understanding the architectural character of the space.",
       },
       {
-        title: "Celestial",
-        category: "Chandelier",
-        description:
-          "A sculptural chandelier inspired by celestial forms and designed to float within the interior.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
+        title: "Design",
+        text: "Selecting or developing pieces that complement the interior.",
       },
       {
-        title: "Golden Frame",
-        category: "Decorative Mirror",
-        description:
-          "A handcrafted mirror framed with refined detailing for a luxurious residential environment.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
-      },
-      {
-        title: "Cascade",
-        category: "Feature Chandelier",
-        description:
-          "A cascading lighting installation designed to create movement and vertical drama.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
-      },
-      {
-        title: "Reflection",
-        category: "Architectural Mirror",
-        description:
-          "A large-format mirror installation used to visually extend the proportions of the interior.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-      },
-      {
-        title: "Jewelled Light",
-        category: "Luxury Chandelier",
-        description:
-          "A highly decorative chandelier developed to add sparkle and visual richness to the space.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Infinite Reflection",
-        category: "Mirror Installation",
-        description:
-          "A composition of reflective surfaces designed to create depth and layered perspectives.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-      },
-      {
-        title: "Orbit",
-        category: "Contemporary Chandelier",
-        description:
-          "A contemporary lighting composition based on circular geometry and balanced proportions.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "The Halo",
-        category: "Decorative Lighting",
-        description:
-          "A refined illuminated form designed to create a subtle halo of light around the architecture.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
-      },
-      {
-        title: "Grandeur",
-        category: "Bespoke Lighting",
-        description:
-          "A large-scale custom chandelier created specifically for a dramatic interior setting.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
+        title: "Installation",
+        text: "Precisely installing the final piece.",
       },
     ],
   },
-
-  // =========================================================
-  // 05 — DOORS & PARTITIONS
-  // =========================================================
 
   {
     title: "Doors & Partitions",
     slug: "doors-partitions",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/5_prdj7v.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/1_fwj2el.png",
 
-    subtitle: "Functional architectural partitions with timeless aesthetics.",
+    subtitle: "Architecture in detail.",
 
     description:
-      "Custom doors and partition systems that seamlessly integrate into luxury spaces while creating privacy, movement and architectural definition.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Designed to merge craftsmanship with functional zoning of a space.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Fabricated from wood, metal, glass or mixed materials to match the interior.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Precision-fitted on site for smooth, long-lasting function.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Servicing for hardware and finishes as needed.",
-  },
-],
+      "Custom doors and partitions that combine craftsmanship, material and architectural character.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956455/6_mxaras.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/2_e1fned.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/4_ff5kee.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/3_s7cbbk.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/5_prdj7v.png",
+    ],
+
+    process: [
       {
-        title: "Framed Entry",
-        category: "Custom Door",
-        description:
-          "A refined architectural entrance combining strong proportions with handcrafted detailing.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+        title: "Concept",
+        text: "Understanding the architectural requirements.",
       },
       {
-        title: "Open Structure",
-        category: "Partition",
-        description:
-          "An open partition designed to divide space while maintaining visual continuity.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Design",
+        text: "Developing a functional and visually distinctive solution.",
       },
       {
-        title: "Timber Lines",
-        category: "Wood Partition",
-        description:
-          "Vertical timber detailing introduces warmth while creating subtle spatial separation.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
-      },
-      {
-        title: "Metal Grid",
-        category: "Metal Partition",
-        description:
-          "A structured metal screen designed to define zones without closing the architecture.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "Glass & Brass",
-        category: "Luxury Partition",
-        description:
-          "Glass and brass details combine transparency with a refined decorative edge.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-      },
-      {
-        title: "The Portal",
-        category: "Architectural Door",
-        description:
-          "A sculptural doorway conceived as a transition between two distinct architectural spaces.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Quiet Separation",
-        category: "Interior Partition",
-        description:
-          "A minimal partition system that creates privacy without interrupting the visual language.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-      },
-      {
-        title: "Crafted Frame",
-        category: "Bespoke Door",
-        description:
-          "A custom door developed around precise framing, proportion and tactile materials.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/20260107_231823_qv8hds.jpg",
-      },
-      {
-        title: "Screen",
-        category: "Decorative Partition",
-        description:
-          "A decorative screen balancing privacy with light, shadow and visual permeability.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
-      },
-      {
-        title: "Architectural Threshold",
-        category: "Feature Door",
-        description:
-          "A statement entrance designed to establish the character of the space from the first moment.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Execution",
+        text: "Fabricating and installing the final piece.",
       },
     ],
   },
-
-  // =========================================================
-  // 06 — METAL FINISHES
-  // =========================================================
 
   {
     title: "Metal Finishes",
     slug: "metal-finishes",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954826/1_2_crcy61.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
 
-    subtitle: "Premium metal craftsmanship for luxury interiors.",
+    subtitle: "Material with character.",
 
     description:
-      "Decorative metal finishes designed to enrich architecture and interior spaces through texture, colour, reflection and precision craftsmanship.",
-
-    process: [
-  {
-    title: "Design Concept",
-    text: "Concepts developed for railings, screens, cladding and decorative metal elements.",
-  },
-  {
-    title: "Material & Fabrication",
-    text: "Custom fabrication finished to an architectural standard using brass, bronze, steel and more.",
-  },
-  {
-    title: "Installation & Finishing",
-    text: "Installed and finished on site to match surrounding materials.",
-  },
-  {
-    title: "Ongoing Support",
-    text: "Care guidance to preserve finish and prevent corrosion over time.",
-  },
-],
+      "Specialized metal finishes that bring texture, depth and personality to interiors.",
 
     gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954835/9_coc3b4.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954830/6_nyuqu8.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954829/1_nhg6zd.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954832/7_s2afvw.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954838/11_ujpd39.png",
+    ],
+
+    process: [
       {
-        title: "Brushed Brass",
-        category: "Metal Finish",
-        description:
-          "A warm brushed brass finish developed to introduce subtle luxury and depth into the architecture.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
+        title: "Concept",
+        text: "Understanding the desired material character.",
       },
       {
-        title: "Dark Bronze",
-        category: "Bronze Finish",
-        description:
-          "A deep bronze surface providing contrast and sophistication within contemporary interiors.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Finish",
+        text: "Developing the appropriate surface treatment.",
       },
       {
-        title: "Aged Brass",
-        category: "Decorative Metal",
-        description:
-          "An aged brass finish developed to bring a sense of heritage and handcrafted character.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491884/20241010_183220_amhyf9.heic",
+        title: "Application",
+        text: "Applying the finish with consistency and precision.",
+      },
+    ],
+  },
+
+  {
+    title: "Furniture",
+    slug: "furniture",
+
+    image:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/7_ezndir.png",
+
+    heroImage:
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/5_hydj50.png",
+
+    subtitle: "Form, function and character.",
+
+    description:
+      "Distinctive furniture pieces designed to bring comfort, functionality and character to every space.",
+
+    gallery: [
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/5_hydj50.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958512/3_ybzysz.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/7_ezndir.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/6_aalmou.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/4_iatiho.png",
+    ],
+
+    process: [
+      {
+        title: "Concept",
+        text: "Understanding the space, purpose and visual character of the furniture.",
       },
       {
-        title: "Copper Detail",
-        category: "Copper Finish",
-        description:
-          "Warm copper detailing used as a refined accent within architectural and interior elements.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/PXL_20231027_081640919_qiggsc.jpg",
+        title: "Design",
+        text: "Developing unique forms, proportions and material combinations.",
       },
       {
-        title: "Blackened Steel",
-        category: "Steel Finish",
-        description:
-          "A dark architectural finish offering a bold material contrast against lighter surfaces.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764176/PXL_20231102_085843092.PORTRAIT.ORIGINAL_r9irhi.jpg",
-      },
-      {
-        title: "Hammered Texture",
-        category: "Textured Metal",
-        description:
-          "Hand-finished metal with a tactile hammered surface that catches light and creates visual movement.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491874/WhatsApp_Image_2025-06-19_at_11.16.03_d0a7196b_y7eyde.jpg",
-      },
-      {
-        title: "Polished Metal",
-        category: "Reflective Finish",
-        description:
-          "A polished surface designed to interact with surrounding light and reflect architectural details.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785764169/IMG-20260513-WA0011_zkocap.jpg",
-      },
-      {
-        title: "Metal Mesh",
-        category: "Architectural Metal",
-        description:
-          "A lightweight metal mesh system used to introduce texture, transparency and movement.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493722/20240913_174836_i51iog.jpg",
-      },
-      {
-        title: "Patina",
-        category: "Special Finish",
-        description:
-          "A carefully developed patina that gives the metal a naturally aged and richly layered appearance.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785763329/PXL_20240527_113221609_bhsvin.jpg",
-      },
-      {
-        title: "Metal Architecture",
-        category: "Large Scale Finish",
-        description:
-          "A complete architectural metal treatment designed to give the space a distinctive material identity.",
-        image:
-          "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+        title: "Craft",
+        text: "Creating each piece with attention to detail, material and finish.",
       },
     ],
   },

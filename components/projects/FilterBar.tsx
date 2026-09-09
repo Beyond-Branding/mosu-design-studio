@@ -24,7 +24,7 @@ export default function FilterBar({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#171717",
+        background: "#242323",
         borderTop: "1px solid rgba(255,255,255,0.14)",
         borderBottom: "1px solid rgba(255,255,255,0.14)",
         overflow: "hidden",

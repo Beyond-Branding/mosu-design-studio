@@ -82,7 +82,7 @@ export default function FlipSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
+      className="relative h-screen overflow-hidden bg-[#242323]"
     >
       <div className="relative flex h-full items-center justify-center">
 

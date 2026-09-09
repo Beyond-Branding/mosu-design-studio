@@ -7,7 +7,7 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-[#242323] text-white">
 
         {/* HEADER */}
         <section className="pt-36 pb-16 text-center">

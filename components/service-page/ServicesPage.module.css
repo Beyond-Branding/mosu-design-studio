@@ -1,154 +1,78 @@
 .page {
-  background: #000;
+  background: #242323;
   min-height: 100vh;
   padding: 9rem 2rem 6rem;
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
 .title {
   text-align: center;
-
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 900;
-
   text-transform: uppercase;
-
   margin-bottom: 5rem;
-
   color: #fff;
 }
 
-
-/* =========================
-   GRID
-========================= */
-
 .grid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 18px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .card {
   position: relative;
-
   height: 620px;
-
   overflow: hidden;
-
   cursor: pointer;
-
-  background: #000;
+  background: #242323;
 }
-
-
-/* =========================
-   IMAGE
-========================= */
 
 .image {
   object-fit: cover;
-
   transition: all 0.8s ease;
 }
-
-
-/* =========================
-   OVERLAY
-========================= */
 
 .overlay {
   position: absolute;
   inset: 0;
-
   background: rgba(0, 0, 0, 0.18);
-
   transition: 0.6s;
 }
 
-
-/* =========================
-   CONTENT
-========================= */
-
 .content {
   position: absolute;
-
   left: 3rem;
   bottom: 3rem;
-
   z-index: 2;
 }
 
-
-/* =========================
-   HEADING
-========================= */
-
 .heading {
   color: #fff;
-
   font-size: clamp(2.3rem, 3vw, 3.8rem);
-
   font-weight: 900;
-
   line-height: 1;
-
   text-transform: uppercase;
 }
-
-
-/* =========================
-   BUTTON
-========================= */
 
 .button {
   margin-top: 2rem;
-
   padding: 0.85rem 1.8rem;
-
   border-radius: 999px;
-
   border: none;
-
   background: #fff;
-
   color: #000;
-
   text-transform: uppercase;
-
   letter-spacing: 0.15em;
-
   font-size: 0.82rem;
-
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.7rem;
-
   opacity: 0;
-
   transform: translateY(30px);
-
   transition: all 0.45s ease;
 }
 
-
-/* =========================
-   HOVER
-========================= */
+/* Hover */
 
 .card:hover .image {
   transform: scale(1.08);
@@ -164,10 +88,7 @@
   transform: translateY(0);
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
+/* Responsive */
 
 @media (max-width: 1100px) {
   .grid {
@@ -178,7 +99,6 @@
     height: 500px;
   }
 }
-
 
 @media (max-width: 768px) {
   .page {
