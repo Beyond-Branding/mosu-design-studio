@@ -25,15 +25,25 @@ export default function ProjectDetailPage({ params }: Props) {
   }
 
   /*
-   * We only use the first 5 images for the main layout:
+   * ============================================================
+   * GALLERY STRUCTURE
    *
-   * gallery[0] → Main project image
-   * gallery[1] → Second image
+   * gallery[0] → Main image
+   * gallery[1] → About / Second image
    * gallery[2] → Composition image
-   * gallery[3] → Challenge image
    *
-   * gallery[4+] → 3-column gallery
+   * gallery[3] → Grid 01 — Large left
+   * gallery[4] → Grid 02 — Top middle
+   * gallery[5] → Grid 03 — Top right
+   * gallery[6] → Grid 04 — Bottom middle
+   * gallery[7] → Grid 05 — Bottom right
+   *
+   * NO CHALLENGE IMAGE
+   *
+   * TOTAL = 8 IMAGES
+   * ============================================================
    */
+
   const gallery = project.gallery?.length
     ? project.gallery
     : [project.heroImage, project.image].filter(Boolean);
@@ -41,19 +51,19 @@ export default function ProjectDetailPage({ params }: Props) {
   const mainImage = gallery[0];
   const secondImage = gallery[1];
   const compositionImage = gallery[2];
-  const challengeImage = gallery[3];
 
-  const gridImages = [
-  challengeImage,
-  ...gallery.slice(4),
-].filter(Boolean);
+  // Last 5 images are used in the asymmetric grid
+  const gridImages = gallery.slice(3, 8).filter(Boolean);
 
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
 
   /*
-   * LOCK PAGE SCROLL WHEN GALLERY IS OPEN
+   * ============================================================
+   * LOCK PAGE SCROLL WHEN FULLSCREEN GALLERY IS OPEN
+   * ============================================================
    */
+
   useEffect(() => {
     document.body.style.overflow = galleryOpen ? "hidden" : "";
 
@@ -63,8 +73,11 @@ export default function ProjectDetailPage({ params }: Props) {
   }, [galleryOpen]);
 
   /*
+   * ============================================================
    * KEYBOARD CONTROLS
+   * ============================================================
    */
+
   useEffect(() => {
     if (!galleryOpen) return;
 
@@ -92,6 +105,17 @@ export default function ProjectDetailPage({ params }: Props) {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [galleryOpen, gallery.length]);
+
+  /*
+   * ============================================================
+   * OPEN GALLERY HELPER
+   * ============================================================
+   */
+
+  const openGallery = (index: number) => {
+    setActiveImage(index);
+    setGalleryOpen(true);
+  };
 
   return (
     <>
@@ -167,15 +191,6 @@ export default function ProjectDetailPage({ params }: Props) {
           )}
 
 
-          {/* LOCATION */}
-
-          <div className="absolute left-[47.5%] top-1/2 -translate-y-1/2">
-
-          
-
-          </div>
-
-
           {/* STATUS */}
 
           <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
@@ -211,10 +226,7 @@ export default function ProjectDetailPage({ params }: Props) {
         {mainImage && (
           <section
             className="group relative h-[110svh] min-h-[750px] w-full cursor-pointer overflow-hidden bg-black"
-            onClick={() => {
-              setActiveImage(0);
-              setGalleryOpen(true);
-            }}
+            onClick={() => openGallery(0)}
           >
 
             <Image
@@ -253,8 +265,6 @@ export default function ProjectDetailPage({ params }: Props) {
               sizes="100vw"
               className="object-cover object-center"
             />
-
-            {/* OVERLAY */}
 
             <div className="absolute inset-0 bg-black/30" />
 
@@ -373,10 +383,7 @@ export default function ProjectDetailPage({ params }: Props) {
         {compositionImage && (
           <section
             className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-black"
-            onClick={() => {
-              setActiveImage(2);
-              setGalleryOpen(true);
-            }}
+            onClick={() => openGallery(2)}
           >
 
             <Image
@@ -402,7 +409,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =====================================================
-            08 — CHALLENGE
+            08 — CHALLENGE TEXT ONLY
         ===================================================== */}
 
         <section className="w-full bg-black px-6 py-24 text-white sm:px-10 lg:px-16 lg:py-32">
@@ -436,33 +443,218 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =====================================================
-            09 — CHALLENGE IMAGE
+            09 — LAST 5 IMAGES / ASYMMETRIC GRID
         ===================================================== */}
 
-        {challengeImage && (
-          <section
-            className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-black"
-            onClick={() => {
-              setActiveImage(3);
-              setGalleryOpen(true);
-            }}
-          >
+        {gridImages.length > 0 && (
+          <section className="w-full bg-black px-4 py-4 sm:px-6 lg:px-8">
 
-            <Image
-              src={challengeImage}
-              alt={`${project.title} — Challenge`}
-              fill
-              sizes="100vw"
-              className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.02]"
-            />
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-4
+                lg:grid-cols-3
+                lg:grid-rows-2
+                lg:h-[900px]
+              "
+            >
 
-            <div className="absolute inset-0 bg-black/10" />
+              {/* =================================================
+                  GRID 01 — LARGE LEFT
+              ================================================= */}
 
-            <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
+              {gridImages[0] && (
+                <button
+                  type="button"
+                  onClick={() => openGallery(3)}
+                  className="
+                    group
+                    relative
+                    min-h-[500px]
+                    overflow-hidden
+                    bg-[#111]
+                    lg:col-start-1
+                    lg:row-start-1
+                    lg:row-span-2
+                    lg:min-h-0
+                  "
+                >
 
-              <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
-                Challenge
-              </p>
+                  <Image
+                    src={gridImages[0]}
+                    alt={`${project.title} — Gallery 04`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="
+                      object-cover
+                      transition-transform
+                      duration-[1200ms]
+                      ease-out
+                      group-hover:scale-[1.035]
+                    "
+                  />
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+
+                  <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
+                    04
+                  </div>
+
+                </button>
+              )}
+
+
+              {/* =================================================
+                  GRID 02 — TOP MIDDLE
+              ================================================= */}
+
+              {gridImages[1] && (
+                <button
+                  type="button"
+                  onClick={() => openGallery(4)}
+                  className="
+                    group
+                    relative
+                    min-h-[300px]
+                    overflow-hidden
+                    bg-[#111]
+                    lg:col-start-2
+                    lg:row-start-1
+                    lg:min-h-0
+                  "
+                >
+
+                  <Image
+                    src={gridImages[1]}
+                    alt={`${project.title} — Gallery 05`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+
+                  <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
+                    05
+                  </div>
+
+                </button>
+              )}
+
+
+              {/* =================================================
+                  GRID 03 — TOP RIGHT
+              ================================================= */}
+
+              {gridImages[2] && (
+                <button
+                  type="button"
+                  onClick={() => openGallery(5)}
+                  className="
+                    group
+                    relative
+                    min-h-[300px]
+                    overflow-hidden
+                    bg-[#111]
+                    lg:col-start-3
+                    lg:row-start-1
+                    lg:min-h-0
+                  "
+                >
+
+                  <Image
+                    src={gridImages[2]}
+                    alt={`${project.title} — Gallery 06`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+
+                  <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
+                    06
+                  </div>
+
+                </button>
+              )}
+
+
+              {/* =================================================
+                  GRID 04 — BOTTOM MIDDLE
+              ================================================= */}
+
+              {gridImages[3] && (
+                <button
+                  type="button"
+                  onClick={() => openGallery(6)}
+                  className="
+                    group
+                    relative
+                    min-h-[300px]
+                    overflow-hidden
+                    bg-[#111]
+                    lg:col-start-2
+                    lg:row-start-2
+                    lg:min-h-0
+                  "
+                >
+
+                  <Image
+                    src={gridImages[3]}
+                    alt={`${project.title} — Gallery 07`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+
+                  <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
+                    07
+                  </div>
+
+                </button>
+              )}
+
+
+              {/* =================================================
+                  GRID 05 — BOTTOM RIGHT
+              ================================================= */}
+
+              {gridImages[4] && (
+                <button
+                  type="button"
+                  onClick={() => openGallery(7)}
+                  className="
+                    group
+                    relative
+                    min-h-[300px]
+                    overflow-hidden
+                    bg-[#111]
+                    lg:col-start-3
+                    lg:row-start-2
+                    lg:min-h-0
+                  "
+                >
+
+                  <Image
+                    src={gridImages[4]}
+                    alt={`${project.title} — Gallery 08`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+
+                  <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
+                    08
+                  </div>
+
+                </button>
+              )}
 
             </div>
 
@@ -470,240 +662,8 @@ export default function ProjectDetailPage({ params }: Props) {
         )}
 
 
-               {/* =====================================================
-    10 — REMAINING IMAGES / ASYMMETRIC GRID
-===================================================== */}
-
-{gridImages.length > 0 && (
-  <section className="w-full bg-black px-4 py-4 sm:px-6 lg:px-8">
-
-    <div
-      className="
-        grid
-        grid-cols-1
-        gap-4
-        lg:grid-cols-3
-        lg:grid-rows-2
-        lg:h-[900px]
-      "
-    >
-
-      {/* =================================================
-          IMG 4 — LARGE LEFT
-      ================================================= */}
-
-      {gridImages[0] && (
-        <button
-          type="button"
-          onClick={() => {
-            setActiveImage(4);
-            setGalleryOpen(true);
-          }}
-          className="
-            group
-            relative
-            min-h-[500px]
-            overflow-hidden
-            bg-[#111]
-            lg:col-start-1
-            lg:row-start-1
-            lg:row-span-2
-            lg:min-h-0
-          "
-        >
-
-          <Image
-            src={gridImages[0]}
-            alt={`${project.title} — Gallery 05`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="
-              object-cover
-              transition-transform
-              duration-[1200ms]
-              ease-out
-              group-hover:scale-[1.035]
-            "
-          />
-
-          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-
-          <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
-            05
-          </div>
-
-        </button>
-      )}
-
-
-      {/* =================================================
-          IMG 5 — TOP MIDDLE
-      ================================================= */}
-
-      {gridImages[1] && (
-        <button
-          type="button"
-          onClick={() => {
-            setActiveImage(5);
-            setGalleryOpen(true);
-          }}
-          className="
-            group
-            relative
-            min-h-[300px]
-            overflow-hidden
-            bg-[#111]
-            lg:col-start-2
-            lg:row-start-1
-            lg:min-h-0
-          "
-        >
-
-          <Image
-            src={gridImages[1]}
-            alt={`${project.title} — Gallery 06`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
-          />
-
-          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-
-          <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
-            06
-          </div>
-
-        </button>
-      )}
-
-
-      {/* =================================================
-          IMG 6 — TOP RIGHT
-      ================================================= */}
-
-      {gridImages[2] && (
-        <button
-          type="button"
-          onClick={() => {
-            setActiveImage(6);
-            setGalleryOpen(true);
-          }}
-          className="
-            group
-            relative
-            min-h-[300px]
-            overflow-hidden
-            bg-[#111]
-            lg:col-start-3
-            lg:row-start-1
-            lg:min-h-0
-          "
-        >
-
-          <Image
-            src={gridImages[2]}
-            alt={`${project.title} — Gallery 07`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
-          />
-
-          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-
-          <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
-            07
-          </div>
-
-        </button>
-      )}
-
-
-      {/* =================================================
-          IMG 7 — BOTTOM MIDDLE
-      ================================================= */}
-
-      {gridImages[3] && (
-        <button
-          type="button"
-          onClick={() => {
-            setActiveImage(7);
-            setGalleryOpen(true);
-          }}
-          className="
-            group
-            relative
-            min-h-[300px]
-            overflow-hidden
-            bg-[#111]
-            lg:col-start-2
-            lg:row-start-2
-            lg:min-h-0
-          "
-        >
-
-          <Image
-            src={gridImages[3]}
-            alt={`${project.title} — Gallery 08`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
-          />
-
-          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-
-          <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
-            08
-          </div>
-
-        </button>
-      )}
-
-      {/* =================================================
-          IMG 8 — BOTTOM RIGHT
-      ================================================= */}
-
-      {gridImages[4] && (
-        <button
-          type="button"
-          onClick={() => {
-            setActiveImage(8);
-            setGalleryOpen(true);
-          }}
-          className="
-            group
-            relative
-            min-h-[300px]
-            overflow-hidden
-            bg-[#111]
-            lg:col-start-3
-            lg:row-start-2
-            lg:min-h-0
-          "
-        >
-
-          <Image
-            src={gridImages[4]}
-            alt={`${project.title} — Gallery 09`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
-          />
-
-          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-
-          <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
-            09
-          </div>
-
-        </button>
-      )}
-
-    </div>
-
-  </section>
-)}
         {/* =====================================================
-            11 — FULLSCREEN GALLERY
+            10 — FULLSCREEN GALLERY
         ===================================================== */}
 
         {galleryOpen && gallery.length > 0 && (
@@ -780,7 +740,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =====================================================
-            12 — START PROJECT
+            11 — START PROJECT
         ===================================================== */}
 
         <Link
@@ -889,7 +849,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
 
         {/* =====================================================
-            13 — FOOTER
+            12 — FOOTER
         ===================================================== */}
 
         <Footer />

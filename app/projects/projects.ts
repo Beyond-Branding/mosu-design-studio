@@ -90,7 +90,7 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788684887/extra_1_toal6p.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683881/8e_tg6pmp.png",
 
   // 05 — Grid
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683882/8_zu2xnu.png",
@@ -103,6 +103,8 @@ export const projects: Project[] = [
 
   // 08 — Grid
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682126/Taj_Gateway_Goa_Thumbnail_1_zisznu.png",
+
+  
 ],
   },
 
@@ -124,7 +126,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681139/Hyatt_Regency_d4r1yj.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935247/2_mr592n.webp",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421742/WhatsApp_Image_2026-09-03_at_13.03.27_zrfnou.jpg",
@@ -146,28 +148,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935247/9_lijci3.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935250/1_rkxewg.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/6_vzql3r.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935245/5_uwy2ns.webp",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/8_i2m3oj.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935253/3_o0avre.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935357/4_1_wtwyuw.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/7_xrrtkr.png",
 ],
   },
 
@@ -189,7 +191,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682208/my_home_tirumala_1_xjt7ug.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937468/c2_f40xr4.png",
 
 
       
@@ -213,28 +215,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937450/c4_kbp4hh.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c5_bh8gum.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937459/c7_zdspwd.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c10_niabdx.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937449/c8_d1zele.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c9_jv0s2e.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937467/c1_jajbug.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937464/c3_gfn4gl.png",
 ],
   },
 
@@ -257,9 +259,9 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681130/76_Hazra_2_ywicuh.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937861/d6_slrwcd.png",
 
-    mapImage: "/maps/goa.png",
+    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.37_ns65lq.jpg",
 
     description:
       "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
@@ -278,28 +280,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937873/d1_wqcxvp.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937857/d11_vlsthd.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937870/d2_p9dl1s.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937854/d10_mqhl2p.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937862/d7_xz4j8s.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937863/7b_kggjok.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937853/d9_ndm93u.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937853/10c_hzlcqz.png",
 ],
   },
 
@@ -321,7 +323,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681130/Guntur_Project_pefzpv.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939060/e1_cgxabw.png",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.02.40_dntmud.jpg",
@@ -343,28 +345,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939050/e14_lwwavq.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939048/e10_nfuk0l.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939050/e9_e5ccyr.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939049/e12_hksy7j.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939047/e13_inqnxh.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939058/e3_c4zc5u.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939057/e2_hcxbh3.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939052/e6_bolxgz.png",
 ],
   },
 
@@ -386,7 +388,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682220/coimbatore_Mansion_1_gt0y0l.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g19_avfb4d.png",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
@@ -408,28 +410,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g7_xpwbef.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940053/g10_tiwioc.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g17_jd2ety.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940052/g11_ynjici.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g5_sqgnjb.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940058/g4_ny9ryg.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940050/g12_kmgmbh.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g14_kcp1l5.png",
 ],
   },
 
@@ -451,7 +453,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681137/Biyani_i69drt.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683882/7_krkxwa.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940535/h2_cz8ffb.png",
 
     mapImage: "/maps/goa.png",
 
@@ -472,28 +474,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940958/h6_1_ymt0hv.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940534/h1_thgagc.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940520/h4_vycxgz.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940519/h3_yo5hmd.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940518/h8_vguvx8.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h5_1_wahfn4.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h7_1_trmeyu.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h9_1_zgr4ae.png",
 ],
   },
 
@@ -515,7 +517,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681129/Salem_vrxfno.png",
 
     heroImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939537/f7_h0r82u.png",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788421741/WhatsApp_Image_2026-09-03_at_13.03.13_kwhzsp.jpg",
@@ -537,31 +539,31 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939562/f2_zpazsb.png",
 
   // 02 — Composition
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f8_zlwpdg.png",
 
   // 03 — Challenge
-  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939563/f3_o8smgh.png",
 
   // 04 — Large grid
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939529/f6_d5rg0p.png",
 
   // 05 — Grid
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f10_yj8f8q.png",
 
   // 06 — Grid
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f5_beot1q.png",
 
   // 07 — Grid
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939528/f9a_hauoly.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939561/f4_caza7u.png",
 
   // 08 — Grid
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=85",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939564/f1_pceped.png",
 ],
   },
 ];
