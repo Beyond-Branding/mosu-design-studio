@@ -135,23 +135,43 @@ export default function Navbar() {
               CENTER LOGO
           ================================================= */}
 
-          <Link
-            href="/"
-            className="
-              absolute
-              left-1/2
-              -translate-x-1/2
-            "
-          >
-            <Image
-              src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
-              alt="MOSU Logo"
-              width={140}
-              height={45}
-              priority
-              className="h-8 w-auto sm:h-9 lg:h-10"
-            />
-          </Link>
+         <Link
+  href="/"
+  className="
+    absolute
+    left-1/2
+    top-1/2
+    flex
+    -translate-x-1/2
+    -translate-y-1/2
+    flex-col
+    items-center
+  "
+>
+  <Image
+    src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+    alt="MOSU Logo"
+    width={140}
+    height={45}
+    priority
+    className="h-8 w-auto sm:h-9 lg:h-10"
+  />
+
+  <span
+    className="
+      mt-1.5
+      whitespace-nowrap
+      text-[7px]
+      font-medium
+      uppercase
+      tracking-[0.38em]
+      text-white/65
+      sm:text-[8px]
+    "
+  >
+    BE - BeSpoke
+  </span>
+</Link>
 
 
           {/* =================================================
