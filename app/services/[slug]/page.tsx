@@ -155,6 +155,42 @@ export default function ServicePage() {
     >
       <Navbar />
 
+<Link
+  href="/services"
+  className="
+    fixed
+    left-6
+    top-24
+    z-[100]
+    inline-flex
+    items-center
+    gap-3
+    rounded-full
+    border
+    border-white/25
+    bg-[#242323]/75
+    px-5
+    py-3
+    text-[9px]
+    font-medium
+    uppercase
+    tracking-[0.25em]
+    text-white/80
+    backdrop-blur-md
+    transition-all
+    duration-500
+    hover:-translate-x-1
+    hover:border-white/60
+    hover:bg-white
+    hover:text-black
+    sm:left-10
+    lg:left-16
+  "
+>
+  <ArrowLeft className="h-3.5 w-3.5" />
+  <span>Back to Products</span>
+</Link>
+
       {/* =====================================================
           HERO
       ===================================================== */}

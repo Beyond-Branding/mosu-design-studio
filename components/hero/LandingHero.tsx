@@ -19,6 +19,7 @@ export default function LandingHero() {
       gsap.to(imageRef.current, {
         scale: 1.15,
         ease: "none",
+        force3D: true,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -30,6 +31,7 @@ export default function LandingHero() {
       // Overlay
       gsap.to(overlayRef.current, {
         opacity: 0.6,
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -42,6 +44,7 @@ export default function LandingHero() {
       gsap.to(contentRef.current, {
         y: -120,
         opacity: 0,
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -49,10 +52,11 @@ export default function LandingHero() {
           scrub: true,
         },
       });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     }, sectionRef);
-    requestAnimationFrame(() => {
-  ScrollTrigger.refresh();
-});
 
     return () => ctx.revert();
   }, []);
@@ -60,46 +64,89 @@ export default function LandingHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
+      className="
+        relative
+        min-h-[100svh]
+        h-[100svh]
+        w-full
+        overflow-hidden
+      "
     >
       {/* Background Image */}
       <div
         ref={imageRef}
-        className="absolute inset-0"
+        className="
+          absolute
+          -inset-[4%]
+          will-change-transform
+        "
       >
         <Image
           src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681009/5_7_qk0zj9.png"
           alt="MOSU Hero"
           fill
           priority
-          className="object-cover object-center"
+          sizes="100vw"
+          className="
+            object-cover
+            object-[center_center]
+            sm:object-center
+          "
         />
       </div>
 
       {/* Dark Overlay */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/55"
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-black/10
+          via-black/20
+          to-black/60
+        "
       />
 
       {/* Animated Content */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-20"
+        className="
+          absolute
+          inset-0
+          z-20
+          will-change-transform
+        "
       >
         {/* Bottom Left */}
-        <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 lg:bottom-10 lg:left-10 uppercase text-white">
-
-          <p className="text-[11px] sm:text-[12px] lg:text-[14px] tracking-[0.18em]">
+        <div
+          className="
+            absolute
+            bottom-[max(1.5rem,env(safe-area-inset-bottom))]
+            left-5
+            right-5
+            uppercase
+            text-white
+            sm:bottom-8
+            sm:left-8
+            sm:right-auto
+            lg:bottom-10
+            lg:left-10
+          "
+        >
+          <p
+            className="
+              text-[10px]
+              font-medium
+              tracking-[0.22em]
+              sm:text-[12px]
+              sm:tracking-[0.18em]
+              lg:text-[14px]
+            "
+          >
             76 HAZRA
           </p>
-
-          
-
         </div>
-
-        {/* Bottom Right Button */}
-        
       </div>
     </section>
   );

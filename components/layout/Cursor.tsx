@@ -1,53 +1,53 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import styles from "./cursor.module.css";
 
 export default function Cursor() {
-  const [position, setPosition] = useState({
-    x: -100,
-    y: -100,
-  });
-
-  const [visible, setVisible] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setPosition({
-        x: event.clientX,
-        y: event.clientY,
-      });
+    const cursor = cursorRef.current;
 
-      setVisible(true);
+    if (!cursor) return;
+
+    const moveCursor = (e: MouseEvent) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     };
 
-    const handleMouseLeave = () => {
-      setVisible(false);
+    const handleEnter = () => {
+      cursor.classList.add(styles.active);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    document.documentElement.addEventListener(
-      "mouseleave",
-      handleMouseLeave
-    );
+    const handleLeave = () => {
+      cursor.classList.remove(styles.active);
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+
+    const elements = document.querySelectorAll("a, button");
+
+    elements.forEach((element) => {
+      element.addEventListener("mouseenter", handleEnter);
+      element.addEventListener("mouseleave", handleLeave);
+    });
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.documentElement.removeEventListener(
-        "mouseleave",
-        handleMouseLeave
-      );
+      window.removeEventListener("mousemove", moveCursor);
+
+      elements.forEach((element) => {
+        element.removeEventListener("mouseenter", handleEnter);
+        element.removeEventListener("mouseleave", handleLeave);
+      });
     };
   }, []);
 
   return (
     <div
+      ref={cursorRef}
+      className={styles.cursor}
       aria-hidden="true"
-      className={`pointer-events-none fixed left-0 top-0 z-[99999] hidden h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white mix-blend-difference transition-opacity duration-200 lg:block ${
-        visible ? "opacity-100" : "opacity-0"
-      }`}
-      style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
-      }}
     />
   );
 }

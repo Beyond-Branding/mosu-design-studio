@@ -3,11 +3,16 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useLayoutEffect, useRef, useState } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { projects } from "../projects";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   params: Promise<{
@@ -27,20 +32,6 @@ export default function ProjectDetailPage({ params }: Props) {
   /*
    * ============================================================
    * GALLERY STRUCTURE
-   *
-   * gallery[0] → Main image
-   * gallery[1] → About / Second image
-   * gallery[2] → Composition image
-   *
-   * gallery[3] → Grid 01 — Large left
-   * gallery[4] → Grid 02 — Top middle
-   * gallery[5] → Grid 03 — Top right
-   * gallery[6] → Grid 04 — Bottom middle
-   * gallery[7] → Grid 05 — Bottom right
-   *
-   * NO CHALLENGE IMAGE
-   *
-   * TOTAL = 8 IMAGES
    * ============================================================
    */
 
@@ -52,11 +43,165 @@ export default function ProjectDetailPage({ params }: Props) {
   const secondImage = gallery[1];
   const compositionImage = gallery[2];
 
-  // Last 5 images are used in the asymmetric grid
   const gridImages = gallery.slice(3, 8).filter(Boolean);
 
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
+
+  const conceptSectionRef = useRef<HTMLElement>(null);
+
+  /*
+   * ============================================================
+   * CONCEPT SCROLL ANIMATION
+   * ============================================================
+   */
+
+  useLayoutEffect(() => {
+    if (!conceptSectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const items = gsap.utils.toArray<HTMLElement>(
+        ".concept-editorial-line"
+      );
+
+      const characters = items.map((item) =>
+        gsap.utils.toArray<HTMLElement>(".concept-char", item)
+      );
+
+      if (!items.length) return;
+
+      /*
+       * INITIAL STATE
+       */
+
+      gsap.set(items, {
+        autoAlpha: 0,
+      });
+
+      gsap.set(characters.flat(), {
+        opacity: 0,
+        filter: "blur(8px)",
+        scale: 1.02,
+        y: 0,
+      });
+
+      /*
+       * SCROLL ANIMATION
+       */
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: conceptSectionRef.current,
+
+          start: "top top",
+
+          end: `+=${items.length * 1200}`,
+
+          pin: true,
+
+          scrub: 1,
+
+          anticipatePin: 1,
+
+          invalidateOnRefresh: true,
+        },
+      });
+
+      /*
+       * ========================================================
+       * FIRST LINE
+       * ========================================================
+       */
+
+      tl.set(items[0], {
+        autoAlpha: 1,
+      });
+
+      tl.to(characters[0], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.out",
+      });
+
+      /*
+       * HOLD
+       */
+
+      tl.to(
+        {},
+        {
+          duration: 1,
+        }
+      );
+
+      /*
+       * ========================================================
+       * FIRST LINE DISAPPEARS
+       * ========================================================
+       */
+
+      tl.to(characters[0], {
+        opacity: 0,
+        filter: "blur(8px)",
+        scale: 0.98,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.inOut",
+      });
+
+      tl.set(items[0], {
+        autoAlpha: 0,
+      });
+
+      /*
+       * ========================================================
+       * SECOND LINE
+       * ========================================================
+       */
+
+      tl.set(items[1], {
+        autoAlpha: 1,
+      });
+
+      tl.to(characters[1], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1,
+        stagger: {
+          each: 0.018,
+          from: "center",
+        },
+        ease: "power2.out",
+      });
+
+      /*
+       * HOLD SECOND LINE
+       */
+
+      tl.to(
+        {},
+        {
+          duration: 1,
+        }
+      );
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, conceptSectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   /*
    * ============================================================
@@ -108,7 +253,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
   /*
    * ============================================================
-   * OPEN GALLERY HELPER
+   * OPEN GALLERY
    * ============================================================
    */
 
@@ -117,18 +262,73 @@ export default function ProjectDetailPage({ params }: Props) {
     setGalleryOpen(true);
   };
 
+  /*
+   * ============================================================
+   * CONCEPT TEXT
+   * ============================================================
+   */
+
+  const conceptText =
+    project.concept ||
+    "ROOTED IN DEEP RESEARCH, THE DESIGN INTEGRATES TRADITION WITH CONTEMPORARY MATERIALITY AND FORM.";
+
+  const words = conceptText.trim().split(/\s+/);
+
+  const middle = Math.ceil(words.length / 2);
+
+  const conceptLines = [
+    words.slice(0, middle).join(" "),
+    words.slice(middle).join(" "),
+  ];
+
   return (
     <>
       <Navbar />
 
-      <main className="bg-[#242323] text-white">
+      {/* BACK TO PROJECTS */}
 
+      <Link
+        href="/projects"
+        className="
+          fixed
+          left-6
+          top-24
+          z-[100]
+          inline-flex
+          items-center
+          gap-3
+          rounded-full
+          border
+          border-white/25
+          bg-[#242323]/70
+          px-5
+          py-3
+          text-[9px]
+          uppercase
+          tracking-[0.25em]
+          text-white/80
+          backdrop-blur-md
+          transition-all
+          duration-500
+          hover:-translate-x-1
+          hover:border-white/60
+          hover:bg-white
+          hover:text-black
+          sm:left-10
+          lg:left-16
+        "
+      >
+        <span className="text-sm leading-none">←</span>
+
+        <span>Back To Projects</span>
+      </Link>
+
+      <main className="bg-[#242323] text-white">
         {/* =====================================================
             01 — HERO
         ===================================================== */}
 
         <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-[#242323]">
-
           <Image
             src={project.heroImage}
             alt={project.title}
@@ -141,17 +341,13 @@ export default function ProjectDetailPage({ params }: Props) {
           <div className="absolute inset-0 bg-black/10" />
 
           <div className="absolute bottom-8 left-6 z-10 flex items-center gap-4 sm:left-10 lg:left-16">
-
             <span className="h-px w-12 bg-white/60" />
 
             <span className="text-[9px] uppercase tracking-[0.3em]">
               Scroll to explore
             </span>
-
           </div>
-
         </section>
-
 
         {/* =====================================================
             02 — PROJECT INFORMATION + MAP
@@ -169,10 +365,6 @@ export default function ProjectDetailPage({ params }: Props) {
             md:min-h-0
           "
         >
-          {/* =====================================================
-              MAP
-          ===================================================== */}
-
           {project.mapImage && (
             <div
               className="
@@ -201,10 +393,6 @@ export default function ProjectDetailPage({ params }: Props) {
               />
             </div>
           )}
-
-          {/* =====================================================
-              DESIGN STYLE
-          ===================================================== */}
 
           <div
             className="
@@ -255,10 +443,6 @@ export default function ProjectDetailPage({ params }: Props) {
             </p>
           </div>
 
-          {/* =====================================================
-              STATUS
-          ===================================================== */}
-
           <div
             className="
               absolute
@@ -307,10 +491,6 @@ export default function ProjectDetailPage({ params }: Props) {
             </p>
           </div>
 
-          {/* =====================================================
-              AREA
-          ===================================================== */}
-
           <div
             className="
               absolute
@@ -344,7 +524,6 @@ export default function ProjectDetailPage({ params }: Props) {
           </div>
         </section>
 
-
         {/* =====================================================
             03 — FIRST IMAGE
         ===================================================== */}
@@ -354,7 +533,6 @@ export default function ProjectDetailPage({ params }: Props) {
             className="group relative h-[110svh] min-h-[750px] w-full cursor-pointer overflow-hidden bg-[#242323]"
             onClick={() => openGallery(0)}
           >
-
             <Image
               src={mainImage}
               alt={`${project.title} — Image 01`}
@@ -366,16 +544,12 @@ export default function ProjectDetailPage({ params }: Props) {
             <div className="absolute inset-0 bg-black/10 transition-colors duration-700 group-hover:bg-black/20" />
 
             <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
-
               <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                 Image 01
               </p>
-
             </div>
-
           </section>
         )}
-
 
         {/* =====================================================
             04 — SECOND IMAGE + ABOUT
@@ -383,7 +557,6 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {secondImage && (
           <section className="relative min-h-[110svh] w-full overflow-hidden bg-[#242323]">
-
             <Image
               src={secondImage}
               alt={`${project.title} — Image 02`}
@@ -396,24 +569,15 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
 
-
-            {/* ABOUT */}
-
             <div className="absolute inset-x-0 top-0 z-10 px-6 pt-20 sm:px-10 sm:pt-28 lg:px-16 lg:pt-36">
-
               <div className="mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.25fr_0.75fr]">
-
                 <div>
-
                   <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                     About
                   </p>
-
                 </div>
 
-
                 <div>
-
                   {project.description && (
                     <p className="max-w-[1000px] text-[clamp(1.8rem,3.5vw,4rem)] font-light leading-[1.02] tracking-[-0.04em]">
                       {project.description}
@@ -425,61 +589,152 @@ export default function ProjectDetailPage({ params }: Props) {
                       {project.awards}
                     </p>
                   )}
-
                 </div>
-
               </div>
-
             </div>
-
           </section>
         )}
+{/* =====================================================
+    05 — CONCEPT
+===================================================== */}
 
+<section
+  ref={conceptSectionRef}
+  className="
+    relative
+    flex
+    min-h-screen
+    w-full
+    items-center
+    justify-center
+    overflow-hidden
+    bg-[#242323]
+  "
+>
+  <div
+    className="
+      flex
+      min-h-screen
+      w-full
+      flex-col
+      items-center
+      justify-center
+      px-6
+      text-center
+      -translate-y-[2vh]
+    "
+  >
+    {/* LABEL */}
 
-        {/* =====================================================
-            05 — CONCEPT
-        ===================================================== */}
+    <p className="mb-5 text-[11px] font-normal uppercase tracking-[0.02em] text-white/70">
+      Concept
+    </p>
 
-        <section className="relative min-h-[650px] w-full bg-[#242323]">
+    {/* CONCEPT TEXT */}
 
-          <div className="absolute left-[3.5vw] top-[10%] h-[68px] w-[68px] rounded-full border border-white/60" />
+    <div
+      className="
+        relative
+        w-full
+        max-w-[1250px]
+        min-h-[clamp(140px,16vw,220px)]
+        overflow-hidden
+      "
+    >
+      {conceptLines.map((line) => (
+        <div
+          key={line}
+          className="
+            concept-editorial-line
+            absolute
+            inset-0
+            flex
+            w-full
+            items-center
+            justify-center
+          "
+        >
+          <h2
+            className="
+              mx-auto
+              w-full
+              max-w-[1250px]
+              text-center
+              font-semibold
+              uppercase
+              leading-[0.94]
+              tracking-[0.015em]
+              text-white
+              text-[clamp(2.4rem,5vw,4.8rem)]
+            "
+            style={{
+              fontWeight: 550,
+              wordSpacing: "0.08em",
+            }}
+          >
+            {Array.from(line).map((char, charIndex) => (
+              <span
+                key={`${line}-${charIndex}`}
+                className="concept-char inline-block"
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </h2>
+        </div>
+      ))}
 
-          <div className="flex min-h-[650px] flex-col items-center justify-center px-6 py-24 text-center">
+      {/* Invisible spacer */}
 
-            <p className="mb-7 text-[13px] uppercase tracking-[-0.02em]">
-              Concept
-            </p>
+      <h2
+        aria-hidden="true"
+        className="
+          mx-auto
+          w-full
+          max-w-[1250px]
+          invisible
+          text-center
+          font-semibold
+          uppercase
+          leading-[0.94]
+          tracking-[0.015em]
+          text-[clamp(2.4rem,5vw,4.8rem)]
+        "
+      >
+        {conceptLines[0]}
+      </h2>
+    </div>
 
-            <h2 className="max-w-[1250px] text-[clamp(2.4rem,5vw,4.8rem)] font-medium uppercase leading-[0.92] tracking-[-0.055em]">
+    {/* BRIEF */}
 
-              {project.concept ||
-                "Rooted in deep research, the design integrates tradition with contemporary materiality and form."}
-
-            </h2>
-
-            {project.brief && (
-              <p className="mt-10 max-w-[650px] text-[11px] uppercase leading-[1.4] tracking-[0.01em] text-white/65">
-                {project.brief}
-              </p>
-            )}
-
-          </div>
-
-        </section>
-
-
+    {project.brief && (
+      <p
+        className="
+          mt-5
+          max-w-[650px]
+          text-center
+          text-[10px]
+          font-normal
+          uppercase
+          leading-[1.5]
+          tracking-[0.02em]
+          text-white/55
+        "
+      >
+        {project.brief}
+      </p>
+    )}
+  </div>
+</section>
         {/* =====================================================
             06 — COMPOSITION
         ===================================================== */}
 
-        <section className="relative min-h-[720px] w-full bg-[#242323]">
-
-          <div className="mx-auto grid min-h-[720px] max-w-[1920px] grid-cols-1 lg:grid-cols-2">
-
+        <section className="relative min-h-[460px] w-full bg-[#242323]">
+          <div className="mx-auto grid min-h-[460px] max-w-[1920px] grid-cols-1 lg:grid-cols-2">
             <div />
 
-            <div className="flex flex-col justify-center px-8 py-28 sm:px-12 lg:px-16 xl:px-24">
-
+            <div className="flex flex-col justify-center px-8 py-10 sm:px-12 lg:px-16 xl:px-24">
               <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
                 03 — Composition
               </p>
@@ -488,19 +743,13 @@ export default function ProjectDetailPage({ params }: Props) {
                 Composition
               </h2>
 
-              <p className="mt-12 max-w-[780px] text-[14px] font-normal uppercase leading-[1.4] tracking-[-0.015em] text-white/80">
-
+              <p className="mt-8 max-w-[780px] text-[14px] font-normal uppercase leading-[1.4] tracking-[-0.015em] text-white/80">
                 {project.execution ||
                   "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
-
               </p>
-
             </div>
-
           </div>
-
         </section>
-
 
         {/* =====================================================
             07 — COMPOSITION IMAGE
@@ -511,7 +760,6 @@ export default function ProjectDetailPage({ params }: Props) {
             className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-[#242323]"
             onClick={() => openGallery(2)}
           >
-
             <Image
               src={compositionImage}
               alt={`${project.title} — Composition`}
@@ -523,29 +771,22 @@ export default function ProjectDetailPage({ params }: Props) {
             <div className="absolute inset-0 bg-black/10" />
 
             <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
-
               <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                 Composition
               </p>
-
             </div>
-
           </section>
         )}
-
 
         {/* =====================================================
             08 — CHALLENGE TEXT ONLY
         ===================================================== */}
 
         <section className="w-full bg-[#242323] px-6 py-24 text-white sm:px-10 lg:px-16 lg:py-32">
-
           <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
-
             <div />
 
             <div className="max-w-[850px]">
-
               <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
                 04 — Challenge
               </p>
@@ -555,18 +796,12 @@ export default function ProjectDetailPage({ params }: Props) {
               </h2>
 
               <p className="mt-8 text-[13px] font-light uppercase leading-[1.5] text-white/70 sm:text-[15px]">
-
                 {project.challenge ||
                   "Creating a cohesive visual identity while balancing materiality, functionality and architectural character required a precise and considered approach."}
-
               </p>
-
             </div>
-
           </div>
-
         </section>
-
 
         {/* =====================================================
             09 — LAST 5 IMAGES / ASYMMETRIC GRID
@@ -574,7 +809,6 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {gridImages.length > 0 && (
           <section className="w-full bg-[#242323] px-4 py-4 sm:px-6 lg:px-8">
-
             <div
               className="
                 grid
@@ -585,11 +819,6 @@ export default function ProjectDetailPage({ params }: Props) {
                 lg:h-[900px]
               "
             >
-
-              {/* =================================================
-                  GRID 01 — LARGE LEFT
-              ================================================= */}
-
               {gridImages[0] && (
                 <button
                   type="button"
@@ -606,7 +835,6 @@ export default function ProjectDetailPage({ params }: Props) {
                     lg:min-h-0
                   "
                 >
-
                   <Image
                     src={gridImages[0]}
                     alt={`${project.title} — Gallery 04`}
@@ -626,14 +854,8 @@ export default function ProjectDetailPage({ params }: Props) {
                   <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
                     04
                   </div>
-
                 </button>
               )}
-
-
-              {/* =================================================
-                  GRID 02 — TOP MIDDLE
-              ================================================= */}
 
               {gridImages[1] && (
                 <button
@@ -650,7 +872,6 @@ export default function ProjectDetailPage({ params }: Props) {
                     lg:min-h-0
                   "
                 >
-
                   <Image
                     src={gridImages[1]}
                     alt={`${project.title} — Gallery 05`}
@@ -664,14 +885,8 @@ export default function ProjectDetailPage({ params }: Props) {
                   <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
                     05
                   </div>
-
                 </button>
               )}
-
-
-              {/* =================================================
-                  GRID 03 — TOP RIGHT
-              ================================================= */}
 
               {gridImages[2] && (
                 <button
@@ -688,7 +903,6 @@ export default function ProjectDetailPage({ params }: Props) {
                     lg:min-h-0
                   "
                 >
-
                   <Image
                     src={gridImages[2]}
                     alt={`${project.title} — Gallery 06`}
@@ -702,14 +916,8 @@ export default function ProjectDetailPage({ params }: Props) {
                   <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
                     06
                   </div>
-
                 </button>
               )}
-
-
-              {/* =================================================
-                  GRID 04 — BOTTOM MIDDLE
-              ================================================= */}
 
               {gridImages[3] && (
                 <button
@@ -726,7 +934,6 @@ export default function ProjectDetailPage({ params }: Props) {
                     lg:min-h-0
                   "
                 >
-
                   <Image
                     src={gridImages[3]}
                     alt={`${project.title} — Gallery 07`}
@@ -740,14 +947,8 @@ export default function ProjectDetailPage({ params }: Props) {
                   <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
                     07
                   </div>
-
                 </button>
               )}
-
-
-              {/* =================================================
-                  GRID 05 — BOTTOM RIGHT
-              ================================================= */}
 
               {gridImages[4] && (
                 <button
@@ -764,7 +965,6 @@ export default function ProjectDetailPage({ params }: Props) {
                     lg:min-h-0
                   "
                 >
-
                   <Image
                     src={gridImages[4]}
                     alt={`${project.title} — Gallery 08`}
@@ -778,15 +978,11 @@ export default function ProjectDetailPage({ params }: Props) {
                   <div className="absolute bottom-4 left-4 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/70">
                     08
                   </div>
-
                 </button>
               )}
-
             </div>
-
           </section>
         )}
-
 
         {/* =====================================================
             10 — FULLSCREEN GALLERY
@@ -794,9 +990,6 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {galleryOpen && gallery.length > 0 && (
           <div className="fixed inset-0 z-[9999] bg-black">
-
-            {/* CLOSE */}
-
             <button
               type="button"
               onClick={() => setGalleryOpen(false)}
@@ -805,11 +998,7 @@ export default function ProjectDetailPage({ params }: Props) {
               Close
             </button>
 
-
-            {/* IMAGE */}
-
             <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10 lg:p-16">
-
               <Image
                 src={gallery[activeImage]}
                 alt={`${project.title} — Image ${activeImage + 1}`}
@@ -818,11 +1007,7 @@ export default function ProjectDetailPage({ params }: Props) {
                 className="object-contain"
                 priority
               />
-
             </div>
-
-
-            {/* PREVIOUS */}
 
             <button
               type="button"
@@ -837,9 +1022,6 @@ export default function ProjectDetailPage({ params }: Props) {
               ←
             </button>
 
-
-            {/* NEXT */}
-
             <button
               type="button"
               aria-label="Next image"
@@ -853,17 +1035,12 @@ export default function ProjectDetailPage({ params }: Props) {
               →
             </button>
 
-
-            {/* COUNTER */}
-
             <div className="absolute bottom-6 left-1/2 z-50 -translate-x-1/2 text-[9px] uppercase tracking-[0.3em] text-white/50">
               {String(activeImage + 1).padStart(2, "0")} /{" "}
               {String(gallery.length).padStart(2, "0")}
             </div>
-
           </div>
         )}
-
 
         {/* =====================================================
             11 — START PROJECT
@@ -873,11 +1050,7 @@ export default function ProjectDetailPage({ params }: Props) {
           href="/contact"
           className="group relative block min-h-[680px] w-full overflow-hidden bg-[#242323] text-white"
         >
-
-          {/* BACKGROUND TEXT */}
-
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
-
             <p
               className="
                 w-full
@@ -897,36 +1070,20 @@ export default function ProjectDetailPage({ params }: Props) {
             >
               LET&apos;S TALK
             </p>
-
           </div>
 
-
-          {/* TOP RIGHT */}
-
           <div className="absolute right-6 top-10 flex items-center gap-3 sm:right-10 lg:right-16">
-
             <span className="h-px w-8 bg-white/30" />
 
             <span className="text-[8px] uppercase tracking-[0.35em] text-white/45">
               New Project
             </span>
-
           </div>
 
-
-          {/* CENTER */}
-
           <div className="relative z-10 flex min-h-[680px] flex-col items-center justify-center px-6 text-center">
-
             <p className="mb-7 text-[9px] uppercase tracking-[0.4em] text-white/45">
               Start a conversation
             </p>
-
-            <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-light uppercase leading-[0.82] tracking-[-0.075em]">
-              Let&apos;s
-              <br />
-              Create.
-            </h2>
 
             <p className="mt-8 max-w-[430px] text-[10px] uppercase leading-[1.5] tracking-[0.08em] text-white/45">
               Have a space, idea, or vision in mind?
@@ -934,52 +1091,35 @@ export default function ProjectDetailPage({ params }: Props) {
               Let&apos;s turn it into something meaningful.
             </p>
 
-
-            {/* BUTTON */}
-
             <div className="mt-10 flex items-center gap-4 rounded-full border border-white/20 px-5 py-3 transition-all duration-500 group-hover:border-white/50 group-hover:bg-white group-hover:text-black">
-
               <span className="text-[9px] uppercase tracking-[0.2em]">
                 Start Project
               </span>
 
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black transition-all duration-500 group-hover:bg-black group-hover:text-white group-hover:translate-x-1">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black transition-all duration-500 group-hover:translate-x-1 group-hover:bg-black group-hover:text-white">
                 ↗
               </span>
-
             </div>
-
           </div>
 
-
-          {/* BOTTOM LEFT */}
-
           <div className="absolute bottom-8 left-6 flex items-center gap-3 sm:left-10 lg:left-16">
-
             <span className="h-px w-8 bg-white/30" />
 
             <span className="text-[8px] uppercase tracking-[0.3em] text-white/35">
               Your vision / Our craft
             </span>
-
           </div>
-
-
-          {/* BOTTOM RIGHT */}
 
           <div className="absolute bottom-8 right-6 text-[11px] text-white/30 transition-all duration-500 group-hover:translate-x-2 group-hover:text-white sm:right-10 lg:right-16">
             ↗
           </div>
-
         </Link>
-
 
         {/* =====================================================
             12 — FOOTER
         ===================================================== */}
 
         <Footer />
-
       </main>
     </>
   );

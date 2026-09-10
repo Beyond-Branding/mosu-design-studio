@@ -84,16 +84,16 @@ export default function AboutSection() {
        */
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: isMobile ? "+=3200" : "+=5000",
-          scrub: 1.5,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+  scrollTrigger: {
+    trigger: section,
+    start: "top top",
+    end: isMobile ? "+=1800" : "+=2800",
+scrub: 0.8,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  },
+});
 
       /*
        * ==========================================
@@ -126,16 +126,16 @@ export default function AboutSection() {
        */
 
       if (!isMobile) {
-        tl.to(
-          image,
-          {
-            width: "100%",
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "<"
-        );
-      }
+  tl.to(
+    image,
+    {
+      width: "100%",
+      duration: 3,
+      ease: "power1.inOut",
+    },
+    "<"
+  );
+}
 
       /*
        * ==========================================
@@ -144,14 +144,14 @@ export default function AboutSection() {
        */
 
       tl.to(
-        panel,
-        {
-          xPercent: 100,
-          duration: isMobile ? 3 : 5,
-          ease: "power1.inOut",
-        },
-        isMobile ? "<" : "<"
-      );
+  panel,
+  {
+    xPercent: 100,
+    duration: isMobile ? 2 : 3,
+    ease: "power1.inOut",
+  },
+  "<"
+);
 
       /*
        * ==========================================
