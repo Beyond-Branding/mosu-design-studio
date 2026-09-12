@@ -20,10 +20,10 @@ export const services: Service[] = [
     slug: "art-installations",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952092/15_rjzr1f.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231352/11_mqorfb.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/9_1_xqknm9.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231354/2c_zzitbi.png",
 
     subtitle: "Art that transforms spaces.",
 
@@ -31,26 +31,26 @@ export const services: Service[] = [
       "We create distinctive art installations that bring character, emotion and identity to interiors.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952069/27_jkm9hb.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952071/8_shuwmo.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952072/14_utkwhs.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952075/34_am5c9i.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952075/32_x97qrk.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952089/2e_dnzghl.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952091/5_pzi6zf.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952094/20_cz2yfu.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952083/3_a1olug.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952082/31_pu0wnd.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/35_hufqyx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952076/30_a3jyao.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952071/8_shuwmo.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952078/7_h7qhdt.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952090/6_howcv7.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952085/16_azsxkm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952076/37_ldg15m.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952095/24_kczsld.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231359/39_fd8l8x.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231361/41_bdnxhp.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231361/3b_nnb5g9.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231360/17_wzjjk5.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231360/17b_hkgnkf.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231360/12_rvd7y5.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231360/17d_dfwbur.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231359/17c_hvqsf2.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231356/2e_tfzfyt.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231354/2c_zzitbi.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231354/2a_kcj43y.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231352/1g_ovzzr7.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231352/11_mqorfb.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231348/1e_x8yjhr.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231346/1a_z6fpxn.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231345/1b_w9zmeq.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231344/2d_t7lrix.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231344/1d_lzxog9.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952092/13_fchnbn.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952091/11_uozvpx.png",
+      
     ],
 
     process: [
@@ -148,6 +148,13 @@ export const services: Service[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/1_eevopr.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/5_pfkgek.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/3_dedj7o.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231800/ChatGPT_Image_Jul_11_2026_11_55_25_AM_hncfig.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231800/ChatGPT_Image_Jul_11_2026_04_06_32_PM_blqvum.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231834/ChatGPT_Image_Jul_11_2026_11_57_11_AM_spq3v6.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231834/ChatGPT_Image_Jul_11_2026_11_59_14_AM_mwtksz.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_11_2026_12_10_03_PM_vyklxr.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_13_2026_11_17_56_AM_s5qwlp.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_13_2026_11_13_53_AM_gwm3gn.png",
     ],
 
     process: [
@@ -271,9 +278,15 @@ export const services: Service[] = [
     gallery: [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956455/6_mxaras.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/2_e1fned.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232283/ChatGPT_Image_Jul_17_2026_03_50_07_PM_qazwln.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/4_ff5kee.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232284/ChatGPT_Image_Jul_21_2026_01_36_35_PM_aitgmf.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232285/ChatGPT_Image_Jul_21_2026_02_20_07_PM_1_wi4whv.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/3_s7cbbk.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/5_prdj7v.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232283/ChatGPT_Image_Jul_17_2026_03_47_47_PM_muv7x6.png",
+      
+      
     ],
 
     process: [
@@ -314,6 +327,9 @@ export const services: Service[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954829/1_nhg6zd.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954832/7_s2afvw.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954838/11_ujpd39.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_01_10_34_PM_rzvbnb.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_03_41_51_PM_uwxoch.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232086/Gemini_Generated_Image_efp008efp008efp0_ne3rtw.png",
     ],
 
     process: [
