@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682126/Taj_Gateway_Goa_Thumbnail_1_zisznu.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788684887/extra_1_toal6p.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/7_isinun.png",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964219/goa_a174sa.png",
@@ -81,28 +81,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683880/13_oo4hay.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230853/8_zmkjni.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683880/14_y1ckgg.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/10_sa37kw.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1785493726/08_Spa_01_nifcl7.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/5_ebsoxr.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683881/8e_tg6pmp.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230846/23_xx2p0v.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683882/8_zu2xnu.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/46_uybtg5.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683880/9_onnxnf.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/Gemini_Generated_Image_7j7iib7j7iib7j7i_txauxv.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788683880/12_keujkb.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230855/LOBBY_1_11_2_jhi1ga.jpg",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682126/Taj_Gateway_Goa_Thumbnail_1_zisznu.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/41_qersam.png",
 
   
 ],
@@ -385,7 +385,7 @@ export const projects: Project[] = [
     designStyle: "Venetian Luxury",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682220/coimbatore_Mansion_1_gt0y0l.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230573/144_1_ugdsyf.png",
 
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g19_avfb4d.png",

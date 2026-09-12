@@ -230,7 +230,7 @@ scrub: 0.8,
         "
       >
         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788680982/founders_2_yr0toi.png"
+          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230573/founders_3_uoxqfc.png"
           alt="MOSU Founders"
           fill
           priority
