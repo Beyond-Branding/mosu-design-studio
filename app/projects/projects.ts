@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682126/Taj_Gateway_Goa_Thumbnail_1_zisznu.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/7_isinun.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361961/12_1_1_kfhdln.png",
 
     mapImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964219/goa_a174sa.png",
@@ -81,28 +81,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230853/8_zmkjni.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361963/18_1_xtbun7.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/10_sa37kw.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230853/8_zmkjni.png",
 
   // 03 — Challenge
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/5_ebsoxr.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230846/23_xx2p0v.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361962/11_1_1_f6l6x2.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/46_uybtg5.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362259/WhatsApp_Image_2026-09-12_at_21.32.33_t06eph.jpg",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/Gemini_Generated_Image_7j7iib7j7iib7j7i_txauxv.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/7_isinun.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230855/LOBBY_1_11_2_jhi1ga.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362260/WhatsApp_Image_2026-09-12_at_21.32.24_o2pvdc.jpg",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230852/41_qersam.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230858/room_kyqbn2.png",
 
   
 ],
