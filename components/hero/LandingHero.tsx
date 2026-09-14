@@ -144,7 +144,7 @@ export default function LandingHero() {
               lg:text-[14px]
             "
           >
-            76 HAZRA
+            TAJ GATEWAY PALOLEM
           </p>
         </div>
       </div>
