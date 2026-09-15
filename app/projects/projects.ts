@@ -71,7 +71,7 @@ export const projects: Project[] = [
       "To create a distinctive artistic identity for a coastal resort in South Goa, carrying the character of its beaches, landscape and local culture through the property.",
 
     concept:
-      "The sea became the thread that connects the project, moving from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
+      "The sea became the thread that connects the project,from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
 
     execution:
       "Hand-cut glass mosaic artworks, layered birchwood wall installations, blown-glass fish sculptures, sculptural mirrors, surfboard installations, room signage, large-scale wall art and handmade glass chandeliers.",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456411/room_lx7lct.png",
 
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456582/9_2_ctaupp.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456579/11_2_wjeo8m.png",
+  
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456413/Gemini_Generated_Image_7j7iib7j7iib7j7i_hsf3ap.png",
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456410/28_od8vop.png",
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456409/50_jf81xq.png",
@@ -388,7 +388,7 @@ export const projects: Project[] = [
     designStyle: "Venetian Luxury",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230573/144_1_ugdsyf.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789468382/coimbatore_ytuice.png",
 
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g19_avfb4d.png",
