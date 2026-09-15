@@ -580,9 +580,9 @@ export default function ProjectDetailPage({ params }: Props) {
 
                 <div>
                   {project.description && (
-                    <p className="max-w-[1000px] text-[clamp(1.8rem,3.5vw,4rem)] font-light leading-[1.02] tracking-[-0.04em]">
-                      {project.description}
-                    </p>
+                    <p className="max-w-[1000px] text-[clamp(1.4rem,2.5vw,3rem)] font-light leading-[1.08] tracking-[-0.03em]">
+  {project.description}
+</p>
                   )}
 
                   {project.awards && (
@@ -620,14 +620,27 @@ export default function ProjectDetailPage({ params }: Props) {
       flex-col
       items-center
       justify-center
-      px-6
+      px-5
       text-center
       -translate-y-[2vh]
-    "
+      sm:px-8
+      lg:px-12
+  "
   >
     {/* LABEL */}
 
-    <p className="mb-5 text-[11px] font-normal uppercase tracking-[0.02em] text-white/70">
+    <p
+      className="
+        mb-6
+        text-[10px]
+        font-normal
+        uppercase
+        tracking-[0.04em]
+        text-white/70
+        sm:mb-7
+        sm:text-[11px]
+      "
+    >
       Concept
     </p>
 
@@ -636,21 +649,25 @@ export default function ProjectDetailPage({ params }: Props) {
     <div
       className="
         relative
+        flex
         w-full
-        max-w-[1250px]
-        min-h-[clamp(140px,16vw,220px)]
-        overflow-hidden
+        max-w-[1400px]
+        items-center
+        justify-center
+        overflow-visible
       "
     >
-      {conceptLines.map((line) => (
+      {conceptLines.map((line, lineIndex) => (
         <div
-          key={line}
+          key={`${line}-${lineIndex}`}
           className="
             concept-editorial-line
             absolute
-            inset-0
+            inset-x-0
+            top-1/2
             flex
             w-full
+            -translate-y-1/2
             items-center
             justify-center
           "
@@ -658,25 +675,34 @@ export default function ProjectDetailPage({ params }: Props) {
           <h2
             className="
               mx-auto
+              flex
               w-full
               max-w-[1250px]
+              flex-wrap
+              items-center
+              justify-center
               text-center
               font-semibold
               uppercase
-              leading-[0.94]
-              tracking-[0.015em]
+              leading-[1.02]
+              tracking-[0.005em]
               text-white
-              text-[clamp(2.4rem,5vw,4.8rem)]
+              text-[clamp(1.7rem,3.4vw,3.8rem)]
+              sm:text-[clamp(2rem,3.6vw,3.8rem)]
             "
             style={{
-              fontWeight: 550,
-              wordSpacing: "0.08em",
+              fontWeight: 560,
+              wordSpacing: "0.04em",
             }}
           >
             {Array.from(line).map((char, charIndex) => (
               <span
                 key={`${line}-${charIndex}`}
-                className="concept-char inline-block"
+                className="
+                  concept-char
+                  inline-block
+                  whitespace-pre
+                "
               >
                 {char === " " ? "\u00A0" : char}
               </span>
@@ -685,25 +711,36 @@ export default function ProjectDetailPage({ params }: Props) {
         </div>
       ))}
 
-      {/* Invisible spacer */}
+      {/* Invisible spacer
+          Keeps the concept area tall enough
+          without affecting the visible text.
+      */}
 
-      <h2
+      <div
         aria-hidden="true"
         className="
-          mx-auto
+          invisible
+          flex
           w-full
           max-w-[1250px]
-          invisible
+          flex-wrap
+          items-center
+          justify-center
           text-center
-          font-semibold
-          uppercase
-          leading-[0.94]
-          tracking-[0.015em]
-          text-[clamp(2.4rem,5vw,4.8rem)]
+          text-[clamp(1.7rem,3.4vw,3.8rem)]
+          leading-[1.02]
+          sm:text-[clamp(2rem,3.6vw,3.8rem)]
         "
       >
-        {conceptLines[0]}
-      </h2>
+        {Array.from(conceptLines[0]).map((char, index) => (
+          <span
+            key={`spacer-${index}`}
+            className="inline-block whitespace-pre"
+          >
+            {char === " " ? "\u00A0" : char}
+          </span>
+        ))}
+      </div>
     </div>
 
     {/* BRIEF */}
@@ -711,15 +748,19 @@ export default function ProjectDetailPage({ params }: Props) {
     {project.brief && (
       <p
         className="
-          mt-5
+          mt-7
+          w-full
           max-w-[650px]
+          px-2
           text-center
-          text-[10px]
+          text-[9px]
           font-normal
           uppercase
           leading-[1.5]
-          tracking-[0.02em]
+          tracking-[0.025em]
           text-white/55
+          sm:mt-8
+          sm:text-[10px]
         "
       >
         {project.brief}
