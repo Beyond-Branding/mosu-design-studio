@@ -48,29 +48,29 @@ export default function ContactCities() {
                   {city.name}
                 </h2>
 
-                {/* City Details */}
-                <div
-                  className={`
-                    overflow-hidden
-                    transition-all
-                    duration-500
+               {/* City Details */}
+{city.phone && (
+  <div
+    className={`
+      overflow-hidden
+      transition-all
+      duration-500
 
-                    ${
-                      hovered === city.id
-                        ? "mt-3 max-h-40 opacity-100"
-                        : "max-h-0 opacity-0"
-                    }
-                  `}
-                >
-                  <div className="space-y-2">
-
-                    <p className="text-xs text-white/70 sm:text-sm">
-                      <span className="font-bold text-white">P.</span>{" "}
-                      {city.phone}
-                    </p>
-
-                  </div>
-                </div>
+      ${
+        hovered === city.id
+          ? "mt-3 max-h-40 opacity-100"
+          : "max-h-0 opacity-0"
+      }
+    `}
+  >
+    <div className="space-y-2">
+      <p className="text-xs text-white/70 sm:text-sm">
+        <span className="font-bold text-white">P.</span>{" "}
+        {city.phone}
+      </p>
+    </div>
+  </div>
+)}
 
               </div>
             </div>

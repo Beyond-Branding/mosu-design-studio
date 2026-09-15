@@ -56,7 +56,7 @@ export const projects: Project[] = [
     designStyle: "Coastal Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682126/Taj_Gateway_Goa_Thumbnail_1_zisznu.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456397/7_puejyx.png",
 
     heroImage:
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361961/12_1_1_kfhdln.png",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     challenge:
       "Creating a cohesive artistic identity while allowing each artwork to respond to the coastal character of South Goa required a varied approach to materials, scale and visual language.",
 
-    gallery: [
+   gallery: [
   // 01 — Main
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361963/18_1_xtbun7.png",
 
@@ -90,21 +90,24 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/5_ebsoxr.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361962/11_1_1_f6l6x2.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456399/41_f4ygka.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362259/WhatsApp_Image_2026-09-12_at_21.32.33_t06eph.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456393/LOBBY_1_7_1_lryp4c.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/7_isinun.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456411/room_lx7lct.png",
 
-  // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362260/WhatsApp_Image_2026-09-12_at_21.32.24_o2pvdc.jpg",
-
-  // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230858/room_kyqbn2.png",
-
-  
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456582/9_2_ctaupp.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456579/11_2_wjeo8m.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456413/Gemini_Generated_Image_7j7iib7j7iib7j7i_hsf3ap.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456410/28_od8vop.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456409/50_jf81xq.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456403/LOBBY_1_11_2_kw5iel.jpg",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456403/46_kxmu0l.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456392/10_cev1hb.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456391/23_ytymoq.png",
+  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456385/39_3_q3fnaq.png",
 ],
   },
 

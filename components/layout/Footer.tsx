@@ -4,10 +4,7 @@ import Link from "next/link";
 import {
   FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
-  FaPinterestP,
-  FaTiktok,
+ 
 } from "react-icons/fa6";
 
 export default function Footer() {
@@ -37,11 +34,7 @@ export default function Footer() {
               icon={<FaInstagram size={14} />}
             />
 
-            <SocialIcon
-              href="https://youtube.com"
-              label="YouTube"
-              icon={<FaYoutube size={14} />}
-            />
+          
 
             <SocialIcon
               href="https://facebook.com"
@@ -49,23 +42,7 @@ export default function Footer() {
               icon={<FaFacebookF size={14} />}
             />
 
-            <SocialIcon
-              href="https://linkedin.com"
-              label="LinkedIn"
-              icon={<FaLinkedinIn size={14} />}
-            />
-
-            <SocialIcon
-              href="https://pinterest.com"
-              label="Pinterest"
-              icon={<FaPinterestP size={14} />}
-            />
-
-            <SocialIcon
-              href="https://tiktok.com"
-              label="TikTok"
-              icon={<FaTiktok size={14} />}
-            />
+          
 
           </div>
         </div>
