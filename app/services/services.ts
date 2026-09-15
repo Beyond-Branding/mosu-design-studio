@@ -350,9 +350,11 @@ export const services: Service[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954832/7_s2afvw.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954838/11_ujpd39.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_01_10_34_PM_rzvbnb.png",
+      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_03_41_51_PM_uwxoch.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232086/Gemini_Generated_Image_efp008efp008efp0_ne3rtw.png",
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954834/12_fhhmqk.png",
+      
     ],
 
     process: [
