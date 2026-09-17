@@ -149,7 +149,7 @@ export default function FlipSection() {
                 text-white/60
               "
             >
-              SINCE 2015
+              01 — BESPOKE BY NATURE
             </p>
 
             {/* Heading */}
@@ -164,9 +164,9 @@ export default function FlipSection() {
                 lg:text-5xl
               "
             >
-              Designing
+              Bespoke
               <br />
-              Timeless Spaces
+              by Nature
             </h2>
 
             {/* Description */}
@@ -179,85 +179,13 @@ export default function FlipSection() {
                 text-white/75
               "
             >
-              MOSU is an internationally recognised architecture and
-              interior design studio creating luxury residences,
-              hospitality destinations and bespoke commercial spaces
-              where craftsmanship, innovation and timeless elegance
-              come together.
+              Every piece is conceived for a specific space, story and
+              purpose. From art installations and mirrors to lighting,
+              furniture and sculptural elements, nothing feels generic
+              or off-the-shelf.
             </p>
-
-            {/* Stats */}
-            <div
-              className="
-                mt-8
-                grid
-                grid-cols-3
-                gap-4
-                border-t
-                border-white/20
-                pt-6
-              "
-            >
-              <div>
-                <h3 className="text-2xl font-black text-white sm:text-3xl">
-                  100+
-                </h3>
-
-                <p
-                  className="
-                    mt-1
-                    text-[10px]
-                    uppercase
-                    tracking-[0.2em]
-                    text-white/60
-                    sm:text-xs
-                  "
-                >
-                  Projects
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-black text-white sm:text-3xl">
-                  15+
-                </h3>
-
-                <p
-                  className="
-                    mt-1
-                    text-[10px]
-                    uppercase
-                    tracking-[0.2em]
-                    text-white/60
-                    sm:text-xs
-                  "
-                >
-                  Cities
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-black text-white sm:text-2xl">
-                  Global
-                </h3>
-
-                <p
-                  className="
-                    mt-1
-                    text-[10px]
-                    uppercase
-                    tracking-[0.2em]
-                    text-white/60
-                    sm:text-xs
-                  "
-                >
-                  Presence
-                </p>
-              </div>
-            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

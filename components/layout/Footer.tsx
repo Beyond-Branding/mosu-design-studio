@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="mt-8 flex items-center justify-center gap-3">
 
             <SocialIcon
-              href="https://instagram.com"
+              href="https://www.instagram.com/mosudesignstudio/"
               label="Instagram"
               icon={<FaInstagram size={14} />}
             />
