@@ -56,13 +56,13 @@ export const projects: Project[] = [
     designStyle: "Coastal Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456397/7_puejyx.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643484/7.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361961/12_1_1_kfhdln.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643287/18.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964219/goa_a174sa.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644201/goa.png",
 
     description:
       "A distinctive artistic identity for a coastal resort in South Goa, inspired by the beaches, landscape and local culture of Palolem.",
@@ -81,33 +81,33 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789361963/18_1_xtbun7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643541/18_1.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230853/8_zmkjni.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643284/9.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230848/5_ebsoxr.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642071/5_7.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456399/41_f4ygka.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643277/13.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456393/LOBBY_1_7_1_lryp4c.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643461/LOBBY_1_7_1.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456411/room_lx7lct.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643490/room.png",
 
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456582/9_2_ctaupp.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643599/Taj_Gateway_Goa_Thumbnail_1.png",
   
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456413/Gemini_Generated_Image_7j7iib7j7iib7j7i_hsf3ap.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456410/28_od8vop.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456409/50_jf81xq.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456403/LOBBY_1_11_2_kw5iel.jpg",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456403/46_kxmu0l.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456392/10_cev1hb.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456391/23_ytymoq.png",
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789456385/39_3_q3fnaq.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643293/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643499/28.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643501/50.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643495/LOBBY_1_11_2.jpg",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643494/46.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643490/10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642317/2a.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643486/39_3.png",
 ],
   },
 
@@ -126,13 +126,13 @@ export const projects: Project[] = [
     designStyle: "Organic Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681139/Hyatt_Regency_d4r1yj.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643618/Hyatt_Regency.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935247/2_mr592n.webp",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645158/2.webp",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964215/uttrakhand_yow720.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644200/uttrakhand.png",
 
     description:
       "A quieter artistic language inspired by the natural character of Dehradun, complementing the warmth of the architecture through organic textures and botanical forms.",
@@ -151,28 +151,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935247/9_lijci3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645089/9.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935250/1_rkxewg.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643618/Hyatt_Regency.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/6_vzql3r.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645118/6.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935245/5_uwy2ns.webp",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645120/5.webp",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/8_i2m3oj.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645091/8.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935253/3_o0avre.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645156/3.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935357/4_1_wtwyuw.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645442/4_1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788935251/7_xrrtkr.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645090/7.png",
 ],
   },
 
@@ -191,15 +191,15 @@ export const projects: Project[] = [
     designStyle: "Traditional Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682208/my_home_tirumala_1_xjt7ug.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643595/my_home_tirumala_1.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937468/c2_f40xr4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643160/11.png",
 
 
       
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964221/andhra_pradesh_by1y56.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
 
     description:
       "A contemporary guest house enriched with traditional iconography and Kalamkari, creating a cultural identity that feels rooted yet contemporary.",
@@ -218,28 +218,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937450/c4_kbp4hh.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643151/17.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c5_bh8gum.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645833/5.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937459/c7_zdspwd.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645843/7.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c10_niabdx.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645870/10.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937449/c8_d1zele.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645868/9.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937448/c9_jv0s2e.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645866/8.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937467/c1_jajbug.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645804/1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937464/c3_gfn4gl.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645805/3.png",
 ],
   },
 
@@ -259,12 +259,12 @@ export const projects: Project[] = [
     designStyle: "Contemporary Eclectic",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681130/76_Hazra_2_ywicuh.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643615/76_Hazra_2.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937861/d6_slrwcd.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643163/21.png",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964212/west_bengal_iqluhu.png",
+    mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/west_bengal.png",
 
     description:
       "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
@@ -283,28 +283,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937873/d1_wqcxvp.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643615/76_Hazra_2.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937857/d11_vlsthd.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646386/11.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937870/d2_p9dl1s.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646253/2.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937854/d10_mqhl2p.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646379/10a.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937862/d7_xz4j8s.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646370/7a.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937863/7b_kggjok.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646373/7b.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937853/d9_ndm93u.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646376/9.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788937853/10c_hzlcqz.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646383/10c.png",
 ],
   },
 
@@ -323,13 +323,13 @@ export const projects: Project[] = [
     designStyle: "Eclectic Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681130/Guntur_Project_pefzpv.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643612/Guntur_Project.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939060/e1_cgxabw.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643612/Guntur_Project.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964221/andhra_pradesh_by1y56.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
 
     description:
       "An extensive art collection for a vibrant four-storey residence, allowing individual rooms and passages to develop their own visual identities.",
@@ -348,28 +348,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939050/e14_lwwavq.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642311/32.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939048/e10_nfuk0l.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656148/10.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939050/e9_e5ccyr.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656149/9.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939049/e12_hksy7j.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656147/12.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939047/e13_inqnxh.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642981/1_2.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939058/e3_c4zc5u.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656161/3.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939057/e2_hcxbh3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656162/2.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939052/e6_bolxgz.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656151/6.png",
 ],
   },
 
@@ -388,13 +388,13 @@ export const projects: Project[] = [
     designStyle: "Venetian Luxury",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789468382/coimbatore_ytuice.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643575/coimbatore.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g19_avfb4d.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643192/59.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964216/TAMIL_NADU_kfyeaz.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
 
     description:
       "A Venetian-style mansion defined by scale, ornament and craftsmanship, using reflection and light to create a sense of grandeur.",
@@ -413,28 +413,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g7_xpwbef.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656762/7.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940053/g10_tiwioc.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656741/10.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940046/g17_jd2ety.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656730/17.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940052/g11_ynjici.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656739/11.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g5_sqgnjb.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656750/5.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940058/g4_ny9ryg.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656752/4.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940050/g12_kmgmbh.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656737/12.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940056/g14_kcp1l5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656735/13.png",
 ],
   },
 
@@ -453,12 +453,12 @@ export const projects: Project[] = [
     designStyle: "Contemporary Art",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681137/Biyani_i69drt.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643601/Biyani.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940535/h2_cz8ffb.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657415/2.png",
 
-    mapImage: "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964211/MUMBAI_zjktpr.png",
+    mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/MUMBAI.png",
 
     description:
       "A warm and understated residence enriched with contemporary artistic interventions built around line, texture and movement.",
@@ -477,28 +477,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940958/h6_1_ymt0hv.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657372/6_1.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940534/h1_thgagc.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657193/1.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940520/h4_vycxgz.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657187/4.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940519/h3_yo5hmd.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657189/3.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940518/h8_vguvx8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657183/8.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h5_1_wahfn4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657377/9_3.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h7_1_trmeyu.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657374/7_1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940959/h9_1_zgr4ae.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657369/5_1.png",
 ],
   },
 
@@ -517,13 +517,13 @@ export const projects: Project[] = [
     designStyle: "Organic Contemporary",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681129/Salem_vrxfno.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643600/Salem.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939537/f7_h0r82u.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657756/7.png",
 
     mapImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788964216/TAMIL_NADU_kfyeaz.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
 
     description:
       "A varied collection of statement pieces where art becomes part of the architecture through layered wood, sculptural forms, ceramic compositions and bespoke lighting.",
@@ -542,31 +542,30 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939562/f2_zpazsb.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657733/2.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f8_zlwpdg.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657751/8.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939563/f3_o8smgh.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657739/3.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939529/f6_d5rg0p.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657745/6.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f10_yj8f8q.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657758/10.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939530/f5_beot1q.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657743/5.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939528/f9a_hauoly.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657752/9_option_2.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939561/f4_caza7u.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657739/4.png",
 
-  // 08 — Grid
-  "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939564/f1_pceped.png",
+  
 ],
   },
 ];

@@ -38,26 +38,20 @@ export default function AboutSection() {
        */
 
       if (isMobile) {
-        // Mobile:
-        // Image is full screen
         gsap.set(image, {
           width: "100%",
         });
 
-        // Dark panel covers the screen
         gsap.set(panel, {
           left: 0,
           width: "100%",
           xPercent: 0,
         });
       } else {
-        // Desktop:
-        // Image starts at 50%
         gsap.set(image, {
           width: "50%",
         });
 
-        // Panel starts at 50%
         gsap.set(panel, {
           left: "50%",
           width: "50%",
@@ -65,13 +59,11 @@ export default function AboutSection() {
         });
       }
 
-      // Text hidden
       gsap.set(textElements, {
         opacity: 0,
         y: 30,
       });
 
-      // Names hidden
       gsap.set([founder, director], {
         opacity: 0,
         y: 25,
@@ -84,16 +76,16 @@ export default function AboutSection() {
        */
 
       const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: section,
-    start: "top top",
-    end: isMobile ? "+=1800" : "+=2800",
-scrub: 0.8,
-    pin: true,
-    anticipatePin: 1,
-    invalidateOnRefresh: true,
-  },
-});
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: isMobile ? "+=1800" : "+=2800",
+          scrub: 0.8,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
       /*
        * ==========================================
@@ -126,16 +118,16 @@ scrub: 0.8,
        */
 
       if (!isMobile) {
-  tl.to(
-    image,
-    {
-      width: "100%",
-      duration: 3,
-      ease: "power1.inOut",
-    },
-    "<"
-  );
-}
+        tl.to(
+          image,
+          {
+            width: "100%",
+            duration: 3,
+            ease: "power1.inOut",
+          },
+          "<"
+        );
+      }
 
       /*
        * ==========================================
@@ -144,14 +136,14 @@ scrub: 0.8,
        */
 
       tl.to(
-  panel,
-  {
-    xPercent: 100,
-    duration: isMobile ? 2 : 3,
-    ease: "power1.inOut",
-  },
-  "<"
-);
+        panel,
+        {
+          xPercent: 100,
+          duration: isMobile ? 2 : 3,
+          ease: "power1.inOut",
+        },
+        "<"
+      );
 
       /*
        * ==========================================
@@ -204,17 +196,17 @@ scrub: 0.8,
   }, []);
 
   return (
-   <section
-  ref={sectionRef}
-  className="
-    relative
-    h-screen
-    min-h-[650px]
-    w-full
-    overflow-hidden
-    bg-[#242323]
-  "
->
+    <section
+      ref={sectionRef}
+      className="
+        relative
+        h-screen
+        min-h-[650px]
+        w-full
+        overflow-hidden
+        bg-[#242323]
+      "
+    >
       {/* =====================================================
           IMAGE
       ===================================================== */}
@@ -230,7 +222,7 @@ scrub: 0.8,
         "
       >
         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1789230573/founders_3_uoxqfc.png"
+          src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642206/founders_3.png"
           alt="MOSU Founders"
           fill
           priority
@@ -390,23 +382,23 @@ scrub: 0.8,
           DARK PANEL
       ===================================================== */}
 
-     <div
-  ref={panelRef}
-  className="
-    absolute
-    inset-y-0
-    left-0
-    z-30
-    flex
-    w-full
-    items-center
-    bg-[#242323]
-    text-white
+      <div
+        ref={panelRef}
+        className="
+          absolute
+          inset-y-0
+          left-0
+          z-30
+          flex
+          w-full
+          items-center
+          bg-[#242323]
+          text-white
 
-    md:left-1/2
-    md:w-1/2
-  "
->
+          md:left-1/2
+          md:w-1/2
+        "
+      >
         <div
           className="
             w-full
@@ -491,8 +483,12 @@ scrub: 0.8,
                 lg:leading-[1.8]
               "
             >
-              At MOSU, we create architecture, interiors and bespoke design
-              that balances timeless aesthetics with purposeful functionality.
+              For Pawan Sundriyal and Shreya Chakraborty, that belief became
+              MOSU, born from a shared instinct to create with intention and
+              shaped by curiosity, experimentation and an enduring sensitivity
+              to craft. Today, that instinct takes form through bespoke art,
+              sculptural objects and architectural elements, each considered
+              in relation to the space it belongs to.
             </p>
 
             <p
@@ -511,38 +507,10 @@ scrub: 0.8,
                 lg:leading-[1.8]
               "
             >
-              Every proportion, material and detail is carefully considered to
-              shape spaces that feel calm, elegant and enduring.
-            </p>
-
-            {/* FINAL STATEMENT */}
-
-            <p
-              className="
-                about-reveal
-                max-w-[700px]
-                pt-2
-
-                text-[18px]
-                font-light
-                leading-[1.35]
-                tracking-[-0.02em]
-
-                sm:pt-4
-                sm:text-[21px]
-                sm:leading-[1.45]
-
-                md:text-[24px]
-
-                lg:text-[28px]
-              "
-            >
-              We don't simply design spaces.
-              <br />
-
-              <span className="font-medium">
-                We create experiences people remember.
-              </span>
+              The name brings together MO, the moon, and SU, the sun, two
+              contrasting forces that came to embody a quiet philosophy of
+              harmony, duality and balance, which continues to sit at the heart
+              of the studio.
             </p>
 
             {/* BUTTON */}
