@@ -23,7 +23,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362892/14_oftxjf.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362911/5_uhcung.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789658618/5_8_1.png",
 
     subtitle: "Art that transforms spaces.",
 
