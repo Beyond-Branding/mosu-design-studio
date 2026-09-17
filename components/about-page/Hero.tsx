@@ -177,9 +177,7 @@ export default function AboutHero() {
             break-words
           "
         >
-          MOSU is a globally operating architecture and design studio
-          crafting luxury residential, hospitality, and commercial spaces
-          with timeless design language and meticulous attention to detail.
+          MOSU is a Bombay-based creative studio crafting bespoke art, sculptural objects and architectural elements for luxury residences, hotels and resorts, with a distinctive sensitivity to material, craft and detail.
         </p>
       </div>
     </section>

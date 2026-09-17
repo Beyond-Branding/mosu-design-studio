@@ -82,7 +82,7 @@ export default function LandingHero() {
         "
       >
         <Image
-          src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1788681009/5_7_qk0zj9.png"
+          src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642071/5_7.png"
           alt="MOSU Hero"
           fill
           priority
