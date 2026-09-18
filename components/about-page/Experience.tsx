@@ -87,80 +87,57 @@ export default function Experience() {
           <div
             className="
               absolute
+              inset-0
               z-20
+              flex
+              flex-col
+              justify-end
+              p-6
+              sm:p-8
+              lg:p-10
               text-white
-
-              left-6
-              right-6
-              bottom-12
-
-              sm:left-10
-              sm:right-10
-              sm:bottom-16
-
-              md:left-14
-              md:right-20
-              md:bottom-20
-
-              lg:left-20
-              lg:right-auto
-              lg:top-1/2
-              lg:bottom-auto
-              lg:-translate-y-1/2
-              lg:max-w-xl
-
-              xl:left-24
-              xl:max-w-2xl
             "
           >
-            {/* TITLE */}
-            <h2
-              className="
-                font-medium
-                uppercase
-                leading-[0.95]
-                tracking-[-0.03em]
-                text-white
-
-                text-3xl
-                sm:text-4xl
-                md:text-5xl
-                lg:text-6xl
-                xl:text-7xl
-              "
-            >
-              {item.title}
-            </h2>
-
             {/* SUBTITLE */}
-            <h3
+            <p
               className="
-                mt-3
+                mb-3
+                text-[11px]
+                sm:text-xs
                 uppercase
-                tracking-[0.2em]
-                text-white/80
-
-                text-base
-                sm:text-lg
-                md:text-xl
-                lg:text-2xl
+                tracking-[0.35em]
+                text-white/60
               "
             >
               {item.subtitle}
-            </h3>
+            </p>
 
+            {/* TITLE */}
+           <h2
+  className="
+    font-black
+    uppercase
+    leading-none
+    tracking-[-0.03em]
+    text-white
+    text-5xl
+    sm:text-6xl
+    lg:text-7xl
+  "
+>
+  {item.title}
+  <br />
+  {item.titleLine2}
+</h2>
             {/* DESCRIPTION */}
             <p
               className="
-                mt-5
+                mt-6
                 max-w-lg
-                leading-6
-                text-white/65
-
                 text-sm
-                sm:text-[15px]
-                md:text-base
-                md:leading-7
+                sm:text-base
+                leading-relaxed
+                text-white/75
               "
             >
               {item.description}
