@@ -98,7 +98,7 @@ export default function Experience() {
               text-white
             "
           >
-            {/* SUBTITLE */}
+            {/* LABEL */}
             <p
               className="
                 mb-3
@@ -112,28 +112,28 @@ export default function Experience() {
               {item.subtitle}
             </p>
 
-            {/* TITLE */}
-           <h2
-  className="
-    font-black
-    uppercase
-    leading-none
-    tracking-[-0.03em]
-    text-white
-    text-5xl
-    sm:text-6xl
-    lg:text-7xl
-  "
->
-  {item.title}
-  <br />
-  {item.titleLine2}
-</h2>
+            {/* HEADING */}
+            <h2
+              className="
+                font-black
+                uppercase
+                leading-none
+                text-white
+                text-5xl
+                sm:text-6xl
+                lg:text-7xl
+              "
+            >
+              {item.title}
+              <br />
+              {item.titleLine2}
+            </h2>
+
             {/* DESCRIPTION */}
             <p
               className="
                 mt-6
-                max-w-lg
+                max-w-md
                 text-sm
                 sm:text-base
                 leading-relaxed
