@@ -149,7 +149,7 @@ export default function FlipSection() {
                 text-white/60
               "
             >
-              01 — BESPOKE BY NATURE
+              01 
             </p>
 
             {/* Heading */}
@@ -159,9 +159,9 @@ export default function FlipSection() {
                 uppercase
                 leading-none
                 text-white
-                text-3xl
-                sm:text-4xl
-                lg:text-5xl
+                text-5xl
+                sm:text-6xl
+                lg:text-7xl
               "
             >
               Bespoke
@@ -171,19 +171,19 @@ export default function FlipSection() {
 
             {/* Description */}
             <p
-              className="
-                mt-5
-                text-sm
-                sm:text-base
-                leading-relaxed
-                text-white/75
-              "
-            >
-              Every piece is conceived for a specific space, story and
-              purpose. From art installations and mirrors to lighting,
-              furniture and sculptural elements, nothing feels generic
-              or off-the-shelf.
-            </p>
+  className="
+    mt-6
+    max-w-md
+    text-sm
+    sm:text-base
+    leading-relaxed
+    text-white/75
+  "
+>
+  Every piece is conceived for a specific space, story and purpose. From
+  art installations and mirrors to lighting, furniture and sculptural
+  elements, nothing feels generic or off-the-shelf.
+</p>
           </div>
         </div>
       </div>
