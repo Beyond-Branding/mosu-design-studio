@@ -56,7 +56,7 @@ export const projects: Project[] = [
     designStyle: "Coastal Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789710087/7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711336/8.png",
 
     heroImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643535/12_1_1.png",
