@@ -20,10 +20,10 @@ export const services: Service[] = [
     slug: "art-installations",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362892/14_oftxjf.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711354/14.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789658618/5_8_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711374/5.png",
 
     subtitle: "Art that transforms spaces.",
 
@@ -31,44 +31,46 @@ export const services: Service[] = [
       "We create distinctive art installations that bring character, emotion and identity to interiors.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362911/24_vh3uhi.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362909/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1_ukgshg.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362908/35_wxhjya.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362907/33_uta3fp.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362906/20_fal69v.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362905/9_ofxwhk.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362906/23_vfvyna.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362906/18_uwcll6.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362905/15_vj57ho.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362905/1._mosaic_srdlxp.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362905/19_zmeebx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362904/2b_d9ceaq.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231352/11_mqorfb.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362902/16_vmnype.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362902/13_paq0lu.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362901/6_kz2mgy.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362900/32_kuqc2g.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362900/3_pwenm8.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789464378/Screenshot_2026-09-15_145534_uzvxvx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362899/1f_wygynm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362899/63_fpezsr.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362898/38_lfxbm7.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362898/carousel-2_05_onv9i8.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362898/carousel-2_03_k0pdib.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362896/37_wwz9br.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362896/40_b3dbcw.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362895/7_zt0hsf.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362895/30_syyjsr.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362895/34_nsrlba.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362894/26_cwnoyp.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362894/31_xy676d.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362893/36_baiv3l.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362893/25_upries.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362892/14_oftxjf.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362891/8_o21jln.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789362890/4_c2k2z6.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231361/3b_nnb5g9.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231360/12_rvd7y5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711361/3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711361/6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711392/19.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789717723/9_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789717726/29.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789717737/28.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789717725/01.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711374/13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711374/5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711374/15.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711371/9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711367/16.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711361/6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711358/37.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711356/4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711354/14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711346/36.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711336/8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711326/7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643293/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643290/24.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643287/18.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643287/20.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643269/carousel-2_05.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643268/carousel-2_03.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643176/63.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642981/1_2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642369/35.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642368/33.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642353/1._mosaic.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642350/2b.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642347/38.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642337/40.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642332/1f.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642324/31.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642311/32.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642307/34.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642304/30.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642303/17a.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642289/25.png",
      
       
     ],
@@ -94,10 +96,10 @@ export const services: Service[] = [
     slug: "wall-arts",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953882/4_ri30fm.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718393/4.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953864/19_x8fk11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718397/19.png",
 
     subtitle: "Walls with a story.",
 
@@ -105,45 +107,46 @@ export const services: Service[] = [
       "Statement wall art designed to add depth, personality and visual interest to spaces.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953893/56_w7btew.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953888/18_ygdj9r.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953885/12_jx1hpv.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953859/1_uj0wbn.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953887/16_xis2ql.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953892/51_qrdnrc.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953884/8_gh00gk.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953877/62_mwt8fs.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953869/24_dqunoe.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953867/21_uszy2o.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953868/23_qodvbm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953872/52_g4aimv.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953876/57_dzqllm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953882/4_ri30fm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953871/49_hi68b6.webp",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953870/28_pe2r7r.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953890/22_acvv3p.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953896/61_ianh5f.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953891/48_jp5njx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953861/9_xsimzu.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953883/5_ccxwex.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953853/17_ln4vj6.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953866/20_yijvlc.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953886/13_xsm66c.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953854/15_j2msih.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953849/6_y0d84q.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953874/53_szr0k5.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953864/19_x8fk11.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953861/60_wo5x5b.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939528/f9a_hauoly.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789464523/Screenshot_2026-09-15_145813_rg9wmv.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953874/55_ubafpy.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953881/2_lpuc0v.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939055/e4_ejjq97.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788939057/e2_hcxbh3.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953852/14_zetqwr.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789464725/25_1_asgtdk.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789464728/26_1_xrbabs.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953856/50_yqzoh3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643192/59.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643187/22.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718415/13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718416/14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718414/12.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718414/9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718412/2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643175/62.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643157/60.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643193/61.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643172/53.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643173/57.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643191/56.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643172/55.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718401/23.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643188/48.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718398/21.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643189/51.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718397/19.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643167/49.webp",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718393/4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718392/16.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718390/10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718389/5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718388/28.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718387/50.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643169/52.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643148/54.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718364/24.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718356/11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718356/15.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718355/17.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718354/8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718355/18.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718351/6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718350/1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718349/7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789718347/20.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719563/25_2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719563/26_2.png",
     ],
 
     process: [
@@ -167,10 +170,10 @@ export const services: Service[] = [
     slug: "sculptures",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/4_nhli7q.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s3.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952538/10_isqyop.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723331/s10.png",
 
     subtitle: "Form meets expression.",
 
@@ -178,24 +181,27 @@ export const services: Service[] = [
       "Sculptural pieces created to become powerful focal points within a space.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952546/9_kehqly.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952537/12_rawpcc.webp",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952537/6_jsviba.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/2_moreyx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952538/8_qlaf2h.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952539/11_bjw3h8.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952541/7_oqo5vo.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/4_nhli7q.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/1_eevopr.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952536/5_pfkgek.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788952540/3_dedj7o.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231800/ChatGPT_Image_Jul_11_2026_11_55_25_AM_hncfig.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231800/ChatGPT_Image_Jul_11_2026_04_06_32_PM_blqvum.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231834/ChatGPT_Image_Jul_11_2026_11_57_11_AM_spq3v6.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231834/ChatGPT_Image_Jul_11_2026_11_59_14_AM_mwtksz.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_11_2026_12_10_03_PM_vyklxr.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_13_2026_11_17_56_AM_s5qwlp.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789231836/ChatGPT_Image_Jul_13_2026_11_13_53_AM_gwm3gn.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723345/s21.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723345/s19.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723345/s20.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723344/s18.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723340/s17.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s16.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s15.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723336/s14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723331/s10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723330/s13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723328/s1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723327/s8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723327/s12.webp",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723322/s5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723319/s6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723311/s2.png",
     ],
 
     process: [
@@ -219,10 +225,10 @@ export const services: Service[] = [
     slug: "lighting",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/14_ej69hd.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l14.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/15_fdao2k.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l13.png",
 
     subtitle: "Light as an experience.",
 
@@ -230,19 +236,20 @@ export const services: Service[] = [
       "Unique lighting pieces that combine function, atmosphere and artistic expression.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953484/e2_gsucrg.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953480/14_ej69hd.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953477/11_jskc4e.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953477/8_v2ugre.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953476/6_vhva8h.png",
-       "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953483/18_ksmtz1.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953482/17_nkc3jc.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953473/10_scvmlo.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953475/5_obcjgh.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788953471/4_oyzgfq.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789463985/1_lpto1y.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789463986/2_qvmvsy.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789463987/3_qs6sex.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719913/l18.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719911/l17.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719908/l19.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719906/l11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719904/l9_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719905/l15.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719902/l7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719899/l8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719899/l6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719896/l3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719895/l2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719894/l1.png",
     ],
 
     process: [
@@ -266,10 +273,10 @@ export const services: Service[] = [
     slug: "mirrors-chandeliers",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788940050/g12_kmgmbh.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720414/m3.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788682220/coimbatore_Mansion_1_gt0y0l.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720617/m1.png",
 
     subtitle: "Reflective statements.",
 
@@ -277,15 +284,20 @@ export const services: Service[] = [
       "Mirrors and chandeliers designed to create elegance, scale and visual drama.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954644/e13_dpare1.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954638/e10_yevqfm.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954635/6_waekgj.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954628/3_u8no31.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954633/5_riady7.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954639/e11_ypdwha.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954646/e14_aktgv3.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954641/e12_fgvv3i.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954633/4_zkeuqp.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720442/m7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720436/m14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720436/m13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720433/m12.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720429/m11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720424/m8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720421/m10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720417/m5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720416/m4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720414/m3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720413/m2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720413/m9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720410/m6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720617/m1.png",
     ],
 
     process: [
@@ -309,10 +321,10 @@ export const services: Service[] = [
     slug: "doors-partitions",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/5_prdj7v.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722313/d10.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/1_fwj2el.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d1.png",
 
     subtitle: "Architecture in detail.",
 
@@ -320,16 +332,17 @@ export const services: Service[] = [
       "Custom doors and partitions that combine craftsmanship, material and architectural character.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956455/6_mxaras.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/2_e1fned.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232283/ChatGPT_Image_Jul_17_2026_03_50_07_PM_qazwln.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/4_ff5kee.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232284/ChatGPT_Image_Jul_21_2026_01_36_35_PM_aitgmf.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232285/ChatGPT_Image_Jul_21_2026_02_20_07_PM_1_wi4whv.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/1_fwj2el.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956452/3_s7cbbk.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788956453/5_prdj7v.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232283/ChatGPT_Image_Jul_17_2026_03_47_47_PM_muv7x6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722313/d10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722308/d6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722305/d3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722305/d5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d4.png",
+      
       
       
     ],
@@ -355,10 +368,10 @@ export const services: Service[] = [
     slug: "metal-finishes",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954838/11_ujpd39.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721072/mt8.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721059/mt6.png",
 
     subtitle: "Material with character.",
 
@@ -366,17 +379,19 @@ export const services: Service[] = [
       "Specialized metal finishes that bring texture, depth and personality to interiors.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954835/9_coc3b4.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954830/6_nyuqu8.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954829/1_nhg6zd.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954832/7_s2afvw.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954838/11_ujpd39.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_01_10_34_PM_rzvbnb.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954833/8_krhjyx.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232069/ChatGPT_Image_Apr_30_2026_03_41_51_PM_uwxoch.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1789232086/Gemini_Generated_Image_efp008efp008efp0_ne3rtw.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788954834/12_fhhmqk.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721085/mt14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721072/mt8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721072/mt2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721070/mt4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721066/mt13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721065/mt12.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721064/mt11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721063/mt1.jpg",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721062/mt10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721059/mt7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721059/mt6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721057/mt3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721056/mt9.png",
       
     ],
 
@@ -401,10 +416,10 @@ export const services: Service[] = [
     slug: "furniture",
 
     image:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/7_ezndir.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722914/f1.png",
 
     heroImage:
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/5_hydj50.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722920/f5.png",
 
     subtitle: "Form, function and character.",
 
@@ -412,11 +427,14 @@ export const services: Service[] = [
       "Distinctive furniture pieces designed to bring comfort, functionality and character to every space.",
 
     gallery: [
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/5_hydj50.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958512/3_ybzysz.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/7_ezndir.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/6_aalmou.png",
-      "https://res.cloudinary.com/dcaiszxcb/image/upload/v1788958509/4_iatiho.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722925/f10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722921/f3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722921/f7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722921/f6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722920/f5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722919/f4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722916/f2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722914/f1.png",
     ],
 
     process: [
