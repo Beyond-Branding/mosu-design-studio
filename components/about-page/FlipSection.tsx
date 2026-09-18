@@ -114,7 +114,7 @@ export default function FlipSection() {
           "
         >
           <Image
-            src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789660128/title.png"
+            src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
             alt="MOSU"
             fill
             sizes="100vw"

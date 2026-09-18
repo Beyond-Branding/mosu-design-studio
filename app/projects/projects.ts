@@ -56,10 +56,10 @@ export const projects: Project[] = [
     designStyle: "Coastal Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789711336/8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734022/at12.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643535/12_1_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735061/t15.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644201/goa.png",
@@ -81,33 +81,33 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643541/18_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735061/t13.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643284/9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735057/t19.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642071/5_7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at1.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643277/13.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at16.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643461/LOBBY_1_7_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735046/t3.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643490/room.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735049/t1.png",
 
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643599/Taj_Gateway_Goa_Thumbnail_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735044/t2.jpg",
   
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643293/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643499/28.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643501/50.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643495/LOBBY_1_11_2.jpg",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643494/46.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643490/10.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642317/2a.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643486/39_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735045/t4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735051/t11_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735048/t6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735062/t17.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735042/t9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735050/t14.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734022/at12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/at18.png",
 ],
   },
 
@@ -126,10 +126,10 @@ export const projects: Project[] = [
     designStyle: "Organic Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643618/Hyatt_Regency.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738649/hy1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645158/2.webp",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738646/hy2.webp",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644200/uttrakhand.png",
@@ -151,28 +151,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645089/9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738627/hy6.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643618/Hyatt_Regency.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738634/hy9.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645118/6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738623/hy5.webp",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645120/5.webp",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738624/hy7.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645091/8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738633/hy3.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645156/3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738641/hy8.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645442/4_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738649/hy1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645090/7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738627/hy6.png",
 ],
   },
 
@@ -191,10 +191,10 @@ export const projects: Project[] = [
     designStyle: "Traditional Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643595/my_home_tirumala_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738374/my5.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643160/11.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738417/my9.png",
 
 
       
@@ -218,28 +218,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643151/17.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738391/my7.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645833/5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738375/my4.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645843/7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738376/my6.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645870/10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738419/my10.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645868/9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738413/my8.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645866/8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738369/my3.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645804/1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738289/my1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789645805/3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738292/my2.png",
 ],
   },
 
@@ -259,10 +259,10 @@ export const projects: Project[] = [
     designStyle: "Contemporary Eclectic",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643615/76_Hazra_2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737925/h1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643163/21.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737933/h5.png",
 
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/west_bengal.png",
 
@@ -283,28 +283,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643615/76_Hazra_2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737932/h2.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646386/11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737927/h3.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646253/2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737925/h1.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646379/10a.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737966/h12.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646370/7a.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737939/h7.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646373/7b.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737936/h6.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646376/9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737949/h11.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789646383/10c.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737943/h9.png",
 ],
   },
 
@@ -323,10 +323,10 @@ export const projects: Project[] = [
     designStyle: "Eclectic Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643612/Guntur_Project.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736852/g1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643612/Guntur_Project.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736852/g1.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
@@ -348,28 +348,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642311/32.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736987/g9.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656148/10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736989/g10.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656149/9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736998/g14.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656147/12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736956/g3png.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789642981/1_2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736853/g2.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656161/3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736960/g6.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656162/2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736995/g13.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656151/6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736956/g4.png",
 ],
   },
 
@@ -388,10 +388,10 @@ export const projects: Project[] = [
     designStyle: "Venetian Luxury",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643575/coimbatore.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736084/c0.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643192/59.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736115/c19.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
@@ -413,28 +413,28 @@ export const projects: Project[] = [
 
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656762/7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736095/c7.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656741/10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736096/c1.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656730/17.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736112/c17.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656739/11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736086/c3png.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656750/5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736093/c6.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656752/4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736097/c9.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656737/12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736103/c12.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789656735/13.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736112/c15.png",
 ],
   },
 
@@ -453,10 +453,10 @@ export const projects: Project[] = [
     designStyle: "Contemporary Art",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643601/Biyani.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735729/b10.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657415/2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735722/b2.png",
 
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/MUMBAI.png",
 
@@ -477,28 +477,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657372/6_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735740/b6.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657193/1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735725/b4.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657187/4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735729/b10.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657189/3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735723/b3.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657183/8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735728/b8.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657377/9_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735740/b9.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657374/7_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735736/b5.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657369/5_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735742/b7.png",
 ],
   },
 
@@ -517,10 +517,10 @@ export const projects: Project[] = [
     designStyle: "Organic Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643600/Salem.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737668/ss1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657756/7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737669/ss9.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
@@ -542,28 +542,28 @@ export const projects: Project[] = [
 
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657733/2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737669/ss2.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657751/8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737720/ss10.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657739/3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737690/ss3.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657745/6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737709/ss6.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657758/10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737707/ss5.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657743/5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737692/ss4.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657752/9_option_2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737717/ss8.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789657739/4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737668/ss1.png",
 
   
 ],
