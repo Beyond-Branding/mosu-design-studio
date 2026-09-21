@@ -26,28 +26,32 @@ export default function AboutSection() {
     if (!section || !image || !panel || !founder || !director) return;
 
     const ctx = gsap.context(() => {
-      const textElements =
-        gsap.utils.toArray<HTMLElement>(".about-reveal");
+      const mm = gsap.matchMedia();
 
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      // =====================================================
+      // MOBILE
+      // NO ANIMATION AT ALL
+      // =====================================================
 
-      /*
-       * ==========================================
-       * INITIAL STATE
-       * ==========================================
-       */
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(
+          [image, panel, founder, director, ".about-reveal"],
+          {
+            clearProps: "all",
+          }
+        );
+      });
 
-      if (isMobile) {
-        gsap.set(image, {
-          width: "100%",
-        });
+      // =====================================================
+      // DESKTOP
+      // ORIGINAL GSAP ANIMATION
+      // =====================================================
 
-        gsap.set(panel, {
-          left: 0,
-          width: "100%",
-          xPercent: 0,
-        });
-      } else {
+      mm.add("(min-width: 768px)", () => {
+        const textElements =
+          gsap.utils.toArray<HTMLElement>(".about-reveal");
+
+        // Initial desktop state
         gsap.set(image, {
           width: "50%",
         });
@@ -57,67 +61,48 @@ export default function AboutSection() {
           width: "50%",
           xPercent: 0,
         });
-      }
 
-      gsap.set(textElements, {
-        opacity: 0,
-        y: 30,
-      });
+        gsap.set(textElements, {
+          opacity: 0,
+          y: 30,
+        });
 
-      gsap.set([founder, director], {
-        opacity: 0,
-        y: 25,
-      });
+        gsap.set([founder, director], {
+          opacity: 0,
+          y: 25,
+        });
 
-      /*
-       * ==========================================
-       * MAIN TIMELINE
-       * ==========================================
-       */
+        // =====================================================
+        // DESKTOP TIMELINE
+        // =====================================================
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: isMobile ? "+=1800" : "+=2800",
-          scrub: 0.8,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=2800",
+            scrub: 0.8,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-      /*
-       * ==========================================
-       * 1. ABOUT TEXT APPEARS
-       * ==========================================
-       */
+        // 1. About text appears
+        tl.to(textElements, {
+          opacity: 1,
+          y: 0,
+          duration: 2.5,
+          stagger: 0.35,
+          ease: "power2.out",
+        });
 
-      tl.to(textElements, {
-        opacity: 1,
-        y: 0,
-        duration: isMobile ? 2 : 2.5,
-        stagger: isMobile ? 0.2 : 0.35,
-        ease: "power2.out",
-      });
+        // 2. Hold
+        tl.to({}, {
+          duration: 2,
+        });
 
-      /*
-       * ==========================================
-       * 2. HOLD
-       * ==========================================
-       */
-
-      tl.to({}, {
-        duration: isMobile ? 1 : 2,
-      });
-
-      /*
-       * ==========================================
-       * 3. IMAGE EXPANDS
-       * ==========================================
-       */
-
-      if (!isMobile) {
+        // 3. Image expands
         tl.to(
           image,
           {
@@ -127,67 +112,51 @@ export default function AboutSection() {
           },
           "<"
         );
-      }
 
-      /*
-       * ==========================================
-       * 4. PANEL EXITS
-       * ==========================================
-       */
+        // 4. Panel exits
+        tl.to(
+          panel,
+          {
+            xPercent: 100,
+            duration: 3,
+            ease: "power1.inOut",
+          },
+          "<"
+        );
 
-      tl.to(
-        panel,
-        {
-          xPercent: 100,
-          duration: isMobile ? 2 : 3,
-          ease: "power1.inOut",
-        },
-        "<"
-      );
+        // 5. Small hold
+        tl.to({}, {
+          duration: 0.5,
+        });
 
-      /*
-       * ==========================================
-       * 5. SMALL HOLD
-       * ==========================================
-       */
-
-      tl.to({}, {
-        duration: 0.5,
-      });
-
-      /*
-       * ==========================================
-       * 6. FOUNDER
-       * ==========================================
-       */
-
-      tl.to(founder, {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-
-      /*
-       * ==========================================
-       * 7. DIRECTOR
-       * ==========================================
-       */
-
-      tl.to(
-        director,
-        {
+        // 6. Founder
+        tl.to(founder, {
           opacity: 1,
           y: 0,
           duration: 1.2,
           ease: "power3.out",
-        },
-        "-=0.8"
-      );
+        });
 
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
+        // 7. Director
+        tl.to(
+          director,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+          "-=0.8"
+        );
+
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+        });
       });
+
+      return () => {
+        mm.revert();
+      };
     }, section);
 
     return () => {
@@ -200,11 +169,12 @@ export default function AboutSection() {
       ref={sectionRef}
       className="
         relative
-        h-screen
-        min-h-[650px]
         w-full
         overflow-hidden
         bg-[#242323]
+        min-h-screen
+        md:h-screen
+        md:min-h-[650px]
       "
     >
       {/* =====================================================
@@ -214,11 +184,15 @@ export default function AboutSection() {
       <div
         ref={imageRef}
         className="
-          absolute
-          inset-y-0
-          left-0
+          relative
+          h-[55vh]
           w-full
           overflow-hidden
+
+          md:absolute
+          md:inset-y-0
+          md:left-0
+          md:h-auto
         "
       >
         <Image
@@ -230,150 +204,153 @@ export default function AboutSection() {
           className="
             object-cover
             object-center
-            md:object-center
           "
         />
 
         <div className="absolute inset-0 bg-black/10" />
-      </div>
 
-      {/* =====================================================
-          NAMES
-      ===================================================== */}
+        {/* =====================================================
+            NAMES
+            MOBILE = STAYS ON IMAGE
+            DESKTOP = GSAP ANIMATED
+        ===================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-x-0
-          bottom-6
-          z-50
-          px-5
-          text-white
-
-          sm:bottom-10
-          sm:px-8
-
-          md:bottom-12
-          md:px-10
-
-          lg:bottom-16
-          lg:px-16
-        "
-      >
         <div
           className="
-            relative
-            flex
-            w-full
-            flex-col
-            gap-5
+            pointer-events-none
+            absolute
+            inset-x-0
+            bottom-6
+            z-50
+            px-5
+            text-white
 
-            sm:flex-row
-            sm:items-end
-            sm:justify-between
-            sm:gap-0
+            sm:bottom-10
+            sm:px-8
+
+            md:bottom-12
+            md:px-10
+
+            lg:bottom-16
+            lg:px-16
           "
         >
-          {/* =================================================
-              FOUNDER
-          ================================================= */}
-
           <div
-            ref={founderRef}
             className="
-              text-left
-              sm:absolute
-              sm:bottom-0
-              sm:left-0
+              relative
+              flex
+              w-full
+              flex-col
+              gap-5
+
+              sm:flex-row
+              sm:items-end
+              sm:justify-between
+              sm:gap-0
             "
           >
-            <p
+            {/* =================================================
+                FOUNDER
+            ================================================= */}
+
+            <div
+              ref={founderRef}
               className="
-                text-[8px]
-                font-medium
-                uppercase
-                tracking-[0.3em]
-                text-white/80
+                text-left
 
-                sm:text-[9px]
-                sm:tracking-[0.4em]
-
-                lg:text-[11px]
+                sm:absolute
+                sm:bottom-0
+                sm:left-0
               "
             >
-              Founder & CEO
-            </p>
+              <p
+                className="
+                  text-[8px]
+                  font-medium
+                  uppercase
+                  tracking-[0.3em]
+                  text-white/80
 
-            <h2
+                  sm:text-[9px]
+                  sm:tracking-[0.4em]
+
+                  lg:text-[11px]
+                "
+              >
+                Founder & CEO
+              </p>
+
+              <h2
+                className="
+                  mt-1
+                  text-2xl
+                  font-medium
+                  leading-none
+                  tracking-tight
+
+                  sm:mt-2
+                  sm:text-3xl
+
+                  md:text-4xl
+
+                  lg:text-5xl
+                "
+              >
+                Pawan Sundriyal
+              </h2>
+            </div>
+
+            {/* =================================================
+                DIRECTOR
+            ================================================= */}
+
+            <div
+              ref={directorRef}
               className="
-                mt-1
-                text-2xl
-                font-medium
-                leading-none
-                tracking-tight
+                text-left
 
-                sm:mt-2
-                sm:text-3xl
-
-                md:text-4xl
-
-                lg:text-5xl
+                sm:absolute
+                sm:right-0
+                sm:bottom-0
+                sm:text-right
               "
             >
-              Pawan Sundriyal
-            </h2>
-          </div>
+              <p
+                className="
+                  text-[8px]
+                  font-medium
+                  uppercase
+                  tracking-[0.3em]
+                  text-white/80
 
-          {/* =================================================
-              DIRECTOR
-          ================================================= */}
+                  sm:text-[9px]
+                  sm:tracking-[0.4em]
 
-          <div
-            ref={directorRef}
-            className="
-              text-left
-              sm:absolute
-              sm:right-0
-              sm:bottom-0
-              sm:text-right
-            "
-          >
-            <p
-              className="
-                text-[8px]
-                font-medium
-                uppercase
-                tracking-[0.3em]
-                text-white/80
+                  lg:text-[11px]
+                "
+              >
+                Director & Creative Head
+              </p>
 
-                sm:text-[9px]
-                sm:tracking-[0.4em]
+              <h2
+                className="
+                  mt-1
+                  text-2xl
+                  font-medium
+                  leading-none
+                  tracking-tight
 
-                lg:text-[11px]
-              "
-            >
-              Director & Creative Head
-            </p>
+                  sm:mt-2
+                  sm:text-3xl
 
-            <h2
-              className="
-                mt-1
-                text-2xl
-                font-medium
-                leading-none
-                tracking-tight
+                  md:text-4xl
 
-                sm:mt-2
-                sm:text-3xl
-
-                md:text-4xl
-
-                lg:text-5xl
-              "
-            >
-              Shreya Chakraborty
-            </h2>
+                  lg:text-5xl
+                "
+              >
+                Shreya Chakraborty
+              </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -383,45 +360,49 @@ export default function AboutSection() {
       ===================================================== */}
 
       <div
-        ref={panelRef}
-        className="
-          absolute
-          inset-y-0
-          left-0
-          z-30
-          flex
-          w-full
-          items-center
-          bg-[#242323]
-          text-white
+  ref={panelRef}
+  className="
+    relative
+    z-30
+    flex
+    min-h-[45vh]
+    w-full
+    items-start
+    bg-[#242323]
+    text-white
 
-          md:left-1/2
-          md:w-1/2
-        "
-      >
+    md:items-center
+    md:absolute
+    md:inset-y-0
+    md:left-1/2
+    md:min-h-0
+    md:w-1/2
+  "
+>
         <div
-          className="
-            w-full
-            max-w-[760px]
+  className="
+    w-full
+    max-w-[760px]
+    px-6
+    py-10
 
-            px-6
+    sm:px-10
+    sm:py-12
 
-            sm:px-10
+    md:px-12
+    md:py-0
 
-            md:px-12
+    lg:px-16
 
-            lg:px-16
-
-            xl:px-24
-          "
-        >
+    xl:px-24
+  "
+>
           {/* ABOUT LABEL */}
 
           <p
             className="
               about-reveal
               mb-5
-
               text-[9px]
               uppercase
               tracking-[0.35em]
@@ -440,29 +421,28 @@ export default function AboutSection() {
           {/* CONTENT */}
 
           <div
-            className="
-              space-y-4
+  className="
+    space-y-7
 
-              sm:space-y-5
+    sm:space-y-7
 
-              lg:space-y-6
-            "
-          >
+    lg:space-y-6
+  "
+>
             <p
               className="
-                about-reveal
-                max-w-[700px]
+  about-reveal
+  max-w-[700px]
+  text-[14px]
+  font-light
+  leading-[1.7]
 
-                text-[14px]
-                font-light
-                leading-[1.6]
+  sm:text-[16px]
+  sm:leading-[1.7]
 
-                sm:text-[16px]
-                sm:leading-[1.7]
-
-                lg:text-[18px]
-                lg:leading-[1.8]
-              "
+  lg:text-[18px]
+  lg:leading-[1.8]
+"
             >
               Every remarkable project begins with an idea worth believing in.
             </p>
@@ -471,7 +451,6 @@ export default function AboutSection() {
               className="
                 about-reveal
                 max-w-[700px]
-
                 text-[14px]
                 font-light
                 leading-[1.6]
@@ -495,7 +474,6 @@ export default function AboutSection() {
               className="
                 about-reveal
                 max-w-[700px]
-
                 text-[14px]
                 font-light
                 leading-[1.6]
@@ -515,7 +493,7 @@ export default function AboutSection() {
 
             {/* BUTTON */}
 
-            <div className="about-reveal pt-3 sm:pt-5">
+            <div className="about-reveal pt-2 sm:pt-5">
               <Link
                 href="/about"
                 className="
@@ -523,21 +501,16 @@ export default function AboutSection() {
                   inline-flex
                   items-center
                   gap-2
-
                   rounded-full
                   border
                   border-white
-
                   px-5
                   py-2.5
-
                   text-[9px]
                   uppercase
                   tracking-[0.2em]
-
                   transition-all
                   duration-500
-
                   hover:bg-white
                   hover:text-black
 
