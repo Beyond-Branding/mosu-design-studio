@@ -15,7 +15,9 @@ export default function Editorial() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
-    if (!sectionRef.current) return;
+    const section = sectionRef.current;
+
+    if (!section) return;
 
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray<HTMLElement>(".editorial-line");
@@ -24,13 +26,9 @@ export default function Editorial() {
         gsap.utils.toArray<HTMLElement>(".char", item)
       );
 
-      /*
-       * =========================
-       * INITIAL STATE
-       * =========================
-       * Everything is completely
-       * invisible when section starts.
-       */
+      /* ========================================================
+         INITIAL STATE
+      ======================================================== */
 
       gsap.set(items, {
         autoAlpha: 0,
@@ -43,117 +41,188 @@ export default function Editorial() {
         y: 0,
       });
 
-      /*
-       * =========================
-       * SCROLL ANIMATION
-       * =========================
-       */
+      /* ========================================================
+         RESPONSIVE ANIMATION
+      ======================================================== */
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
+      const mm = gsap.matchMedia();
 
-          // Section starts blank
-          start: "top top",
+      /* ========================================================
+         DESKTOP / TABLET
+      ======================================================== */
 
-          // Gives enough scroll distance
-          // for both sentences
-          end: `+=${lines.length * 1200}`,
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: `+=${lines.length * 1200}`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-          // Keep section on screen
-          pin: true,
+        /* FIRST SENTENCE */
 
-          // Animation follows scrolling
-          scrub: 1,
+        tl.set(items[0], {
+          autoAlpha: 1,
+        });
 
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
+        tl.to(characters[0], {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1,
+          stagger: {
+            each: 0.018,
+            from: "center",
+          },
+          ease: "power2.out",
+        });
+
+        /* HOLD */
+
+        tl.to({}, {
+          duration: 1,
+        });
+
+        /* FIRST SENTENCE DISAPPEARS */
+
+        tl.to(characters[0], {
+          opacity: 0,
+          filter: "blur(8px)",
+          scale: 0.98,
+          duration: 1,
+          stagger: {
+            each: 0.018,
+            from: "center",
+          },
+          ease: "power2.inOut",
+        });
+
+        tl.set(items[0], {
+          autoAlpha: 0,
+        });
+
+        /* SECOND SENTENCE */
+
+        tl.set(items[1], {
+          autoAlpha: 1,
+        });
+
+        tl.to(characters[1], {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1,
+          stagger: {
+            each: 0.018,
+            from: "center",
+          },
+          ease: "power2.out",
+        });
+
+        /* HOLD */
+
+        tl.to({}, {
+          duration: 1,
+        });
       });
 
-      /*
-       * =========================
-       * FIRST SENTENCE
-       * =========================
-       */
+      /* ========================================================
+         MOBILE
+      ======================================================== */
 
-      // First sentence appears
-      tl.set(items[0], {
-        autoAlpha: 1,
-      });
+      mm.add("(max-width: 767px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=1800",
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-      tl.to(characters[0], {
-        opacity: 1,
-        filter: "blur(0px)",
-        scale: 1,
-        duration: 1,
-        stagger: {
-          each: 0.018,
-          from: "center",
-        },
-        ease: "power2.out",
-      });
+        /* FIRST SENTENCE */
 
-      // Hold first sentence
-      tl.to({}, {
-        duration: 1,
-      });
+        tl.set(items[0], {
+          autoAlpha: 1,
+        });
 
-      /*
-       * =========================
-       * FIRST SENTENCE DISAPPEARS
-       * =========================
-       */
+        tl.to(characters[0], {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1,
+          stagger: {
+            each: 0.025,
+            from: "center",
+          },
+          ease: "power2.out",
+        });
 
-      tl.to(characters[0], {
-        opacity: 0,
-        filter: "blur(8px)",
-        scale: 0.98,
-        duration: 1,
-        stagger: {
-          each: 0.018,
-          from: "center",
-        },
-        ease: "power2.inOut",
-      });
+        /* HOLD */
 
-      tl.set(items[0], {
-        autoAlpha: 0,
-      });
+        tl.to({}, {
+          duration: 0.8,
+        });
 
-      /*
-       * =========================
-       * SECOND SENTENCE
-       * =========================
-       */
+        /* FIRST SENTENCE DISAPPEARS */
 
-      tl.set(items[1], {
-        autoAlpha: 1,
-      });
+        tl.to(characters[0], {
+          opacity: 0,
+          filter: "blur(8px)",
+          scale: 0.98,
+          duration: 1,
+          stagger: {
+            each: 0.025,
+            from: "center",
+          },
+          ease: "power2.inOut",
+        });
 
-      tl.to(characters[1], {
-        opacity: 1,
-        filter: "blur(0px)",
-        scale: 1,
-        duration: 1,
-        stagger: {
-          each: 0.018,
-          from: "center",
-        },
-        ease: "power2.out",
-      });
+        tl.set(items[0], {
+          autoAlpha: 0,
+        });
 
-      // Hold second sentence
-      tl.to({}, {
-        duration: 1,
+        /* SECOND SENTENCE */
+
+        tl.set(items[1], {
+          autoAlpha: 1,
+        });
+
+        tl.to(characters[1], {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1,
+          stagger: {
+            each: 0.025,
+            from: "center",
+          },
+          ease: "power2.out",
+        });
+
+        /* HOLD */
+
+        tl.to({}, {
+          duration: 0.8,
+        });
       });
 
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
-    }, sectionRef);
+    }, section);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -162,6 +231,7 @@ export default function Editorial() {
       className="
         relative
         h-screen
+        w-full
         overflow-hidden
         bg-[#242323]
       "
@@ -173,7 +243,8 @@ export default function Editorial() {
           flex
           items-center
           justify-center
-          px-6
+
+          px-4
           sm:px-10
           lg:px-16
         "
@@ -184,45 +255,85 @@ export default function Editorial() {
             className="
               editorial-line
               absolute
+              left-0
+              right-0
               flex
               w-full
               items-center
               justify-center
+              px-4
+              sm:px-0
             "
           >
             <h2
               className="
                 mx-auto
+                w-full
                 max-w-[1500px]
+
                 text-center
                 font-grey
                 font-semibold
                 uppercase
-                leading-[1.02]
-                tracking-[-0.025em]
+
+                leading-[1.08]
+                tracking-[-0.02em]
+
                 text-[#F2F2F2]
-                text-[1.7rem]
+
+                /* MOBILE */
+                text-[1.25rem]
+
+                /* SMALL MOBILE */
                 sm:text-[2.2rem]
+
+                /* TABLET */
                 md:text-[3rem]
+
+                /* DESKTOP */
                 lg:text-[3.7rem]
+
                 xl:text-[4.3rem]
               "
               style={{
-                wordSpacing: "0.14em",
                 fontWeight: 550,
               }}
             >
               {line.split("\n").map((row, rowIndex) => (
                 <div
                   key={rowIndex}
-                  className="whitespace-nowrap"
+                  className="
+                    flex
+                    flex-wrap
+                    items-center
+                    justify-center
+
+                    gap-x-[0.22em]
+                    gap-y-[0.08em]
+
+                    whitespace-normal
+                    sm:whitespace-nowrap
+                  "
                 >
-                  {Array.from(row).map((char, charIndex) => (
+                  {row.split(" ").map((word, wordIndex) => (
                     <span
-                      key={`${rowIndex}-${charIndex}`}
-                      className="char inline-block"
+                      key={`${rowIndex}-${wordIndex}`}
+                      className="
+                        inline-flex
+                        whitespace-nowrap
+                      "
                     >
-                      {char === " " ? "\u00A0" : char}
+                      {Array.from(word).map((char, charIndex) => (
+                        <span
+                          key={`${rowIndex}-${wordIndex}-${charIndex}`}
+                          className="
+                            char
+                            inline-block
+                          "
+                        >
+                          {char}
+                        </span>
+                      ))}
                     </span>
                   ))}
                 </div>

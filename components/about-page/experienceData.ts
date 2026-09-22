@@ -1,4 +1,5 @@
 export const experienceData = [
+  
   {
     title: "Art That Belongs",
     titleLine2: "to the Space",

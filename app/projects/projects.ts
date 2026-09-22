@@ -114,6 +114,7 @@ export const projects: Project[] = [
   // ============================================================
   // 02 — HYATT REGENCY DEHRADUN
   // ============================================================
+/*
 
   {
     title: "HYATT REGENCY ",
@@ -175,6 +176,8 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738627/hy6.png",
 ],
   },
+
+  */
 
   // ============================================================
   // 03 — MY HOME TIRUMALA
