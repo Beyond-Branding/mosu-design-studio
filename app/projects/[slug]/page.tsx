@@ -58,117 +58,99 @@ export default function ProjectDetailPage({ params }: Props) {
    */
 
   useLayoutEffect(() => {
-    if (!conceptSectionRef.current) return;
+  const section = conceptSectionRef.current;
 
-    const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray<HTMLElement>(
-        ".concept-editorial-line"
-      );
+  if (!section) return;
 
-      const characters = items.map((item) =>
-        gsap.utils.toArray<HTMLElement>(".concept-char", item)
-      );
+  const ctx = gsap.context(() => {
+    const items = gsap.utils.toArray<HTMLElement>(
+      ".concept-editorial-line"
+    );
 
-      if (!items.length) return;
+    if (items.length === 0) return;
 
-      /*
-       * INITIAL STATE
-       */
+    const characters = items.map((item) =>
+      gsap.utils.toArray<HTMLElement>(".concept-char", item)
+    );
 
-      gsap.set(items, {
-        autoAlpha: 0,
-      });
+    /* INITIAL STATE */
 
-      gsap.set(characters.flat(), {
-        opacity: 0,
-        filter: "blur(8px)",
-        scale: 1.02,
-        y: 0,
-      });
+    gsap.set(items, {
+      autoAlpha: 0,
+    });
 
-      /*
-       * SCROLL ANIMATION
-       */
+    gsap.set(characters.flat(), {
+      opacity: 0,
+      filter: "blur(8px)",
+      scale: 1.02,
+      y: 0,
+    });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: conceptSectionRef.current,
+    /* SCROLL TIMELINE */
 
-          start: "top top",
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${items.length * 1400}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
 
-          end: `+=${items.length * 1200}`,
+    /* ========================================================
+       FIRST LINE
+    ======================================================== */
 
-          pin: true,
+    tl.set(items[0], {
+      autoAlpha: 1,
+    });
 
-          scrub: 1,
+    tl.to(characters[0], {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+      duration: 1.2,
+      stagger: {
+        each: 0.018,
+        from: "center",
+      },
+      ease: "power2.out",
+    });
 
-          anticipatePin: 1,
+    /* HOLD */
 
-          invalidateOnRefresh: true,
-        },
-      });
+    tl.to({}, {
+      duration: 1,
+    });
 
-      /*
-       * ========================================================
-       * FIRST LINE
-       * ========================================================
-       */
+    /* ========================================================
+       FIRST LINE OUT
+    ======================================================== */
 
-      tl.set(items[0], {
-        autoAlpha: 1,
-      });
+    tl.to(characters[0], {
+      opacity: 0,
+      filter: "blur(8px)",
+      scale: 0.98,
+      duration: 1,
+      stagger: {
+        each: 0.018,
+        from: "center",
+      },
+      ease: "power2.inOut",
+    });
 
-      tl.to(characters[0], {
-        opacity: 1,
-        filter: "blur(0px)",
-        scale: 1,
-        duration: 1,
-        stagger: {
-          each: 0.018,
-          from: "center",
-        },
-        ease: "power2.out",
-      });
+    tl.set(items[0], {
+      autoAlpha: 0,
+    });
 
-      /*
-       * HOLD
-       */
+    /* ========================================================
+       SECOND LINE
+    ======================================================== */
 
-      tl.to(
-        {},
-        {
-          duration: 1,
-        }
-      );
-
-      /*
-       * ========================================================
-       * FIRST LINE DISAPPEARS
-       * ========================================================
-       */
-
-      tl.to(characters[0], {
-        opacity: 0,
-        filter: "blur(8px)",
-        scale: 0.98,
-        duration: 1,
-        stagger: {
-          each: 0.018,
-          from: "center",
-        },
-        ease: "power2.inOut",
-      });
-
-      tl.set(items[0], {
-        autoAlpha: 0,
-      });
-
-      /*
-       * ========================================================
-       * SECOND LINE
-       * ========================================================
-       */
-
+    if (items[1]) {
       tl.set(items[1], {
         autoAlpha: 1,
       });
@@ -177,7 +159,7 @@ export default function ProjectDetailPage({ params }: Props) {
         opacity: 1,
         filter: "blur(0px)",
         scale: 1,
-        duration: 1,
+        duration: 1.2,
         stagger: {
           each: 0.018,
           from: "center",
@@ -185,24 +167,22 @@ export default function ProjectDetailPage({ params }: Props) {
         ease: "power2.out",
       });
 
-      /*
-       * HOLD SECOND LINE
-       */
+      /* HOLD */
 
-      tl.to(
-        {},
-        {
-          duration: 1,
-        }
-      );
-
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
+      tl.to({}, {
+        duration: 1,
       });
-    }, conceptSectionRef);
+    }
 
-    return () => ctx.revert();
-  }, []);
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+  }, section);
+
+  return () => {
+    ctx.revert();
+  };
+}, []);
 
   /*
    * ============================================================
@@ -292,8 +272,8 @@ export default function ProjectDetailPage({ params }: Props) {
         href="/projects"
         className="
           fixed
-          left-6
-          top-24
+          left-4
+          top-20
           z-[100]
           inline-flex
           items-center
@@ -315,7 +295,8 @@ export default function ProjectDetailPage({ params }: Props) {
           hover:border-white/60
           hover:bg-white
           hover:text-black
-          sm:left-10
+          sm:left-6
+          md:left-8
           lg:left-16
         "
       >
@@ -329,7 +310,7 @@ export default function ProjectDetailPage({ params }: Props) {
             01 — HERO
         ===================================================== */}
 
-        <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-[#242323]">
+        <section className="relative h-[85svh] min-h-[560px] w-full overflow-hidden bg-[#242323] md:h-[88svh] md:min-h-[620px] lg:h-[100svh] lg:min-h-[680px]">
           <Image
             src={project.heroImage}
             alt={project.title}
@@ -341,7 +322,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
           <div className="absolute inset-0 bg-black/10" />
 
-          <div className="absolute bottom-8 left-6 z-10 flex items-center gap-4 sm:left-10 lg:left-16">
+          <div className="absolute bottom-6 left-4 z-10 flex items-center gap-3 sm:bottom-8 sm:left-6 sm:gap-4 md:left-8 lg:left-16">
             <span className="h-px w-12 bg-white/60" />
 
             <span className="text-[9px] uppercase tracking-[0.3em]">
@@ -357,13 +338,15 @@ export default function ProjectDetailPage({ params }: Props) {
         <section
           className="
             relative
-            min-h-[620px]
+            min-h-[500px]
             w-full
             overflow-hidden
             bg-[#242323]
 
-            md:h-[390px]
+            md:h-[480px]
             md:min-h-0
+            lg:h-[390px]
+            lg:min-h-0
           "
         >
           {project.mapImage && (
@@ -531,7 +514,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {mainImage && (
           <section
-            className="group relative h-[110svh] min-h-[750px] w-full cursor-pointer overflow-hidden bg-[#242323]"
+            className="group relative h-[78svh] min-h-[520px] w-full cursor-pointer overflow-hidden bg-[#242323] md:h-[82svh] md:min-h-[620px] lg:h-[110svh] lg:min-h-[750px]"
             onClick={() => openGallery(0)}
           >
             <Image
@@ -544,7 +527,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <div className="absolute inset-0 bg-black/10 transition-colors duration-700 group-hover:bg-black/20" />
 
-            <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
+            <div className="absolute bottom-6 left-4 z-10 sm:bottom-8 sm:left-6 md:left-8 lg:left-16">
               <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                 Image 01
               </p>
@@ -557,7 +540,7 @@ export default function ProjectDetailPage({ params }: Props) {
         ===================================================== */}
 
         {secondImage && (
-          <section className="relative min-h-[110svh] w-full overflow-hidden bg-[#242323]">
+          <section className="relative min-h-[680px] w-full overflow-hidden bg-[#242323] md:min-h-[760px] lg:min-h-[110svh]">
             <Image
               src={secondImage}
               alt={`${project.title} — Image 02`}
@@ -570,8 +553,8 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
 
-            <div className="absolute inset-x-0 top-0 z-10 px-6 pt-20 sm:px-10 sm:pt-28 lg:px-16 lg:pt-36">
-              <div className="mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.25fr_0.75fr]">
+            <div className="absolute inset-x-0 top-0 z-10 px-5 pt-16 sm:px-8 sm:pt-24 md:px-10 md:pt-28 lg:px-16 lg:pt-36">
+              <div className="mx-auto grid max-w-[1600px] gap-6 md:gap-8 lg:gap-10 lg:grid-cols-[0.25fr_0.75fr]">
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                     About
@@ -580,7 +563,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
                 <div>
                   {project.description && (
-                    <p className="max-w-[1000px] text-[clamp(1.4rem,2.5vw,3rem)] font-light leading-[1.08] tracking-[-0.03em]">
+                    <p className="max-w-[1000px] text-[clamp(1.35rem,4.5vw,2.5rem)] font-light leading-[1.1] tracking-[-0.03em] md:text-[clamp(1.6rem,3.2vw,2.7rem)] lg:text-[clamp(1.4rem,2.5vw,3rem)]">
   {project.description}
 </p>
                   )}
@@ -604,188 +587,155 @@ export default function ProjectDetailPage({ params }: Props) {
   className="
     relative
     flex
-    min-h-screen
+    min-h-[100svh]
     w-full
     items-center
     justify-center
-    overflow-hidden
+    overflow-visible
     bg-[#242323]
   "
 >
   <div
     className="
+      relative
       flex
-      min-h-screen
+      min-h-[100svh]
       w-full
-      flex-col
       items-center
       justify-center
-      px-5
-      text-center
-      -translate-y-[2vh]
-      sm:px-8
+      overflow-visible
+      px-4
+      sm:px-6
+      md:px-8
       lg:px-12
-  "
+    "
   >
-    {/* LABEL */}
-
-    <p
-      className="
-        mb-6
-        text-[10px]
-        font-normal
-        uppercase
-        tracking-[0.04em]
-        text-white/70
-        sm:mb-7
-        sm:text-[11px]
-      "
-    >
-      Concept
-    </p>
-
-    {/* CONCEPT TEXT */}
-
-    <div
-      className="
-        relative
-        flex
-        w-full
-        max-w-[1400px]
-        items-center
-        justify-center
-        overflow-visible
-      "
-    >
-      {conceptLines.map((line, lineIndex) => (
-        <div
-          key={`${line}-${lineIndex}`}
-          className="
-            concept-editorial-line
-            absolute
-            inset-x-0
-            top-1/2
-            flex
-            w-full
-            -translate-y-1/2
-            items-center
-            justify-center
-          "
-        >
-          <h2
-            className="
-              mx-auto
-              flex
-              w-full
-              max-w-[1250px]
-              flex-wrap
-              items-center
-              justify-center
-              text-center
-              font-semibold
-              uppercase
-              leading-[1.02]
-              tracking-[0.005em]
-              text-white
-              text-[clamp(1.7rem,3.4vw,3.8rem)]
-              sm:text-[clamp(2rem,3.6vw,3.8rem)]
-            "
-            style={{
-              fontWeight: 560,
-              wordSpacing: "0.04em",
-            }}
-          >
-            {Array.from(line).map((char, charIndex) => (
-              <span
-                key={`${line}-${charIndex}`}
-                className="
-                  concept-char
-                  inline-block
-                  whitespace-pre
-                "
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
-          </h2>
-        </div>
-      ))}
-
-      {/* Invisible spacer
-          Keeps the concept area tall enough
-          without affecting the visible text.
-      */}
-
+    {conceptLines.map((line, lineIndex) => (
       <div
-        aria-hidden="true"
+        key={`${line}-${lineIndex}`}
         className="
-          invisible
+          concept-editorial-line
+          absolute
+          left-0
+          right-0
+          top-1/2
           flex
           w-full
-          max-w-[1250px]
-          flex-wrap
+          -translate-y-1/2
           items-center
           justify-center
-          text-center
-          text-[clamp(1.7rem,3.4vw,3.8rem)]
-          leading-[1.02]
-          sm:text-[clamp(2rem,3.6vw,3.8rem)]
-        "
-      >
-        {Array.from(conceptLines[0]).map((char, index) => (
-          <span
-            key={`spacer-${index}`}
-            className="inline-block whitespace-pre"
-          >
-            {char === " " ? "\u00A0" : char}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    {/* BRIEF */}
-
-    {project.brief && (
-      <p
-        className="
-          mt-7
-          w-full
-          max-w-[650px]
           px-2
-          text-center
-          text-[9px]
-          font-normal
-          uppercase
-          leading-[1.5]
-          tracking-[0.025em]
-          text-white/55
-          sm:mt-8
-          sm:text-[10px]
+          sm:px-4
         "
       >
-        {project.brief}
-      </p>
-    )}
+        <h2
+          className="
+            mx-auto
+            flex
+            w-full
+            max-w-[1500px]
+            flex-wrap
+            items-center
+            justify-center
+            gap-x-[0.22em]
+            gap-y-[0.08em]
+            text-center
+            font-semibold
+            uppercase
+            leading-[1.04]
+            tracking-[0.005em]
+            text-white
+
+            text-[clamp(1.35rem,6vw,2.5rem)]
+            sm:text-[clamp(1.7rem,5vw,3rem)]
+            md:text-[clamp(2rem,3.8vw,3.5rem)]
+            lg:text-[clamp(1.8rem,3.2vw,3.8rem)]
+          "
+          style={{
+            fontWeight: 560,
+            wordSpacing: "0.04em",
+          }}
+        >
+          {line.split(" ").map((word, wordIndex) => (
+            <span
+              key={`${word}-${wordIndex}`}
+              className="
+                inline-flex
+                max-w-full
+                whitespace-nowrap
+              "
+            >
+              {Array.from(word).map((char, charIndex) => (
+                <span
+                  key={`${word}-${charIndex}`}
+                  className="
+                    concept-char
+                    inline-block
+                  "
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
+          ))}
+        </h2>
+      </div>
+    ))}
+
+    {/* Invisible spacer keeps the section height stable */}
+    <div
+      aria-hidden="true"
+      className="
+        invisible
+        flex
+        w-full
+        max-w-[1500px]
+        flex-wrap
+        items-center
+        justify-center
+        gap-x-[0.22em]
+        gap-y-[0.08em]
+        px-2
+        text-center
+        uppercase
+        leading-[1.04]
+        tracking-[0.005em]
+
+        text-[clamp(1.35rem,6vw,2.5rem)]
+        sm:text-[clamp(1.7rem,5vw,3rem)]
+        md:text-[clamp(2rem,3.8vw,3.5rem)]
+        lg:text-[clamp(1.8rem,3.2vw,3.8rem)]
+      "
+    >
+      {conceptLines[0].split(" ").map((word, wordIndex) => (
+        <span
+          key={`spacer-word-${wordIndex}`}
+          className="whitespace-nowrap"
+        >
+          {word}
+        </span>
+      ))}
+    </div>
   </div>
 </section>
         {/* =====================================================
             06 — COMPOSITION
         ===================================================== */}
 
-        <section className="relative min-h-[460px] w-full bg-[#242323]">
-          <div className="mx-auto grid min-h-[460px] max-w-[1920px] grid-cols-1 lg:grid-cols-2">
+        <section className="relative min-h-[420px] w-full bg-[#242323] md:min-h-[500px] lg:min-h-[460px]">
+          <div className="mx-auto grid min-h-[420px] max-w-[1920px] grid-cols-1 md:min-h-[500px] lg:min-h-[460px] lg:grid-cols-2">
             <div />
 
-            <div className="flex flex-col justify-center px-8 py-10 sm:px-12 lg:px-16 xl:px-24">
+            <div className="flex flex-col justify-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-16 lg:py-10 xl:px-24">
               <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
                 03 — Composition
               </p>
 
-              <h2 className="text-[clamp(3.5rem,5.5vw,6rem)] font-light uppercase leading-[0.88] tracking-[-0.06em]">
+              <h2 className="text-[clamp(2.8rem,12vw,4.5rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] md:text-[clamp(3.5rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,6rem)]">
                 Composition
               </h2>
 
-              <p className="mt-8 max-w-[780px] text-[14px] font-normal uppercase leading-[1.4] tracking-[-0.015em] text-white/80">
+              <p className="mt-6 max-w-[780px] text-[12px] font-normal uppercase leading-[1.45] tracking-[-0.015em] text-white/80 md:mt-8 md:text-[13px] lg:text-[14px]">
                 {project.execution ||
                   "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
               </p>
@@ -799,7 +749,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
         {compositionImage && (
           <section
-            className="group relative h-[95svh] min-h-[650px] w-full cursor-pointer overflow-hidden bg-[#242323]"
+            className="group relative h-[72svh] min-h-[500px] w-full cursor-pointer overflow-hidden bg-[#242323] md:h-[78svh] md:min-h-[600px] lg:h-[95svh] lg:min-h-[650px]"
             onClick={() => openGallery(2)}
           >
             <Image
@@ -812,7 +762,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <div className="absolute inset-0 bg-black/10" />
 
-            <div className="absolute bottom-8 left-6 z-10 sm:left-10 lg:left-16">
+            <div className="absolute bottom-6 left-4 z-10 sm:bottom-8 sm:left-6 md:left-8 lg:left-16">
               <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
                 Composition
               </p>
@@ -824,8 +774,8 @@ export default function ProjectDetailPage({ params }: Props) {
             08 — CHALLENGE TEXT ONLY
         ===================================================== */}
 
-        <section className="w-full bg-[#242323] px-6 py-24 text-white sm:px-10 lg:px-16 lg:py-32">
-          <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-2">
+        <section className="w-full bg-[#242323] px-5 py-20 text-white sm:px-8 sm:py-24 md:px-10 lg:px-16 lg:py-32">
+          <div className="mx-auto grid max-w-[1600px] gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12">
             <div />
 
             <div className="max-w-[850px]">
@@ -833,11 +783,11 @@ export default function ProjectDetailPage({ params }: Props) {
                 04 — Challenge
               </p>
 
-              <h2 className="text-[clamp(3rem,5vw,5.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em]">
+              <h2 className="text-[clamp(2.8rem,11vw,4.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em] md:text-[clamp(3rem,7vw,5rem)] lg:text-[clamp(3rem,5vw,5.5rem)]">
                 Challenge
               </h2>
 
-              <p className="mt-8 text-[13px] font-light uppercase leading-[1.5] text-white/70 sm:text-[15px]">
+              <p className="mt-6 text-[12px] font-light uppercase leading-[1.5] text-white/70 sm:text-[13px] md:mt-8 md:text-[14px] lg:text-[15px]">
                 {project.challenge ||
                   "Creating a cohesive visual identity while balancing materiality, functionality and architectural character required a precise and considered approach."}
               </p>
@@ -854,7 +804,7 @@ export default function ProjectDetailPage({ params }: Props) {
       TAJ GATEWAY PALOLEM — FULL PROJECT GALLERY
   ===================================================== */
   gridImages.length > 0 && (
-    <section className="w-full bg-[#242323] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section className="w-full bg-[#242323] px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
       
       {/* Gallery Heading */}
       <div className="mb-10 flex items-end justify-between px-1 sm:mb-14">
@@ -877,7 +827,7 @@ export default function ProjectDetailPage({ params }: Props) {
           IMAGE GRID
       ================================================= */}
 
-      <div className="mx-auto grid w-full max-w-[1920px] grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 lg:gap-4">
+      <div className="mx-auto grid w-full max-w-[1920px] grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:grid-cols-3 lg:gap-4">
         
         {gridImages.map((image, index) => {
           const galleryIndex = index + 3;
@@ -996,12 +946,14 @@ export default function ProjectDetailPage({ params }: Props) {
   ===================================================== */
 
   gridImages.length > 0 && (
-    <section className="w-full bg-[#242323] px-4 py-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#242323] px-4 py-4 sm:px-6 md:py-6 lg:px-8 lg:py-4">
       <div
         className="
           grid
           grid-cols-1
-          gap-4
+          gap-3
+          md:grid-cols-2
+          md:gap-4
           lg:grid-cols-3
           lg:grid-rows-2
           lg:h-[900px]
@@ -1014,8 +966,9 @@ export default function ProjectDetailPage({ params }: Props) {
             className="
               group
               relative
-              min-h-[500px]
+              min-h-[360px]
               overflow-hidden
+              md:min-h-[460px]
               bg-[#242323]
               lg:col-start-1
               lg:row-start-1
@@ -1052,8 +1005,9 @@ export default function ProjectDetailPage({ params }: Props) {
             className="
               group
               relative
-              min-h-[300px]
+              min-h-[240px]
               overflow-hidden
+              md:min-h-[320px]
               bg-[#242323]
               lg:col-start-2
               lg:row-start-1
@@ -1083,8 +1037,9 @@ export default function ProjectDetailPage({ params }: Props) {
             className="
               group
               relative
-              min-h-[300px]
+              min-h-[240px]
               overflow-hidden
+              md:min-h-[320px]
               bg-[#242323]
               lg:col-start-3
               lg:row-start-1
@@ -1114,8 +1069,9 @@ export default function ProjectDetailPage({ params }: Props) {
             className="
               group
               relative
-              min-h-[300px]
+              min-h-[240px]
               overflow-hidden
+              md:min-h-[320px]
               bg-[#242323]
               lg:col-start-2
               lg:row-start-2
@@ -1145,8 +1101,9 @@ export default function ProjectDetailPage({ params }: Props) {
             className="
               group
               relative
-              min-h-[300px]
+              min-h-[240px]
               overflow-hidden
+              md:min-h-[320px]
               bg-[#242323]
               lg:col-start-3
               lg:row-start-2
@@ -1181,12 +1138,12 @@ export default function ProjectDetailPage({ params }: Props) {
             <button
               type="button"
               onClick={() => setGalleryOpen(false)}
-              className="absolute right-6 top-6 z-50 text-[9px] uppercase tracking-[0.3em] text-white/60 transition-colors hover:text-white sm:right-10 sm:top-10"
+              className="absolute right-4 top-4 z-50 text-[9px] uppercase tracking-[0.3em] text-white/60 transition-colors hover:text-white sm:right-6 sm:top-6 md:right-8 md:top-8 lg:right-10 lg:top-10"
             >
               Close
             </button>
 
-            <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10 lg:p-16">
+            <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8 md:p-10 lg:p-16">
               <Image
                 src={gallery[activeImage]}
                 alt={`${project.title} — Image ${activeImage + 1}`}
@@ -1205,7 +1162,7 @@ export default function ProjectDetailPage({ params }: Props) {
                   current === 0 ? gallery.length - 1 : current - 1
                 );
               }}
-              className="absolute left-5 top-1/2 z-50 -translate-y-1/2 text-3xl text-white/60 transition-all hover:-translate-x-1 hover:text-white sm:left-10"
+              className="absolute left-3 top-1/2 z-50 -translate-y-1/2 text-2xl text-white/60 transition-all hover:-translate-x-1 hover:text-white sm:left-6 md:left-8 lg:left-10 lg:text-3xl"
             >
               ←
             </button>
@@ -1218,7 +1175,7 @@ export default function ProjectDetailPage({ params }: Props) {
                   current === gallery.length - 1 ? 0 : current + 1
                 );
               }}
-              className="absolute right-5 top-1/2 z-50 -translate-y-1/2 text-3xl text-white/60 transition-all hover:translate-x-1 hover:text-white sm:right-10"
+              className="absolute right-3 top-1/2 z-50 -translate-y-1/2 text-2xl text-white/60 transition-all hover:translate-x-1 hover:text-white sm:right-6 md:right-8 lg:right-10 lg:text-3xl"
             >
               →
             </button>
@@ -1236,7 +1193,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
         <Link
           href="/contact"
-          className="group relative block min-h-[680px] w-full overflow-hidden bg-[#242323] text-white"
+          className="group relative block min-h-[560px] w-full overflow-hidden bg-[#242323] text-white md:min-h-[620px] lg:min-h-[680px]"
         >
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
             <p
@@ -1244,7 +1201,7 @@ export default function ProjectDetailPage({ params }: Props) {
                 w-full
                 whitespace-nowrap
                 text-center
-                text-[clamp(6rem,17vw,20rem)]
+                text-[clamp(4.5rem,18vw,10rem)] md:text-[clamp(6rem,14vw,14rem)] lg:text-[clamp(6rem,17vw,20rem)]
                 font-medium
                 uppercase
                 leading-none
@@ -1268,7 +1225,7 @@ export default function ProjectDetailPage({ params }: Props) {
             </span>
           </div>
 
-          <div className="relative z-10 flex min-h-[680px] flex-col items-center justify-center px-6 text-center">
+          <div className="relative z-10 flex min-h-[560px] flex-col items-center justify-center px-5 text-center md:min-h-[620px] lg:min-h-[680px]">
             <p className="mb-7 text-[9px] uppercase tracking-[0.4em] text-white/45">
               Start a conversation
             </p>

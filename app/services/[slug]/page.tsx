@@ -183,7 +183,8 @@ export default function ServicePage() {
     hover:border-white/60
     hover:bg-white
     hover:text-black
-    sm:left-10
+    sm:left-8
+    md:left-10
     lg:left-16
   "
 >
@@ -195,7 +196,7 @@ export default function ServicePage() {
           HERO
       ===================================================== */}
 
-      <section className="relative h-[82svh] min-h-[560px] w-full overflow-hidden bg-[#242323] sm:h-[88svh]">
+      <section className="relative h-[72svh] min-h-[500px] w-full overflow-hidden bg-[#242323] sm:h-[78svh] sm:min-h-[540px] md:h-[82svh] lg:h-[88svh]">
         <Image
           src={service.heroImage}
           alt={service.title}
@@ -211,10 +212,10 @@ export default function ServicePage() {
 
         {/* Content */}
 
-        <div className="service-hero-content absolute inset-x-0 bottom-[9vh] z-10 px-6 sm:px-10 lg:px-16">
+        <div className="service-hero-content absolute inset-x-0 bottom-[7vh] z-10 px-5 sm:bottom-[8vh] sm:px-8 md:bottom-[9vh] md:px-10 lg:px-16">
           <div className="mx-auto max-w-[1500px] text-center">
             {service.subtitle && (
-              <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.3em] text-white/70 sm:text-[11px]">
+              <p className="mb-4 text-[8px] font-medium uppercase tracking-[0.25em] text-white/70 sm:mb-5 sm:text-[10px] md:text-[11px]">
                 {service.subtitle}
               </p>
             )}
@@ -245,9 +246,9 @@ export default function ServicePage() {
           INTRO
       ===================================================== */}
 
-      <section className="bg-[#242323] px-6 py-[12vh] sm:px-10 lg:px-16">
+      <section className="bg-[#242323] px-5 py-[10vh] sm:px-8 sm:py-[11vh] md:px-10 md:py-[12vh] lg:px-16">
         <div className="mx-auto max-w-[1500px]">
-          <div className="mx-auto max-w-[850px] text-center">
+          <div className="mx-auto max-w-[850px] px-1 text-center">
             <p className="mb-5 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
               01 — About The Service
             </p>
@@ -268,7 +269,7 @@ export default function ServicePage() {
               with intention.
             </h2>
 
-            <p className="mx-auto mt-7 max-w-[680px] text-sm leading-[1.7] text-white/55 sm:text-base">
+            <p className="mx-auto mt-6 max-w-[680px] text-[13px] leading-[1.65] text-white/55 sm:mt-7 sm:text-sm md:text-base">
               {service.description}
             </p>
           </div>
@@ -279,7 +280,7 @@ export default function ServicePage() {
           GALLERY HEADER
       ===================================================== */}
 
-      <section className="bg-[#242323] px-6 pb-10 sm:px-10 lg:px-16">
+      <section className="bg-[#242323] px-5 pb-8 sm:px-8 sm:pb-10 md:px-10 lg:px-16">
         <div
           className="
             mx-auto
@@ -311,7 +312,7 @@ export default function ServicePage() {
           COLLAGE GALLERY
       ===================================================== */}
 
-      <section className="bg-[#242323] px-4 pb-[15vh] sm:px-8 lg:px-12">
+      <section className="bg-[#242323] px-3 pb-[12vh] sm:px-6 sm:pb-[13vh] md:px-8 md:pb-[15vh] lg:px-12">
         <div className="mx-auto max-w-[1600px]">
           <div
             className="
@@ -497,9 +498,9 @@ export default function ServicePage() {
           PROCESS
       ===================================================== */}
 
-      <section className="border-t border-white/10 bg-[#242323] px-6 py-[13vh] sm:px-10 lg:px-16">
+      <section className="border-t border-white/10 bg-[#242323] px-5 py-[10vh] sm:px-8 sm:py-[12vh] md:px-10 md:py-[13vh] lg:px-16">
         <div className="mx-auto max-w-[1500px]">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.5fr]">
+          <div className="grid gap-10 md:gap-12 lg:grid-cols-[0.8fr_1.5fr]">
 
             {/* TITLE */}
 
@@ -562,83 +563,107 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* =====================================================
-          CTA
-      ===================================================== */}
+      <section className="relative overflow-hidden bg-[#242323] px-6 py-[14vh] sm:px-10 lg:px-16">
+  {/* Background LET'S TALK */}
+  <div
+    className="
+      pointer-events-none
+      absolute
+      inset-0
+      flex
+      items-center
+      justify-center
+      overflow-hidden
+    "
+  >
+    <span
+      className="
+        whitespace-nowrap
+        text-[25vw]
+        font-medium
+        uppercase
+        leading-none
+        tracking-[-0.08em]
+        text-white/[0.035]
+        sm:text-[22vw]
+        lg:text-[18vw]
+      "
+    >
+      LET&apos;S TALK
+    </span>
+  </div>
 
-      <section className="bg-[#242323] px-6 py-[14vh] sm:px-10 lg:px-16">
-        <div className="mx-auto flex max-w-[1300px] flex-col items-center text-center">
+  {/* Foreground content */}
+  <div className="relative z-10 mx-auto flex max-w-[1300px] flex-col items-center text-center">
 
-          <p className="mb-6 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
-            Let&apos;s Create Something
-          </p>
+    <p className="mb-6 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
+      Let&apos;s Create Something
+    </p>
 
-          <h2
-            className="
-              max-w-[1000px]
-              text-[7vw]
-              font-medium
-              uppercase
-              leading-[0.9]
-              tracking-[-0.055em]
-              sm:text-5xl
-              lg:text-[5vw]
-            "
-          >
-            Have a space
-            <br />
-            that needs
-            <br />
-            something unique?
-          </h2>
+    <h2
+      className="
+        max-w-[1000px]
+        text-[7vw]
+        font-medium
+        uppercase
+        leading-[0.9]
+        tracking-[-0.055em]
+        sm:text-5xl
+        lg:text-[5vw]
+      "
+    >
+      Have a space
+      <br />
+      that needs
+      <br />
+      something unique?
+    </h2>
 
-          <Link
-            href="/contact"
-            className="
-              group
-              mt-9
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              border-white/15
-              px-7
-              py-3
-              text-[10px]
-              font-medium
-              uppercase
-              tracking-[0.15em]
-              transition-all
-              duration-500
-              hover:bg-white
-              hover:text-black
-            "
-          >
-            <span>Start a Project</span>
+    <Link
+      href="/contact"
+      className="
+        group
+        mt-9
+        inline-flex
+        items-center
+        gap-3
+        rounded-full
+        border
+        border-white/15
+        px-7
+        py-3
+        text-[10px]
+        font-medium
+        uppercase
+        tracking-[0.15em]
+        transition-all
+        duration-500
+        hover:bg-white
+        hover:text-black
+      "
+    >
+      <span>Start a Project</span>
 
-            <span
-              className="
-                flex
-                h-5
-                w-5
-                items-center
-                justify-center
-                rounded-full
-                bg-white
-                text-black
-                transition-transform
-                duration-500
-                group-hover:translate-x-1
-              "
-            >
-              ↗
-            </span>
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
+      <span
+        className="
+          flex
+          h-5
+          w-5
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-black
+          transition-transform
+          duration-500
+          group-hover:translate-x-1
+        "
+      >
+        ↗
+      </span>
+    </Link>
+  </div>
+</section>
 
       {/* =====================================================
           FULLSCREEN SLIDER
@@ -683,7 +708,7 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-              sm:right-8
+              sm:right-5\n              md:right-8
               sm:top-8
             "
           >
@@ -715,7 +740,7 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-              sm:left-8
+              sm:left-5\n              md:left-8
             "
           >
             <ArrowLeft className="h-5 w-5" />
@@ -723,7 +748,7 @@ export default function ServicePage() {
 
           {/* IMAGE */}
 
-          <div className="relative h-[78vh] w-[80vw] max-w-[1300px]">
+          <div className="relative h-[72vh] w-[78vw] max-w-[1300px] sm:h-[78vh] sm:w-[80vw]">
             <Image
               src={service.gallery[activeImage]}
               alt={`${service.title} ${activeImage + 1}`}
@@ -759,7 +784,7 @@ export default function ServicePage() {
               duration-300
               hover:bg-white
               hover:text-black
-              sm:right-8
+              sm:right-5\n              md:right-8
             "
           >
             <ArrowRight className="h-5 w-5" />
