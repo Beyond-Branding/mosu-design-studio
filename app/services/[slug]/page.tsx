@@ -250,24 +250,22 @@ export default function ServicePage() {
         <div className="mx-auto max-w-[1500px]">
           <div className="mx-auto max-w-[850px] px-1 text-center">
             <p className="mb-5 text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
-              01 — About The Service
+              01 — About The Product
             </p>
 
             <h2
-              className="
-                text-3xl
-                font-medium
-                uppercase
-                leading-[0.95]
-                tracking-[-0.045em]
-                sm:text-4xl
-                lg:text-5xl
-              "
-            >
-              Creating work
-              <br />
-              with intention.
-            </h2>
+  className="
+    text-3xl
+    font-medium
+    uppercase
+    leading-[0.95]
+    tracking-[-0.045em]
+    sm:text-4xl
+    lg:text-5xl
+  "
+>
+  {service.heading}
+</h2>
 
             <p className="mx-auto mt-6 max-w-[680px] text-[13px] leading-[1.65] text-white/55 sm:mt-7 sm:text-sm md:text-base">
               {service.description}

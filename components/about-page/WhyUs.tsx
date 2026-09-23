@@ -99,30 +99,30 @@ export default function WhyUs() {
           "
         >
           <span
-            className="
-              block
-              text-4xl
-              sm:text-5xl
-              md:text-6xl
-              lg:text-[6vw]
-            "
-          >
-            5 REASONS
-          </span>
+  className="
+    block
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-[6vw]
+  "
+>
+  5 REASONS
+</span>
 
-          <span
-            className="
-              mt-2
-              block
-              text-3xl
-              sm:text-4xl
-              md:text-5xl
-              lg:text-[5vw]
-              text-white
-            "
-          >
-            TO WORK WITH MOSU
-          </span>
+<span
+  className="
+    mt-2
+    block
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-[6vw]
+    text-white
+  "
+>
+  TO WORK WITH MOSU
+</span>
         </h2>
       </div>
     </section>

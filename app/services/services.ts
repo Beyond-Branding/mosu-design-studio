@@ -9,6 +9,7 @@ export interface Service {
   image: string;
   heroImage: string;
   subtitle: string;
+  heading: string;
   description: string;
   gallery: string[];
   process: ServiceProcess[];
@@ -27,8 +28,10 @@ export const services: Service[] = [
 
     subtitle: "Art that transforms spaces.",
 
+    heading: "Made to hold attention.",
+
     description:
-      "We create distinctive art installations that bring character, emotion and identity to interiors.",
+      "Bespoke installations created to become a defining presence within the space.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734408/at30.png",
@@ -41,7 +44,6 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734061/at35.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734061/at21.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734060/at9.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734060/at26.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/at18.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734057/at23.png",
@@ -73,6 +75,12 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734021/at28.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734022/at11.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735049/t8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790165230/atn4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790165207/atn1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790165163/atn2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790177513/ant3_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790177521/atn5_1.png",
+
      
       
     ],
@@ -105,8 +113,10 @@ export const services: Service[] = [
 
     subtitle: "Walls with a story.",
 
+    heading: "Made for the wall, not added to it.",
+
     description:
-      "Statement wall art designed to add depth, personality and visual interest to spaces.",
+      "Custom wall pieces shaped through texture, material and detail to feel naturally part of the space.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739296/wa36.png",
@@ -177,9 +187,11 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723331/s10.png",
 
     subtitle: "Form meets expression.",
+  
+    heading: "Creating work with intention. ",
 
     description:
-      "Sculptural pieces created to become powerful focal points within a space.",
+      "Culptural pieces created to become powerful focal points within a space.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723345/s21.png",
@@ -233,8 +245,10 @@ export const services: Service[] = [
 
     subtitle: "Light as an experience.",
 
+    heading: "Light with a point of view.",
+
     description:
-      "Unique lighting pieces that combine function, atmosphere and artistic expression.",
+      "Bespoke chandeliers and luminaires created to bring together light, form and craft.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719913/l18.png",
@@ -251,6 +265,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719896/l3.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719895/l2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719894/l1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178319/ln1.png",
     ],
 
     process: [
@@ -281,8 +296,10 @@ export const services: Service[] = [
 
     subtitle: "Reflective statements.",
 
+    heading: "More than reflection. ",
+
     description:
-      "Mirrors and chandeliers designed to create elegance, scale and visual drama.",
+      "Bespoke mirrors designed as visual pieces in their own right, through form, proportion and detail.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720442/m7.png",
@@ -329,8 +346,10 @@ export const services: Service[] = [
 
     subtitle: "Architecture in detail.",
 
+    heading: "Designed beyond function. ",
+
     description:
-      "Custom doors and partitions that combine craftsmanship, material and architectural character.",
+      "Custom doors and partitions created to define transitions while becoming part of the visual language of the space.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722313/d10.png",
@@ -343,6 +362,10 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178396/dn1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178398/dn2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178398/dn3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178399/dn4.png",
       
       
       
@@ -376,8 +399,10 @@ export const services: Service[] = [
 
     subtitle: "Material with character.",
 
+    heading: "Finish makes the difference.",
+
     description:
-      "Specialized metal finishes that bring texture, depth and personality to interiors.",
+      "Custom metal treatments developed through tone, texture and technique to give each surface a distinct expression.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721085/mt14.png",
@@ -424,8 +449,10 @@ export const services: Service[] = [
 
     subtitle: "Form, function and character.",
 
+    heading: "Made to belong.",
+
     description:
-      "Distinctive furniture pieces designed to bring comfort, functionality and character to every space.",
+      "Bespoke furniture created around proportion, material and use, with every detail considered from the start.",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722925/f10.png",

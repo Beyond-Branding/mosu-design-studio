@@ -22,70 +22,74 @@ export default function AboutHero() {
   const paragraph = useRef<HTMLParagraphElement>(null);
 
   useLayoutEffect(() => {
-    const element = section.current;
-    const titleElement = title.current;
-    const paragraphElement = paragraph.current;
+  const element = section.current;
+  const titleElement = title.current;
+  const paragraphElement = paragraph.current;
 
-    if (!element || !titleElement || !paragraphElement) return;
+  if (!element || !titleElement || !paragraphElement) return;
 
-    const mm = gsap.matchMedia();
+  const mm = gsap.matchMedia();
 
-    /* ============================================================
-       TABLET + DESKTOP
-       ============================================================ */
+  /* ============================================================
+     TABLET + DESKTOP
+     ============================================================ */
 
-    mm.add("(min-width: 768px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: element,
-          start: "top top",
-          end: "+=200%",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      gsap.set(paragraphElement, {
-        opacity: 0,
-        y: 60,
-      });
-
-      tl.to(titleElement, {
-        scale: 0.55,
-        y: -120,
-        ease: "none",
-      });
-
-      tl.to(
-        paragraphElement,
-        {
-          opacity: 1,
-          y: 0,
-          ease: "none",
-        },
-        "-=0.3"
-      );
+  mm.add("(min-width: 768px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: element,
+        start: "top top",
+        end: "+=200%",
+        scrub: true,
+        pin: true,
+      },
     });
 
-    /* ============================================================
-       MOBILE
-       ============================================================ */
+    gsap.set(paragraphElement, {
+      opacity: 0,
+      y: 40,
+    });
 
-    mm.add("(max-width: 767px)", () => {
-      gsap.set(titleElement, {
-        clearProps: "all",
-      });
+    /*
+     * Keep WE'RE MOSU close to the center.
+     * Previously y: -120 pushed it too far upward.
+     */
+    tl.to(titleElement, {
+      scale: 0.7,
+      y: -20,
+      ease: "none",
+    });
 
-      gsap.set(paragraphElement, {
+    tl.to(
+      paragraphElement,
+      {
         opacity: 1,
         y: 0,
-      });
+        ease: "none",
+      },
+      "-=0.2"
+    );
+  });
+
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+
+  mm.add("(max-width: 767px)", () => {
+    gsap.set(titleElement, {
+      clearProps: "all",
     });
 
-    return () => {
-      mm.revert();
-    };
-  }, []);
+    gsap.set(paragraphElement, {
+      opacity: 1,
+      y: 0,
+    });
+  });
+
+  return () => {
+    mm.revert();
+  };
+}, []);
 
   return (
     <section

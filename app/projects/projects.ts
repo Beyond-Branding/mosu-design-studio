@@ -76,9 +76,7 @@ export const projects: Project[] = [
     execution:
       "Hand-cut glass mosaic artworks, layered birchwood wall installations, blown-glass fish sculptures, sculptural mirrors, surfboard installations, room signage, large-scale wall art and handmade glass chandeliers.",
 
-    challenge:
-      "Creating a cohesive artistic identity while allowing each artwork to respond to the coastal character of South Goa required a varied approach to materials, scale and visual language.",
-
+    
    gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735061/t13.png",
@@ -216,9 +214,7 @@ export const projects: Project[] = [
     execution:
       "Hand-painted canvas artworks, wall sculptures, hand-painted wooden panels, devotional art compositions, planters and framed canvas works.",
 
-    challenge:
-      "The challenge was to preserve the cultural character of the project while ensuring the artworks remained appropriate for a contemporary hospitality environment.",
-
+    
     gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738391/my7.png",
@@ -281,9 +277,7 @@ export const projects: Project[] = [
     execution:
       "Metal and wooden wall installations, mosaic art, textured canvases, bead and sequin artworks, sculptural wall pieces and FRP sculptures with gloss finishes.",
 
-    challenge:
-      "The challenge was to create visual richness and individuality across four storeys while maintaining a cohesive relationship with the contemporary architecture.",
-
+    
    gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737932/h2.png",
@@ -346,9 +340,7 @@ export const projects: Project[] = [
     execution:
       "Hand-painted canvases, textured dust-marble artworks, painted wooden panels, alcohol-ink works, gallery walls, layered wooden installations and sculptural feature compositions.",
 
-    challenge:
-      "The challenge was to manage a broad collection of artistic styles and materials while maintaining a strong sense of continuity throughout the residence.",
-
+    
    gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736987/g9.png",
@@ -411,9 +403,7 @@ export const projects: Project[] = [
     execution:
       "Venetian and Murano mirrors, Murano chandeliers, Asfour crystal chandeliers, cascading crystal light installations, metal curtains, carved wooden frames and decorative wall inlays.",
 
-    challenge:
-      "Working with elaborate decorative elements required careful coordination of scale, craftsmanship, light and architectural detailing.",
-
+    
     gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736095/c7.png",
@@ -475,9 +465,7 @@ export const projects: Project[] = [
     execution:
       "Textured wall art, thread and fabric artworks, dimensional wooden wall pieces, Pichwai-inspired works and bespoke feature panels.",
 
-    challenge:
-      "The artwork needed to introduce character without disturbing the residence's understated atmosphere, requiring a restrained palette and carefully scaled interventions.",
-
+   
    gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735740/b6.png",
@@ -540,9 +528,7 @@ export const projects: Project[] = [
     execution:
       "Layered wooden wall installations, sculptural linear wall pieces, textured feature artworks, ceramic disc compositions, large-scale graphic wall art, bespoke chandeliers and patinated metal feature panels.",
 
-    challenge:
-      "The project required artworks to function as architectural elements while maintaining a varied and sophisticated visual language across the residence.",
-
+   
    gallery: [
   // 01 — Main
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737669/ss2.png",

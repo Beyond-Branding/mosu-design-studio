@@ -728,11 +728,11 @@ export default function ProjectDetailPage({ params }: Props) {
 
             <div className="flex flex-col justify-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-16 lg:py-10 xl:px-24">
               <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
-                03 — Composition
+                03 — Execution
               </p>
 
               <h2 className="text-[clamp(2.8rem,12vw,4.5rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] md:text-[clamp(3.5rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,6rem)]">
-                Composition
+                Execution
               </h2>
 
               <p className="mt-6 max-w-[780px] text-[12px] font-normal uppercase leading-[1.45] tracking-[-0.015em] text-white/80 md:mt-8 md:text-[13px] lg:text-[14px]">
@@ -770,30 +770,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* =====================================================
-            08 — CHALLENGE TEXT ONLY
-        ===================================================== */}
-
-        <section className="w-full bg-[#242323] px-5 py-20 text-white sm:px-8 sm:py-24 md:px-10 lg:px-16 lg:py-32">
-          <div className="mx-auto grid max-w-[1600px] gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12">
-            <div />
-
-            <div className="max-w-[850px]">
-              <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
-                04 — Challenge
-              </p>
-
-              <h2 className="text-[clamp(2.8rem,11vw,4.5rem)] font-light uppercase leading-[0.9] tracking-[-0.05em] md:text-[clamp(3rem,7vw,5rem)] lg:text-[clamp(3rem,5vw,5.5rem)]">
-                Challenge
-              </h2>
-
-              <p className="mt-6 text-[12px] font-light uppercase leading-[1.5] text-white/70 sm:text-[13px] md:mt-8 md:text-[14px] lg:text-[15px]">
-                {project.challenge ||
-                  "Creating a cohesive visual identity while balancing materiality, functionality and architectural character required a precise and considered approach."}
-              </p>
-            </div>
-          </div>
-        </section>
+        
 
         {/* =====================================================
     09 — GALLERY
