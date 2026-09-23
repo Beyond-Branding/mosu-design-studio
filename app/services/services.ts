@@ -113,7 +113,7 @@ export const services: Service[] = [
 
     subtitle: "Walls with a story.",
 
-    heading: "Made for the wall, not added to it.",
+    heading: "Made to leave an impression.",
 
     description:
       "Custom wall pieces shaped through texture, material and detail to feel naturally part of the space.",
