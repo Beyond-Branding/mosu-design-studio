@@ -549,33 +549,58 @@ export default function ProjectDetailPage({ params }: Props) {
               className="object-cover object-center"
             />
 
-            <div className="absolute inset-0 bg-black/30" />
+<div className="absolute inset-0 bg-black/30" />
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
+<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
 
-            <div className="absolute inset-x-0 top-0 z-10 px-5 pt-16 sm:px-8 sm:pt-24 md:px-10 md:pt-28 lg:px-16 lg:pt-36">
-              <div className="mx-auto grid max-w-[1600px] gap-6 md:gap-8 lg:gap-10 lg:grid-cols-[0.25fr_0.75fr]">
-                <div>
-                  <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
-                    About
-                  </p>
-                </div>
+<div className="absolute inset-x-0 top-0 z-10 px-5 pt-16 sm:px-8 sm:pt-24 md:px-10 md:pt-28 lg:px-16 lg:pt-36">
+  <div className="mx-auto grid max-w-[1500px] gap-10 md:gap-12 lg:grid-cols-[0.2fr_0.8fr] lg:gap-16">
+    
+    {/* Label */}
+    <div>
+      <p className="text-[9px] uppercase tracking-[0.4em] text-white/60">
+        About
+      </p>
+    </div>
 
-                <div>
-                  {project.description && (
-                    <p className="max-w-[1000px] text-[clamp(1.35rem,4.5vw,2.5rem)] font-light leading-[1.1] tracking-[-0.03em] md:text-[clamp(1.6rem,3.2vw,2.7rem)] lg:text-[clamp(1.4rem,2.5vw,3rem)]">
-  {project.description}
-</p>
-                  )}
+    {/* Content */}
+    <div>
+      {project.description && (
+        <p
+          className="
+            max-w-[850px]
+            text-[clamp(1.2rem,3.5vw,2.2rem)]
+            font-light
+            leading-[1.3]
+            tracking-[-0.015em]
+            text-white
+            md:text-[clamp(1.4rem,2.8vw,2.5rem)]
+            lg:text-[clamp(1.5rem,2.2vw,2.8rem)]
+          "
+        >
+          {project.description}
+        </p>
+      )}
 
-                  {project.awards && (
-                    <p className="mt-8 max-w-[700px] text-[10px] leading-5 tracking-[0.02em] text-white/55">
-                      {project.awards}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
+      {project.awards && (
+        <p
+          className="
+            mt-10
+            max-w-[650px]
+            text-[10px]
+            leading-6
+            tracking-[0.03em]
+            text-white/55
+          "
+        >
+          {project.awards}
+        </p>
+      )}
+    </div>
+
+  </div>
+</div>
+
           </section>
         )}
 {/* =====================================================
@@ -722,26 +747,57 @@ export default function ProjectDetailPage({ params }: Props) {
             06 — COMPOSITION
         ===================================================== */}
 
-        <section className="relative min-h-[420px] w-full bg-[#242323] md:min-h-[500px] lg:min-h-[460px]">
-          <div className="mx-auto grid min-h-[420px] max-w-[1920px] grid-cols-1 md:min-h-[500px] lg:min-h-[460px] lg:grid-cols-2">
-            <div />
+<section className="relative min-h-[420px] w-full bg-[#242323] md:min-h-[500px] lg:min-h-[460px]">
+  <div className="mx-auto grid min-h-[420px] max-w-[1920px] grid-cols-1 md:min-h-[500px] lg:min-h-[460px] lg:grid-cols-2">
+    
+    <div />
 
-            <div className="flex flex-col justify-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-16 lg:py-10 xl:px-24">
-              <p className="mb-5 text-[9px] uppercase tracking-[0.4em] text-white/40">
-                03 — Execution
-              </p>
+    <div className="flex flex-col justify-center px-5 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-16 lg:py-12 xl:px-24">
+      
+      <p className="mb-6 text-[9px] uppercase tracking-[0.4em] text-white/40">
+        03 — Execution
+      </p>
 
-              <h2 className="text-[clamp(2.8rem,12vw,4.5rem)] font-light uppercase leading-[0.88] tracking-[-0.06em] md:text-[clamp(3.5rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,6rem)]">
-                Execution
-              </h2>
+      <h2
+        className="
+          text-[clamp(2.8rem,12vw,4.5rem)]
+          font-light
+          uppercase
+          leading-[0.9]
+          tracking-[-0.045em]
+          md:text-[clamp(3.5rem,7vw,5rem)]
+          lg:text-[clamp(3.5rem,5.5vw,6rem)]
+        "
+      >
+        Execution
+      </h2>
 
-              <p className="mt-6 max-w-[780px] text-[12px] font-normal uppercase leading-[1.45] tracking-[-0.015em] text-white/80 md:mt-8 md:text-[13px] lg:text-[14px]">
-                {project.execution ||
-                  "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
-              </p>
-            </div>
-          </div>
-        </section>
+      <p
+        className="
+          mt-8
+          max-w-[650px]
+          text-[11px]
+          font-normal
+          uppercase
+          leading-[1.7]
+          tracking-[0.01em]
+          text-white/70
+          sm:text-[12px]
+          md:mt-9
+          md:text-[13px]
+          lg:mt-10
+          lg:text-[14px]
+          lg:leading-[1.65]
+        "
+      >
+        {project.execution ||
+          "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
+      </p>
+
+    </div>
+  </div>
+</section>
+
 
         {/* =====================================================
             07 — COMPOSITION IMAGE

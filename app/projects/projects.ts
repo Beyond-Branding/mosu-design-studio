@@ -65,13 +65,13 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644201/goa.png",
 
     description:
-      "A distinctive artistic identity for a coastal resort in South Goa, inspired by the beaches, landscape and local culture of Palolem.",
+      "To create a distinctive artistic identity for a coastal resort in South Goa, carrying the character of its beaches, landscape and local culture through the property.",
 
     brief:
       "To create a distinctive artistic identity for a coastal resort in South Goa, carrying the character of its beaches, landscape and local culture through the property.",
 
     concept:
-      "The sea became the thread that connects the project,from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
+      "The sea became the thread that connects the project, moving from tides and sunsets to aquatic life, surf culture and fragments of Goa, each interpreted differently rather than repeated.",
 
     execution:
       "Hand-cut glass mosaic artworks, layered birchwood wall installations, blown-glass fish sculptures, sculptural mirrors, surfboard installations, room signage, large-scale wall art and handmade glass chandeliers.",
@@ -203,7 +203,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
 
     description:
-      "A contemporary guest house enriched with traditional iconography and Kalamkari, creating a cultural identity that feels rooted yet contemporary.",
+      "To bring a sense of tradition and cultural familiarity into a contemporary guest house without making the expression feel overly ceremonial",
 
     brief:
       "To bring a sense of tradition and cultural familiarity into a contemporary guest house without making the expression feel overly ceremonial.",
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/west_bengal.png",
 
     description:
-      "A four-storey contemporary residence transformed through colour, art and sculptural interventions, with every space developing its own artistic character.",
+      "To introduce colour, art and sculptural detail into a four-storey contemporary residence defined by clean architectural finishes.",
 
     brief:
       "To introduce colour, art and sculptural detail into a four-storey contemporary residence defined by clean architectural finishes.",
@@ -275,7 +275,7 @@ export const projects: Project[] = [
       "Rather than following one visual language throughout, the residence became a collection of individual artistic moments, each responding to the mood and scale of its setting.",
 
     execution:
-      "Metal and wooden wall installations, mosaic art, textured canvases, bead and sequin artworks, sculptural wall pieces and FRP sculptures with gloss finishes.",
+      "Metal and wooden wall installations, mosaic art, textured canvases, bead and sequin artworks, sculptural wall pieces and FRP sculptures with gloss finishes",
 
     
    gallery: [
@@ -329,7 +329,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
 
     description:
-      "An extensive art collection for a vibrant four-storey residence, allowing individual rooms and passages to develop their own visual identities.",
+      "To build an extensive art collection for a vibrant four-storey residence, allowing different rooms and passages to develop their own character.",
 
     brief:
       "To build an extensive art collection for a vibrant four-storey residence, allowing different rooms and passages to develop their own character.",
@@ -392,7 +392,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
 
     description:
-      "A Venetian-style mansion defined by scale, ornament and craftsmanship, using reflection and light to create a sense of grandeur.",
+      "To create bespoke decorative elements for a Venetian-style mansion where scale, ornament and craftsmanship were integral to the architecture.",
 
     brief:
       "To create bespoke decorative elements for a Venetian-style mansion where scale, ornament and craftsmanship were integral to the architecture.",
@@ -454,7 +454,7 @@ export const projects: Project[] = [
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/MUMBAI.png",
 
     description:
-      "A warm and understated residence enriched with contemporary artistic interventions built around line, texture and movement.",
+      "To add contemporary artistic interventions to a warm, understated residence while keeping the overall language light and composed.",
 
     brief:
       "To add contemporary artistic interventions to a warm, understated residence while keeping the overall language light and composed.",
@@ -463,7 +463,7 @@ export const projects: Project[] = [
       "Line, texture and movement shape the collection, allowing abstract forms and traditional references to coexist within a quieter palette.",
 
     execution:
-      "Textured wall art, thread and fabric artworks, dimensional wooden wall pieces, Pichwai-inspired works and bespoke feature panels.",
+      "extured wall art, thread and fabric artworks, dimensional wooden wall pieces, Pichwai-inspired works and bespoke feature panels.",
 
    
    gallery: [
@@ -517,7 +517,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
 
     description:
-      "A varied collection of statement pieces where art becomes part of the architecture through layered wood, sculptural forms, ceramic compositions and bespoke lighting.",
+      "To create a varied collection of statement pieces for the residence, allowing art to move beyond framed works and become part of the architecture itself.",
 
     brief:
       "To create a varied collection of statement pieces for the residence, allowing art to move beyond framed works and become part of the architecture itself.",

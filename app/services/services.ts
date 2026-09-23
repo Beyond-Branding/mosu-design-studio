@@ -28,7 +28,7 @@ export const services: Service[] = [
 
     subtitle: "Art that transforms spaces.",
 
-    heading: "Made to hold attention.",
+    heading: "Made to leave an impression",
 
     description:
       "Bespoke installations created to become a defining presence within the space.",
