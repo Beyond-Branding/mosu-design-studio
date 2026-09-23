@@ -19,7 +19,10 @@ export default function FlipSection() {
 
     const mm = gsap.matchMedia();
 
+    // ============================================================
     // DESKTOP ONLY
+    // ============================================================
+
     mm.add("(min-width: 1024px)", () => {
       const ctx = gsap.context(() => {
         gsap.set(card, {
@@ -37,14 +40,17 @@ export default function FlipSection() {
             trigger: section,
             start: "top top",
             end: "+=220%",
-            scrub: true,
+            scrub: 1,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
         });
 
-        // Flip into position
+        // ========================================================
+        // FLIP INTO POSITION
+        // ========================================================
+
         tl.to(card, {
           rotateY: 0,
           rotateX: 0,
@@ -54,14 +60,17 @@ export default function FlipSection() {
           duration: 1,
         });
 
-        // Expand to fullscreen
+        // ========================================================
+        // EXPAND TO FULLSCREEN
+        // ========================================================
+
         tl.to(
           card,
           {
             top: 0,
             left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
+            width: "100vw",
+            height: "100vh",
             borderRadius: 0,
             ease: "power3.inOut",
             duration: 1,
@@ -73,6 +82,17 @@ export default function FlipSection() {
       return () => {
         ctx.revert();
       };
+    });
+
+    // ============================================================
+    // MOBILE / TABLET
+    // NO ANIMATION
+    // ============================================================
+
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(card, {
+        clearProps: "all",
+      });
     });
 
     return () => {
@@ -91,34 +111,45 @@ export default function FlipSection() {
         lg:h-screen
       "
     >
-      {/* =========================
+      {/* ==========================================================
           DESKTOP
-          ========================= */}
+          ========================================================== */}
+
       <div className="hidden h-full items-center justify-center lg:flex">
         <div
           ref={cardRef}
           className="
             relative
+            h-[640px]
+            w-[500px]
             overflow-hidden
             rounded-2xl
             shadow-2xl
-            w-[500px]
-            h-[640px]
-            xl:w-[560px]
-            xl:h-[720px]
             will-change-transform
+            xl:h-[720px]
+            xl:w-[560px]
           "
         >
           <Image
             src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
             alt="Bespoke by Nature"
             fill
-            sizes="100vw"
+            priority
+            sizes="(min-width: 1280px) 560px, 500px"
             className="object-cover"
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10" />
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/90
+              via-black/45
+              to-black/10
+            "
+          />
 
           {/* Content */}
           <div
@@ -132,6 +163,7 @@ export default function FlipSection() {
               text-white
             "
           >
+            {/* Label */}
             <p
               className="
                 mb-3
@@ -144,13 +176,14 @@ export default function FlipSection() {
               Bespoke
             </p>
 
+            {/* Heading */}
             <h2
               className="
                 font-black
                 uppercase
                 leading-none
-                text-white
                 text-7xl
+                text-white
               "
             >
               Bespoke
@@ -158,6 +191,7 @@ export default function FlipSection() {
               by Nature
             </h2>
 
+            {/* Description */}
             <p
               className="
                 mt-6
@@ -176,103 +210,102 @@ export default function FlipSection() {
         </div>
       </div>
 
-{/* =========================
-    MOBILE / TABLET
-    NO ANIMATION
-    ========================= */}
-<div
-  className="
-    relative
-    h-screen
-    w-full
-    lg:hidden
-  "
->
-  {/* IMAGE */}
-  <Image
-    src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
-    alt="Bespoke by Nature"
-    fill
-    priority
-    sizes="100vw"
-    className="object-cover"
-  />
+      {/* ==========================================================
+          MOBILE / TABLET
+          NO ANIMATION
+          ========================================================== */}
 
-  {/* DARK OVERLAY */}
-  <div
-    className="
-      absolute
-      inset-0
-      bg-gradient-to-t
-      from-black/90
-      via-black/45
-      to-black/10
-    "
-  />
+      <div
+        className="
+          relative
+          h-screen
+          w-full
+          lg:hidden
+        "
+      >
+        {/* Image */}
+        <Image
+          src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
+          alt="Bespoke by Nature"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
 
-  {/* CONTENT ON IMAGE */}
-  <div
-    className="
-      absolute
-      inset-0
-      z-20
-      flex
-      flex-col
-      justify-end
-      p-6
-      sm:p-8
-      text-white
-    "
-  >
-    {/* LABEL */}
-    <p
-      className="
-        mb-3
-        text-[11px]
-        uppercase
-        tracking-[0.35em]
-        text-white/60
-      "
-    >
-      Bespoke
-    </p>
+        {/* Dark Overlay */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/90
+            via-black/45
+            to-black/10
+          "
+        />
 
-    {/* HEADING */}
-    <h2
-      className="
-        font-black
-        uppercase
-        leading-[0.9]
-        text-white
-        text-5xl
-        sm:text-6xl
-      "
-    >
-      Bespoke
-      <br />
-      by Nature
-    </h2>
+        {/* Content */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-20
+            flex
+            flex-col
+            justify-end
+            p-6
+            text-white
+            sm:p-8
+          "
+        >
+          {/* Label */}
+          <p
+            className="
+              mb-3
+              text-[11px]
+              uppercase
+              tracking-[0.35em]
+              text-white/60
+            "
+          >
+            Bespoke
+          </p>
 
-    {/* DESCRIPTION */}
-    <p
-      className="
-        mt-6
-        max-w-md
-        text-sm
-        leading-relaxed
-        text-white/75
-        sm:text-base
-      "
-    >
-      Every piece is conceived for a specific space, story and
-      purpose. From art installations and mirrors to lighting,
-      furniture and sculptural elements, nothing feels generic or
-      off-the-shelf.
-    </p>
-  </div>
-</div>
+          {/* Heading */}
+          <h2
+            className="
+              text-5xl
+              font-black
+              uppercase
+              leading-[0.9]
+              text-white
+              sm:text-6xl
+            "
+          >
+            Bespoke
+            <br />
+            by Nature
+          </h2>
 
+          {/* Description */}
+          <p
+            className="
+              mt-6
+              max-w-md
+              text-sm
+              leading-relaxed
+              text-white/75
+              sm:text-base
+            "
+          >
+            Every piece is conceived for a specific space, story and
+            purpose. From art installations and mirrors to lighting,
+            furniture and sculptural elements, nothing feels generic or
+            off-the-shelf.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
-
