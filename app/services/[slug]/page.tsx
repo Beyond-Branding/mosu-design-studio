@@ -492,74 +492,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* =====================================================
-          PROCESS
-      ===================================================== */}
-
-      <section className="border-t border-white/10 bg-[#242323] px-5 py-[10vh] sm:px-8 sm:py-[12vh] md:px-10 md:py-[13vh] lg:px-16">
-        <div className="mx-auto max-w-[1500px]">
-          <div className="grid gap-10 md:gap-12 lg:grid-cols-[0.8fr_1.5fr]">
-
-            {/* TITLE */}
-
-            <div>
-              <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/35 sm:text-[10px]">
-                03 — Our Process
-              </p>
-
-              <h2
-                className="
-                  mt-5
-                  max-w-[500px]
-                  text-4xl
-                  font-medium
-                  uppercase
-                  leading-[0.9]
-                  tracking-[0.02em]
-                  sm:text-5xl
-                  lg:text-6xl
-                "
-              >
-                FROM IDEA
-                <br />
-                TO OBJECT
-              </h2>
-            </div>
-
-            {/* STEPS */}
-
-            <div className="border-t border-white/10">
-              {service.process.map((step, index) => (
-                <div
-                  key={step.title}
-                  className="
-                    grid
-                    grid-cols-[55px_1fr]
-                    border-b
-                    border-white/10
-                    py-7
-                    sm:grid-cols-[80px_1fr]
-                  "
-                >
-                  <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <div>
-                    <h3 className="text-lg font-medium uppercase tracking-[-0.025em] sm:text-xl">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-3 max-w-[650px] text-sm leading-[1.6] text-white/45">
-                      {step.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="relative overflow-hidden bg-[#242323] px-6 py-[14vh] sm:px-10 lg:px-16">
   {/* Background LET'S TALK */}

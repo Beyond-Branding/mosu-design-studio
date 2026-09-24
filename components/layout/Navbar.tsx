@@ -263,7 +263,7 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >
             <Image
-              src="https://res.cloudinary.com/dcaiszxcb/image/upload/v1785491644/text_3_hdcwme.png"
+              src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740555/text_3_hdcwme.png"
               alt="MOSU Logo"
               width={140}
               height={45}
