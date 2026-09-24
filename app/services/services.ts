@@ -31,7 +31,7 @@ export const services: Service[] = [
     heading: "Made to hold attention.",
 
     description:
-      "Bespoke installations created to become a defining presence within the space.",
+      "Bespoke installations created to become a defining presence within the space .",
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734408/at30.png",
