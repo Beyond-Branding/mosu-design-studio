@@ -181,10 +181,10 @@ export const services: Service[] = [
     slug: "sculptures",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261027/s3.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723331/s10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261124/s10.png",
 
     subtitle: "Form meets expression.",
   
@@ -201,18 +201,18 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723340/s17.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s16.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s11.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s7.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s15.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723336/s14.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723331/s10.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723328/s1.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723327/s8.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723322/s5.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s7.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s4.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723320/s3.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723319/s6.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723311/s2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261027/s3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261039/s1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261025/s4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261024/s2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261124/s10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261130/s9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261121/s8.png",
+      
     ],
 
     process: [
@@ -286,10 +286,10 @@ export const services: Service[] = [
     slug: "mirrors-chandeliers",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720414/m3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261310/m3.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720617/m1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261488/m1_1_1.png",
 
     subtitle: "Reflective statements.",
 
@@ -299,20 +299,20 @@ export const services: Service[] = [
       "Bespoke mirrors designed as visual pieces in their own right, through form, proportion and detail.",
 
     gallery: [
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720442/m7.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720436/m14.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261324/m7.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261317/m8.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261313/m2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261310/m3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261307/m6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261307/m5.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720436/m13.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720436/m14.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720433/m12.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720429/m11.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720424/m8.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720421/m10.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720417/m5.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720416/m4.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720414/m3.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720413/m2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720413/m9.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720410/m6.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789720617/m1.png",
+      
     ],
 
     process: [
