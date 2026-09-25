@@ -79,33 +79,62 @@ export const projects: Project[] = [
     
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735061/t13.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360850/11_3.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735057/t19.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360851/13_3.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361496/15_1.png",
 
   // 04 — Large grid image
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at16.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361203/16.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735046/t3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360296/7.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735049/t1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360851/18_4.png",
 
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735044/t2.jpg",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361205/22.png",
   
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735045/t4.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735051/t11_1.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735048/t6.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735062/t17.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735042/t9.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735050/t14.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734022/at12.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/at18.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361188/20.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361188/21.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361205/22.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360290/23.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361189/24.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361190/25.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361190/26.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361191/27.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360304/28.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643502/Gemini_Generated_Image_7j7iib7j7iib7j7i.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360294/37.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360306/36.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361189/34.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361189/32.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361191/33.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361205/31.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361205/35.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361493/38.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643486/39_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361197/40.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643493/41.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361210/42.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361191/43.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361211/44.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361192/45.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643494/46.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360308/50.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361207/49.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361212/51.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361495/52.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361209/53.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361495/4_1.jpg",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643490/room.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643461/LOBBY_1_7_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789643495/LOBBY_1_11_2.jpg",
+
+
 ],
   },
 
