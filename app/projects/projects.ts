@@ -79,16 +79,18 @@ export const projects: Project[] = [
     
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360850/11_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360851/18_4.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360851/13_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360303/8.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361496/15_1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360310/5.png",
 
   // 04 — Large grid image
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361203/16.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360851/13_3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361496/15_1.png",
 
   // 05 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360296/7.png",
@@ -101,6 +103,7 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361188/20.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361188/21.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361205/22.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361495/48.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790360290/23.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361189/24.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790361190/25.png",
