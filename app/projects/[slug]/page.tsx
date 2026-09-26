@@ -832,7 +832,10 @@ export default function ProjectDetailPage({ params }: Props) {
     09 — GALLERY
 ===================================================== */}
 
-{slug === "taj-gateway-palolem" ? (
+{(
+  slug === "taj-gateway-palolem" ||
+  slug === "coimbatore-mansion"
+) ? (
   /* =====================================================
       TAJ GATEWAY PALOLEM — FULL PROJECT GALLERY
   ===================================================== */
@@ -873,7 +876,7 @@ export default function ProjectDetailPage({ params }: Props) {
               className="
                 group
                 relative
-                aspect-[4/3]
+                aspect-[7/7]
                 w-full
                 overflow-hidden
                 bg-[#242323]
