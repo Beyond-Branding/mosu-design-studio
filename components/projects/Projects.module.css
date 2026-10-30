@@ -298,23 +298,13 @@ body {
 ========================= */
 
 .overlay h2 {
-  margin-top: 12px;
-
-  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
-
+  font-size: clamp(1.5rem, 2.8vw, 2.8rem);
   font-weight: 700;
-
-  letter-spacing: -0.025em;
-
-  line-height: 1.05;
-
-  text-align: center;
-
-  color: #ffffff;
-
-  white-space: nowrap;
+  letter-spacing: 0.02em;
+  word-spacing: 0.1em;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
-
 
 /* =========================
    LOCATION

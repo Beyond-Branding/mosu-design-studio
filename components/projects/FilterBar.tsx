@@ -4,12 +4,11 @@ interface FilterBarProps {
   activeFilter: string;
   setActiveFilter: React.Dispatch<React.SetStateAction<string>>;
 }
-
 const filters = [
   "ALL",
-  "RESIDENCES",
-  "HOTELS",
-  "RESORTS",
+  "HOSPITALITY",
+  "RESIDENCIES",
+  "INSTITUTIONS",
 ];
 
 export default function FilterBar({

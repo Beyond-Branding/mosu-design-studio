@@ -131,7 +131,7 @@ export default function FlipSection() {
           "
         >
           <Image
-            src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
+            src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383533/bespoke_by_nature.png"
             alt="Bespoke by Nature"
             fill
             priority
@@ -225,7 +225,7 @@ export default function FlipSection() {
       >
         {/* Image */}
         <Image
-          src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1789740550/1._Bespoke.png"
+          src="https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383533/bespoke_by_nature.png"
           alt="Bespoke by Nature"
           fill
           priority
