@@ -2,9 +2,6 @@
 
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const lines = [
   "WE CRAFT PRODUCTS THAT TRANSFORM \n YOUR INTERIOR SPACES",
@@ -26,10 +23,7 @@ export default function Editorial() {
         gsap.utils.toArray<HTMLElement>(".char", item)
       );
 
-      /* ========================================================
-         INITIAL STATE
-      ======================================================== */
-
+      // INITIAL STATE
       gsap.set(items, {
         autoAlpha: 0,
       });
@@ -41,40 +35,26 @@ export default function Editorial() {
         y: 0,
       });
 
-      /* ========================================================
-         RESPONSIVE ANIMATION
-      ======================================================== */
+      // AUTOMATIC ANIMATION
+      const tl = gsap.timeline({
+        repeat: -1,
+      });
 
-      const mm = gsap.matchMedia();
+      lines.forEach((_, index) => {
+        const currentItem = items[index];
+        const currentChars = characters[index];
 
-      /* ========================================================
-         DESKTOP / TABLET
-      ======================================================== */
-
-      mm.add("(min-width: 768px)", () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: `+=${lines.length * 1200}`,
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        /* FIRST SENTENCE */
-
-        tl.set(items[0], {
+        // Show current sentence
+        tl.set(currentItem, {
           autoAlpha: 1,
         });
 
-        tl.to(characters[0], {
+        // Characters appear with blur-to-clear effect
+        tl.to(currentChars, {
           opacity: 1,
           filter: "blur(0px)",
           scale: 1,
-          duration: 1,
+          duration: 0.8,
           stagger: {
             each: 0.018,
             from: "center",
@@ -82,19 +62,17 @@ export default function Editorial() {
           ease: "power2.out",
         });
 
-        /* HOLD */
-
+        // Keep sentence visible for a few seconds
         tl.to({}, {
-          duration: 1,
+          duration: 2.5,
         });
 
-        /* FIRST SENTENCE DISAPPEARS */
-
-        tl.to(characters[0], {
+        // Characters disappear with the same blur effect
+        tl.to(currentChars, {
           opacity: 0,
           filter: "blur(8px)",
           scale: 0.98,
-          duration: 1,
+          duration: 0.8,
           stagger: {
             each: 0.018,
             from: "center",
@@ -102,121 +80,10 @@ export default function Editorial() {
           ease: "power2.inOut",
         });
 
-        tl.set(items[0], {
+        // Hide current sentence before the next one
+        tl.set(currentItem, {
           autoAlpha: 0,
         });
-
-        /* SECOND SENTENCE */
-
-        tl.set(items[1], {
-          autoAlpha: 1,
-        });
-
-        tl.to(characters[1], {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1,
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-          ease: "power2.out",
-        });
-
-        /* HOLD */
-
-        tl.to({}, {
-          duration: 1,
-        });
-      });
-
-      /* ========================================================
-         MOBILE
-      ======================================================== */
-
-      mm.add("(max-width: 767px)", () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=1800",
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        /* FIRST SENTENCE */
-
-        tl.set(items[0], {
-          autoAlpha: 1,
-        });
-
-        tl.to(characters[0], {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1,
-          stagger: {
-            each: 0.025,
-            from: "center",
-          },
-          ease: "power2.out",
-        });
-
-        /* HOLD */
-
-        tl.to({}, {
-          duration: 0.8,
-        });
-
-        /* FIRST SENTENCE DISAPPEARS */
-
-        tl.to(characters[0], {
-          opacity: 0,
-          filter: "blur(8px)",
-          scale: 0.98,
-          duration: 1,
-          stagger: {
-            each: 0.025,
-            from: "center",
-          },
-          ease: "power2.inOut",
-        });
-
-        tl.set(items[0], {
-          autoAlpha: 0,
-        });
-
-        /* SECOND SENTENCE */
-
-        tl.set(items[1], {
-          autoAlpha: 1,
-        });
-
-        tl.to(characters[1], {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1,
-          stagger: {
-            each: 0.025,
-            from: "center",
-          },
-          ease: "power2.out",
-        });
-
-        /* HOLD */
-
-        tl.to({}, {
-          duration: 0.8,
-        });
-      });
-
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
       });
     }, section);
 
@@ -243,7 +110,6 @@ export default function Editorial() {
           flex
           items-center
           justify-center
-
           px-4
           sm:px-10
           lg:px-16
@@ -270,29 +136,17 @@ export default function Editorial() {
                 mx-auto
                 w-full
                 max-w-[1500px]
-
                 text-center
                 font-grey
                 font-semibold
                 uppercase
-
                 leading-[1.08]
                 tracking-[-0.02em]
-
                 text-[#F2F2F2]
-
-                /* MOBILE */
                 text-[1.25rem]
-
-                /* SMALL MOBILE */
                 sm:text-[2.2rem]
-
-                /* TABLET */
                 md:text-[3rem]
-
-                /* DESKTOP */
                 lg:text-[3.7rem]
-
                 xl:text-[4.3rem]
               "
               style={{
@@ -307,10 +161,8 @@ export default function Editorial() {
                     flex-wrap
                     items-center
                     justify-center
-
                     gap-x-[0.22em]
                     gap-y-[0.08em]
-
                     whitespace-normal
                     sm:whitespace-nowrap
                   "
@@ -318,18 +170,12 @@ export default function Editorial() {
                   {row.split(" ").map((word, wordIndex) => (
                     <span
                       key={`${rowIndex}-${wordIndex}`}
-                      className="
-                        inline-flex
-                        whitespace-nowrap
-                      "
+                      className="inline-flex whitespace-nowrap"
                     >
                       {Array.from(word).map((char, charIndex) => (
                         <span
                           key={`${rowIndex}-${wordIndex}-${charIndex}`}
-                          className="
-                            char
-                            inline-block
-                          "
+                          className="char inline-block"
                         >
                           {char}
                         </span>

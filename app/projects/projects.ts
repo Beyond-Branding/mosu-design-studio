@@ -2,7 +2,7 @@ export interface Project {
   title: string;
   slug: string;
 
-  category: "RESIDENCES" | "HOTELS" | "RESORTS";
+  category: "RESIDENCIES" | "HOSPITALITY" | "INSTITUTIONS";
   location: string;
   status?: string;
 
@@ -49,10 +49,10 @@ export const projects: Project[] = [
     title: "TAJ GATEWAY PALOLEM",
     slug: "taj-gateway-palolem",
 
-    category: "RESORTS",
+    category: "INSTITUTIONS",
     location: "GOA, INDIA",
     status: "COMPLETED",
-    type: "RESORT",
+    type: "INSTITUTIONS",
     designStyle: "Coastal Contemporary",
 
     image:
@@ -124,6 +124,15 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430511/taj35.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430540/taj36_1.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430543/taj37.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383922/taj46.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383938/taj47.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383950/taj48.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383953/taj49.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383953/taj50.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383955/taj51.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383958/taj52.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383959/taj53.png",
+
 
 
 ],
@@ -205,10 +214,10 @@ export const projects: Project[] = [
     title: "MY HOME TIRUMALA",
     slug: "my-home-tirumala",
 
-    category: "HOTELS",
+    category: "HOSPITALITY",
     location: "ANDHRA PRADESH, INDIA",
     status: "COMPLETED",
-    type: "HOTEL",
+    type: "HOSPITALITY",
     designStyle: "Traditional Contemporary",
 
     image:
@@ -271,7 +280,7 @@ export const projects: Project[] = [
     title: "76 HAZRA",
     slug: "76-hazra",
 
-    category: "RESIDENCES",
+    category: "RESIDENCIES",
     location: "KOLKATA, INDIA",
     status: "COMPLETED",
     type: "RESIDENCE",
@@ -333,7 +342,7 @@ export const projects: Project[] = [
     title: "GUNTUR PROJECT",
     slug: "guntur-project",
 
-    category: "RESIDENCES",
+    category: "RESIDENCIES",
     location: "ANDHRA PRADESH, INDIA",
     status: "COMPLETED",
     type: "RESIDENCE",
@@ -396,7 +405,7 @@ export const projects: Project[] = [
     title: "COIMBATORE MANSION",
     slug: "coimbatore-mansion",
 
-    category: "RESIDENCES",
+    category: "RESIDENCIES",
     location: "TAMIL NADU, INDIA",
     status: "COMPLETED",
     type: "RESIDENCE",
@@ -475,7 +484,7 @@ export const projects: Project[] = [
     title: "BIYANI'S RESIDENCE",
     slug: "biyanies-residence",
 
-    category: "RESIDENCES",
+    category: "RESIDENCIES",
     location: "MUMBAI, INDIA",
     status: "COMPLETED",
     type: "RESIDENCE",
@@ -537,7 +546,7 @@ export const projects: Project[] = [
     title: "SALEM BUNGALOW",
     slug: "salem-bungalow",
 
-    category: "RESIDENCES",
+    category: "RESIDENCIES",
     location: "TAMIL NADU, INDIA",
     status: "COMPLETED",
     type: "RESIDENCE",
@@ -593,4 +602,56 @@ export const projects: Project[] = [
   
 ],
   },
+
+  // ============================================================
+// HYDERABAD PROJECT
+// ============================================================
+
+{
+  title: "HYDERABAD RESIDENCE",
+  slug: "hyderabad-residence",
+
+  category: "RESIDENCIES",
+  location: "HYDERABAD, INDIA",
+  status: "COMPLETED",
+  type: "RESIDENCE",
+  designStyle: "Traditional Contemporary",
+
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb4.png",
+
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378215/hb5.png",
+
+  mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378422/Minimalist_Hyderabad_Map_Outline.png",
+
+  description:
+    "To create bespoke wall artworks, partitions and furniture pieces that bring cultural references into a contemporary residential setting.",
+
+  brief:
+    "To create bespoke wall artworks, partitions and furniture pieces that bring cultural references into a contemporary residential setting.",
+
+  concept:
+    "Traditional imagery and symbolic forms were translated through hand-painted surfaces, shaped wooden elements and refined metalwork, allowing art and function to exist within the same visual language.",
+
+  execution:
+    "Hand-painted canvas artworks, hand-painted wooden cutout art, metal-finished wire and bar features, a metal-and-frosted-glass partition, and a custom teakwood table.",
+
+  gallery: [
+    // 01 — Main
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb1.png",
+
+    // 02 — Composition
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378215/hb6.png",
+
+    // 03 — Challenge
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb3.png",
+
+    // 04 — Large grid
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb4.png",
+
+    // 05 — Grid
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb2.png",
+
+    
+  ],
+},
 ];
