@@ -16,6 +16,13 @@ export interface Project {
   area?: string;
   awards?: string;
   challenge?: string;
+  isCombined?: boolean;
+
+  subProjects?: {
+  name: string;
+  description: string;
+}[];
+  
 
   /*
    * GALLERY ORDER
@@ -54,6 +61,7 @@ export const projects: Project[] = [
     status: "COMPLETED",
     type: "INSTITUTIONS",
     designStyle: "Coastal Contemporary",
+    
 
     image:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734022/at12.png",
@@ -651,6 +659,153 @@ export const projects: Project[] = [
     // 05 — Grid
     "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb2.png",
 
+    
+  ],
+},
+
+{
+  title: "TRISHVAM – TGI GOA & BANGALORE PUB",
+  slug: "trishvam-tgi-goa-bangalore-pub",
+
+  category: "HOSPITALITY",
+  location: "GOA & BANGALORE, INDIA",
+  status: "COMPLETED",
+  type: "HOSPITALITY",
+  designStyle: "Contemporary",
+  isCombined: true,
+
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953772/tris4.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953775/pub1.png",
+
+  subProjects: [
+  {
+    name: "Trishvam TGI Goa",
+    description:
+      "Hand-painted surfboard artworks created to carry Goa’s relaxed coastal character into the guest rooms.",
+  },
+  {
+    name: "Bangalore Pub",
+    description:
+      "Illuminated ceiling artwork and decorative metal details designed to complement the pub’s energetic atmosphere.",
+  },
+],
+  gallery: [
+    // TRISHVAM TGI GOA
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953774/pub2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953774/tris1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953773/tris2.png",
+
+    // BANGALORE PUB
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953772/tris3.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953772/tris4.png",
+    
+  ],
+},
+
+{
+  title: "NAGPUR & KOLKATA RESIDENCES",
+  slug: "nagpur-kolkata-residences",
+
+  category: "RESIDENCIES",
+  location: "NAGPUR & KOLKATA, INDIA",
+  status: "COMPLETED",
+  type: "RESIDENCE",
+  designStyle: "Contemporary",
+  isCombined: true,
+
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_1.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_2.png",
+
+ subProjects: [
+  {
+    name: "Nagpur Residence",
+    description:
+      "Custom metal-and-glass doors, partitions and furniture details crafted to complement the refined interior.",
+  },
+  {
+    name: "Kolkata Residence",
+    description:
+      "Illuminated wall features and textured metal surfaces created as bold architectural accents.",
+  },
+],
+  gallery: [
+    // NAGPUR RESIDENCE
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/Nagpur_1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953038/Nagpur_2.png",
+
+    // KOLKATA RESIDENCE
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953018/Nagpur_3.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_1.png",
+   
+  ],
+},
+
+{
+  title: "ASPEE MONUMENT & SANKAR EYE HOSPITAL",
+  slug: "aspee-monument-sankar-eye-hospital",
+
+  category: "INSTITUTIONS",
+  location: "INDIA",
+  status: "COMPLETED",
+  type: "INSTITUTIONS",
+  designStyle: "Contemporary",
+  isCombined: true,
+
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953932/san2.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953933/Aspee_Monument.png",
+
+  subProjects: [
+  {
+    name: "ASPEE Monument",
+    description:
+      "A large-scale commemorative structure shaped through sculptural form, material and symbolic detailing.",
+  },
+  {
+    name: "Sankar Eye Hospital",
+    description:
+      "Cultural artworks, murals and architectural art features created across the hospital’s interior and exterior spaces.",
+  },
+],
+  gallery: [
+    // ASPEE MONUMENT
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953933/san1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953932/san2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953925/san3.png",
+
+    
+  ],
+},
+
+{
+  title: "HYDERABAD NCC HARSHA & LUMBINI ELYSEE",
+  slug: "hyderabad-ncc-harsha-lumbini-elysee",
+  category: "RESIDENCIES",
+  location: "HYDERABAD, INDIA",
+  status: "COMPLETED",
+  type: "RESIDENCE",
+  designStyle: "Traditional Contemporary",
+  isCombined: true,
+
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_2.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_1.png",
+  subProjects: [
+  {
+    name: "Hyderabad NCC Harsha",
+    description:
+      "Sculptural furniture, metal finishes and a suspended wooden ceiling feature shaped for a contemporary residence.",
+  },
+  {
+    name: "Lumbini Elysee",
+    description:
+      "Cascading bespoke chandeliers designed as luminous focal points within double-height interiors.",
+  },
+],
+  gallery: [
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/ncc2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956403/ncc1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956403/ncc3.png",
     
   ],
 },
