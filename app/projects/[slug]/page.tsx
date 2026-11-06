@@ -1,3 +1,4 @@
+
 "use client";
 
 import { notFound } from "next/navigation";
@@ -29,10 +30,10 @@ export default function ProjectDetailPage({ params }: Props) {
     notFound();
   }
 
+  const isCombined = project.isCombined === true;
+
   /*
-   * ============================================================
    * GALLERY STRUCTURE
-   * ============================================================
    */
 
   const gallery = project.gallery?.length
@@ -42,7 +43,12 @@ export default function ProjectDetailPage({ params }: Props) {
   const mainImage = gallery[0];
   const secondImage = gallery[1];
   const compositionImage = gallery[2];
-  const gridImages = gallery.slice(3).filter(Boolean);
+
+  const gridImages = isCombined
+    ? gallery
+    : gallery.slice(3).filter(Boolean);
+
+  const galleryOffset = isCombined ? 0 : 3;
 
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
@@ -50,9 +56,7 @@ export default function ProjectDetailPage({ params }: Props) {
   const conceptSectionRef = useRef<HTMLElement>(null);
 
   /*
-   * ============================================================
    * CONCEPT SCROLL ANIMATION
-   * ============================================================
    */
 
   useLayoutEffect(() => {
@@ -71,9 +75,7 @@ export default function ProjectDetailPage({ params }: Props) {
         gsap.utils.toArray<HTMLElement>(".concept-char", item)
       );
 
-      gsap.set(items, {
-        autoAlpha: 0,
-      });
+      gsap.set(items, { autoAlpha: 0 });
 
       gsap.set(characters.flat(), {
         opacity: 0,
@@ -82,16 +84,12 @@ export default function ProjectDetailPage({ params }: Props) {
         y: 0,
       });
 
-      const tl = gsap.timeline({
-        repeat: -1,
-      });
+      const tl = gsap.timeline({ repeat: -1 });
 
       items.forEach((item, index) => {
         const chars = characters[index];
 
-        tl.set(item, {
-          autoAlpha: 1,
-        });
+        tl.set(item, { autoAlpha: 1 });
 
         tl.to(chars, {
           opacity: 1,
@@ -105,9 +103,7 @@ export default function ProjectDetailPage({ params }: Props) {
           ease: "power2.out",
         });
 
-        tl.to({}, {
-          duration: 2.5,
-        });
+        tl.to({}, { duration: 2.5 });
 
         tl.to(chars, {
           opacity: 0,
@@ -121,9 +117,7 @@ export default function ProjectDetailPage({ params }: Props) {
           ease: "power2.inOut",
         });
 
-        tl.set(item, {
-          autoAlpha: 0,
-        });
+        tl.set(item, { autoAlpha: 0 });
       });
     }, section);
 
@@ -133,9 +127,7 @@ export default function ProjectDetailPage({ params }: Props) {
   }, []);
 
   /*
-   * ============================================================
-   * LOCK PAGE SCROLL WHEN FULLSCREEN GALLERY IS OPEN
-   * ============================================================
+   * LOCK PAGE SCROLL
    */
 
   useEffect(() => {
@@ -147,9 +139,7 @@ export default function ProjectDetailPage({ params }: Props) {
   }, [galleryOpen]);
 
   /*
-   * ============================================================
    * KEYBOARD CONTROLS
-   * ============================================================
    */
 
   useEffect(() => {
@@ -181,9 +171,7 @@ export default function ProjectDetailPage({ params }: Props) {
   }, [galleryOpen, gallery.length]);
 
   /*
-   * ============================================================
    * OPEN GALLERY
-   * ============================================================
    */
 
   const openGallery = (index: number) => {
@@ -192,9 +180,7 @@ export default function ProjectDetailPage({ params }: Props) {
   };
 
   /*
-   * ============================================================
    * CONCEPT TEXT
-   * ============================================================
    */
 
   const conceptText =
@@ -235,9 +221,8 @@ export default function ProjectDetailPage({ params }: Props) {
       </Link>
 
       <main className="bg-[#242323] text-white">
-        {/* =====================================================
-            01 — HERO
-        ===================================================== */}
+
+        {/* 01 — HERO */}
 
         <section className="relative h-[85svh] min-h-[560px] w-full overflow-hidden bg-[#242323] md:h-[88svh] md:min-h-[620px] lg:h-[100svh] lg:min-h-[680px]">
           <Image
@@ -259,54 +244,140 @@ export default function ProjectDetailPage({ params }: Props) {
           </div>
         </section>
 
-        {/* =====================================================
-            02 — PROJECT INFORMATION + MAP
-        ===================================================== */}
+        {/* 02 — PROJECT INFORMATION */}
 
-        <section className="relative min-h-[500px] w-full overflow-hidden bg-[#242323] md:h-[480px] md:min-h-0 lg:h-[390px] lg:min-h-0">
-          {project.mapImage && (
-            <div className="absolute left-1/2 top-[42%] h-[190px] w-[270px] -translate-x-1/2 -translate-y-1/2 bg-[#242323] sm:h-[220px] sm:w-[320px] md:top-1/2 md:h-[290px] md:w-[400px]">
-              <Image
-                src={project.mapImage}
-                alt={`${project.title} location map`}
-                fill
-                className="object-contain"
-              />
+        {isCombined ? (
+          <section className="w-full bg-[#242323] px-5 py-20 text-white sm:px-8 md:px-12 lg:px-16 lg:py-28">
+            <div className="mx-auto max-w-[1500px]">
+
+              {/* PROJECT DETAILS */}
+
+              <div className="grid grid-cols-2 gap-x-8 gap-y-8 border-b border-white/15 pb-10 md:grid-cols-4">
+
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+                    Location
+                  </p>
+                  <p className="mt-3 text-[12px] uppercase tracking-wide sm:text-sm">
+                    {project.location}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+                    Design Style
+                  </p>
+                  <p className="mt-3 text-[12px] uppercase tracking-wide sm:text-sm">
+                    {project.designStyle || "Contemporary"}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+                    Status
+                  </p>
+                  <p className="mt-3 text-[12px] uppercase tracking-wide sm:text-sm">
+                    {project.status || "COMPLETED"}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+                    Project Type
+                  </p>
+                  <p className="mt-3 text-[12px] uppercase tracking-wide sm:text-sm">
+                    {project.type || "PROJECT"}
+                  </p>
+                </div>
+
+              </div>
+
+              {/* INDIVIDUAL PROJECT DESCRIPTIONS */}
+
+              <div className="pt-12 md:pt-16">
+
+                <p className="mb-10 text-[9px] uppercase tracking-[0.4em] text-white/40">
+                  Project Overview
+                </p>
+
+                <div className="space-y-12 md:space-y-16">
+
+                  {project.subProjects?.map((subProject, index) => (
+                    <div
+                      key={subProject.name}
+                      className="grid gap-6 border-b border-white/15 pb-12 last:border-0 last:pb-0 md:grid-cols-[0.25fr_0.75fr] md:gap-8"
+                    >
+
+                      <div>
+                        <p className="text-[9px] uppercase tracking-[0.4em] text-white/40">
+                          {String(index + 1).padStart(2, "0")} — Project
+                        </p>
+
+                        <h2 className="mt-4 text-2xl font-light uppercase leading-tight tracking-[-0.04em] md:text-4xl">
+                          {subProject.name}
+                        </h2>
+                      </div>
+
+                      <div>
+                        <p className="max-w-[950px] text-[clamp(1.2rem,3vw,2.2rem)] font-light leading-[1.4] tracking-[-0.02em] text-white/80">
+                          {subProject.description}
+                        </p>
+                      </div>
+
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+
             </div>
-          )}
+          </section>
+        ) : (
+          <section className="relative min-h-[500px] w-full overflow-hidden bg-[#242323] md:h-[480px] md:min-h-0 lg:h-[390px] lg:min-h-0">
 
-          <div className="absolute left-5 top-[55%] z-10 sm:left-8 sm:top-[58%] md:left-[2%] md:top-1/2 md:-translate-y-1/2">
-            <p className="text-[9px] uppercase tracking-[0.25em] text-white/50 sm:text-[10px] md:text-[12px] md:tracking-[0.3em]">
-              Design Style
-            </p>
+            {project.mapImage && (
+              <div className="absolute left-1/2 top-[42%] h-[190px] w-[270px] -translate-x-1/2 -translate-y-1/2 bg-[#242323] sm:h-[220px] sm:w-[320px] md:top-1/2 md:h-[290px] md:w-[400px]">
+                <Image
+                  src={project.mapImage}
+                  alt={`${project.title} location map`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
 
-            <p className="mt-1 text-[12px] font-medium uppercase tracking-[-0.03em] sm:text-[14px] md:mt-2 md:text-[15px]">
-              {project.designStyle || "Contemporary"}
-            </p>
-          </div>
+            <div className="absolute left-5 top-[55%] z-10 sm:left-8 sm:top-[58%] md:left-[2%] md:top-1/2 md:-translate-y-1/2">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-white/50 sm:text-[10px] md:text-[12px] md:tracking-[0.3em]">
+                Design Style
+              </p>
 
-          <div className="absolute right-5 top-[55%] z-10 sm:right-8 sm:top-[58%] md:right-[20%] md:top-1/2 md:-translate-y-1/2">
-            <p className="text-[12px] font-medium uppercase leading-[1.05] tracking-[-0.03em] sm:text-[14px] md:text-[15px]">
-              {project.status || "COMPLETED"}
-            </p>
+              <p className="mt-1 text-[12px] font-medium uppercase tracking-[-0.03em] sm:text-[14px] md:mt-2 md:text-[15px]">
+                {project.designStyle || "Contemporary"}
+              </p>
+            </div>
 
-            <p className="text-[12px] font-medium uppercase leading-[1.05] tracking-[-0.03em] sm:text-[14px] md:text-[15px]">
-              {project.type || "PROJECT"}
-            </p>
-          </div>
+            <div className="absolute right-5 top-[55%] z-10 sm:right-8 sm:top-[58%] md:right-[20%] md:top-1/2 md:-translate-y-1/2">
+              <p className="text-[12px] font-medium uppercase leading-[1.05] tracking-[-0.03em] sm:text-[14px] md:text-[15px]">
+                {project.status || "COMPLETED"}
+              </p>
 
-          <div className="absolute bottom-10 left-5 z-10 sm:bottom-12 sm:left-8 md:bottom-auto md:left-auto md:right-[2%] md:top-1/2 md:-translate-y-1/2">
-            <p className="text-[12px] font-medium uppercase sm:text-[14px] md:text-[15px]">
-              {project.area || ""}
-            </p>
-          </div>
-        </section>
+              <p className="text-[12px] font-medium uppercase leading-[1.05] tracking-[-0.03em] sm:text-[14px] md:text-[15px]">
+                {project.type || "PROJECT"}
+              </p>
+            </div>
 
-        {/* =====================================================
-            03 — FIRST IMAGE
-        ===================================================== */}
+            <div className="absolute bottom-10 left-5 z-10 sm:bottom-12 sm:left-8 md:bottom-auto md:left-auto md:right-[2%] md:top-1/2 md:-translate-y-1/2">
+              <p className="text-[12px] font-medium uppercase sm:text-[14px] md:text-[15px]">
+                {project.area || ""}
+              </p>
+            </div>
 
-        {mainImage && (
+          </section>
+        )}
+
+        {/* 03 — FIRST IMAGE (NORMAL PROJECTS ONLY) */}
+
+        {!isCombined && mainImage && (
           <section
             className="group relative h-[78svh] min-h-[520px] w-full cursor-pointer overflow-hidden bg-[#242323] md:h-[82svh] md:min-h-[620px] lg:h-[110svh] lg:min-h-[750px]"
             onClick={() => openGallery(0)}
@@ -329,11 +400,9 @@ export default function ProjectDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* =====================================================
-            04 — SECOND IMAGE + ABOUT
-        ===================================================== */}
+        {/* 04 — SECOND IMAGE + ABOUT (NORMAL PROJECTS ONLY) */}
 
-        {secondImage && (
+        {!isCombined && secondImage && (
           <section className="relative min-h-[680px] w-full overflow-hidden bg-[#242323] md:min-h-[760px] lg:min-h-[110svh]">
             <Image
               src={secondImage}
@@ -372,9 +441,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* =====================================================
-            05 — CONCEPT
-        ===================================================== */}
+        {/* 05 — CONCEPT */}
 
         <section
           ref={conceptSectionRef}
@@ -428,36 +495,34 @@ export default function ProjectDetailPage({ params }: Props) {
           </div>
         </section>
 
-                {/* =====================================================
-            06 — COMPOSITION / EXECUTION
-        ===================================================== */}
+        {/* 06 — EXECUTION (NORMAL PROJECTS ONLY) */}
 
-        <section className="relative min-h-[420px] w-full bg-[#242323] md:min-h-[500px] lg:min-h-[460px]">
-          <div className="mx-auto grid min-h-[420px] max-w-[1920px] grid-cols-1 md:min-h-[500px] lg:min-h-[460px] lg:grid-cols-2">
-            <div />
+        {!isCombined && (
+          <section className="relative min-h-[420px] w-full bg-[#242323] md:min-h-[500px] lg:min-h-[460px]">
+            <div className="mx-auto grid min-h-[420px] max-w-[1920px] grid-cols-1 md:min-h-[500px] lg:min-h-[460px] lg:grid-cols-2">
+              <div />
 
-            <div className="flex flex-col justify-center px-5 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-16 lg:py-12 xl:px-24">
-              <p className="mb-6 text-[9px] uppercase tracking-[0.4em] text-white/40">
-                03 — Execution
-              </p>
+              <div className="flex flex-col justify-center px-5 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-16 lg:py-12 xl:px-24">
+                <p className="mb-6 text-[9px] uppercase tracking-[0.4em] text-white/40">
+                  03 — Execution
+                </p>
 
-              <h2 className="text-[clamp(2.8rem,12vw,4.5rem)] font-light uppercase leading-[0.9] tracking-[-0.045em] md:text-[clamp(3.5rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,6rem)]">
-                Execution
-              </h2>
+                <h2 className="text-[clamp(2.8rem,12vw,4.5rem)] font-light uppercase leading-[0.9] tracking-[-0.045em] md:text-[clamp(3.5rem,7vw,5rem)] lg:text-[clamp(3.5rem,5.5vw,6rem)]">
+                  Execution
+                </h2>
 
-              <p className="mt-8 max-w-[650px] text-[11px] font-normal uppercase leading-[1.7] tracking-[0.01em] text-white/70 sm:text-[12px] md:mt-9 md:text-[13px] lg:mt-10 lg:text-[14px] lg:leading-[1.65]">
-                {project.execution ||
-                  "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
-              </p>
+                <p className="mt-8 max-w-[650px] text-[11px] font-normal uppercase leading-[1.7] tracking-[0.01em] text-white/70 sm:text-[12px] md:mt-9 md:text-[13px] lg:mt-10 lg:text-[14px] lg:leading-[1.65]">
+                  {project.execution ||
+                    "The architectural composition is organized around a restrained sequence of volumes, allowing movement, light, proportion and material to define the experience."}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* =====================================================
-            07 — COMPOSITION IMAGE
-        ===================================================== */}
+        {/* 07 — COMPOSITION IMAGE (NORMAL PROJECTS ONLY) */}
 
-        {compositionImage && (
+        {!isCombined && compositionImage && (
           <section
             className="group relative h-[72svh] min-h-[500px] w-full cursor-pointer overflow-hidden bg-[#242323] md:h-[78svh] md:min-h-[600px] lg:h-[95svh] lg:min-h-[650px]"
             onClick={() => openGallery(2)}
@@ -480,13 +545,10 @@ export default function ProjectDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* =====================================================
-            09 — GALLERY (SAME LAYOUT FOR EVERY PROJECT)
-        ===================================================== */}
+        {/* 09 — GALLERY */}
 
         {gridImages.length > 0 && (
           <section className="w-full bg-[#242323] px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-            {/* Gallery Heading */}
             <div className="mb-10 flex items-end justify-between px-1 sm:mb-14">
               <div>
                 <p className="mb-3 text-[9px] uppercase tracking-[0.4em] text-white/40">
@@ -503,10 +565,9 @@ export default function ProjectDetailPage({ params }: Props) {
               </p>
             </div>
 
-            {/* Image Grid */}
             <div className="mx-auto grid w-full max-w-[1920px] grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:grid-cols-3 lg:gap-4">
               {gridImages.map((image, index) => {
-                const galleryIndex = index + 3;
+                const galleryIndex = index + galleryOffset;
 
                 return (
                   <button
@@ -523,15 +584,12 @@ export default function ProjectDetailPage({ params }: Props) {
                       className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
                     />
 
-                    {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
 
-                    {/* Image Number */}
                     <div className="absolute bottom-3 left-3 text-[8px] uppercase tracking-[0.3em] text-white/0 transition-opacity duration-500 group-hover:text-white/80 sm:bottom-4 sm:left-4">
                       {String(galleryIndex + 1).padStart(2, "0")}
                     </div>
 
-                    {/* Open Icon */}
                     <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full border border-white/0 text-xs text-white/0 transition-all duration-500 group-hover:border-white/50 group-hover:text-white sm:right-4 sm:top-4">
                       ↗
                     </div>
@@ -540,7 +598,6 @@ export default function ProjectDetailPage({ params }: Props) {
               })}
             </div>
 
-            {/* Bottom Gallery Info */}
             <div className="mx-auto mt-6 flex max-w-[1920px] items-center justify-between border-t border-white/10 pt-4">
               <p className="text-[8px] uppercase tracking-[0.3em] text-white/35">
                 Click any image to explore
@@ -553,9 +610,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* =====================================================
-            10 — FULLSCREEN GALLERY
-        ===================================================== */}
+        {/* 10 — FULLSCREEN GALLERY */}
 
         {galleryOpen && gallery.length > 0 && (
           <div className="fixed inset-0 z-[9999] bg-black">
@@ -611,9 +666,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </div>
         )}
 
-                {/* =====================================================
-            11 — START PROJECT
-        ===================================================== */}
+        {/* 11 — START PROJECT */}
 
         <Link
           href="/contact"
@@ -668,9 +721,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </div>
         </Link>
 
-        {/* =====================================================
-            12 — FOOTER
-        ===================================================== */}
+        {/* 12 — FOOTER */}
 
         <Footer />
       </main>
