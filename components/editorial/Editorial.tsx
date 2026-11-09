@@ -1,7 +1,11 @@
+
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const lines = [
   "WE CRAFT PRODUCTS THAT TRANSFORM \n YOUR INTERIOR SPACES",
@@ -32,59 +36,65 @@ export default function Editorial() {
         opacity: 0,
         filter: "blur(8px)",
         scale: 1.02,
-        y: 0,
       });
 
-      // AUTOMATIC ANIMATION
+      // SHOW FIRST SENTENCE
+      gsap.set(items[0], {
+        autoAlpha: 1,
+      });
+
+      gsap.set(characters[0], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+      });
+
+      // SCROLL ANIMATION
       const tl = gsap.timeline({
-        repeat: -1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=120%",
+          scrub: 0.4,
+          pin: true,
+          anticipatePin: 1,
+        },
       });
 
-      lines.forEach((_, index) => {
-        const currentItem = items[index];
-        const currentChars = characters[index];
-
-        // Show current sentence
-        tl.set(currentItem, {
-          autoAlpha: 1,
-        });
-
-        // Characters appear with blur-to-clear effect
-        tl.to(currentChars, {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 0.8,
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-          ease: "power2.out",
-        });
-
-        // Keep sentence visible for a few seconds
-        tl.to({}, {
-          duration: 2.5,
-        });
-
-        // Characters disappear with the same blur effect
-        tl.to(currentChars, {
-          opacity: 0,
-          filter: "blur(8px)",
-          scale: 0.98,
-          duration: 0.8,
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-          ease: "power2.inOut",
-        });
-
-        // Hide current sentence before the next one
-        tl.set(currentItem, {
-          autoAlpha: 0,
-        });
+      // FIRST SENTENCE DISAPPEARS
+      tl.to(characters[0], {
+        opacity: 0,
+        filter: "blur(8px)",
+        scale: 0.98,
+        duration: 0.35,
+        stagger: {
+          each: 0.008,
+          from: "center",
+        },
+        ease: "power2.inOut",
       });
+
+      tl.set(items[0], {
+        autoAlpha: 0,
+      });
+
+      // SECOND SENTENCE APPEARS
+      tl.set(items[1], {
+        autoAlpha: 1,
+      });
+
+      tl.to(characters[1], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 0.4,
+        stagger: {
+          each: 0.008,
+          from: "center",
+        },
+        ease: "power2.out",
+      });
+
     }, section);
 
     return () => {
