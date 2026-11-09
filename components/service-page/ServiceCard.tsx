@@ -110,134 +110,137 @@ export default function ServiceCard({
       </div>
 
       {/* CONTENT */}
-      <div
-        className="
-          absolute
-          inset-x-5
-          bottom-6
-          z-20
-          flex
-          flex-col
-          items-center
-          text-center
+<div
+  className="
+    absolute
+    inset-x-5
+    bottom-8
+    z-20
+    flex
+    flex-col
+    items-center
+    text-center
 
-          sm:inset-x-8
-          sm:bottom-8
+    sm:inset-x-8
+    sm:bottom-10
 
-          lg:left-12
-          lg:right-12
-          lg:bottom-12
-        "
-      >
-        {/* SUBTITLE */}
-        {subtitle && (
-          <p
-            className="
-              mb-4
-              text-[8px]
-              font-medium
-              uppercase
-              tracking-[0.32em]
-              text-white/65
+    lg:left-12
+    lg:right-12
+    lg:bottom-14
+  "
+>
+  {/* SUBTITLE */}
+  {subtitle && (
+    <p
+      className="
+        mb-6
+        text-[8px]
+        font-medium
+        uppercase
+        tracking-[0.35em]
+        text-white/65
 
-              sm:text-[9px]
-            "
-          >
-            {subtitle}
-          </p>
-        )}
+        sm:mb-7
+        sm:text-[9px]
+      "
+    >
+      {subtitle}
+    </p>
+  )}
 
-        {/* TITLE */}
-        <h2
-          className="
-            max-w-[90%]
-            text-center
-            font-extrabold
-            uppercase
-            leading-[0.92]
-            tracking-[-0.035em]
-            text-white
+  {/* TITLE */}
+  <h2
+    className="
+      max-w-[90%]
+      text-center
+      font-extrabold
+      uppercase
+      leading-[1.02]
+     tracking-[0.02em]
+      text-white
 
-            text-2xl
-            sm:text-3xl
-            md:text-4xl
-            lg:text-5xl
-            xl:text-6xl
-          "
-        >
-          {title}
-        </h2>
+      text-2xl
+      sm:text-3xl
+      md:text-4xl
+      lg:text-5xl
+      xl:text-6xl
+    "
+  >
+    {title}
+  </h2>
 
-        {/* DESCRIPTION */}
-        {description && (
-          <p
-            className="
-              mt-5
-              max-w-[420px]
-              translate-y-4
-              text-center
-              text-[11px]
-              font-normal
-              leading-[1.55]
-              tracking-[0.005em]
-              text-white/70
-              opacity-0
+  {/* DESCRIPTION */}
+  {description && (
+    <p
+      className="
+        mt-6
+        max-w-[440px]
+        translate-y-4
+        text-center
+        text-[11px]
+        font-normal
+        leading-[1.7]
+        tracking-[0.01em]
+        text-white/70
+        opacity-0
 
-              transition-all
-              duration-700
+        transition-all
+        duration-700
 
-              group-hover:translate-y-0
-              group-hover:opacity-100
+        group-hover:translate-y-0
+        group-hover:opacity-100
 
-              sm:text-xs
-              md:text-sm
-            "
-          >
-            {description}
-          </p>
-        )}
+        sm:mt-7
+        sm:text-xs
+        md:text-sm
+      "
+    >
+      {description}
+    </p>
+  )}
 
-        {/* LEARN MORE */}
-        <span
-          className="
-            mt-6
-            inline-flex
-            items-center
-            justify-center
-            gap-2
+  {/* LEARN MORE */}
+  <span
+    className="
+      mt-8
+      inline-flex
+      items-center
+      justify-center
+      gap-3
 
-            rounded-full
-            bg-white
-            px-6
-            py-2.5
+      rounded-full
+      bg-white
+      px-7
+      py-3
 
-            text-[9px]
-            font-semibold
-            uppercase
-            tracking-[0.2em]
-            text-black
+      text-[9px]
+      font-semibold
+      uppercase
+      tracking-[0.2em]
+      text-black
 
-            translate-y-3
-            opacity-0
+      translate-y-3
+      opacity-0
 
-            transition-all
-            duration-700
+      transition-all
+      duration-700
 
-            group-hover:translate-y-0
-            group-hover:opacity-100
+      group-hover:translate-y-0
+      group-hover:opacity-100
 
-            sm:px-7
-            sm:py-3
-            sm:text-[10px]
+      sm:mt-9
+      sm:px-8
+      sm:py-3.5
+      sm:text-[10px]
 
-            md:text-xs
-          "
-        >
-          Learn More
+      md:text-xs
+    "
+  >
+    Learn More
 
-          <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5" />
-        </span>
-      </div>
+    <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5" />
+  </span>
+</div>
 
       {/* BOTTOM GRADIENT */}
       <div

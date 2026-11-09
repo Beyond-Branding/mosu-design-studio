@@ -190,7 +190,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228974/s26.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261124/s10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794233006/s28_1.png",
 
     subtitle: "Form meets expression.",
   
@@ -206,14 +206,13 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723344/s18.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723340/s17.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s16.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s11.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s15.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723336/s14.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228974/s26.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261039/s1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261025/s4.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261024/s2.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228975/s28.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794233006/s28_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261130/s9.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261121/s8.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228976/s25_1.png",
@@ -358,7 +357,7 @@ export const services: Service[] = [
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722313/d10.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d9.png",
+     
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d7.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722311/d8.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722308/d6.png",
@@ -367,9 +366,9 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789722304/d4.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178396/dn1.png",
+      
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178398/dn2.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178398/dn3.png",
+     
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178399/dn4.png",
       
       

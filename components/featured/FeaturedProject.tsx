@@ -190,22 +190,22 @@ export default function FeaturedProjects() {
 
             {/* Title */}
             <h2
-             className="
-  max-w-[1100px]
-  text-[2rem]
-  font-semibold
-  uppercase
-  leading-[1.05]
-  tracking-[0.02em]
-  [word-spacing:0.12em]
-  sm:text-[3rem]
-  md:text-[4rem]
-  lg:text-[5rem]
-  xl:text-[6rem]
-"
-            >
-              {project.title}
-            </h2>
+  className="
+    max-w-[1100px]
+    text-[1.7rem]
+    font-semibold
+    uppercase
+    leading-[1.08]
+    tracking-[0.04em]
+    [word-spacing:0.12em]
+    sm:text-[2.5rem]
+    md:text-[3.2rem]
+    lg:text-[4rem]
+    xl:text-[4.8rem]
+  "
+>
+  {project.title}
+</h2>
 
             {/* Location */}
             <p
