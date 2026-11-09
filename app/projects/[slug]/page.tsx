@@ -59,72 +59,91 @@ export default function ProjectDetailPage({ params }: Props) {
    * CONCEPT SCROLL ANIMATION
    */
 
-  useLayoutEffect(() => {
-    const section = conceptSectionRef.current;
+  
+useLayoutEffect(() => {
+  const section = conceptSectionRef.current;
 
-    if (!section) return;
+  if (!section) return;
 
-    const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray<HTMLElement>(
-        ".concept-editorial-line"
-      );
+  const ctx = gsap.context(() => {
+    const items = gsap.utils.toArray<HTMLElement>(
+      ".concept-editorial-line"
+    );
 
-      if (items.length === 0) return;
+    if (items.length === 0) return;
 
-      const characters = items.map((item) =>
-        gsap.utils.toArray<HTMLElement>(".concept-char", item)
-      );
+    const characters = items.map((item) =>
+      gsap.utils.toArray<HTMLElement>(".concept-char", item)
+    );
 
-      gsap.set(items, { autoAlpha: 0 });
+    // INITIAL STATE
+    gsap.set(items, { autoAlpha: 0 });
 
-      gsap.set(characters.flat(), {
-        opacity: 0,
-        filter: "blur(8px)",
-        scale: 1.02,
-        y: 0,
-      });
+    gsap.set(characters.flat(), {
+      opacity: 0,
+      filter: "blur(8px)",
+      scale: 1.02,
+      y: 0,
+    });
 
-      const tl = gsap.timeline({ repeat: -1 });
+    // FIRST SENTENCE VISIBLE
+    gsap.set(items[0], { autoAlpha: 1 });
 
-      items.forEach((item, index) => {
-        const chars = characters[index];
+    gsap.set(characters[0], {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+    });
 
-        tl.set(item, { autoAlpha: 1 });
+    // SCROLL-TRIGGERED ANIMATION
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=100%",
+        scrub: 0.4,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
 
-        tl.to(chars, {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1.2,
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-          ease: "power2.out",
-        });
+    // FIRST SENTENCE DISAPPEARS
+    tl.to(characters[0], {
+      opacity: 0,
+      filter: "blur(8px)",
+      scale: 0.98,
+      duration: 0.35,
+      stagger: {
+        each: 0.008,
+        from: "center",
+      },
+      ease: "power2.inOut",
+    });
 
-        tl.to({}, { duration: 2.5 });
+    tl.set(items[0], { autoAlpha: 0 });
 
-        tl.to(chars, {
-          opacity: 0,
-          filter: "blur(8px)",
-          scale: 0.98,
-          duration: 1,
-          stagger: {
-            each: 0.018,
-            from: "center",
-          },
-          ease: "power2.inOut",
-        });
+    // SECOND SENTENCE APPEARS
+    tl.set(items[1], { autoAlpha: 1 });
 
-        tl.set(item, { autoAlpha: 0 });
-      });
-    }, section);
+    tl.to(characters[1], {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+      duration: 0.4,
+      stagger: {
+        each: 0.008,
+        from: "center",
+      },
+      ease: "power2.out",
+    });
 
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+  }, section);
+
+  return () => {
+    ctx.revert();
+  };
+}, []);
+
 
   /*
    * LOCK PAGE SCROLL

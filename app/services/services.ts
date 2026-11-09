@@ -64,7 +64,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734026/at20.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734028/at3.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734027/at34.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790260320/Screenshot_2026-09-24_200122.png",
+      
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734027/carousel-2_03.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734025/at32.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734025/at33.png",
@@ -152,7 +152,6 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739201/wa15.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739197/wa14.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739192/wa11.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739190/wa10_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739186/wa8.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739184/wa7.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739181/wa6.png",

@@ -625,9 +625,9 @@ export const projects: Project[] = [
   type: "RESIDENCE",
   designStyle: "Traditional Contemporary",
 
-  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb4.png",
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218380/hr3.png",
 
-  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378215/hb5.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr4.png",
 
   mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378422/Minimalist_Hyderabad_Map_Outline.png",
 
@@ -645,19 +645,28 @@ export const projects: Project[] = [
 
   gallery: [
     // 01 — Main
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr5.png",
 
     // 02 — Composition
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378215/hb6.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr2.png",
 
     // 03 — Challenge
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb3.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr6.png",
 
     // 04 — Large grid
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb4.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr4.png",
 
     // 05 — Grid
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378214/hb2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr1.png",
+
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218380/hr3.png",
+
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr6.png",
+
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr2.png",
+
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr5.png",
+
 
     
   ],
