@@ -157,20 +157,20 @@ export default function Navbar() {
     className="h-8 w-auto sm:h-9 lg:h-10"
   />
 
-  <span
-    className="
-      mt-1.5
-      whitespace-nowrap
-      text-[7px]
-      font-medium
-      uppercase
-      tracking-[0.38em]
-      text-white/65
-      sm:text-[8px]
-    "
-  >
-    BE - BeSpoke
-  </span>
+ <span
+  className="
+    mt-1.5
+    whitespace-nowrap
+    text-[7px]
+    font-light
+    uppercase
+    tracking-[0.38em]
+    text-[#D9A65A]
+    sm:text-[8px]
+  "
+>
+  BE - BeSpoke
+</span>
 </Link>
 
 

@@ -629,7 +629,7 @@ export const projects: Project[] = [
 
   heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794218379/hr4.png",
 
-  mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793378422/Minimalist_Hyderabad_Map_Outline.png",
+  mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794227948/telengana.png",
 
   description:
     "To create bespoke wall artworks, partitions and furniture pieces that bring cultural references into a contemporary residential setting.",
@@ -686,6 +686,9 @@ export const projects: Project[] = [
   image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953772/tris4.png",
   heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953775/pub1.png",
 
+  concept:
+  "Bespoke artworks give each hospitality space a visual identity rooted in its atmosphere. Coastal surfboard art defines the Goa property, while illuminated metalwork shapes the pub’s character.",
+
   subProjects: [
   {
     name: "Trishvam TGI Goa",
@@ -723,7 +726,10 @@ export const projects: Project[] = [
   isCombined: true,
 
   image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_1.png",
-  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_2.png",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794231484/WhatsApp_Image_2026-11-09_at_19.07.43.jpg",
+
+  concept:
+  "Bespoke metalwork and sculptural wall features become an integral part of the two residences. Refined finishes, textured surfaces and lighting give each interior its own distinct expression.",
 
  subProjects: [
   {
@@ -764,6 +770,8 @@ export const projects: Project[] = [
   image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953932/san2.png",
   heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953933/Aspee_Monument.png",
 
+  concept:
+  "Large-scale artworks bring cultural narratives and symbolic forms into public spaces. Each piece is created to complement its architectural setting while carrying a distinct cultural expression.",
   subProjects: [
   {
     name: "ASPEE Monument",
@@ -796,8 +804,11 @@ export const projects: Project[] = [
   designStyle: "Traditional Contemporary",
   isCombined: true,
 
-  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_2.png",
-  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_1.png",
+  image: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794229175/light_1.jpg",
+  heroImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956403/ncc1.png",
+
+  concept: 
+  "Sculptural furniture, crafted metal finishes and suspended forms shape these contemporary residences. Each piece responds to its setting through material, scale and light.",
   subProjects: [
   {
     name: "Hyderabad NCC Harsha",
@@ -812,9 +823,10 @@ export const projects: Project[] = [
 ],
   gallery: [
     "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/ncc2.png",
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956404/Lumbini_2.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794229174/light_2.png",
     "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956403/ncc1.png",
     "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793956403/ncc3.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794229175/light_1.jpg",
     
   ],
 },

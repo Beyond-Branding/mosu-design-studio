@@ -204,7 +204,7 @@ useLayoutEffect(() => {
 
   const conceptText =
     project.concept ||
-    "ROOTED IN DEEP RESEARCH, THE DESIGN INTEGRATES TRADITION WITH CONTEMPORARY MATERIALITY AND FORM.";
+    "Bespoke metalwork and sculptural wall features become an integral part of the two residences. Refined finishes, textured surfaces and lighting give each interior its own distinct expression.";
 
   const words = conceptText.trim().split(/\s+/);
   const middle = Math.ceil(words.length / 2);

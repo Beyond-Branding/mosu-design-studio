@@ -35,10 +35,10 @@ export const services: Service[] = [
 
     gallery: [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734408/at30.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734399/at42.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734397/at24.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228142/at42_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228128/at24_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734395/at13.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734063/at22.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228138/at22.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734062/at37.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734062/at27.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734061/at35.png",
@@ -46,9 +46,9 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734060/at9.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/at18.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734059/ChatGPT_Image_Jul_11_2026_12_10_03_PM_1.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734057/at23.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228118/at23.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734057/at14.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at16.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228124/at45.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at6.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734056/at7.png",
@@ -61,11 +61,12 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734035/at10.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734029/at5.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734028/at40.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734026/at20.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228169/at20_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734028/at3.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734027/at34.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228626/atn4_2.png",
       
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734027/carousel-2_03.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228114/at44.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734025/at32.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734025/at33.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789734024/at17.png",
@@ -85,7 +86,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383416/at54.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383414/at52.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383413/at51.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790260320/Screenshot_2026-09-24_200122.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228129/at38.png",
 
      
       
@@ -115,7 +116,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739259/wa3.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739175/wa1_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228731/wa1.png",
 
     subtitle: "Walls with a story.",
 
@@ -156,10 +157,10 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739184/wa7.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739181/wa6.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739178/wa2_1.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739175/wa1_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228731/wa1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739171/wa38.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739170/wa27.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739158/wa26.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228790/wa27_1_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228776/wa26_1_1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739154/wa21.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789739153/wa16.png",
       
@@ -186,7 +187,7 @@ export const services: Service[] = [
     slug: "sculptures",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261027/s3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228974/s26.png",
 
     heroImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261124/s10.png",
@@ -208,14 +209,17 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723339/s11.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723338/s15.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789723336/s14.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261027/s3.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228974/s26.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261039/s1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261025/s4.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261024/s2.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261124/s10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228975/s28.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261130/s9.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790261121/s8.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793379274/s25.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228976/s25_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228980/s24.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228981/s22.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228973/s27.png",
       
     ],
 
@@ -258,8 +262,8 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l13.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719908/l19.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719907/l14.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719906/l11.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719904/l9_1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794229175/light_1.jpg",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794229174/light_2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719902/l7.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719899/l8.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719899/l6.png",
