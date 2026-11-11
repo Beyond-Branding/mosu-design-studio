@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -15,12 +16,13 @@ export default function ContactCities() {
 
           {cities.map((city) => {
             const isMumbai = city.name.toLowerCase() === "mumbai";
+            const isActive = hovered === city.id;
 
             return (
               <div
                 key={city.id}
                 onMouseEnter={() => setHovered(city.id)}
-                onMouseLeave={() => setHovered(1)}
+                onMouseLeave={() => setHovered(null)}
                 onClick={
                   isMumbai
                     ? () => setSelectedCity(city)
@@ -33,7 +35,6 @@ export default function ContactCities() {
                   transition-colors
                   duration-300
                   md:py-7
-
                   ${isMumbai ? "cursor-pointer" : "cursor-default"}
                 `}
               >
@@ -48,13 +49,11 @@ export default function ContactCities() {
                       tracking-tight
                       transition-all
                       duration-300
-
                       ${
-                        hovered === city.id
+                        isActive
                           ? "text-white"
                           : "text-white/25"
                       }
-
                       text-3xl
                       sm:text-4xl
                       md:text-5xl
@@ -64,31 +63,48 @@ export default function ContactCities() {
                     {city.name}
                   </h2>
 
-                  {/* Phone — only Mumbai */}
-                  {isMumbai && city.phone && (
-                    <div
-                      className={`
-                        overflow-hidden
-                        transition-all
-                        duration-500
+                  {/* Address and Phone */}
+                  <div
+                    className={`
+                      overflow-hidden
+                      transition-all
+                      duration-500
 
-                        ${
-                          hovered === city.id
-                            ? "mt-3 max-h-40 opacity-100"
-                            : "max-h-0 opacity-0"
-                        }
-                      `}
-                    >
-                      <div className="space-y-2">
+                      max-md:mt-4
+                      max-md:max-h-40
+                      max-md:opacity-100
+
+                      ${
+                        isActive
+                          ? "mt-4 max-h-40 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }
+                    `}
+                  >
+                    <div className="space-y-2">
+
+                      {/* Address */}
+                      {city.address && (
+                        <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
+                          <span className="font-bold text-white">
+                            A.
+                          </span>{" "}
+                          {city.address}
+                        </p>
+                      )}
+
+                      {/* Phone */}
+                      {city.phone && (
                         <p className="text-xs text-white/70 sm:text-sm">
                           <span className="font-bold text-white">
                             P.
                           </span>{" "}
                           {city.phone}
                         </p>
-                      </div>
+                      )}
+
                     </div>
-                  )}
+                  </div>
 
                 </div>
               </div>
@@ -98,7 +114,7 @@ export default function ContactCities() {
         </div>
       </section>
 
-      {/* Only opens for Mumbai */}
+      {/* Contact Modal */}
       {selectedCity && (
         <ContactModal
           city={selectedCity}
@@ -108,4 +124,3 @@ export default function ContactCities() {
     </>
   );
 }
-

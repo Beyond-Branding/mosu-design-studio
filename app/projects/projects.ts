@@ -56,7 +56,7 @@ export const projects: Project[] = [
     title: "TAJ GATEWAY PALOLEM",
     slug: "taj-gateway-palolem",
 
-    category: "INSTITUTIONS",
+    category: "HOSPITALITY",
     location: "GOA, INDIA",
     status: "COMPLETED",
     type: "INSTITUTIONS",
@@ -128,8 +128,8 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430511/taj31.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430538/taj32.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430509/taj33.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430538/taj34.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430511/taj35.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794395397/WhatsApp_Image_12026-11-11_at_16.39.21.jpg",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794395398/WhatsApp_Image_2026-11-11_at_16.39.21.jpg",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430540/taj36_1.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790430543/taj37.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383922/taj46.png",
@@ -383,7 +383,7 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736987/g9.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736989/g10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794395766/g10.png",
 
   // 03 — Challenge
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736998/g14.png",
@@ -402,6 +402,13 @@ export const projects: Project[] = [
 
   // 08 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736956/g4.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736993/g12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736989/g11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736966/g8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736962/g7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736958/g5.png",
+  
 ],
   },
 
@@ -616,7 +623,7 @@ export const projects: Project[] = [
 // ============================================================
 
 {
-  title: "HYDERABAD RESIDENCE",
+  title: "HYDERABAD ROCKDALE",
   slug: "hyderabad-residence",
 
   category: "RESIDENCIES",
@@ -761,7 +768,7 @@ export const projects: Project[] = [
   slug: "aspee-monument-sankar-eye-hospital",
 
   category: "INSTITUTIONS",
-  location: "INDIA",
+  location: "MUMBAI,VARANASI",
   status: "COMPLETED",
   type: "INSTITUTIONS",
   designStyle: "Contemporary",
