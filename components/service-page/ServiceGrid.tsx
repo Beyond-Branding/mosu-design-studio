@@ -9,21 +9,21 @@ export default function ServiceGrid() {
         {/* ================= HEADING ================= */}
 
         <div className="mb-16 text-center">
-          <h1
-            className="
-              uppercase
-              font-medium
-              leading-none
-              tracking-[-0.04em]
-              text-white
-              text-[2.2rem]
-              sm:text-[2.6rem]
-              md:text-[3rem]
-              lg:text-[3.4rem]
-            "
-          >
-            Our Products
-          </h1>
+        <h1
+  className="
+    text-center
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    font-medium
+    uppercase
+    tracking-[0.02em]
+    leading-[1]
+    text-[#e5e5e5]
+  "
+>
+  OUR PRODUCTS
+</h1>
         </div>
 
         {/* ================= PRODUCTS GRID ================= */}
