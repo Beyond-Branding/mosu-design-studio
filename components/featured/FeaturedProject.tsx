@@ -143,33 +143,7 @@ export default function FeaturedProjects() {
 
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/75" />
 
-          {/* =================================================
-              CATEGORY NAVIGATION
-          ================================================= */}
-          <aside className="absolute left-10 top-1/2 z-30 hidden -translate-y-1/2 lg:block xl:left-12">
-            <ul className="space-y-5">
-              {categories.map((category) => (
-                <li key={category.label}>
-                  <Link
-                    href={category.href}
-                    className="
-                      block
-                      text-[10px]
-                      uppercase
-                      tracking-[0.28em]
-                      text-white/40
-                      transition-all
-                      duration-500
-                      hover:translate-x-2
-                      hover:text-white
-                    "
-                  >
-                    {category.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
+          
 
           {/* =================================================
               PROJECT CONTENT
