@@ -229,7 +229,7 @@ export const projects: Project[] = [
     designStyle: "Traditional Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738374/my5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457542/tm6.png",
 
     heroImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738417/my9.png",
@@ -276,6 +276,8 @@ export const projects: Project[] = [
 
   // 08 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738292/my2.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457542/tm6.png",
 ],
   },
 
@@ -613,6 +615,8 @@ export const projects: Project[] = [
 
   // 08 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737668/ss1.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457334/sb7.png",
 
   
 ],

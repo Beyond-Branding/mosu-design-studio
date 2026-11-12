@@ -313,42 +313,76 @@ useLayoutEffect(() => {
 
               {/* INDIVIDUAL PROJECT DESCRIPTIONS */}
 
-              <div className="pt-12 md:pt-16">
+<div className="pt-14 md:pt-20 lg:pt-24">
+  <p className="mb-14 text-[9px] uppercase tracking-[0.4em] text-white/40 md:mb-20">
+    Project Overview
+  </p>
 
-                <p className="mb-10 text-[9px] uppercase tracking-[0.4em] text-white/40">
-                  Project Overview
-                </p>
+  <div className="space-y-20 md:space-y-24 lg:space-y-28">
+    {project.subProjects?.map((subProject, index) => (
+      <div
+        key={`${subProject.name}-${index}`}
+        className="
+          grid
+          grid-cols-1
+          gap-7
+          border-b
+          border-white/15
+          pb-16
+          last:border-0
+          last:pb-0
 
-                <div className="space-y-12 md:space-y-16">
+          md:grid-cols-[0.34fr_0.66fr]
+          md:items-start
+          md:gap-16
+          md:pb-20
 
-                  {project.subProjects?.map((subProject, index) => (
-                    <div
-                      key={subProject.name}
-                      className="grid gap-6 border-b border-white/15 pb-12 last:border-0 last:pb-0 md:grid-cols-[0.25fr_0.75fr] md:gap-8"
-                    >
+          lg:gap-16
+          lg:pb-24
+        "
+      >
+        {/* PROJECT TITLE */}
+        <div className="min-w-0">
+          <p className="mb-5 text-[9px] uppercase tracking-[0.35em] text-white/40 md:mb-7">
+            {String(index + 1).padStart(2, "0")} — Project
+          </p>
 
-                      <div>
-                        <p className="text-[9px] uppercase tracking-[0.4em] text-white/40">
-                          {String(index + 1).padStart(2, "0")} — Project
-                        </p>
+          <h2
+            className="
+              max-w-[520px]
+              text-[clamp(1.65rem,2.5vw,2.5rem)]
+              font-light
+              uppercase
+              leading-[1.18]
+              tracking-[0.015em]
+              text-white
+            "
+          >
+            {subProject.name}
+          </h2>
+        </div>
 
-                        <h2 className="mt-4 text-2xl font-light uppercase leading-tight tracking-[-0.04em] md:text-4xl">
-                          {subProject.name}
-                        </h2>
-                      </div>
-
-                      <div>
-                        <p className="max-w-[950px] text-[clamp(1.2rem,3vw,2.2rem)] font-light leading-[1.4] tracking-[-0.02em] text-white/80">
-                          {subProject.description}
-                        </p>
-                      </div>
-
-                    </div>
-                  ))}
-
-                </div>
-              </div>
-
+        {/* PROJECT DESCRIPTION */}
+        <div className="min-w-0 md:pt-0">
+          {subProject.description && (
+            <p
+              className="
+                max-w-[950px]
+                text-[clamp(1.2rem,2vw,2rem)]
+                font-light
+                leading-[1.6]
+                tracking-[0.005em]
+                text-white/80
+              "
+            >
+              {subProject.description}
+            </p>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
             </div>
           </section>
         ) : (

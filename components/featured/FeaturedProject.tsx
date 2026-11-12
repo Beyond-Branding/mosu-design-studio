@@ -222,22 +222,28 @@ export default function FeaturedProjects() {
             </p>
 
             {/* Description */}
-            {project.description && (
-              <p
-                className="
-                  mt-6
-                  max-w-[620px]
-                  text-xs
-                  font-light
-                  leading-relaxed
-                  text-white/75
-                  sm:text-sm
-                "
-              >
-                {project.description}
-              </p>
-            )}
+           {/* Description */}
+{project.description && (
+  <p
+    className="
+      mt-8
+      max-w-[780px]
+      text-[18px]
+      font-light
+      leading-[1.9]
+      tracking-[0.035em]
+      text-white/80
 
+      sm:mt-9
+      sm:text-base
+      md:text-lg
+      lg:text-xl
+      lg:leading-[1.85]
+    "
+  >
+    {project.description}
+  </p>
+)}
             {/* =================================================
                 VIEW PROJECT BUTTON
             ================================================= */}
