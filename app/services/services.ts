@@ -219,6 +219,9 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228980/s24.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228981/s22.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228973/s27.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794461907/sp5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794461906/sp23.png",
+
       
     ],
 
@@ -422,6 +425,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793379508/mt6.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789721057/mt3.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793379509/mt9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794462081/mtf5.png",
       
     ],
 
