@@ -273,6 +273,11 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719895/l2.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719894/l1.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790178319/ln1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719898/l5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719897/l4.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789719904/l9_1.png",
+
+
     ],
 
     process: [

@@ -3,7 +3,7 @@ export const cities = [
     id: 1,
     name: "MUMBAI",
     phone: "+91 74002 60997",
-    address:"Marol, andheri east mumbai"
+    address:"Marol, Andheri East, Mumbai"
     
   },
 
