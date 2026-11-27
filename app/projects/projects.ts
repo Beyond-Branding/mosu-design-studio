@@ -229,10 +229,10 @@ export const projects: Project[] = [
     designStyle: "Traditional Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457542/tm6.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805662/ti1_1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738417/my9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805580/ti3.png",
 
 
       
@@ -254,30 +254,31 @@ export const projects: Project[] = [
     
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738391/my7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805573/ti8.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738375/my4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805578/ti5.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738376/my6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805573/ti9.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738419/my10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805579/ti4.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738413/my8.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805582/ti2.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738369/my3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805576/ti6.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738289/my1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805574/ti7.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789738292/my2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805571/ti10.png",
 
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457542/tm6.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805662/ti1_1.png",
 ],
   },
 
@@ -297,10 +298,10 @@ export const projects: Project[] = [
     designStyle: "Contemporary Eclectic",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737925/h1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz7.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737933/h5.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz12.png",
 
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/west_bengal.png",
 
@@ -322,25 +323,39 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737932/h2.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737927/h3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802649/hz6.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737925/h1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz7.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737966/h12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz16.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737939/h7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz9.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737936/h6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802646/hz8.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737949/h11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802644/hz15.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737943/h9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz3.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802649/hz2.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802649/hz11.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802652/hz4.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802646/hz10.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz13.png",
+
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802646/hz14.png",
+
+
 ],
   },
 
@@ -359,10 +374,10 @@ export const projects: Project[] = [
     designStyle: "Eclectic Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736852/g1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804735/gn1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736852/g1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804735/gn1.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644204/andhra_pradesh.png",
@@ -382,34 +397,36 @@ export const projects: Project[] = [
     
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736987/g9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804739/gn6.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794395766/g10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804736/gn2.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736998/g14.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804733/gn10.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736956/g3png.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804742/gn9.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736853/g2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804741/gn8.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736960/g6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804733/gn13.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736995/g13.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804730/gn4.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736956/g4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804732/gn12.png",
 
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736993/g12.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736989/g11.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736966/g8.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736962/g7.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736958/g5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804731/gn5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804743/gn11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804740/gn7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804745/gn15.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804738/gn3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795804734/gn14.png",
+
   
 ],
   },
@@ -429,10 +446,10 @@ export const projects: Project[] = [
     designStyle: "Venetian Luxury",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736084/c0.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803643/cb30.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736115/c19.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803664/cb6.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
@@ -452,42 +469,43 @@ export const projects: Project[] = [
     
     gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736095/c7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803660/cb9.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736096/c1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803620/cb1.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789736112/c17.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803649/cb20.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433754/cb2.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433755/cb3.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433757/cb4.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433757/cb5.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433757/cb7.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433758/cb9.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433758/cb10.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433761/cb10ii.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433762/cb11.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433762/cb12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803666/cb2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803661/cb8_ii.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803667/cb3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803664/cb5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803666/cb7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803659/cb10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803657/cb11.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803657/cb12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803656/cb13.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803655/cb14.png",
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433763/cb13.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433763/cb14.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433765/cb15.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433767/cb17.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433768/cb18.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433766/cb16.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433769/cb19.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433770/cb20.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433779/cb21.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433802/cb22.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433803/cb23.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433804/cb24.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433805/cb25.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433806/cb26.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433807/cb27.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433809/cb29.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790433810/cb30.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803655/cb15.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803654/cb17.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803653/cb16.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803651/cb18.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803651/cb19.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803649/cb20.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803649/cb21.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803648/cb22.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803647/cb24.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803647/cb23.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803646/cb25.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803644/cb26.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803644/cb29.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803643/cb27.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803643/cb30.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803641/cb31.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803640/cb32.png",
 
 
 ],
@@ -508,10 +526,10 @@ export const projects: Project[] = [
     designStyle: "Contemporary Art",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735729/b10.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803270/bi8_1.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735722/b2.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803160/bi2.png",
 
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/MUMBAI.png",
 
@@ -530,28 +548,28 @@ export const projects: Project[] = [
    
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735740/b6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803160/bi3.png",
 
   // 02 — Composition
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735725/b4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803269/bi4_1.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735729/b10.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803270/bi8_1.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735723/b3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803160/bi2i.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1790431438/biyani1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803160/bi7.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735740/b9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803269/bi5_1.png",
 
   // 07 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735736/b5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803158/bi1.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789735742/b7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795803272/bi6_1.png",
 ],
   },
 
@@ -570,10 +588,10 @@ export const projects: Project[] = [
     designStyle: "Organic Contemporary",
 
     image:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737668/ss1.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805073/sa6.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737669/ss9.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805076/sa3.png",
 
     mapImage:
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644198/TAMIL_NADU.png",
@@ -593,30 +611,30 @@ export const projects: Project[] = [
    
    gallery: [
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737669/ss2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805075/sa4.png",
 
   // 02 — Composition
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737720/ss10.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737690/ss3.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805070/sa1.png",
 
   // 04 — Large grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737709/ss6.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805077/sa8.png",
 
   // 05 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737707/ss5.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805077/sa2.png",
 
   // 06 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737692/ss4.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805071/sa7.png",
 
   // 07 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737717/ss8.png",
 
   // 08 — Grid
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737668/ss1.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805073/sa6.png",
 
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794457334/sb7.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805071/sa9.png",
 
   
 ],
