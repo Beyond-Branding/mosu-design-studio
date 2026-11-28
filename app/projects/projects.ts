@@ -261,7 +261,7 @@ export const projects: Project[] = [
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805578/ti5.png",
 
   // 03 — Challenge
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805573/ti9.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795874457/ti9_1.png",
 
   // 04 — Large grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795805579/ti4.png",
@@ -302,7 +302,7 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz7.png",
 
     heroImage:
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz12.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737932/h2.png",
 
     mapImage: "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789644194/west_bengal.png",
 
@@ -322,7 +322,8 @@ export const projects: Project[] = [
    gallery: [
 
   // 01 — Main
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1789737932/h2.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz12.png",
+  
 
   // 02 — Composition
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802649/hz6.png",
@@ -335,7 +336,7 @@ export const projects: Project[] = [
 
   // 05 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802648/hz9.png",
-  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802645/hz12.png",
+  "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795874999/hz12_1.png",
 
   // 06 — Grid
   "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795802646/hz8.png",
@@ -785,7 +786,7 @@ export const projects: Project[] = [
 
     // KOLKATA RESIDENCE
     "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953018/Nagpur_3.png",
-    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793953039/kolkata_1.png",
+    "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795854620/kol1ii.png",
    
   ],
 },
