@@ -86,7 +86,7 @@ export const services: Service[] = [
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383416/at54.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383414/at52.png",
       "https://res.cloudinary.com/i1hfhoaw/image/upload/v1793383413/at51.png",
-      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1794228129/at38.png",
+      "https://res.cloudinary.com/i1hfhoaw/image/upload/v1795854620/kol1ii.png",
 
      
       
